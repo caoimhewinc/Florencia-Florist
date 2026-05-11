@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Floranocy — 221B Carter Street</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=IM+Fell+English:ital@0;1&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #f5f0e8;
+  --parchment: #ede5d0;
+  --ink: #1a1410;
+  --ink-muted: #3d3228;
+  --gold: #b8972a;
+  --gold-light: #d4b24a;
+  --moss: #3a4a2e;
+  --moss-light: #5a7248;
+  --rouge: #8b2e2e;
+  --shadow: rgba(20,12,5,0.18);
+  --night: #0d0b08;
+  --night-surface: #16120d;
+  --night-card: #1e1912;
+  --void: #120f0a;
+  --poison-green: #2d5a1b;
+  --poison-bright: #4a8c2a;
+  --poison-glow: #7ec850;
+  --blood: #6b1a1a;
+  --blood-bright: #a02828;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Crimson Pro', Georgia, serif;
+  background: var(--cream);
+  color: var(--ink);
+  min-height: 100vh;
+  overflow-x: hidden;
+  cursor: default;
+}
+
+/* ─── NOISE TEXTURE OVERLAY ─── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.5;
+}
+
+/* ─── PAGE TRANSITIONS ─── */
+#front-page, #back-page {
+  min-height: 100vh;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+#back-page {
+  display: none;
+  opacity: 0;
+  background: var(--night);
+  color: #c8b896;
+}
+#back-page.visible {
+  display: block;
+  opacity: 1;
+}
+
+/* ─── DECORATIVE BORDER ─── */
+.page-frame {
+  position: fixed;
+  inset: 12px;
+  border: 1px solid rgba(184,151,42,0.25);
+  pointer-events: none;
+  z-index: 100;
+}
+.page-frame::before {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border: 1px solid rgba(184,151,42,0.1);
+}
+
+/* ═══════════════════════════════════
+   FRONT PAGE
+═══════════════════════════════════ */
+
+.front-hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 40px 60px;
+  position: relative;
+  background: var(--cream);
+  background-image:
+    radial-gradient(ellipse 60% 50% at 20% 80%, rgba(90,114,72,0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 80% 20%, rgba(184,151,42,0.06) 0%, transparent 60%);
+}
+
+/* botanical SVG watermark */
+.front-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; right: -60px;
+  width: 520px; height: 520px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Cg fill='none' stroke='%235a7248' stroke-width='0.6' opacity='0.12'%3E%3Cellipse cx='150' cy='150' rx='120' ry='80' transform='rotate(-20 150 150)'/%3E%3Cellipse cx='150' cy='150' rx='100' ry='60' transform='rotate(15 150 150)'/%3E%3Cellipse cx='150' cy='150' rx='80' ry='40' transform='rotate(50 150 150)'/%3E%3Cline x1='150' y1='30' x2='150' y2='270'/%3E%3Cline x1='30' y1='150' x2='270' y2='150'/%3E%3Ccircle cx='150' cy='150' r='8'/%3E%3Ccircle cx='150' cy='150' r='4'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.shop-eyebrow {
+  font-family: 'Crimson Pro', serif;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+
+.shop-title {
+  font-family: 'IM Fell English', Georgia, serif;
+  font-size: clamp(56px, 10vw, 96px);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+  color: var(--ink);
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.shop-title em {
+  font-style: italic;
+  color: var(--moss);
+}
+
+.shop-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 24px 0;
+  width: 320px;
+}
+.shop-divider span {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+}
+.shop-divider svg { color: var(--gold); flex-shrink: 0; }
+
+.shop-tagline {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--ink-muted);
+  letter-spacing: 0.03em;
+  text-align: center;
+  max-width: 380px;
+  line-height: 1.6;
+  margin-bottom: 48px;
+}
+
+.shop-address {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 48px;
+}
+
+/* ─── FRONT NAV ─── */
+.front-nav {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 60px;
+}
+.front-nav a {
+  font-family: 'Crimson Pro', serif;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.3s;
+}
+.front-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.front-nav a:hover { color: var(--ink); }
+.front-nav a:hover::after { transform: scaleX(1); }
+
+/* ─── PRODUCT CARDS (front) ─── */
+.products-section {
+  padding: 80px 60px;
+  background: var(--parchment);
+  background-image: radial-gradient(ellipse 80% 40% at 50% 100%, rgba(90,114,72,0.05) 0%, transparent 70%);
+}
+
+.section-label {
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+  font-weight: 300;
+}
+
+.section-heading {
+  font-family: 'IM Fell English', serif;
+  font-size: 36px;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.section-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--ink-muted);
+  margin-bottom: 48px;
+  font-weight: 300;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 28px;
+  max-width: 1000px;
+}
+
+.product-card {
+  background: var(--cream);
+  border: 1px solid rgba(184,151,42,0.2);
+  padding: 28px 24px;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+.product-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px var(--shadow);
+}
+.product-card::before {
+  content: '';
+  position: absolute;
+  top: 6px; left: 6px; right: -6px; bottom: -6px;
+  border: 1px solid rgba(184,151,42,0.1);
+  z-index: -1;
+}
+
+.product-icon {
+  font-size: 28px;
+  margin-bottom: 14px;
+  display: block;
+  opacity: 0.75;
+}
+
+.product-name {
+  font-family: 'IM Fell English', serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.product-latin {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.product-desc {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--ink-muted);
+}
+
+.product-price {
+  margin-top: 16px;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  color: var(--moss);
+  font-weight: 400;
+}
+
+/* ─── ABOUT STRIP ─── */
+.about-strip {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 420px;
+}
+
+.about-text {
+  padding: 80px 60px;
+  background: var(--ink);
+  color: var(--parchment);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.about-text .section-label { color: var(--gold); }
+.about-text .section-heading { color: var(--cream); }
+.about-text p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: rgba(237,229,208,0.75);
+  max-width: 400px;
+  font-weight: 300;
+}
+
+.about-image {
+  background: var(--moss);
+  background-image:
+    radial-gradient(ellipse 60% 80% at 30% 60%, rgba(90,114,72,0.6) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 70% 30%, rgba(184,151,42,0.15) 0%, transparent 50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.botanical-svg {
+  width: 280px;
+  height: 280px;
+  opacity: 0.35;
+}
+
+/* ─── SECRET TRIGGER ─── */
+.secret-trigger-area {
+  position: relative;
+}
+
+.footer-front {
+  padding: 40px 60px;
+  background: var(--ink);
+  color: rgba(237,229,208,0.4);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+}
+
+.secret-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: rgba(184,151,42,0.3);
+  transition: color 0.5s;
+  letter-spacing: 0.05em;
+  padding: 4px 8px;
+}
+.secret-btn:hover { color: rgba(184,151,42,0.8); }
+
+/* ═══════════════════════════════════
+   BACK PAGE (Hidden / Underground)
+═══════════════════════════════════ */
+
+.back-hero {
+  min-height: 100vh;
+  background: var(--night);
+  background-image:
+    radial-gradient(ellipse 50% 60% at 15% 85%, rgba(45,90,27,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 30% 40% at 85% 15%, rgba(107,26,26,0.1) 0%, transparent 50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 40px 60px;
+  position: relative;
+}
+
+.back-hero::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.03) 2px,
+    rgba(0,0,0,0.03) 4px
+  );
+  pointer-events: none;
+}
+
+.back-eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--poison-bright);
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+
+.back-title {
+  font-family: 'IM Fell English', serif;
+  font-size: clamp(42px, 8vw, 72px);
+  font-weight: 400;
+  color: #c8b896;
+  text-align: center;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.back-title em {
+  color: var(--poison-glow);
+  font-style: italic;
+}
+
+.back-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: rgba(200,184,150,0.5);
+  margin-top: 16px;
+  margin-bottom: 48px;
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+
+.warning-strip {
+  border: 1px solid rgba(160,40,40,0.4);
+  padding: 12px 24px;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--blood-bright);
+  margin-bottom: 60px;
+  background: rgba(107,26,26,0.12);
+}
+
+/* ─── EXTRACT CARDS (back) ─── */
+.extracts-section {
+  padding: 80px 60px;
+  background: var(--night-surface);
+}
+
+.extract-table-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 16px;
+  padding: 0 0 12px;
+  border-bottom: 1px solid rgba(184,151,42,0.2);
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(184,151,42,0.6);
+  margin-bottom: 4px;
+}
+
+.extract-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 16px;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  align-items: start;
+  transition: background 0.2s;
+}
+.extract-row:hover {
+  background: rgba(74,140,42,0.04);
+}
+
+.ext-name {
+  font-family: 'IM Fell English', serif;
+  font-size: 18px;
+  color: #c8b896;
+  margin-bottom: 4px;
+}
+.ext-source {
+  font-size: 12px;
+  font-style: italic;
+  color: rgba(200,184,150,0.4);
+  font-family: 'Cormorant Garamond', serif;
+}
+.ext-effect {
+  font-size: 13px;
+  line-height: 1.55;
+  color: rgba(200,184,150,0.6);
+}
+.ext-grade {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 2px;
+  font-weight: 400;
+}
+.grade-i { background: rgba(45,90,27,0.3); color: var(--poison-glow); border: 1px solid rgba(74,140,42,0.3); }
+.grade-ii { background: rgba(107,26,26,0.3); color: #e07070; border: 1px solid rgba(160,40,40,0.3); }
+.grade-iii { background: rgba(120,80,10,0.3); color: #d4a44a; border: 1px solid rgba(180,100,15,0.3); }
+
+.ext-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px;
+  color: var(--gold-light);
+  margin-top: 4px;
+}
+
+/* ─── LEDGER NOTE ─── */
+.ledger-section {
+  padding: 60px;
+  background: var(--night-card);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.ledger-block {
+  border-left: 2px solid rgba(74,140,42,0.3);
+  padding: 0 0 0 20px;
+}
+.ledger-block.red-ledger { border-left-color: rgba(160,40,40,0.3); }
+
+.ledger-title {
+  font-family: 'IM Fell English', serif;
+  font-size: 20px;
+  color: #c8b896;
+  margin-bottom: 12px;
+}
+.ledger-body {
+  font-size: 14px;
+  line-height: 1.8;
+  color: rgba(200,184,150,0.55);
+}
+.ledger-body strong { color: rgba(200,184,150,0.85); font-weight: 400; }
+.ledger-body em { color: var(--poison-bright); font-style: italic; }
+
+/* ─── TENSION BOARD ─── */
+.tension-section {
+  padding: 60px;
+  background: var(--void);
+}
+.tension-title {
+  font-family: 'IM Fell English', serif;
+  font-size: 28px;
+  color: #c8b896;
+  margin-bottom: 32px;
+}
+.tension-item {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 24px;
+  align-items: flex-start;
+}
+.tension-marker {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+.t-red { background: var(--blood-bright); box-shadow: 0 0 8px rgba(160,40,40,0.5); }
+.t-amber { background: var(--gold); box-shadow: 0 0 8px rgba(184,151,42,0.4); }
+.t-green { background: var(--poison-bright); box-shadow: 0 0 8px rgba(74,140,42,0.4); }
+
+.tension-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #c8b896;
+  margin-bottom: 4px;
+}
+.tension-text {
+  font-size: 13px;
+  line-height: 1.65;
+  color: rgba(200,184,150,0.5);
+}
+
+/* ─── FOOTER BACK ─── */
+.footer-back {
+  padding: 32px 60px;
+  background: var(--night);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(184,151,42,0.1);
+}
+.footer-back-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: rgba(200,184,150,0.3);
+}
+.back-btn {
+  background: none;
+  border: 1px solid rgba(184,151,42,0.25);
+  cursor: pointer;
+  font-family: 'Crimson Pro', serif;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(184,151,42,0.6);
+  padding: 8px 20px;
+  transition: all 0.3s;
+}
+.back-btn:hover {
+  color: var(--gold-light);
+  border-color: rgba(184,151,42,0.6);
+  background: rgba(184,151,42,0.05);
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.anim { animation: fadeInUp 0.7s ease forwards; }
+.anim-d1 { animation-delay: 0.1s; opacity: 0; }
+.anim-d2 { animation-delay: 0.25s; opacity: 0; }
+.anim-d3 { animation-delay: 0.4s; opacity: 0; }
+.anim-d4 { animation-delay: 0.55s; opacity: 0; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 700px) {
+  .about-strip, .ledger-section { grid-template-columns: 1fr; }
+  .products-section, .extracts-section, .ledger-section, .tension-section { padding: 48px 28px; }
+  .front-hero, .back-hero { padding: 60px 24px 40px; }
+  .extract-table-header, .extract-row { grid-template-columns: 1fr 1fr; }
+  .footer-front, .footer-back { flex-direction: column; gap: 12px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<div class="page-frame"></div>
+
+<!-- ═══ FRONT PAGE ═══ -->
+<div id="front-page">
+
+  <section class="front-hero">
+    <p class="shop-eyebrow anim anim-d1">Est. in the reign of the Third Council</p>
+    <h1 class="shop-title anim anim-d2">
+      <em>Floranocy</em>
+    </h1>
+    <div class="shop-divider anim anim-d2">
+      <span></span>
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1">
+        <circle cx="7" cy="7" r="2"/><line x1="7" y1="0" x2="7" y2="4"/><line x1="7" y1="10" x2="7" y2="14"/>
+        <line x1="0" y1="7" x2="4" y2="7"/><line x1="10" y1="7" x2="14" y2="7"/>
+      </svg>
+      <span></span>
+    </div>
+    <p class="shop-tagline anim anim-d3">
+      Fine flowers, pressed botanicals &amp; seasonal arrangements for every occasion.
+    </p>
+    <p class="shop-address anim anim-d3">221B Carter Street · Ancolna · Fortunia</p>
+    <nav class="front-nav anim anim-d4">
+      <a href="#flowers">Flowers</a>
+      <a href="#arrangements">Arrangements</a>
+      <a href="#teas">Botanicals</a>
+      <a href="#about">The Florist</a>
+    </nav>
+  </section>
+
+  <!-- Products -->
+  <section class="products-section" id="flowers">
+    <p class="section-label">Seasonal Selection</p>
+    <h2 class="section-heading">Fresh from the Glasshouse</h2>
+    <p class="section-sub">Cultivated with care. Available daily until stock permits.</p>
+
+    <div class="products-grid">
+      <div class="product-card">
+        <span class="product-icon">🌸</span>
+        <h3 class="product-name">Pale Moonrose</h3>
+        <p class="product-latin">Rosa lunifolia var. pallida</p>
+        <p class="product-desc">A climbing rose with an unusually quiet fragrance. Blooms only in overcast weather. Beloved for winter arrangements.</p>
+        <p class="product-price">14 GS per stem</p>
+      </div>
+      <div class="product-card">
+        <span class="product-icon">🌿</span>
+        <h3 class="product-name">Verdene Fern</h3>
+        <p class="product-latin">Pteridium verdenensis</p>
+        <p class="product-desc">Deep green fronds with silver undersides. Excellent as a base for condolence or formal arrangements.</p>
+        <p class="product-price">6 GS per bundle</p>
+      </div>
+      <div class="product-card">
+        <span class="product-icon">🪷</span>
+        <h3 class="product-name">Goldbell Iris</h3>
+        <p class="product-latin">Iris aurantia campanulata</p>
+        <p class="product-desc">Warm amber petals edged in deep saffron. A traditional symbol of gratitude in old Fortunic ceremony.</p>
+        <p class="product-price">20 GS per stem</p>
+      </div>
+      <div class="product-card">
+        <span class="product-icon">🌾</span>
+        <h3 class="product-name">Dried Silvergrace</h3>
+        <p class="product-latin">Stipa argentea siccata</p>
+        <p class="product-desc">Pressed and dried. Lasts indefinitely. Often placed beside correspondence or used in book arrangements.</p>
+        <p class="product-price">9 GS per bundle</p>
+      </div>
+      <div class="product-card">
+        <span class="product-icon">🌑</span>
+        <h3 class="product-name">Black Heather</h3>
+        <p class="product-latin">Calluna vulgaris nigricans</p>
+        <p class="product-desc">Rare in Ancolna. Sourced seasonally. Suitable for memorial or ecclesiastical arrangements only.</p>
+        <p class="product-price">38 GS per bunch</p>
+      </div>
+      <div class="product-card">
+        <span class="product-icon">🍵</span>
+        <h3 class="product-name">Earl Grey Blend</h3>
+        <p class="product-latin">Proprietor's recipe</p>
+        <p class="product-desc">A loose-leaf blend steeped in bergamot and dried lavender. Served to guests. Available in small tins for purchase.</p>
+        <p class="product-price">12 GS per tin</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About strip -->
+  <section class="about-strip" id="about">
+    <div class="about-text">
+      <p class="section-label">The Florist</p>
+      <h2 class="section-heading" style="color:var(--cream); margin-bottom:20px;">Caoimhe Winchester</h2>
+      <p>The proprietor keeps irregular hours and prefers written enquiries. She is known for her exceptional memory for names, a preference for quietude, and an unsettling ability to recommend exactly the right flower for any occasion — including those she has not been told the reason for.</p>
+      <br>
+      <p style="font-size:14px; color:rgba(237,229,208,0.45);">Walk-ins welcome. Please do not touch the back shelves.</p>
+    </div>
+    <div class="about-image">
+      <svg class="botanical-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g stroke="#a8c890" stroke-width="0.8">
+          <line x1="100" y1="10" x2="100" y2="190"/>
+          <ellipse cx="100" cy="80" rx="35" ry="55" transform="rotate(-15 100 80)"/>
+          <ellipse cx="100" cy="80" rx="35" ry="55" transform="rotate(15 100 80)"/>
+          <ellipse cx="100" cy="100" rx="28" ry="45" transform="rotate(-35 100 100)"/>
+          <ellipse cx="100" cy="100" rx="28" ry="45" transform="rotate(35 100 100)"/>
+          <line x1="70" y1="60" x2="100" y2="90"/>
+          <line x1="130" y1="65" x2="100" y2="90"/>
+          <line x1="65" y1="110" x2="100" y2="130"/>
+          <line x1="135" y1="108" x2="100" y2="130"/>
+          <circle cx="100" cy="50" r="6"/>
+          <circle cx="100" cy="50" r="2" fill="#a8c890"/>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Footer front -->
+  <footer class="footer-front">
+    <span>© Floranocy · 221B Carter Street · Fortunia</span>
+    <span style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:13px;">Open most days. Closed on days that matter.</span>
+    <button class="secret-btn" onclick="enterBackroom()">for enquiries of a specialised nature</button>
+  </footer>
+</div>
+
+
+<!-- ═══ BACK PAGE ═══ -->
+<div id="back-page">
+
+  <section class="back-hero">
+    <p class="back-eyebrow anim anim-d1">Restricted · For known clients only</p>
+    <h1 class="back-title anim anim-d2">
+      The <em>Backroom</em><br>Catalogue
+    </h1>
+    <p class="back-subtitle anim anim-d3">Botanical extracts of restricted classification · By arrangement only</p>
+    <div class="warning-strip anim anim-d4">
+      Discretion is assumed · All transactions unrecorded · Deny knowledge if questioned
+    </div>
+  </section>
+
+  <!-- Extract table -->
+  <section class="extracts-section">
+    <p class="section-label" style="color:var(--poison-bright);">Active Stock · Current Season</p>
+    <h2 class="section-heading" style="color:#c8b896; font-family:'IM Fell English',serif; font-size:30px; margin-bottom:32px;">Available Extracts</h2>
+
+    <div class="extract-table-header">
+      <span>Extract</span>
+      <span>Grade</span>
+      <span>Effect</span>
+      <span>Price (per vial)</span>
+    </div>
+
+    <div class="extract-row">
+      <div>
+        <p class="ext-name">Nightbloom Oil</p>
+        <p class="ext-source">Compressed from Noctua obscura petals · hand-extracted</p>
+      </div>
+      <div><span class="ext-grade grade-i">Grade I</span></div>
+      <div><p class="ext-effect">Induces deep, dreamless sleep. Duration: 6–10 hours. No residue in blood. Tasteless in warm liquid.</p></div>
+      <div>
+        <p class="ext-price">220 GS</p>
+        <p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">Limited · 4 vials this season</p>
+      </div>
+    </div>
+
+    <div class="extract-row">
+      <div>
+        <p class="ext-name">Ghostbell Tincture</p>
+        <p class="ext-source">Distilled from dried Campanula spectralis · cold-process</p>
+      </div>
+      <div><span class="ext-grade grade-ii">Grade II</span></div>
+      <div><p class="ext-effect">Induces temporary memory disruption. 2–4 hours. Subject retains motor function. Clarity returns fully.</p></div>
+      <div>
+        <p class="ext-price">380 GS</p>
+        <p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">Available by negotiation</p>
+      </div>
+    </div>
+
+    <div class="extract-row">
+      <div>
+        <p class="ext-name">Ashen Foxglove Serum</p>
+        <p class="ext-source">Rare alpine cultivar · elemental-assisted extraction</p>
+      </div>
+      <div><span class="ext-grade grade-iii">Grade III</span></div>
+      <div><p class="ext-effect">Cardiac suppression. Gradual onset over 48 hours. Appears as natural illness. No antidote available from this supplier.</p></div>
+      <div>
+        <p class="ext-price">1,400 GS</p>
+        <p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">One order per client · Confirmed buyers only</p>
+      </div>
+    </div>
+
+    <div class="extract-row">
+      <div>
+        <p class="ext-name">Verdwither Compress</p>
+        <p class="ext-source">Dried Venena pallidis · powdered and pressed</p>
+      </div>
+      <div><span class="ext-grade grade-i">Grade I</span></div>
+      <div><p class="ext-effect">Topical application causes contact paralysis of affected area. 30–90 minutes. Used in restraint situations.</p></div>
+      <div>
+        <p class="ext-price">160 GS</p>
+        <p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">Stock: 11 units</p>
+      </div>
+    </div>
+
+    <div class="extract-row">
+      <div>
+        <p class="ext-name">The Quiet (custom blend)</p>
+        <p class="ext-source">Proprietary formulation · plants provided consent</p>
+      </div>
+      <div><span class="ext-grade grade-iii">Grade III</span></div>
+      <div><p class="ext-effect">Commissioned only. Purpose unasked. Delivery in plain wrapping. The florist does not require explanation.</p></div>
+      <div>
+        <p class="ext-price">Price on enquiry</p>
+        <p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">2–3 week preparation</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ledger notes -->
+  <section class="ledger-section">
+    <div class="ledger-block">
+      <h3 class="ledger-title">The Bloom Ledger</h3>
+      <p class="ledger-body">
+        All transactions are recorded in a proprietary notation system, written in <em>elemental ink</em> — visible only under sustained fire-weave light. The ledger is stored beneath the third floorboard from the east wall, behind the pressing cabinet.<br><br>
+        Entries include <strong>client pseudonyms, extract type, volume, and delivery method</strong>. No real names. The florist does not need them. She remembers faces.
+      </p>
+    </div>
+    <div class="ledger-block red-ledger">
+      <h3 class="ledger-title">Nymph Provenance Note</h3>
+      <p class="ledger-body">
+        The extracts listed as <em>elemental-assisted</em> are not available through conventional botanical methods. The proprietor does not disclose her process.<br><br>
+        Buyers should note: certain plants communicate refusal. <strong>Orders for which the source material declines will not be fulfilled.</strong> No explanation will be given. The deposit is non-refundable.
+      </p>
+    </div>
+  </section>
+
+  <!-- Active tensions -->
+  <section class="tension-section">
+    <h2 class="tension-title">Current Complications</h2>
+
+    <div class="tension-item">
+      <div class="tension-marker t-red"></div>
+      <div>
+        <p class="tension-name">Lord Harven Selk — Seat Three</p>
+        <p class="tension-text">Long-standing client. Has purchased on seven occasions over two years. Recently sent a second intermediary with overlapping questions. May be assessing exposure. Contact is being kept minimal until intent is established.</p>
+      </div>
+    </div>
+
+    <div class="tension-item">
+      <div class="tension-marker t-amber"></div>
+      <div>
+        <p class="tension-name">The Ashen Order</p>
+        <p class="tension-text">Guild of freelance mage-investigators. Currently tracing the origin of extract compounds that do not match known cultivation records. They are thorough and patient. They have not yet reached Carter Street.</p>
+      </div>
+    </div>
+
+    <div class="tension-item">
+      <div class="tension-marker t-green"></div>
+      <div>
+        <p class="tension-name">Inkless Guild — Delivery Delay</p>
+        <p class="tension-text">The autumn Ghostbell order is two weeks behind schedule. A Guild courier failed to appear. Replacement contact has been made. The gap is inconvenient but manageable. Clients have been asked to wait without being told why.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer back -->
+  <footer class="footer-back">
+    <p class="footer-back-text">This record does not exist. Neither, officially, does this room.</p>
+    <button class="back-btn" onclick="exitBackroom()">← Return to shop floor</button>
+  </footer>
+
+</div>
+
+<script>
+function enterBackroom() {
+  document.getElementById('front-page').style.opacity = '0';
+  document.getElementById('front-page').style.transform = 'scale(0.98)';
+  setTimeout(() => {
+    document.getElementById('front-page').style.display = 'none';
+    const back = document.getElementById('back-page');
+    back.style.display = 'block';
+    back.style.opacity = '0';
+    setTimeout(() => { back.style.opacity = '1'; back.classList.add('visible'); }, 30);
+  }, 700);
+}
+
+function exitBackroom() {
+  const back = document.getElementById('back-page');
+  back.style.opacity = '0';
+  setTimeout(() => {
+    back.style.display = 'none';
+    back.classList.remove('visible');
+    const front = document.getElementById('front-page');
+    front.style.display = 'block';
+    front.style.opacity = '0';
+    front.style.transform = 'scale(0.98)';
+    setTimeout(() => {
+      front.style.opacity = '1';
+      front.style.transform = 'scale(1)';
+    }, 30);
+  }, 700);
+}
+</script>
+</body>
+</html>
