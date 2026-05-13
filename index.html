@@ -1575,5 +1575,31 @@ function exitBackroom() {
   }, 700);
 }
 </script>
+
+  <audio id="bgm" loop>
+    <source src="audio/Canon in D - Pachelbel.mp3" type="audio/mpeg">
+  </audio>
+
+  <button id="musicToggle">
+    Candlelight On
+  </button>
+
+  <script>
+    const bgm = document.getElementById('bgm');
+    const toggle = document.getElementById('musicToggle');
+
+    bgm.volume = 0.15;
+
+    toggle.addEventListener('click', () => {
+      if (bgm.paused) {
+        bgm.play();
+        toggle.textContent = 'Candlelight Off';
+      } else {
+        bgm.pause();
+        toggle.textContent = 'Candlelight On';
+      }
+    });
+  </script>
+  
 </body>
 </html>
