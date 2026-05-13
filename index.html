@@ -1576,30 +1576,35 @@ function exitBackroom() {
 }
 </script>
 
-  <audio id="bgm" loop>
-    <source src="audio/canon-in-d.mp3" type="audio/mpeg">
-  </audio>
+<audio id="bgm" loop preload="auto">
+  <source src="./audio/canon-in-d.mp3" type="audio/mpeg">
+</audio>
 
-  <button id="musicToggle">
-    Candlelight On
-  </button>
+<button id="musicToggle">Candlelight On</button>
 
-  <script>
-    const bgm = document.getElementById('bgm');
-    const toggle = document.getElementById('musicToggle');
+<script>
+const bgm = document.getElementById('bgm');
+const toggle = document.getElementById('musicToggle');
 
-    bgm.volume = 0.15;
+bgm.volume = 1;
 
-    toggle.addEventListener('click', () => {
-      if (bgm.paused) {
-        bgm.play();
-        toggle.textContent = 'Candlelight Off';
-      } else {
-        bgm.pause();
-        toggle.textContent = 'Candlelight On';
-      }
-    });
-  </script>
+toggle.addEventListener('click', async () => {
+  try {
+    if (bgm.paused) {
+      await bgm.play();
+      toggle.textContent = 'Candlelight Off';
+      console.log('Audio is playing');
+    } else {
+      bgm.pause();
+      toggle.textContent = 'Candlelight On';
+      console.log('Audio is paused');
+    }
+  } catch (error) {
+    console.error('Audio error:', error);
+    alert('เล่นเสียงไม่ได้: ' + error.message);
+  }
+});
+</script>
   
 </body>
 </html>
