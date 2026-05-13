@@ -1576,33 +1576,30 @@ function exitBackroom() {
 }
 </script>
 
-<audio id="bgm" loop preload="auto">
-  <source src="./audio/canon-in-d.mp3" type="audio/mpeg">
-</audio>
+<audio id="bgm" src="./audio/canon-in-d.mp3" loop preload="auto"></audio>
 
-<button id="musicToggle">Candlelight On</button>
+<button id="musicToggle" type="button">Candlelight On</button>
 
 <script>
-const bgm = document.getElementById('bgm');
-const toggle = document.getElementById('musicToggle');
+document.addEventListener('DOMContentLoaded', () => {
+  const bgm = document.getElementById('bgm');
+  const toggle = document.getElementById('musicToggle');
 
-bgm.volume = 1;
+  bgm.volume = 1;
 
-toggle.addEventListener('click', async () => {
-  try {
-    if (bgm.paused) {
-      await bgm.play();
-      toggle.textContent = 'Candlelight Off';
-      console.log('Audio is playing');
-    } else {
-      bgm.pause();
-      toggle.textContent = 'Candlelight On';
-      console.log('Audio is paused');
+  toggle.addEventListener('click', async () => {
+    try {
+      if (bgm.paused) {
+        await bgm.play();
+        toggle.textContent = 'Candlelight Off';
+      } else {
+        bgm.pause();
+        toggle.textContent = 'Candlelight On';
+      }
+    } catch (error) {
+      alert('เล่นเสียงไม่ได้: ' + error.message);
     }
-  } catch (error) {
-    console.error('Audio error:', error);
-    alert('เล่นเสียงไม่ได้: ' + error.message);
-  }
+  });
 });
 </script>
   
