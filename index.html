@@ -1576,30 +1576,29 @@ function exitBackroom() {
 }
 </script>
 
-<audio id="bgm" autoplay loop preload="auto">
-  <source src="./audio/canon-in-d.mp3" type="audio/mpeg">
-</audio>
+<audio id="bgm" src="./audio/canon-in-d.mp3" loop preload="auto"></audio>
+
+<div id="enterSoundLayer" style="
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  cursor: pointer;
+"></div>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const bgm = document.getElementById('bgm');
+  const layer = document.getElementById('enterSoundLayer');
 
   bgm.volume = 0.35;
 
-  // พยายาม autoplay ทันที
-  bgm.play().catch(() => {
-
-    // ถ้า browser บล็อก ให้เริ่มหลัง interaction แรก
-    const startAudio = () => {
-      bgm.play();
-      document.removeEventListener('click', startAudio);
-      document.removeEventListener('scroll', startAudio);
-      document.removeEventListener('mousemove', startAudio);
-    };
-
-    document.addEventListener('click', startAudio);
-    document.addEventListener('scroll', startAudio);
-    document.addEventListener('mousemove', startAudio);
+  layer.addEventListener('click', async () => {
+    try {
+      await bgm.play();
+      layer.remove();
+    } catch (error) {
+      console.error('Audio error:', error);
+    }
   });
 });
 </script>
