@@ -1578,7 +1578,19 @@ function exitBackroom() {
 
 <audio id="bgm" src="./audio/canon-in-d.mp3" loop preload="auto"></audio>
 
-<button id="musicToggle" type="button">Candlelight On</button>
+<button id="musicToggle" type="button" style="
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 99999;
+  padding: 12px 18px;
+  background: #d8b76a;
+  color: #120f0b;
+  border: 1px solid #8c6a24;
+  cursor: pointer;
+">
+  Candlelight On
+</button>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
@@ -1588,16 +1600,12 @@ document.addEventListener('DOMContentLoaded', () => {
   bgm.volume = 1;
 
   toggle.addEventListener('click', async () => {
-    try {
-      if (bgm.paused) {
-        await bgm.play();
-        toggle.textContent = 'Candlelight Off';
-      } else {
-        bgm.pause();
-        toggle.textContent = 'Candlelight On';
-      }
-    } catch (error) {
-      alert('เล่นเสียงไม่ได้: ' + error.message);
+    if (bgm.paused) {
+      await bgm.play();
+      toggle.textContent = 'Candlelight Off';
+    } else {
+      bgm.pause();
+      toggle.textContent = 'Candlelight On';
     }
   });
 });
