@@ -1557,28 +1557,55 @@ The establishment hath grown known for methods of preservation deemed uncommon, 
 function enterBackroom() {
   document.getElementById('front-page').style.opacity = '0';
   document.getElementById('front-page').style.transform = 'scale(0.98)';
+
   setTimeout(() => {
     document.getElementById('front-page').style.display = 'none';
+
     const back = document.getElementById('back-page');
     back.style.display = 'block';
     back.style.opacity = '0';
-    setTimeout(() => { back.style.opacity = '1'; back.classList.add('visible'); }, 30);
+
+    // บังคับให้หน้า 2 เริ่มจากบนสุด
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'instant'
+    });
+
+    setTimeout(() => {
+      back.style.opacity = '1';
+      back.classList.add('visible');
+
+      // กันบาง browser จำตำแหน่งเดิม
+      window.scrollTo(0, 0);
+    }, 30);
   }, 700);
 }
 
 function exitBackroom() {
   const back = document.getElementById('back-page');
   back.style.opacity = '0';
+
   setTimeout(() => {
     back.style.display = 'none';
     back.classList.remove('visible');
+
     const front = document.getElementById('front-page');
     front.style.display = 'block';
     front.style.opacity = '0';
     front.style.transform = 'scale(0.98)';
+
+    // กลับหน้าร้านแล้วเริ่มบนสุดเหมือนกัน
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'instant'
+    });
+
     setTimeout(() => {
       front.style.opacity = '1';
       front.style.transform = 'scale(1)';
+      window.scrollTo(0, 0);
     }, 30);
   }, 700);
 }
