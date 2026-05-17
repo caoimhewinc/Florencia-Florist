@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Florencia — 221B Carter Street</title>
+<title>Florencia Florist</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=IM+Fell+English:ital@0;1&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -558,6 +558,36 @@ body::before {
   align-items: start;
   transition: background 0.2s;
 }
+
+  .circle-note{
+  max-width:760px;
+  margin:-10px 0 34px;
+  padding:18px 24px;
+
+  background:rgba(184,151,42,.03);
+  border-left:1px solid rgba(184,151,42,.35);
+}
+
+.circle-note p{
+  margin:0 0 12px;
+
+  font-family:'Cormorant Garamond',serif;
+  font-size:15px;
+  line-height:1.8;
+  color:rgba(220,210,188,.75);
+}
+
+.circle-note strong{
+  color:#d2bb73;
+  letter-spacing:.08em;
+}
+
+.circle-small{
+  margin-top:18px!important;
+  font-style:italic;
+  opacity:.65;
+}
+  
 .extract-row:hover {
   background: rgba(74,140,42,0.04);
 }
@@ -856,16 +886,28 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
   </section>
 
   <!-- Extract table -->
-  <section class="extracts-section">
-    <p class="section-label" style="color:var(--poison-bright);">Active Stock · Current Season</p>
-    <h2 class="section-heading" style="color:#c8b896; font-family:'IM Fell English',serif; font-size:30px; margin-bottom:32px;">Available Extracts</h2>
+<h2 class="section-heading" style="color:#c8b896; font-family:'IM Fell English',serif; font-size:30px; margin-bottom:32px;">
+  Available Extracts
+</h2>
 
-    <div class="extract-table-header">
-      <span>Extract</span>
-      <span>Grade</span>
-      <span>Effect</span>
-      <span>Price (per vial)</span>
-    </div>
+<div class="circle-note">
+  <p><strong>I Circle</strong> — Preparations deemed permissible for discreet trade. Familiar patrons may request these without prior recommendation.</p>
+
+  <p><strong>II Circle</strong> — Certain flowers within this tier may refuse unfamiliar hands. Orders are reviewed individually.</p>
+
+  <p><strong>III Circle</strong> — Displayed nowhere openly. Available only through sealed correspondence or prior recommendation.</p>
+
+  <p class="circle-small">
+    The Circle system measureth not potency, but permission. Certain flowers refuseth to be gathered for unfamiliar hands.
+  </p>
+</div>
+
+<div class="extract-table-header">
+  <span>Extract</span>
+  <span>Circle</span>
+  <span>Effect</span>
+  <span>Price (per vial)</span>
+</div>
 
 <div class="extract-row">
   <div>
