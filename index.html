@@ -137,26 +137,6 @@ body::before {
   pointer-events:none;
 }
 
-  .about-image {
-  position: relative;
-  overflow: hidden;
-
-  background:
-    linear-gradient(
-      rgba(35,45,28,0.60),
-      rgba(35,45,28,0.75)
-    ),
-    url("images/Woman-in-flower-shop.jpg");
-
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 /* botanical SVG watermark */
 .front-hero::after {
   content: '';
@@ -384,21 +364,23 @@ body::before {
 }
 
 .about-image {
-  background: var(--moss);
+  position: relative;
+  overflow: hidden;
+
   background-image:
-    radial-gradient(ellipse 60% 80% at 30% 60%, rgba(90,114,72,0.6) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 40% at 70% 30%, rgba(184,151,42,0.15) 0%, transparent 50%);
+    linear-gradient(
+      rgba(35,45,28,0.35),
+      rgba(35,45,28,0.58)
+    ),
+    url("images/Woman-in-flower-shop.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  position: relative;
-}
-
-.botanical-svg {
-  width: 280px;
-  height: 280px;
-  opacity: 0.35;
 }
 
 /* ─── SECRET TRIGGER ─── */
