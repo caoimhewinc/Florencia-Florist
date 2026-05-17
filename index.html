@@ -87,16 +87,74 @@ body::before {
 
 .front-hero {
   min-height: 100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:80px 40px 60px;
+  position:relative;
+  overflow:hidden;
+
+  background:
+    radial-gradient(
+      ellipse 60% 50% at 20% 80%,
+      rgba(90,114,72,.08) 0%,
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 40% 60% at 80% 20%,
+      rgba(184,151,42,.06) 0%,
+      transparent 60%
+    ),
+    linear-gradient(
+      135deg,
+      #f8f3e8 0%,
+      #efe5d2 50%,
+      #f7f4eb 100%
+    );
+}
+
+/* Renaissance artwork layer */
+.front-hero::before{
+  content:'';
+  position:absolute;
+  inset:0;
+
+  background-image:url("images/Botanical-vintage.jpg");
+
+  background-size:cover;
+  background-position:center;
+
+  opacity:.11;
+
+  filter:
+    sepia(.45)
+    saturate(.7)
+    contrast(.9);
+
+  mix-blend-mode:multiply;
+
+  pointer-events:none;
+}
+
+  .about-image {
+  position: relative;
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      rgba(35,45,28,0.60),
+      rgba(35,45,28,0.75)
+    ),
+    url("images/Woman-in-flower-shop.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 80px 40px 60px;
-  position: relative;
-  background: var(--cream);
-  background-image:
-    radial-gradient(ellipse 60% 50% at 20% 80%, rgba(90,114,72,0.08) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 60% at 80% 20%, rgba(184,151,42,0.06) 0%, transparent 60%);
 }
 
 /* botanical SVG watermark */
@@ -746,37 +804,28 @@ The establishment hath grown known for methods of preservation deemed uncommon, 
 
         Many patrons depart Florencia with an unease difficult to name, as though they had confessed somewhat more than first intended. There are, besides, quieter rumours oft exchanged in lowered voice — that certain flowers sold by Miss Winchester refuseth unfamiliar hands altogether, and that some arrangements are never displayed openly within the shop, nor spoken of except through private correspondence.
 </p>
-      <br>
-      <p style="font-size:14px; color:rgba(237,229,208,0.45);">Walk-ins be welcome. Pray keep thy hands from the shelves beyond.
+<br>
+<p style="font-size:14px; color:rgba(237,229,208,0.45);">
+  Walk-ins be welcome. Pray keep thy hands from the shelves beyond.
 </p>
-    </div>
-    <div class="about-image">
-      <svg class="botanical-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g stroke="#a8c890" stroke-width="0.8">
-          <line x1="100" y1="10" x2="100" y2="190"/>
-          <ellipse cx="100" cy="80" rx="35" ry="55" transform="rotate(-15 100 80)"/>
-          <ellipse cx="100" cy="80" rx="35" ry="55" transform="rotate(15 100 80)"/>
-          <ellipse cx="100" cy="100" rx="28" ry="45" transform="rotate(-35 100 100)"/>
-          <ellipse cx="100" cy="100" rx="28" ry="45" transform="rotate(35 100 100)"/>
-          <line x1="70" y1="60" x2="100" y2="90"/>
-          <line x1="130" y1="65" x2="100" y2="90"/>
-          <line x1="65" y1="110" x2="100" y2="130"/>
-          <line x1="135" y1="108" x2="100" y2="130"/>
-          <circle cx="100" cy="50" r="6"/>
-          <circle cx="100" cy="50" r="2" fill="#a8c890"/>
-        </g>
-      </svg>
-    </div>
-  </section>
 
-  <!-- Footer front -->
-  <footer class="footer-front">
-    <span>© Florencia Florist · 221B Carter Street · Fortuna Imperia</span>
-    <span style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:13px;">The florist remaineth open upon most days — save for those of greater consequence.</span>
-    <button class="secret-btn" onclick="enterBackroom()">for discreet commissions and rarer arrangements</button>
-  </footer>
 </div>
 
+<div class="about-image"></div>
+
+</section>
+  
+<!-- Footer front -->
+<footer class="footer-front">
+  <span>© Florencia Florist · 221B Carter Street · Fortuna Imperia</span>
+  <span style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:13px;">
+    The florist remaineth open upon most days — save for those of greater consequence.
+  </span>
+  <button class="secret-btn" onclick="enterBackroom()">
+    for discreet commissions and rarer arrangements
+  </button>
+</footer>
+</div>
 
 <!-- ═══ BACK PAGE ═══ -->
 <div id="back-page">
