@@ -629,6 +629,51 @@ body::before {
   margin-top: 4px;
 }
 
+.status-legend {
+    display:flex;
+    flex-wrap:wrap;
+    gap:24px;
+
+    margin:18px 0 38px;
+    padding:12px 18px;
+
+    width:fit-content;
+
+    border:1px solid rgba(204,164,82,.22);
+    background:rgba(15,10,6,.38);
+
+    color:#b59664;
+    font-size:.88rem;
+}
+
+.legend-item{
+    display:flex;
+    align-items:center;
+    gap:9px;
+}
+
+.dot{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+}
+
+.critical{
+    background:#b73333;
+    box-shadow:0 0 9px rgba(183,51,51,.75);
+}
+
+.warning{
+    background:#c9a735;
+    box-shadow:0 0 9px rgba(201,167,53,.75);
+}
+
+.stable{
+    background:#6f8b58;
+    box-shadow:0 0 9px rgba(111,139,88,.75);
+}
+  
+  
 /* ─── LEDGER NOTE ─── */
 .ledger-section {
   padding: 60px;
@@ -806,19 +851,6 @@ body::before {
   rgba(184,151,42,.08);
 
   border-radius:999px;
-}
-
-  /* CURSOR */
-
-body{
-  cursor:url("images/cur265.cur"), auto;
-}
-
-a,
-button,
-.secret-btn,
-.top-tabs a{
-  cursor:url("images/cur265.cur"), pointer;
 }
 
 /* ─── RESPONSIVE ─── */
@@ -1831,7 +1863,24 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
 <!-- Active tensions -->
 <section class="tension-section"
 id="complications">
-  <h2 class="tension-title">Current Complications</h2>
+<h2>Current Complications</h2>
+
+<div class="status-legend">
+    <div class="legend-item">
+        <span class="dot critical"></span>
+        <span>Critical — Immediate Concern</span>
+    </div>
+
+    <div class="legend-item">
+        <span class="dot warning"></span>
+        <span>Warning — Requires Attention</span>
+    </div>
+
+    <div class="legend-item">
+        <span class="dot stable"></span>
+        <span>Stable — Under Observation</span>
+    </div>
+</div>
 
   <div class="tension-item">
     <div class="tension-marker t-red"></div>
@@ -1846,7 +1895,7 @@ id="complications">
   </div>
 
   <div class="tension-item">
-    <div class="tension-marker t-red"></div>
+    <div class="tension-marker t-amber"></div>
     <div>
       <p class="tension-name">Coffin Orchis — Inquiry</p>
       <p class="tension-text">
@@ -1857,7 +1906,7 @@ id="complications">
   </div>
 
   <div class="tension-item">
-    <div class="tension-marker t-amber"></div>
+    <div class="tension-marker t-green"></div>
     <div>
       <p class="tension-name">Winter Wisteria — Shortage</p>
       <p class="tension-text">
@@ -1879,7 +1928,7 @@ id="complications">
   </div>
 
   <div class="tension-item">
-    <div class="tension-marker t-amber"></div>
+    <div class="tension-marker t-green"></div>
     <div>
       <p class="tension-name">Rue Pallid — Contamination</p>
       <p class="tension-text">
@@ -1901,7 +1950,7 @@ id="complications">
   </div>
 
   <div class="tension-item">
-    <div class="tension-marker t-red"></div>
+    <div class="tension-marker t-amber"></div>
     <div>
       <p class="tension-name">Belladonna Hymnal — Restrictions</p>
       <p class="tension-text">
@@ -1923,7 +1972,7 @@ id="complications">
   </div>
 
   <div class="tension-item">
-    <div class="tension-marker t-red"></div>
+    <div class="tension-marker t-amber"></div>
     <div>
       <p class="tension-name">Hushwater — Memory Drift</p>
       <p class="tension-text">
@@ -1934,7 +1983,7 @@ id="complications">
   </div>
 
   <div class="tension-item">
-    <div class="tension-marker t-amber"></div>
+    <div class="tension-marker t-red"></div>
     <div>
       <p class="tension-name">Laurel Sanguine — Attachment Residue</p>
       <p class="tension-text">
@@ -1956,7 +2005,7 @@ id="complications">
   </div>
 
   <div class="tension-item">
-    <div class="tension-marker t-green"></div>
+    <div class="tension-marker t-yellow"></div>
     <div>
       <p class="tension-name">Lascivia — Appetite Quiet</p>
       <p class="tension-text">
