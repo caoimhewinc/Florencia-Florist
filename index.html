@@ -533,6 +533,43 @@ body::before {
   font-style:italic;
   opacity:.65;
 }
+
+@media (max-width:768px){
+
+  .extract-table-header{
+    display:none;
+  }
+
+  .extract-row{
+    grid-template-columns:1fr;
+    gap:14px;
+
+    padding:22px;
+    margin-bottom:18px;
+
+    border:1px solid rgba(184,151,42,.15);
+
+    background:rgba(0,0,0,.12);
+  }
+
+  .extract-row > div{
+    width:100%;
+  }
+
+  .ext-grade{
+    display:inline-block;
+  }
+
+  .circle-note{
+    max-width:100%;
+    margin:20px 0;
+  }
+
+  .extracts-section{
+    padding:60px 24px;
+  }
+
+}
   
 .extract-row:hover {
   background: rgba(74,140,42,0.04);
