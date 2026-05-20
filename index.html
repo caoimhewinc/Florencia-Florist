@@ -249,22 +249,33 @@ body::before {
   padding: 80px 60px;
 
   background:
-    radial-gradient(
-      ellipse 60% 50% at 20% 80%,
-      rgba(90,114,72,.08) 0%,
-      transparent 70%
-    ),
-    radial-gradient(
-      ellipse 40% 60% at 80% 20%,
-      rgba(184,151,42,.06) 0%,
-      transparent 60%
-    ),
     linear-gradient(
       135deg,
       #f8f3e8 0%,
       #efe5d2 50%,
       #f7f4eb 100%
     );
+}
+
+.products-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+
+  background-image: url("images/Botanical-vintage.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  opacity: .11;
+  filter: sepia(.45) saturate(.7) contrast(.9);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.products-section > * {
+  position: relative;
+  z-index: 2;
 }
 
 .products-section::before {
