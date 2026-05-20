@@ -2060,55 +2060,109 @@ id="complications">
 </div>
 
 <script>
+
 function enterBackroom() {
+
+  const frontMusic =
+  document.getElementById("bgm");
+
+  const backMusic =
+  document.getElementById("backroomBgm");
+
+  if(frontMusic){
+    frontMusic.pause();
+  }
+
+  backMusic.volume = 0.25;
+  backMusic.play();
+
   document.querySelector(".top-tabs").style.display = "none";
 
-  document.getElementById('front-page').style.opacity = '0';
-  document.getElementById('front-page').style.transform = 'scale(0.98)';
+  document.getElementById('front-page').style.opacity='0';
+  document.getElementById('front-page').style.transform='scale(0.98)';
 
-  setTimeout(() => {
-    document.getElementById('front-page').style.display = 'none';
+  setTimeout(()=>{
 
-    const back = document.getElementById('back-page');
-    back.style.display = 'block';
-    back.style.opacity = '0';
+    document.getElementById('front-page').style.display='none';
 
-    window.scrollTo(0, 0);
+    const back=
+    document.getElementById('back-page');
 
-    setTimeout(() => {
-      back.style.opacity = '1';
+    back.style.display='block';
+    back.style.opacity='0';
+
+    window.scrollTo(0,0);
+
+    setTimeout(()=>{
+
+      back.style.opacity='1';
+
       back.classList.add('visible');
-      window.scrollTo(0, 0);
-    }, 30);
-  }, 700);
+
+      window.scrollTo(0,0);
+
+    },30);
+
+  },700);
+
 }
+
 
 function exitBackroom() {
-  const back = document.getElementById('back-page');
-  back.style.opacity = '0';
 
-  setTimeout(() => {
-    back.style.display = 'none';
+  const frontMusic =
+  document.getElementById("bgm");
+
+  const backMusic =
+  document.getElementById("backroomBgm");
+
+  backMusic.pause();
+
+  backMusic.currentTime = 0;
+
+  if(frontMusic){
+    frontMusic.play();
+  }
+
+  const back =
+  document.getElementById('back-page');
+
+  back.style.opacity='0';
+
+  setTimeout(()=>{
+
+    back.style.display='none';
+
     back.classList.remove('visible');
 
-    const front = document.getElementById('front-page');
-    front.style.display = 'block';
-    front.style.opacity = '0';
-    front.style.transform = 'scale(0.98)';
+    const front=
+    document.getElementById('front-page');
 
-    document.querySelector(".top-tabs").style.display = "flex";
+    front.style.display='block';
 
-    window.scrollTo(0, 0);
+    front.style.opacity='0';
 
-    setTimeout(() => {
-      front.style.opacity = '1';
-      front.style.transform = 'scale(1)';
-      window.scrollTo(0, 0);
-    }, 30);
-  }, 700);
+    front.style.transform='scale(0.98)';
+
+    document.querySelector(".top-tabs").style.display="flex";
+
+    window.scrollTo(0,0);
+
+    setTimeout(()=>{
+
+      front.style.opacity='1';
+
+      front.style.transform='scale(1)';
+
+      window.scrollTo(0,0);
+
+    },30);
+
+  },700);
+
 }
-</script>
 
+</script>
 <audio id="bgm" src="./audio/Florencia-sound.mp3" loop preload="auto"></audio>
 
 <div id="enterSoundLayer" style="
@@ -2135,6 +2189,10 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 </script>
+
+  <audio id="backroomBgm" loop>
+  <source src="audio/feel-my-rhythm-demo.mp3" type="audio/mpeg">
+</audio>
   
 </body>
   <body>
