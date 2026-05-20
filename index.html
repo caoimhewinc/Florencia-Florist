@@ -257,48 +257,47 @@ body::before {
     );
 }
 
-.products-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-
-  background-image: url("images/Botanical-vintage.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  opacity: .11;
-  filter: sepia(.45) saturate(.7) contrast(.9);
-  mix-blend-mode: multiply;
-  pointer-events: none;
-}
-
-.products-section > * {
+.products-section {
   position: relative;
-  z-index: 2;
+  overflow: hidden;
+  padding: 80px 60px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f8f3e8 0%,
+      #efe5d2 50%,
+      #f7f4eb 100%
+    );
 }
 
-.products-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
+.products-section::before{
+  content:'';
+  position:absolute;
+  inset:0;
 
-  background-image: url("images/Botanical-vintage.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-image:url("images/Botanical-vintage.jpg");
+  background-size:cover;
 
-  opacity: .08;
-  filter: sepia(.45) saturate(.7) contrast(.9);
-  mix-blend-mode: multiply;
-  pointer-events: none;
+  /* สำคัญมาก */
+  background-position:center top;
+
+  opacity:.22;
+
+  filter:
+    sepia(.45)
+    saturate(.7)
+    contrast(.9);
+
+  mix-blend-mode:multiply;
+  pointer-events:none;
 }
 
-.products-section > * {
-  position: relative;
-  z-index: 1;
+.products-section > *{
+  position:relative;
+  z-index:2;
 }
-
+  
 .section-label {
   font-size: 11px;
   letter-spacing: 0.25em;
