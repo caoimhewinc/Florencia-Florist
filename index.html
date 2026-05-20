@@ -87,7 +87,7 @@ body::before {
 ═══════════════════════════════════ */
 
 .front-hero {
-  min-height: 100vh;
+  min-height:100vh;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -96,46 +96,23 @@ body::before {
   position:relative;
   overflow:hidden;
 
-  background:
-    radial-gradient(
-      ellipse 60% 50% at 20% 80%,
-      rgba(90,114,72,.08) 0%,
-      transparent 70%
-    ),
-    radial-gradient(
-      ellipse 40% 60% at 80% 20%,
-      rgba(184,151,42,.06) 0%,
-      transparent 60%
-    ),
-    linear-gradient(
-      135deg,
-      #f8f3e8 0%,
-      #efe5d2 50%,
-      #f7f4eb 100%
-    );
+  background: transparent;
 }
 
 /* Renaissance artwork layer */
-.front-hero::before{
-  content:'';
-  position:absolute;
-  inset:0;
+#front-page {
+  position: relative;
+  background:
+    linear-gradient(
+      rgba(248,243,232,0.82),
+      rgba(239,229,210,0.88)
+    ),
+    url("images/Botanical-vintage.jpg");
 
-  background-image:url("images/Botanical-vintage.jpg");
-
-  background-size:cover;
-  background-position:center;
-
-  opacity:.11;
-
-  filter:
-    sepia(.45)
-    saturate(.7)
-    contrast(.9);
-
-  mix-blend-mode:multiply;
-
-  pointer-events:none;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 /* botanical SVG watermark */
@@ -243,59 +220,12 @@ body::before {
 .front-nav a:hover::after { transform: scaleX(1); }
 
 /* ─── PRODUCT CARDS (front) ─── */
-.products-section {
-  position: relative;
-  overflow: hidden;
-  padding: 80px 60px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #f8f3e8 0%,
-      #efe5d2 50%,
-      #f7f4eb 100%
-    );
-}
-
-.products-section {
-  position: relative;
-  overflow: hidden;
-  padding: 80px 60px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #f8f3e8 0%,
-      #efe5d2 50%,
-      #f7f4eb 100%
-    );
-}
-
-.products-section::before{
-  content:'';
-  position:absolute;
-  inset:0;
-
-  background-image:url("images/Botanical-vintage.jpg");
-  background-size:cover;
-
-  /* สำคัญมาก */
-  background-position:center top;
-
-  opacity:.22;
-
-  filter:
-    sepia(.45)
-    saturate(.7)
-    contrast(.9);
-
-  mix-blend-mode:multiply;
-  pointer-events:none;
-}
-
-.products-section > *{
+.products-section{
   position:relative;
-  z-index:2;
+  overflow:hidden;
+  padding:80px 60px;
+
+  background:transparent;
 }
   
 .section-label {
