@@ -478,31 +478,32 @@ body::before {
 }
 
 .extracts-inner{
-  width:min(100%,1180px);
+  width:min(100%,1280px);
   margin:0 auto;
 }
 
-.extract-table-header {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1.5fr;
-  gap: 16px;
-  padding: 0 0 12px;
-  border-bottom: 1px solid rgba(184,151,42,0.2);
-  font-size: 10px;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: rgba(184,151,42,0.6);
-  margin-bottom: 4px;
+.extract-table-header,
+.extract-row{
+  display:grid;
+  grid-template-columns: 1.45fr .75fr 1.25fr .75fr;
+  gap:48px;
 }
 
-.extract-row {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1.5fr;
-  gap: 16px;
-  padding: 18px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.04);
-  align-items: start;
-  transition: background 0.2s;
+.extract-table-header{
+  padding:0 0 12px;
+  border-bottom:1px solid rgba(184,151,42,0.2);
+  font-size:10px;
+  letter-spacing:0.25em;
+  text-transform:uppercase;
+  color:rgba(184,151,42,0.6);
+  margin-bottom:4px;
+}
+
+.extract-row{
+  padding:26px 0;
+  border-bottom:1px solid rgba(255,255,255,0.04);
+  align-items:start;
+  transition:background 0.2s;
 }
 
   .circle-note{
