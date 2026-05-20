@@ -1978,6 +1978,8 @@ id="complications">
 
 <script>
 function enterBackroom() {
+  document.querySelector(".top-tabs").style.display = "none";
+
   document.getElementById('front-page').style.opacity = '0';
   document.getElementById('front-page').style.transform = 'scale(0.98)';
 
@@ -1988,18 +1990,11 @@ function enterBackroom() {
     back.style.display = 'block';
     back.style.opacity = '0';
 
-    // บังคับให้หน้า 2 เริ่มจากบนสุด
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: 'instant'
-    });
+    window.scrollTo(0, 0);
 
     setTimeout(() => {
       back.style.opacity = '1';
       back.classList.add('visible');
-
-      // กันบาง browser จำตำแหน่งเดิม
       window.scrollTo(0, 0);
     }, 30);
   }, 700);
@@ -2018,12 +2013,9 @@ function exitBackroom() {
     front.style.opacity = '0';
     front.style.transform = 'scale(0.98)';
 
-    // กลับหน้าร้านแล้วเริ่มบนสุดเหมือนกัน
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: 'instant'
-    });
+    document.querySelector(".top-tabs").style.display = "flex";
+
+    window.scrollTo(0, 0);
 
     setTimeout(() => {
       front.style.opacity = '1';
