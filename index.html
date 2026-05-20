@@ -853,6 +853,39 @@ body::before {
   border-radius:999px;
 }
 
+  /* FLorencia phrases */
+
+.florencia-phrase{
+
+  flex:1;
+
+  text-align:center;
+
+  font-family:'Crimson Pro', serif;
+
+  font-size:12px;
+
+  letter-spacing:.22em;
+
+  text-transform:uppercase;
+
+  color:var(--ink-muted);
+
+  padding:12px 10px;
+
+  opacity:.82;
+
+  user-select:none;
+
+  cursor:default;
+
+}
+
+.florencia-phrase:hover{
+  color:var(--gold);
+}
+
+
 /* ─── RESPONSIVE ─── */
   
 @media (max-width: 700px) {
@@ -867,6 +900,8 @@ body::before {
 <body>
 
 <div class="page-frame"></div>
+
+  
 
 <!-- ═══ FRONT PAGE ═══ -->
 <div id="front-page">
@@ -890,10 +925,11 @@ a flower shall ever await thee.
     </p>
     <p class="shop-address anim anim-d3">221B Carter Street · Anclona 9¾ Quarter · Fortuna Imperia</p>
     <nav class="front-nav anim anim-d4">
-      <a href="#flowers">Flowers</a>
-      <a href="#garlands">Garlands</a>
-        <a href="#botanicals">Botanicals</a>
-      <a href="#about">The Proprietress</a>
+<span class="florencia-phrase">Blooms kept with greatest care</span>
+<span class="florencia-phrase">No root grows without memory</span>
+<span class="florencia-phrase">What is gathered shall leave a trace</span>
+<span class="florencia-phrase">Florencia keeps what others forget</span>
+      
     </nav>
   </section>
 
