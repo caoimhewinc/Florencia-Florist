@@ -746,42 +746,19 @@ body::before {
 /* TOP TAB MENU */
 
 .top-tabs{
-   flex:1;
-   text-align:center;
   position:fixed;
 
-  top:14px;
-  left:20px;
-  right:20px;
-
-  display:flex;
-  justify-content:center;
-  align-items:center;
-
-  gap:8px;
-
-  padding:8px 12px;
-
-  background:rgba(245,240,232,.72);
-
-  border:1px solid rgba(184,151,42,.25);
-
-  border-radius:999px;
-
-  backdrop-filter:blur(12px);
-
-  z-index:9999;
-
-  box-shadow:0 8px 28px rgba(20,12,5,.08);
-}
+  top:10px;
+  left:14px;
+  right:14px;
 
   display:flex;
   align-items:center;
-  gap:6px;
 
-  padding:6px;
+  padding:8px 18px;
 
   background:rgba(245,240,232,.72);
+
   border:1px solid rgba(184,151,42,.25);
 
   border-radius:999px;
@@ -794,46 +771,41 @@ body::before {
 }
 
 .top-tabs a{
-  padding:8px 16px;
 
-  border-radius:999px;
+  flex:1;
 
-  font-family:'Crimson Pro',serif;
-  font-size:12px;
+  text-align:center;
 
-  letter-spacing:.14em;
-  text-transform:uppercase;
-
-  color:#4d463b;
   text-decoration:none;
 
-  transition:.25s;
+  font-family:'Crimson Pro', serif;
+
+  font-size:12px;
+
+  letter-spacing:.22em;
+
+  text-transform:uppercase;
+
+  color:var(--ink-muted);
+
+  padding:12px 10px;
+
+  transition:.3s;
+
+}
+
+.top-tabs a:visited{
+ color:var(--ink-muted);
 }
 
 .top-tabs a:hover{
-  background:rgba(184,151,42,.14);
-  color:#2f3d28;
-}
 
-@media(max-width:700px){
+  color:var(--gold);
 
-.top-tabs{
-  max-width:calc(100% - 24px);
+  background:
+  rgba(184,151,42,.08);
 
-  overflow-x:auto;
-
-  justify-content:flex-start;
-}
-
-.top-tabs::-webkit-scrollbar{
- display:none;
-}
-
-.top-tabs a{
- font-size:11px;
- padding:8px 12px;
-}
-
+  border-radius:999px;
 }
 
 /* ─── RESPONSIVE ─── */
