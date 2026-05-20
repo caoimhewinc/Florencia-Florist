@@ -743,89 +743,73 @@ body::before {
 .anim-d3 { animation-delay: 0.4s; opacity: 0; }
 .anim-d4 { animation-delay: 0.55s; opacity: 0; }
 
-  /* SIDE MENU */
+/* TOP TAB MENU */
 
-.side-menu-toggle{
+.top-tabs{
   position:fixed;
-  left:18px;
-  top:50%;
-  transform:translateY(-50%);
-
-  width:48px;
-  height:48px;
-
-  border:1px solid rgba(184,151,42,.35);
-  border-radius:50%;
-
-  background:rgba(245,240,232,.75);
+  top:14px;
+  left:50%;
+  transform:translateX(-50%);
 
   display:flex;
-  justify-content:center;
   align-items:center;
+  gap:6px;
 
-  backdrop-filter:blur(8px);
+  padding:6px;
 
-  color:#556347;
-  font-size:24px;
+  background:rgba(245,240,232,.72);
+  border:1px solid rgba(184,151,42,.25);
 
-  cursor:pointer;
+  border-radius:999px;
+
+  backdrop-filter:blur(12px);
 
   z-index:9999;
-  transition:.35s;
+
+  box-shadow:0 8px 28px rgba(20,12,5,.08);
 }
 
-.side-menu-toggle:hover{
- transform:
- translateY(-50%)
- scale(1.08);
+.top-tabs a{
+  padding:8px 16px;
+
+  border-radius:999px;
+
+  font-family:'Crimson Pro',serif;
+  font-size:12px;
+
+  letter-spacing:.14em;
+  text-transform:uppercase;
+
+  color:#4d463b;
+  text-decoration:none;
+
+  transition:.25s;
 }
 
-.side-menu{
- position:fixed;
-
- left:-230px;
- top:0;
-
- width:220px;
- height:100vh;
-
- padding-top:120px;
-
- background:
- rgba(248,245,236,.95);
-
- backdrop-filter:blur(15px);
-
- border-right:
- 1px solid rgba(184,151,42,.2);
-
- transition:.5s;
-
- z-index:9998;
+.top-tabs a:hover{
+  background:rgba(184,151,42,.14);
+  color:#2f3d28;
 }
 
-.side-menu.open{
- left:0;
+@media(max-width:700px){
+
+.top-tabs{
+  max-width:calc(100% - 24px);
+
+  overflow-x:auto;
+
+  justify-content:flex-start;
 }
 
-.side-menu a{
- display:block;
-
- padding:16px 32px;
-
- color:#5d5648;
-
- text-decoration:none;
-
- font-size:.85rem;
-
- letter-spacing:.15em;
- text-transform:uppercase;
+.top-tabs::-webkit-scrollbar{
+ display:none;
 }
 
-.side-menu a:hover{
- padding-left:40px;
- color:#8b7442;
+.top-tabs a{
+ font-size:11px;
+ padding:8px 12px;
+}
+
 }
 
 /* ─── RESPONSIVE ─── */
@@ -2065,38 +2049,15 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 </script>
-
-  <!-- Side Menu Button -->
-
-<div class="side-menu-toggle"
-onclick="toggleMenu()">
-❦
-</div>
-
-<div class="side-menu"
-id="sideMenu">
-
-<a href="#flowers">
-Flowers
-</a>
-
-<a href="#about">
-The Proprietress
-</a>
-
-<a href="#complications">
-Complications
-</a>
-
-</div>
-
-  <script>
-function toggleMenu(){
-document
-.getElementById("sideMenu")
-.classList.toggle("open");
-}
-</script>
   
 </body>
+  <body>
+
+<nav class="top-tabs">
+  <a href="#flowers">Flowers</a>
+  <a href="#garlands">Garlands</a>
+  <a href="#botanicals">Botanicals</a>
+  <a href="#about">The Proprietress</a>
+  <a href="#complications">Complications</a>
+</nav>
 </html>
