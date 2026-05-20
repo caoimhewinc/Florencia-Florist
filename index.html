@@ -538,13 +538,14 @@ body::before {
 @media (max-width:768px){
 
 .extracts-section {
-  padding:48px 16px;
+  padding:48px 0;
 }
 
 .extracts-inner{
   width:100%;
   max-width:100%;
   margin:0 auto;
+  padding:0 20px;
 }
 
 .circle-note{
@@ -553,19 +554,11 @@ body::before {
   padding:16px;
 }
 
-.extract-table-header{
-  display:none;
-}
-
+.extract-table-header,
 .extract-row{
-  display:block;
-
-  padding:22px 16px;
-  margin-bottom:16px;
-
-  border:1px solid rgba(184,151,42,.14);
-
-  background:rgba(255,255,255,.025);
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
 }
 
 .extract-row > div{
