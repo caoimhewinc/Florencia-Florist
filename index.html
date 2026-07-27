@@ -1026,1409 +1026,507 @@ body::before {
    Override theme
    ========================================================= */
 
-#back-page {
-  --br-black: #120d0c;
-  --br-deep: #1c1211;
-  --br-brown: #2a1b17;
-  --br-burgundy: #713d48;
-  --br-rose: #a96875;
-  --br-pink: #d8a5ae;
-  --br-gold: #c7aa68;
-  --br-gold-soft: #dfc992;
-  --br-paper: #eadcc5;
-  --br-muted: rgba(234,220,197,.64);
-
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-
-  display: none;
-
-  width: 100%;
-  height: 100vh;
-
-  overflow-y: auto;
-  overflow-x: hidden;
-
-  color: var(--br-paper);
-
-  background:
-    radial-gradient(
-      circle at 50% 5%,
-      rgba(169,104,117,.18),
-      transparent 32%
-    ),
-    radial-gradient(
-      circle at 12% 70%,
-      rgba(199,170,104,.08),
-      transparent 30%
-    ),
-    linear-gradient(
-      180deg,
-      #0d0908 0%,
-      #1b1210 42%,
-      #110b0a 100%
-    );
-
-  font-family:
-    'Cormorant Garamond',
-    Georgia,
-    serif;
-
-  opacity: 0;
-  transition: opacity .7s ease;
-}
-
-
-/* ---------------------------------------------------------
-   PAPER / GRID TEXTURE
-   --------------------------------------------------------- */
-
-#back-page::before {
-  content: '';
-
-  position: fixed;
-  inset: 0;
-
-  pointer-events: none;
-
-  opacity: .15;
-
-  background-image:
-    linear-gradient(
-      rgba(214,191,134,.18) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(214,191,134,.12) 1px,
-      transparent 1px
-    );
-
-  background-size: 36px 36px;
-
-  mask-image:
-    radial-gradient(
-      ellipse at center,
-      black,
-      transparent 78%
-    );
-}
-
-
-/* ---------------------------------------------------------
-   DECORATIVE CLOCK / CIRCLE
-   --------------------------------------------------------- */
-
-#back-page::after {
-  content: 'XI · XII · I · II · III · IV · V · VI · VII · VIII · IX · X';
-
-  position: absolute;
-
-  top: 90px;
-  left: 50%;
-
-  width: min(680px, 90vw);
-  aspect-ratio: 1;
-
-  transform: translateX(-50%);
-
-  border:
-    1px solid
-    rgba(214,191,134,.13);
-
-  border-radius: 50%;
-
-  display: flex;
-  justify-content: center;
-
-  padding-top: 34px;
-
-  color:
-    rgba(214,191,134,.09);
-
-  font-family:
-    'Cinzel',
-    serif;
-
-  font-size:
-    clamp(12px, 1.5vw, 17px);
-
-  letter-spacing:
-    .25em;
-
-  pointer-events: none;
-}
-
-
-/* =========================================================
-   HERO
-   ========================================================= */
-
-#back-page .back-hero {
-
-  position: relative;
-  z-index: 2;
-
-  width: min(1120px, calc(100% - 40px));
-
-  margin:
-    0 auto;
-
-  padding:
-    90px 40px 70px;
-
-  text-align: center;
-
-  border-bottom:
-    1px solid
-    rgba(214,191,134,.28);
-}
-
-
-/* Decorative top ornament */
-
-#back-page .back-hero::before {
-
-  content:
-    '❦  ❦  ❦  ❦  ❦';
-
-  display: block;
-
-  margin-bottom: 24px;
-
-  color:
-    var(--br-gold);
-
-  font-size: 22px;
-
-  letter-spacing: .35em;
-}
-
-
-/* Decorative bottom ornament */
-
-#back-page .back-hero::after {
-
-  content:
-    '✦  ◆  ❦  ◆  ✦';
-
-  display: block;
-
-  margin-top: 30px;
-
-  color:
-    rgba(214,191,134,.55);
-
-  font-size: 14px;
-
-  letter-spacing: .4em;
-}
-
-
-/* ---------------------------------------------------------
-   EYEBROW
-   --------------------------------------------------------- */
-
-#back-page .back-eyebrow {
-
-  display: inline-block;
-
-  margin-bottom: 18px;
-
-  color:
-    var(--br-gold);
-
-  font-family:
-    'Cinzel',
-    serif;
-
-  font-size:
-    11px;
-
-  letter-spacing:
-    .28em;
-
-  text-transform:
-    uppercase;
-}
-
-
-/* ---------------------------------------------------------
-   MAIN TITLE
-   --------------------------------------------------------- */
-
-#back-page .back-title {
-
-  margin:
-    0;
-
-  color:
-    #f1dfc3;
-
-  font-family:
-    'Cinzel',
-    serif;
-
-  font-size:
-    clamp(
-      38px,
-      7vw,
-      86px
-    );
-
-  font-weight:
-    500;
-
-  line-height:
-    .95;
-
-  letter-spacing:
-    .06em;
-
-  text-shadow:
-    0 3px 0 #000,
-    0 10px 30px rgba(0,0,0,.5);
-}
-
-
-#back-page .back-title em {
-
-  color:
-    var(--br-pink);
-
-  font-family:
-    'Cormorant Garamond',
-    serif;
-
-  font-size:
-    1.15em;
-
-  font-weight:
-    500;
-
-  letter-spacing:
-    .01em;
-}
-
-
-/* ---------------------------------------------------------
-   SUBTITLE
-   --------------------------------------------------------- */
-
-#back-page .back-subtitle {
-
-  max-width:
-    650px;
-
-  margin:
-    22px auto 0;
-
-  color:
-    var(--br-muted);
-
-  font-size:
-    18px;
-
-  font-style:
-    italic;
-}
-
-
-/* =========================================================
-   WARNING STRIP
-   ========================================================= */
-
-#back-page .warning-strip {
-
-  max-width:
-    900px;
-
-  margin:
-    36px auto 0;
-
-  padding:
-    14px 20px;
-
-  border:
-    1px solid
-    rgba(168,97,112,.5);
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(111,57,69,.15),
-      rgba(168,97,112,.1),
-      rgba(111,57,69,.15)
-    );
-
-  color:
-    var(--br-pink);
-
-  font-family:
-    'Cinzel',
-    serif;
-
-  font-size:
-    10px;
-
-  letter-spacing:
-    .18em;
-
-  text-transform:
-    uppercase;
-
-  box-shadow:
-    inset 0 0 0 2px
-    rgba(214,191,134,.05);
-}
-
-
-/* =========================================================
-   CONTENT WIDTH
-   ========================================================= */
-
-#back-page .extracts-inner {
-
-  position:
-    relative;
-
-  z-index:
-    2;
-
-  width:
-    min(1120px, calc(100% - 40px));
-
-  margin:
-    0 auto;
-
-  padding:
-    60px 0 100px;
-}
-
-
-/* =========================================================
-   AVAILABLE EXTRACTS RIBBON
-   ========================================================= */
-
-#back-page .extracts-ribbon {
-
-  position:
-    relative;
-
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  min-height:
-    76px;
-
-  margin-bottom:
-    30px;
-
-  padding:
-    14px 30px 14px 92px;
-
-  border:
-    1px solid
-    rgba(214,191,134,.48);
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(168,97,112,.96),
-      rgba(110,57,69,.96)
-    );
-
-  box-shadow:
-    0 14px 35px rgba(0,0,0,.42),
-    inset 0 0 0 2px
-    rgba(255,255,255,.05);
-}
-
-
-/* Ribbon tails */
-
-#back-page .extracts-ribbon::before,
-#back-page .extracts-ribbon::after {
-
-  content: '';
-
-  position:
-    absolute;
-
-  top:
-    100%;
-
-  width:
-    0;
-
-  height:
-    0;
-
-  border-style:
-    solid;
-}
-
-
-#back-page .extracts-ribbon::before {
-
-  left:
-    0;
-
-  border-width:
-    10px 12px 0 0;
-
-  border-color:
-    #4b252e transparent transparent transparent;
-}
-
-
-#back-page .extracts-ribbon::after {
-
-  right:
-    0;
-
-  border-width:
-    10px 0 0 12px;
-
-  border-color:
-    #4b252e transparent transparent transparent;
-}
-
-
-/* Rose medallion */
-
-#back-page .extracts-ribbon .rose-cluster {
-
-  position:
-    absolute;
-
-  left:
-    20px;
-
-  width:
-    48px;
-
-  height:
-    48px;
-
-  display:
-    grid;
-
-  place-items:
-    center;
-
-  border-radius:
-    50%;
-
-  color:
-    #f3c8cf;
-
-  background:
-    radial-gradient(
-      circle,
-      #bb7886 0%,
-      #75404d 58%,
-      #42232b 100%
-    );
-
-  border:
-    2px solid
-    rgba(214,191,134,.5);
-
-  box-shadow:
-    0 0 0 4px
-    rgba(214,191,134,.12);
-
-  font-size:
-    23px;
-}
-
-
-#back-page .extracts-ribbon h2 {
-
-  margin:
-    0;
-
-  color:
-    #fff1dc;
-
-  font-family:
-    'Cinzel',
-    serif;
-
-  font-size:
-    clamp(22px, 4vw, 34px);
-
-  font-weight:
-    500;
-
-  letter-spacing:
-    .04em;
-}
-
-
-/* =========================================================
-   CIRCLE NOTE
-   ========================================================= */
-
-#back-page .circle-note {
-
-  max-width:
-    900px;
-
-  margin:
-    0 auto 40px;
-
-  padding:
-    25px 30px;
-
-  border-left:
-    2px solid
-    var(--br-gold);
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(199,170,104,.06),
-      transparent
-    );
-}
-
-
-#back-page .circle-note p {
-
-  margin:
-    0 0 12px;
-
-  color:
-    rgba(234,220,197,.72);
-
-  font-size:
-    16px;
-
-  line-height:
-    1.75;
-}
-
-
-#back-page .circle-note strong {
-
-  color:
-    var(--br-gold-soft);
-
-  font-family:
-    'Cinzel',
-    serif;
-
-  font-size:
-    13px;
-
-  letter-spacing:
-    .1em;
-}
-
-
-#back-page .circle-small {
-
-  margin-top:
-    20px !important;
-
-  color:
-    rgba(234,220,197,.45) !important;
-
-  font-style:
-    italic;
-}
-
-
-/* =========================================================
-   TABLE HEADER
-   ========================================================= */
-
-#back-page .extract-table-header {
-
-  display:
-    grid;
-
-  grid-template-columns:
-    1.4fr
-    .7fr
-    1.5fr
-    .65fr;
-
-  gap:
-    30px;
-
-  padding:
-    0 20px 12px;
-
-  border-bottom:
-    1px solid
-    rgba(214,191,134,.3);
-
-  color:
-    rgba(214,191,134,.65);
-
-  font-family:
-    'Cinzel',
-    serif;
-
-  font-size:
-    10px;
-
-  letter-spacing:
-    .22em;
-
-  text-transform:
-    uppercase;
-}
-
-
-/* =========================================================
-   EXTRACT ROWS
-   ========================================================= */
-
-#back-page .extract-row {
-
-  position:
-    relative;
-
-  display:
-    grid;
-
-  grid-template-columns:
-    1.4fr
-    .7fr
-    1.5fr
-    .65fr;
-
-  gap:
-    30px;
-
-  align-items:
-    start;
-
-  margin-top:
-    10px;
-
-  padding:
-    26px 24px 26px 34px;
-
-  border:
-    1px solid
-    rgba(214,191,134,.16);
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(255,255,255,.025),
-      rgba(255,255,255,.008)
-    );
-
-  box-shadow:
-    inset 0 0 0 1px
-    rgba(0,0,0,.25);
-
-  transition:
-    .25s ease;
-}
-
-
-#back-page .extract-row:hover {
-
-  transform:
-    translateX(4px);
-
-  border-color:
-    rgba(214,191,134,.35);
-
-  background:
-    rgba(168,97,112,.07);
-
-  box-shadow:
-    0 10px 25px
-    rgba(0,0,0,.25);
-}
-
-
-/* Left rose stripe */
-
-#back-page .extract-row::before {
-
-  content:
-    '';
-
-  position:
-    absolute;
-
-  left:
-    0;
-
-  top:
-    0;
-
-  bottom:
-    0;
-
-  width:
-    5px;
-
-  background:
-    linear-gradient(
-      #b87482,
-      #6e3945
-    );
-}
-
-
-/* =========================================================
-   EXTRACT TEXT
-   ========================================================= */
-
-#back-page .ext-name {
-
-  margin:
-    0;
-
-  color:
-    #f0ddc3;
-
-  font-family:
-    'Cormorant Garamond',
-    serif;
-
-  font-size:
-    26px;
-
-  font-weight:
-    600;
-}
-
-
-#back-page .ext-source {
-
-  margin:
-    5px 0 0;
-
-  color:
-    rgba(234,220,197,.42);
-
-  font-size:
-    13px;
-
-  font-style:
-    italic;
-
-  line-height:
-    1.5;
-}
-
-
-#back-page .ext-effect {
-
-  margin:
-    0;
-
-  color:
-    rgba(234,220,197,.68);
-
-  font-size:
-    15px;
-
-  line-height:
-    1.7;
-}
-
-
-#back-page .ext-price {
-
-  margin:
-    0;
-
-  color:
-    var(--br-gold-soft);
-
-  font-family:
-    'Cinzel',
-    serif;
-
-  font-size:
-    17px;
-
-  white-space:
-    nowrap;
-}
-
-
-/* =========================================================
-   CIRCLE BADGES
-   ========================================================= */
-
-#back-page .ext-grade {
-
-  display:
-    inline-flex;
-
-  align-items:
-    center;
-
-  justify-content:
-    center;
-
-  min-width:
-    82px;
-
-  padding:
-    7px 10px;
-
-  border-radius:
-    14px;
-
-  font-family:
-    'Cinzel',
-    serif;
-
-  font-size:
-    10px;
-
-  letter-spacing:
-    .06em;
-}
-
-
-#back-page .grade-i {
-
-  color:
-    #f4e6c7;
-
-  background:
-    linear-gradient(
-      #9b6872,
-      #68404a
-    );
-}
-
-
-#back-page .grade-ii {
-
-  color:
-    #f1d5da;
-
-  background:
-    linear-gradient(
-      #78424e,
-      #4a2931
-    );
-}
-
-
-#back-page .grade-iii {
-
-  color:
-    #e6cf9b;
-
-  background:
-    linear-gradient(
-      #54452d,
-      #2d2419
-    );
-
-  border:
-    1px solid
-    rgba(214,191,134,.35);
-}
-
-
-/* =========================================================
-   LEDGER
-   ========================================================= */
-
-#back-page .ledger-section {
-
-  position:
-    relative;
-
-  z-index:
-    2;
-
-  width:
-    min(1120px, calc(100% - 40px));
-
-  margin:
-    0 auto;
-
-  padding:
-    70px 0;
-
-  display:
-    grid;
-
-  grid-template-columns:
-    1fr 1fr;
-
-  gap:
-    20px;
-}
-
-
-#back-page .ledger-block {
-
-  padding:
-    34px;
-
-  border:
-    1px solid
-    rgba(214,191,134,.25);
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255,255,255,.025),
-      rgba(168,97,112,.035)
-    );
-
-  box-shadow:
-    0 15px 35px
-    rgba(0,0,0,.25);
-}
-
-
-#back-page .ledger-block.red-ledger {
-
-  border-top:
-    3px solid
-    var(--br-rose);
-}
-
-
-#back-page .ledger-title {
-
-  margin:
-    0 0 18px;
-
-  color:
-    var(--br-gold-soft);
-
-  font-family:
-    'Cinzel',
-    serif;
-
-  font-size:
-    22px;
-
-  font-weight:
-    500;
-
-  letter-spacing:
-    .04em;
-}
-
-
-#back-page .ledger-body {
-
-  margin:
-    0;
-
-  color:
-    rgba(234,220,197,.65);
-
-  font-size:
-    16px;
-
-  line-height:
-    1.8;
-}
-
-
-#back-page .ledger-body strong {
-
-  color:
-    var(--br-pink);
-}
-
-
-/* =========================================================
-   CURRENT COMPLICATIONS
-   ========================================================= */
-
-#back-page .tension-section {
-
-  position:
-    relative;
-
-  z-index:
-    2;
-
-  width:
-    min(1120px, calc(100% - 40px));
-
-  margin:
-    0 auto;
-
-  padding:
-    70px 0 100px;
-}
-
-
-#back-page .tension-title {
-
-  margin:
-    0 0 30px;
-
-  color:
-    #f0ddc3;
-
-  font-family:
-    'Cinzel',
-    serif;
-
-  font-size:
-    clamp(28px, 5vw, 48px);
-
-  font-weight:
-    500;
-
-  text-align:
-    center;
-}
-
-
-#back-page .status-legend {
-
-  display:
-    flex;
-
-  flex-wrap:
-    wrap;
-
-  justify-content:
-    center;
-
-  gap:
-    18px;
-
-  margin-bottom:
-    40px;
-
-  color:
-    rgba(234,220,197,.5);
-
-  font-size:
-    13px;
-}
-
-
-#back-page .legend-item {
-
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  gap:
-    8px;
-}
-
-
-#back-page .dot {
-
-  width:
-    8px;
-
-  height:
-    8px;
-
-  border-radius:
-    50%;
-}
-
-
-#back-page .dot.critical {
-  background:
-    #a85c68;
-}
-
-
-#back-page .dot.warning {
-  background:
-    #b99a5b;
-}
-
-
-#back-page .dot.stable {
-  background:
-    #71816a;
-}
-
-
-#back-page .tension-item {
-
-  display:
-    grid;
-
-  grid-template-columns:
-    8px 1fr;
-
-  gap:
-    22px;
-
-  padding:
-    24px 0;
-
-  border-bottom:
-    1px solid
-    rgba(214,191,134,.12);
-}
-
-
-#back-page .tension-marker {
-
-  width:
-    5px;
-
-  min-height:
-    100%;
-
-  border-radius:
-    4px;
-}
-
-
-#back-page .t-red {
-  background:
-    #9d5965;
-}
-
-
-#back-page .t-amber {
-  background:
-    #b99a5b;
-}
-
-
-#back-page .t-green {
-  background:
-    #71816a;
-}
-
-
-#back-page .tension-name {
-
-  margin:
-    0 0 6px;
-
-  color:
-    var(--br-pink);
-
-  font-family:
-    'Cinzel',
-    serif;
-
-  font-size:
-    15px;
-
-  letter-spacing:
-    .04em;
-}
-
-
-#back-page .tension-text {
-
-  margin:
-    0;
-
-  color:
-    rgba(234,220,197,.58);
-
-  font-size:
-    16px;
-
-  line-height:
-    1.75;
-}
-
-
-/* =========================================================
-   FOOTER
-   ========================================================= */
-
-#back-page .footer-back {
-
-  position:
-    relative;
-
-  z-index:
-    2;
-
-  padding:
-    70px 20px 100px;
-
-  text-align:
-    center;
-
-  border-top:
-    1px solid
-    rgba(214,191,134,.18);
-}
-
-
-#back-page .footer-back-text {
-
-  margin:
-    0 0 24px;
-
-  color:
-    rgba(234,220,197,.38);
-
-  font-style:
-    italic;
-
-  font-size:
-    15px;
-}
-
-
-#back-page .back-btn {
-
-  padding:
-    12px 22px;
-
-  border:
-    1px solid
-    rgba(214,191,134,.45);
-
-  border-radius:
-    999px;
-
-  background:
-    rgba(20,12,10,.8);
-
-  color:
-    var(--br-gold-soft);
-
-  font-family:
-    'Cinzel',
-    serif;
-
-  font-size:
-    11px;
-
-  letter-spacing:
-    .08em;
-
-  cursor:
-    pointer;
-
-  transition:
-    .25s ease;
-}
-
-
-#back-page .back-btn:hover {
-
-  background:
-    var(--br-burgundy);
-
-  color:
-    #fff1dc;
-
-  border-color:
-    var(--br-pink);
-}
-
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
-
-@media (max-width: 800px) {
-
-  #back-page .back-hero {
-    padding:
-      70px 20px 50px;
+<section id="backroom" class="backroom-page">
+  <div class="backroom-noise"></div>
+
+  <header class="backroom-hero">
+    <div class="seal-clock" aria-hidden="true">
+      <span>XI</span>
+    </div>
+
+    <div class="hero-title-wrap">
+      <p class="eyebrow">Behind Florenzia</p>
+      <h1>THE BACKROOM</h1>
+      <p class="hero-subtitle">Ledgers, sealed requests, and flowers that never reach the front shelves.</p>
+    </div>
+
+    <div class="fleur-row" aria-hidden="true">✦ ❦ ❦ ❦ ✦</div>
+  </header>
+
+  <main class="backroom-ledger">
+    <section class="project-ribbon">
+      <div class="rose-cluster" aria-hidden="true">✥</div>
+      <div>
+        <p class="ribbon-kicker">The Proprietress keeps record of</p>
+        <h2>Quiet Commissions</h2>
+      </div>
+      <span class="task-count">VII Notes</span>
+    </section>
+
+    <article class="task-card active">
+      <div class="card-stem"></div>
+      <div class="card-content">
+        <div class="card-topline">
+          <div>
+            <h3>Violet Ink Request</h3>
+            <p>Muted rose-grey · sealed beneath wax</p>
+          </div>
+          <span class="status active">ACTIVE</span>
+        </div>
+        <div class="progress-frame">
+          <span style="width: 64%"></span>
+        </div>
+        <div class="card-footer">
+          <span>✦ ◆ ❦ ❦ ◆ ✦</span>
+          <button type="button">Open Ledger</button>
+        </div>
+      </div>
+    </article>
+
+    <section class="project-ribbon compact">
+      <div class="rose-cluster" aria-hidden="true">✥</div>
+      <h2>Hidden Stock</h2>
+      <span class="task-count">XIV Stems</span>
+    </section>
+
+    <article class="task-card done">
+      <div class="card-stem"></div>
+      <div class="card-content row-card">
+        <div>
+          <h3>Belladonna Bundle</h3>
+          <p>Kept away from the morning light</p>
+        </div>
+        <span class="round-clock">Ⅷ</span>
+        <span class="status done">DONE</span>
+      </div>
+    </article>
+
+    <article class="task-card pending">
+      <div class="card-stem"></div>
+      <div class="card-content row-card">
+        <div>
+          <h3>Moonwort Parcel</h3>
+          <p>Awaiting a name without a face</p>
+        </div>
+        <span class="date-mark">XIV<br>APR</span>
+        <span class="status pending">PENDING</span>
+      </div>
+    </article>
+
+    <article class="task-card overdue">
+      <div class="card-stem"></div>
+      <div class="card-content row-card muted">
+        <div>
+          <h3>Crimson Root</h3>
+          <p>Record incomplete · do not display</p>
+        </div>
+        <span class="status overdue">OVERDUE</span>
+      </div>
+    </article>
+  </main>
+</section>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,500&display=swap');
+
+  :root {
+    --backroom-black: #17100d;
+    --backroom-brown: #2a1d17;
+    --ink: #eadcc5;
+    --old-gold: #b99a5b;
+    --soft-gold: #d6bf86;
+    --rose: #a86170;
+    --rose-dark: #6e3945;
+    --rose-pale: #d8a5ae;
+    --lace: rgba(234, 220, 197, 0.22);
+    --shadow: rgba(0, 0, 0, 0.48);
   }
 
-  #back-page .extracts-inner,
-  #back-page .ledger-section,
-  #back-page .tension-section {
-    width:
-      calc(100% - 28px);
+  #backroom.backroom-page {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    padding: 18px 14px 86px;
+    color: var(--ink);
+    background:
+      radial-gradient(circle at 50% 16%, rgba(169, 97, 112, 0.18), transparent 28%),
+      radial-gradient(circle at 20% 76%, rgba(185, 154, 91, 0.12), transparent 24%),
+      linear-gradient(180deg, #100b09 0%, #211713 48%, #0d0908 100%);
+    font-family: 'Cormorant Garamond', Georgia, serif;
   }
 
-  #back-page .extract-table-header {
-    display:
-      none;
+  .backroom-page::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.18;
+    background-image:
+      linear-gradient(rgba(214, 191, 134, 0.22) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(214, 191, 134, 0.16) 1px, transparent 1px);
+    background-size: 34px 34px;
+    mask-image: radial-gradient(circle at center, black, transparent 78%);
   }
 
-  #back-page .extract-row {
-
-    grid-template-columns:
-      1fr;
-
-    gap:
-      14px;
-
-    padding:
-      22px 20px 22px 26px;
+  .backroom-page::after {
+    content: 'Ⅻ Ⅰ Ⅱ Ⅲ Ⅳ Ⅴ Ⅵ Ⅶ Ⅷ Ⅸ Ⅹ Ⅺ';
+    position: absolute;
+    inset: 110px auto auto 50%;
+    transform: translateX(-50%);
+    width: 640px;
+    max-width: 160vw;
+    height: 640px;
+    border: 1px solid rgba(214, 191, 134, 0.18);
+    border-radius: 50%;
+    color: rgba(214, 191, 134, 0.09);
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2.6rem, 10vw, 6.6rem);
+    letter-spacing: 0.14em;
+    display: grid;
+    place-items: start center;
+    padding-top: 42px;
+    pointer-events: none;
   }
 
-  #back-page .ledger-section {
-
-    grid-template-columns:
-      1fr;
+  .backroom-noise {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.17;
+    background-image: radial-gradient(rgba(255,255,255,.55) .7px, transparent .7px);
+    background-size: 5px 5px;
+    mix-blend-mode: overlay;
   }
 
-  #back-page .ext-price {
-
-    white-space:
-      normal;
+  .backroom-hero,
+  .backroom-ledger {
+    position: relative;
+    z-index: 1;
+    width: min(760px, 100%);
+    margin-inline: auto;
   }
 
-  #back-page .extracts-ribbon {
-
-    padding-left:
-      78px;
+  .backroom-hero {
+    min-height: 154px;
+    padding: 22px 18px 20px 112px;
+    border: 1px solid rgba(214, 191, 134, 0.36);
+    border-radius: 28px 28px 8px 8px;
+    background:
+      linear-gradient(90deg, rgba(42, 29, 23, 0.95), rgba(27, 17, 13, 0.84)),
+      repeating-linear-gradient(90deg, transparent 0 18px, rgba(214,191,134,.08) 18px 19px);
+    box-shadow: 0 18px 40px var(--shadow), inset 0 0 0 3px rgba(185,154,91,.08);
   }
 
-}
-
-
-@media (max-width: 480px) {
-
-  #back-page .back-title {
-    font-size:
-      36px;
+  .backroom-hero::before,
+  .backroom-hero::after {
+    content: '❦ ❦ ❦ ❦ ❦ ❦ ❦ ❦ ❦ ❦';
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    overflow: hidden;
+    white-space: nowrap;
+    color: rgba(214, 191, 134, 0.54);
+    font-size: 0.95rem;
+    letter-spacing: 0.35em;
   }
 
-  #back-page .back-subtitle {
-    font-size:
-      16px;
+  .backroom-hero::before { top: 8px; }
+  .backroom-hero::after { bottom: 8px; transform: rotate(180deg); }
+
+  .seal-clock {
+    position: absolute;
+    left: 22px;
+    top: 24px;
+    width: 72px;
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    color: var(--soft-gold);
+    font: 600 1.1rem 'Cinzel', serif;
+    background:
+      radial-gradient(circle, #5b363d 0 42%, #a76c76 43% 48%, #4c2a2f 49% 55%, #211713 56% 100%);
+    box-shadow: 0 0 0 4px #8b5761, 0 0 0 7px rgba(214,191,134,.44), 0 8px 24px var(--shadow);
   }
 
-  #back-page .warning-strip {
-    font-size:
-      8px;
-
-    line-height:
-      1.7;
+  .seal-clock::before,
+  .seal-clock::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 22px;
+    background: var(--soft-gold);
+    transform-origin: bottom center;
+    bottom: 50%;
+    left: calc(50% - 1px);
   }
 
-  #back-page .extracts-ribbon h2 {
-    font-size:
-      21px;
+  .seal-clock::before { transform: rotate(42deg); }
+  .seal-clock::after { height: 17px; transform: rotate(104deg); }
+
+  .eyebrow,
+  .ribbon-kicker {
+    margin: 0 0 4px;
+    color: var(--old-gold);
+    font: 600 0.7rem 'Cinzel', serif;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
   }
 
-  #back-page .ledger-block {
-    padding:
-      24px;
+  .backroom-hero h1 {
+    margin: 0;
+    font: 500 clamp(2rem, 8vw, 4rem) 'Cinzel', serif;
+    letter-spacing: 0.1em;
+    text-shadow: 0 2px 0 #000;
   }
 
-}
+  .hero-subtitle {
+    max-width: 440px;
+    margin: 8px 0 0;
+    color: rgba(234, 220, 197, 0.75);
+    font-size: 1.12rem;
+    font-style: italic;
+  }
+
+  .fleur-row {
+    margin-top: 14px;
+    color: var(--old-gold);
+    letter-spacing: 0.2em;
+  }
+
+  .backroom-ledger {
+    margin-top: 20px;
+  }
+
+  .project-ribbon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-height: 76px;
+    margin: 24px 0 14px;
+    padding: 13px 14px 13px 82px;
+    border: 1px solid rgba(214, 191, 134, 0.45);
+    background:
+      linear-gradient(90deg, rgba(165, 94, 108, .95), rgba(111, 57, 69, .9)),
+      repeating-linear-gradient(45deg, rgba(255,255,255,.1) 0 12px, transparent 12px 24px);
+    box-shadow: 0 10px 28px var(--shadow), inset 0 0 0 2px rgba(255,255,255,.06);
+  }
+
+  .project-ribbon.compact {
+    min-height: 62px;
+  }
+
+  .rose-cluster {
+    position: absolute;
+    left: 16px;
+    width: 48px;
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    color: #f0c2ca;
+    background: radial-gradient(circle, #b87482, #543038 68%);
+    box-shadow: 0 0 0 4px rgba(214,191,134,.22);
+    font-size: 1.7rem;
+  }
+
+  .project-ribbon h2 {
+    margin: 0;
+    font: italic 600 clamp(1.7rem, 7vw, 3rem) 'Cormorant Garamond', serif;
+    line-height: 1;
+  }
+
+  .task-count {
+    margin-left: auto;
+    flex: 0 0 auto;
+    padding: 8px 12px;
+    border: 1px solid rgba(214, 191, 134, 0.65);
+    background: rgba(26, 17, 14, 0.76);
+    color: #f2dfb7;
+    font: 600 .9rem 'Cinzel', serif;
+    box-shadow: inset 0 0 0 2px rgba(255,255,255,.06);
+  }
+
+  .task-card {
+    position: relative;
+    margin: 11px 0;
+    padding: 2px;
+    border: 1px solid rgba(214, 191, 134, 0.42);
+    background:
+      linear-gradient(90deg, rgba(185,154,91,.42), transparent 18%, transparent 82%, rgba(185,154,91,.26)),
+      #1a100d;
+    box-shadow: 0 12px 24px rgba(0,0,0,.34), inset 0 0 0 2px rgba(214,191,134,.08);
+  }
+
+  .task-card::before,
+  .task-card::after {
+    content: '';
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(214,191,134,.68), transparent);
+  }
+
+  .task-card::before { top: 7px; }
+  .task-card::after { bottom: 7px; }
+
+  .card-stem {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 34px;
+    background: linear-gradient(#9f5d69, #c58c98);
+    border-right: 1px solid rgba(214,191,134,.42);
+  }
+
+  .card-content {
+    position: relative;
+    padding: 20px 14px 18px 52px;
+  }
+
+  .card-topline,
+  .row-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: space-between;
+  }
+
+  .task-card h3 {
+    margin: 0;
+    color: #fff0d7;
+    font-size: clamp(1.35rem, 5vw, 2.1rem);
+    line-height: 1;
+  }
+
+  .task-card p {
+    margin: 5px 0 0;
+    color: rgba(234, 220, 197, 0.68);
+    font-size: 1.02rem;
+    font-style: italic;
+  }
+
+  .status {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 84px;
+    padding: 9px 12px;
+    border-radius: 14px;
+    font: 600 .82rem 'Cinzel', serif;
+    letter-spacing: .06em;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.22), 0 6px 16px rgba(0,0,0,.28);
+  }
+
+  .status.active {
+    background: linear-gradient(#c98491, #8f4a57);
+    color: #fff1e7;
+  }
+
+  .status.done {
+    background: linear-gradient(#d9bd7f, #8b6431);
+    color: #fff8df;
+  }
+
+  .status.pending {
+    background: transparent;
+    border: 1px solid rgba(234,220,197,.4);
+    color: rgba(234,220,197,.62);
+  }
+
+  .status.overdue {
+    background: linear-gradient(#59443c, #2e211d);
+    color: #e4c7b8;
+  }
+
+  .progress-frame {
+    height: 18px;
+    margin: 18px 0 12px;
+    padding: 2px;
+    border: 1px solid rgba(214, 191, 134, .5);
+    border-radius: 999px;
+    background: #0b0706;
+    overflow: hidden;
+  }
+
+  .progress-frame span {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background:
+      repeating-linear-gradient(45deg, #e7c8cd 0 12px, #9d5965 12px 24px),
+      linear-gradient(90deg, var(--rose-pale), var(--rose));
+  }
+
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    color: var(--old-gold);
+  }
+
+  .card-footer button {
+    cursor: pointer;
+    border: 1px solid rgba(214,191,134,.55);
+    background: rgba(26,17,14,.8);
+    color: #f0dfbd;
+    padding: 7px 11px;
+    border-radius: 999px;
+    font: 600 .74rem 'Cinzel', serif;
+    letter-spacing: .08em;
+  }
+
+  .round-clock {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 1px solid rgba(214,191,134,.55);
+    color: var(--soft-gold);
+    font: 600 .96rem 'Cinzel', serif;
+    background: radial-gradient(circle, #30201a, #0f0a08);
+  }
+
+  .date-mark {
+    color: #e3b1ba;
+    text-align: center;
+    font: 600 1.1rem/0.95 'Cinzel', serif;
+  }
+
+  .muted {
+    opacity: .58;
+  }
+
+  @media (max-width: 520px) {
+    #backroom.backroom-page {
+      padding-inline: 10px;
+    }
+
+    .backroom-hero {
+      padding: 100px 18px 24px;
+      text-align: center;
+    }
+
+    .seal-clock {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .project-ribbon {
+      padding-left: 68px;
+    }
+
+    .project-ribbon h2 {
+      font-size: 1.85rem;
+    }
+
+    .task-count,
+    .status {
+      min-width: auto;
+      font-size: .7rem;
+      padding-inline: 9px;
+    }
+
+    .row-card {
+      align-items: flex-start;
+    }
+  }
 </style>
 </head>
 <body>
