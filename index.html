@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Florencia Florist</title>
 <link rel="icon" type="image/png" href="pngtree-rose-flowers-vintage.png">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=IM+Fell+English:ital@0;1&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=IM+Fell+English:ital@0;1&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
   --cream: #f5f0e8;
@@ -27,6 +27,11 @@
   --poison-glow: #7ec850;
   --blood: #6b1a1a;
   --blood-bright: #a02828;
+  --old-gold: #b99a5b;
+  --soft-gold: #d6bf86;
+  --rose: #a86170;
+  --rose-dark: #6e3945;
+  --rose-pale: #d8a5ae;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -401,14 +406,15 @@ body::before {
   min-height: 100vh;
   background: var(--night);
   background-image:
-    radial-gradient(ellipse 50% 60% at 15% 85%, rgba(45,90,27,0.12) 0%, transparent 60%),
-    radial-gradient(ellipse 30% 40% at 85% 15%, rgba(107,26,26,0.1) 0%, transparent 50%);
+    radial-gradient(circle at 50% 18%, rgba(168,97,112,0.14), transparent 32%),
+    radial-gradient(ellipse 30% 40% at 85% 85%, rgba(185,151,42,0.08) 0%, transparent 55%);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 80px 40px 60px;
+  padding: 120px 40px 60px;
   position: relative;
+  overflow: hidden;
 }
 
 .back-hero::before {
@@ -425,31 +431,91 @@ body::before {
   pointer-events: none;
 }
 
+/* ornate clock-ring watermark behind the backroom title */
+.back-hero::after {
+  content: 'Ⅻ Ⅰ Ⅱ Ⅲ Ⅳ Ⅴ Ⅵ Ⅶ Ⅷ Ⅸ Ⅹ Ⅺ';
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 640px;
+  max-width: 160vw;
+  height: 640px;
+  border: 1px solid rgba(214,191,134,0.14);
+  border-radius: 50%;
+  color: rgba(214,191,134,0.07);
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2.4rem, 9vw, 6rem);
+  letter-spacing: 0.14em;
+  display: grid;
+  place-items: start center;
+  padding-top: 38px;
+  pointer-events: none;
+}
+
+.seal-clock {
+  position: relative;
+  z-index: 1;
+  width: 74px;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--soft-gold);
+  font: 600 1.05rem 'Cinzel', serif;
+  margin-bottom: 22px;
+  background:
+    radial-gradient(circle, #5b363d 0 42%, #a76c76 43% 48%, #4c2a2f 49% 55%, #211713 56% 100%);
+  box-shadow: 0 0 0 4px #8b5761, 0 0 0 7px rgba(214,191,134,.4), 0 8px 24px rgba(0,0,0,.5);
+}
+.seal-clock::before,
+.seal-clock::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 22px;
+  background: var(--soft-gold);
+  transform-origin: bottom center;
+  bottom: 50%;
+  left: calc(50% - 1px);
+}
+.seal-clock::before { transform: rotate(42deg); }
+.seal-clock::after { height: 17px; transform: rotate(104deg); }
+
 .back-eyebrow {
+  position: relative;
+  z-index: 1;
+  font-family: 'Cinzel', serif;
   font-size: 10px;
   letter-spacing: 0.35em;
   text-transform: uppercase;
-  color: var(--poison-bright);
+  color: var(--old-gold);
   margin-bottom: 20px;
-  font-weight: 300;
+  font-weight: 500;
 }
 
 .back-title {
-  font-family: 'IM Fell English', serif;
-  font-size: clamp(42px, 8vw, 72px);
-  font-weight: 400;
+  position: relative;
+  z-index: 1;
+  font-family: 'Cinzel', serif;
+  font-size: clamp(38px, 7.5vw, 66px);
+  font-weight: 500;
+  letter-spacing: 0.05em;
   color: #c8b896;
   text-align: center;
-  line-height: 1.1;
+  line-height: 1.15;
   margin-bottom: 8px;
+  text-shadow: 0 2px 0 #000;
 }
 
 .back-title em {
-  color: var(--poison-glow);
+  color: var(--rose-pale);
   font-style: italic;
 }
 
 .back-subtitle {
+  position: relative;
+  z-index: 1;
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
   font-size: 16px;
@@ -461,12 +527,16 @@ body::before {
 }
 
 .warning-strip {
-  border: 1px solid rgba(160,40,40,0.4);
+  position: relative;
+  z-index: 1;
+  border: 1px solid rgba(168,97,112,0.4);
+  box-shadow: inset 0 0 0 3px rgba(20,12,5,.4), inset 0 0 0 4px rgba(214,191,134,.12);
   padding: 12px 24px;
-  font-size: 12px;
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--blood-bright);
+  color: var(--rose-pale);
   margin-bottom: 60px;
   background: rgba(107,26,26,0.12);
 }
@@ -500,13 +570,62 @@ body::before {
 }
 
 .extract-row{
-  padding:26px 0;
-  border-bottom:1px solid rgba(255,255,255,0.04);
+  position: relative;
+  padding: 22px 20px 22px 34px;
+  margin-bottom: 10px;
   align-items:start;
-  transition:background 0.2s;
+  transition: background 0.2s, box-shadow 0.2s;
+  border: 1px solid rgba(214,191,134,0.16);
+  background: rgba(255,255,255,0.012);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.2);
+}
+.extract-row::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 6px;
+  background: linear-gradient(#9f5d69, #6e3945);
 }
 
-  .circle-note{
+  .extracts-ribbon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 68px;
+  margin: 0 0 28px;
+  padding: 13px 20px 13px 80px;
+  border: 1px solid rgba(214,191,134,0.45);
+  background:
+    linear-gradient(90deg, rgba(168,97,112,.92), rgba(110,57,69,.88)),
+    repeating-linear-gradient(45deg, rgba(255,255,255,.08) 0 12px, transparent 12px 24px);
+  box-shadow: 0 10px 26px rgba(0,0,0,.4), inset 0 0 0 2px rgba(255,255,255,.05);
+}
+.extracts-ribbon .rose-cluster {
+  position: absolute;
+  left: 16px;
+  width: 46px;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #f0c2ca;
+  background: radial-gradient(circle, #b87482, #543038 68%);
+  box-shadow: 0 0 0 4px rgba(214,191,134,.22);
+  font-size: 1.5rem;
+}
+.extracts-ribbon h2 {
+  margin: 0;
+  font-family: 'Cinzel', serif;
+  font-weight: 500;
+  font-size: clamp(1.4rem, 4vw, 1.9rem);
+  letter-spacing: 0.03em;
+  color: #fff3e2;
+}
+
+.circle-note{
   max-width:760px;
   margin:-10px 0 34px;
   padding:18px 24px;
@@ -589,7 +708,8 @@ body::before {
 }
   
 .extract-row:hover {
-  background: rgba(74,140,42,0.04);
+  background: rgba(168,97,112,0.05);
+  box-shadow: inset 0 0 0 1px rgba(214,191,134,0.28);
 }
 
 .ext-name {
@@ -611,12 +731,14 @@ body::before {
 }
 .ext-grade {
   display: inline-block;
+  font-family: 'Cinzel', serif;
   font-size: 10px;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  padding: 3px 10px;
-  border-radius: 2px;
-  font-weight: 400;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-weight: 600;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.12);
 }
 .grade-i { background: rgba(45,90,27,0.3); color: var(--poison-glow); border: 1px solid rgba(74,140,42,0.3); }
 .grade-ii { background: rgba(107,26,26,0.3); color: #e07070; border: 1px solid rgba(160,40,40,0.3); }
@@ -684,14 +806,16 @@ body::before {
 }
 
 .ledger-block {
-  border-left: 2px solid rgba(74,140,42,0.3);
+  border-left: 2px solid rgba(214,191,134,0.3);
   padding: 0 0 0 20px;
 }
-.ledger-block.red-ledger { border-left-color: rgba(160,40,40,0.3); }
+.ledger-block.red-ledger { border-left-color: rgba(168,97,112,0.4); }
 
 .ledger-title {
-  font-family: 'IM Fell English', serif;
-  font-size: 20px;
+  font-family: 'Cinzel', serif;
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: 0.03em;
   color: #c8b896;
   margin-bottom: 12px;
 }
@@ -709,8 +833,10 @@ body::before {
   background: var(--void);
 }
 .tension-title {
-  font-family: 'IM Fell English', serif;
-  font-size: 28px;
+  font-family: 'Cinzel', serif;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  font-size: 24px;
   color: #c8b896;
   margin-bottom: 32px;
 }
@@ -1019,7 +1145,7 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
 
 <!-- ═══ BACK PAGE ═══ -->
 <div id="back-page">
- 
+
   <section class="back-hero">
     <div class="seal-clock anim anim-d1" aria-hidden="true"><span>XI</span></div>
     <p class="back-eyebrow anim anim-d1">Restricted · For known clients only</p>
@@ -1031,33 +1157,33 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
       Discretion is assumed · All transactions unrecorded · Deny knowledge if questioned
     </div>
   </section>
- 
+
   <!-- Extract table -->
   <div class="extracts-inner">
 <div class="extracts-ribbon">
   <div class="rose-cluster" aria-hidden="true">✥</div>
   <h2>Available Extracts</h2>
 </div>
- 
+
 <div class="circle-note">
   <p><strong>I Circle</strong> — Preparations deemed permissible for discreet trade. Familiar patrons may request these without prior recommendation.</p>
- 
+
   <p><strong>II Circle</strong> — Certain flowers within this tier may refuse unfamiliar hands. Orders are reviewed individually.</p>
- 
+
   <p><strong>III Circle</strong> — Displayed nowhere openly. Available only through sealed correspondence or prior recommendation.</p>
- 
+
   <p class="circle-small">
     The Circle system measureth not potency, but permission. Certain flowers refuseth to be gathered for unfamiliar hands.
   </p>
 </div>
- 
+
 <div class="extract-table-header">
   <span>Extract</span>
   <span>Circle</span>
   <span>Effect</span>
   <span>Price (per vial)</span>
 </div>
- 
+
 <div class="extract-row">
   <div>
     <p class="ext-name">Moonwake</p>
@@ -1076,7 +1202,7 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
     </p>
   </div>
 </div>
- 
+
 <div class="extract-row">
   <div>
     <p class="ext-name">Gravesilk</p>
@@ -1095,7 +1221,7 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
     </p>
   </div>
 </div>
- 
+
 <div class="extract-row">
   <div>
     <p class="ext-name">Velvet Ruin</p>
@@ -1114,7 +1240,7 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
     </p>
   </div>
 </div>
- 
+
 <div class="extract-row">
   <div>
     <p class="ext-name">Vespermere</p>
@@ -1133,7 +1259,7 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
     </p>
   </div>
 </div>
- 
+
 <div class="extract-row">
   <div>
     <p class="ext-name">The Seventh Petal</p>
@@ -1152,7 +1278,7 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
     </p>
   </div>
 </div>
- 
+
 <div class="extract-row">
   <div>
     <p class="ext-name">Saint Mire</p>
@@ -1171,7 +1297,7 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
     </p>
   </div>
 </div>
- 
+
 <div class="extract-row">
   <div>
     <p class="ext-name">Duskroot</p>
@@ -1190,7 +1316,7 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
     </p>
   </div>
 </div>
- 
+
 <div class="extract-row">
   <div>
     <p class="ext-name">Hushwater</p>
@@ -1209,7 +1335,7 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
     </p>
   </div>
 </div>
- 
+
 <div class="extract-row">
   <div>
     <p class="ext-name">Widow’s Mercy</p>
@@ -1228,7 +1354,7 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
     </p>
   </div>
 </div>
- 
+
 <div class="extract-row">
   <div>
     <p class="ext-name">Cinder Psalm</p>
@@ -1247,7 +1373,7 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
     </p>
   </div>
 </div>
- 
+
 <div class="extract-row">
   <div>
     <p class="ext-name">Evermere</p>
@@ -1266,7 +1392,7 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
     </p>
   </div>
 </div>
- 
+
 <div class="extract-row">
   <div>
     <p class="ext-name">Mother Hemlock</p>
@@ -1285,7 +1411,7 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
     </p>
   </div>
 </div>
- 
+
 <div class="extract-row">
   <div>
     <p class="ext-name">Winter Thistle</p>
@@ -1304,7 +1430,7 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
     </p>
   </div>
 </div>
- 
+
 <div class="extract-row">
   <div>
     <p class="ext-name">Laurel Sanguine</p>
@@ -1323,7 +1449,7 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
     </p>
   </div>
 </div>
- 
+
 <div class="extract-row">
   <div>
     <p class="ext-name">Ivory Briar</p>
@@ -1342,7 +1468,7 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
     </p>
   </div>
 </div>
- 
+
 <div class="extract-row">
   <div>
     <p class="ext-name">Rosethorn Rite</p>
@@ -1361,7 +1487,7 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
     </p>
   </div>
 </div>
- 
+
 <div class="extract-row">
   <div>
     <p class="ext-name">Gloaming Poppy</p>
@@ -1380,7 +1506,7 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
     </p>
   </div>
 </div>
- 
+
 <div class="extract-row">
   <div>
     <p class="ext-name">Saint’s Veil</p>
@@ -1399,7 +1525,7 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
     </p>
   </div>
 </div>
- 
+
 <div class="extract-row">
   <div>
     <p class="ext-name">Ash Dahlia</p>
@@ -1418,7 +1544,7 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
     </p>
   </div>
 </div>
- 
+
 <div class="extract-row">
   <div>
     <p class="ext-name">Mourning Jasmine</p>
@@ -1437,7 +1563,7 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
     </p>
   </div>
 </div>
- 
+
 <div class="extract-row">
   <div>
     <p class="ext-name">Milkthorn</p>
@@ -1456,7 +1582,7 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
     </p>
   </div>
 </div>
- 
+
 <div class="extract-row">
   <div>
     <p class="ext-name">Velour Briar</p>
@@ -1475,7 +1601,7 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
     </p>
   </div>
 </div>
- 
+
 <div class="extract-row">
   <div>
     <p class="ext-name">Rime Marigold</p>
@@ -1494,7 +1620,7 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
     </p>
   </div>
 </div>
- 
+
 <div class="extract-row">
   <div>
     <p class="ext-name">Belladonna Hymnal</p>
@@ -1513,7 +1639,7 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
     </p>
   </div>
 </div>
- 
+
 <div class="extract-row">
   <div>
     <p class="ext-name">Rue Pallid</p>
@@ -1532,7 +1658,7 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
     </p>
   </div>
 </div>
- 
+
 <div class="extract-row">
   <div>
     <p class="ext-name">Coffin Orchis</p>
@@ -1551,7 +1677,7 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
     </p>
   </div>
 </div>
- 
+
 <div class="extract-row">
   <div>
     <p class="ext-name">Elegy Iris</p>
@@ -1570,7 +1696,7 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
     </p>
   </div>
 </div>
- 
+
 <div class="extract-row">
   <div>
     <p class="ext-name">Selenite Yew</p>
@@ -1589,7 +1715,7 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
     </p>
   </div>
 </div>
- 
+
 <div class="extract-row">
   <div>
     <p class="ext-name">Noctis Paeonia</p>
@@ -1608,7 +1734,7 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
     </p>
   </div>
 </div>
- 
+
 <div class="extract-row">
   <div>
     <p class="ext-name">Ruin Magnolia</p>
@@ -1627,7 +1753,7 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
     </p>
   </div>
 </div>
- 
+
 <div class="extract-row">
   <div>
     <p class="ext-name">Winter Wisteria</p>
@@ -1646,7 +1772,7 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
     </p>
   </div>
 </div>
- 
+
 <div class="extract-row">
   <div>
     <p class="ext-name">Funeral Camellia</p>
@@ -1665,7 +1791,7 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
     </p>
   </div>
 </div>
- 
+
 <div class="extract-row">
   <div>
     <p class="ext-name">Wane Jonquille</p>
@@ -1684,7 +1810,7 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
     </p>
   </div>
 </div>
- 
+
 <div class="extract-row">
   <div>
     <p class="ext-name">Flos Viviea</p>
@@ -1703,7 +1829,7 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
     </p>
   </div>
 </div>
- 
+
 <div class="extract-row">
   <div>
     <p class="ext-name">Sexus Velle</p>
@@ -1722,7 +1848,7 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
     </p>
   </div>
 </div>
- 
+
 <div class="extract-row">
   <div>
     <p class="ext-name">Beru Beru</p>
@@ -1741,7 +1867,7 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
     </p>
   </div>
 </div>
- 
+
 <div class="extract-row">
   <div>
     <p class="ext-name">Geogia Tuis</p>
@@ -1760,7 +1886,7 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
     </p>
   </div>
 </div>
- 
+
 <div class="extract-row">
   <div>
     <p class="ext-name">Purus Bloem</p>
@@ -1779,7 +1905,7 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
     </p>
   </div>
 </div>
- 
+
 <div class="extract-row">
   <div>
     <p class="ext-name">Fuchsia Ella</p>
@@ -1798,7 +1924,7 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
     </p>
   </div>
 </div>
- 
+
 <div class="extract-row">
   <div>
     <p class="ext-name">Tenebris Velle</p>
@@ -1817,7 +1943,7 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
     </p>
   </div>
 </div>
- 
+
 <div class="extract-row">
   <div>
     <p class="ext-name">Velaris</p>
@@ -1836,7 +1962,7 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
     </p>
   </div>
 </div>
- 
+
 <div class="extract-row">
   <div>
     <p class="ext-name">Eirwen</p>
@@ -1855,7 +1981,7 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
     </p>
   </div>
 </div>
- 
+
 <div class="extract-row">
   <div>
     <p class="ext-name">Lascivia</p>
@@ -1874,10 +2000,10 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
     </p>
   </div>
 </div>
- 
+
 </div>
   </section>
- 
+
   <!-- Ledger notes -->
   <section class="ledger-section">
     <div class="ledger-block">
@@ -1896,29 +2022,29 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
       </p>
     </div>
   </section>
- 
+
 <!-- Active tensions -->
 <section class="tension-section"
 id="complications">
 <h2 class="tension-title">Current Complications</h2>
- 
+
 <div class="status-legend">
     <div class="legend-item">
         <span class="dot critical"></span>
         <span>Under Scrutiny — Immediate Concern</span>
     </div>
- 
+
     <div class="legend-item">
         <span class="dot warning"></span>
         <span>Limited Review — Requires Attention</span>
     </div>
- 
+
     <div class="legend-item">
         <span class="dot stable"></span>
         <span>Contained — Under Observation</span>
     </div>
 </div>
- 
+
   <div class="tension-item">
     <div class="tension-marker t-red"></div>
     <div>
@@ -1930,7 +2056,7 @@ id="complications">
       </p>
     </div>
   </div>
- 
+
   <div class="tension-item">
     <div class="tension-marker t-amber"></div>
     <div>
@@ -1941,7 +2067,7 @@ id="complications">
       </p>
     </div>
   </div>
- 
+
   <div class="tension-item">
     <div class="tension-marker t-green"></div>
     <div>
@@ -1952,7 +2078,7 @@ id="complications">
       </p>
     </div>
   </div>
- 
+
   <div class="tension-item">
     <div class="tension-marker t-red"></div>
     <div>
@@ -1963,7 +2089,7 @@ id="complications">
       </p>
     </div>
   </div>
- 
+
   <div class="tension-item">
     <div class="tension-marker t-green"></div>
     <div>
@@ -1974,7 +2100,7 @@ id="complications">
       </p>
     </div>
   </div>
- 
+
   <div class="tension-item">
     <div class="tension-marker t-amber"></div>
     <div>
@@ -1985,7 +2111,7 @@ id="complications">
       </p>
     </div>
   </div>
- 
+
   <div class="tension-item">
     <div class="tension-marker t-amber"></div>
     <div>
@@ -1996,7 +2122,7 @@ id="complications">
       </p>
     </div>
   </div>
- 
+
   <div class="tension-item">
     <div class="tension-marker t-amber"></div>
     <div>
@@ -2007,7 +2133,7 @@ id="complications">
       </p>
     </div>
   </div>
- 
+
   <div class="tension-item">
     <div class="tension-marker t-amber"></div>
     <div>
@@ -2018,7 +2144,7 @@ id="complications">
       </p>
     </div>
   </div>
- 
+
   <div class="tension-item">
     <div class="tension-marker t-red"></div>
     <div>
@@ -2029,7 +2155,7 @@ id="complications">
       </p>
     </div>
   </div>
- 
+
   <div class="tension-item">
     <div class="tension-marker t-red"></div>
     <div>
@@ -2040,7 +2166,7 @@ id="complications">
       </p>
     </div>
   </div>
- 
+
   <div class="tension-item">
     <div class="tension-marker t-amber"></div>
     <div>
@@ -2052,135 +2178,135 @@ id="complications">
     </div>
   </div>
 </section>
- 
+
   <!-- Footer back -->
   <footer class="footer-back">
     <p class="footer-back-text">This record does not exist. Neither, officially, does this room.</p>
     <button class="back-btn" onclick="exitBackroom()">← Return to shop floor</button>
   </footer>
- 
+
 </div>
- 
+
 <script>
- 
+
 function enterBackroom() {
- 
+
   const frontMusic =
   document.getElementById("bgm");
- 
+
   const backMusic =
   document.getElementById("backroomBgm");
- 
+
   if(frontMusic){
     frontMusic.pause();
   }
- 
+
   backMusic.volume = 1;
   backMusic.play();
- 
+
   document.querySelector(".top-tabs").style.display = "none";
- 
+
   document.getElementById('front-page').style.opacity='0';
   document.getElementById('front-page').style.transform='scale(0.98)';
- 
+
   setTimeout(()=>{
- 
+
     document.getElementById('front-page').style.display='none';
- 
+
     const back=
     document.getElementById('back-page');
- 
+
     back.style.display='block';
     back.style.opacity='0';
- 
+
     window.scrollTo(0,0);
- 
+
     setTimeout(()=>{
- 
+
       back.style.opacity='1';
- 
+
       back.classList.add('visible');
- 
+
       window.scrollTo(0,0);
- 
+
     },30);
- 
+
   },700);
- 
+
 }
- 
- 
+
+
 function exitBackroom() {
- 
+
   const frontMusic =
   document.getElementById("bgm");
- 
+
   const backMusic =
   document.getElementById("backroomBgm");
- 
+
   backMusic.pause();
- 
+
   backMusic.currentTime = 0;
- 
+
   if(frontMusic){
     frontMusic.play();
   }
- 
+
   const back =
   document.getElementById('back-page');
- 
+
   back.style.opacity='0';
- 
+
   setTimeout(()=>{
- 
+
     back.style.display='none';
- 
+
     back.classList.remove('visible');
- 
+
     const front=
     document.getElementById('front-page');
- 
+
     front.style.display='block';
- 
+
     front.style.opacity='0';
- 
+
     front.style.transform='scale(0.98)';
- 
+
     document.querySelector(".top-tabs").style.display="flex";
- 
+
     window.scrollTo(0,0);
- 
+
     setTimeout(()=>{
- 
+
       front.style.opacity='1';
- 
+
       front.style.transform='scale(1)';
- 
+
       window.scrollTo(0,0);
- 
+
     },30);
- 
+
   },700);
- 
+
 }
- 
+
 </script>
 <audio id="bgm" src="./audio/Florencia-sound.mp3" loop preload="auto"></audio>
- 
+
 <div id="enterSoundLayer" style="
   position: fixed;
   inset: 0;
   z-index: 999999;
   cursor: pointer;
 "></div>
- 
+
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const bgm = document.getElementById('bgm');
   const layer = document.getElementById('enterSoundLayer');
- 
+
   bgm.volume = 0.35;
- 
+
   layer.addEventListener('click', async () => {
     try {
       await bgm.play();
@@ -2191,14 +2317,14 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 </script>
- 
+
   <audio id="backroomBgm" loop>
   <source src="audio/feel-my-rhythm-demo.mp3" type="audio/mpeg">
 </audio>
   
 </body>
   <body>
- 
+
 <nav class="top-tabs">
   <a href="#flowers">Flowers</a>
   <a href="#garlands">Garlands</a>
