@@ -1021,514 +1021,250 @@ body::before {
   .extract-table-header, .extract-row { grid-template-columns: 1fr 1fr; }
   .footer-front, .footer-back { flex-direction: column; gap: 12px; text-align: center; }
 }
-  /* =========================================================
-   FLORENCIA — BACKROOM REDESIGN
-   Override theme
-   ========================================================= */
+  /* ═══════════════════════════════════════════════════════════════
+   FLORENCIA BACKROOM — DARK VINTAGE / THEATRICAL / BURGUNDY /
+   DUSTY ROSE / OLD GOLD / BOTANICAL / ORNATE
+   All rules are scoped to #back-page.
+═══════════════════════════════════════════════════════════════ */
 
-<section id="backroom" class="backroom-page">
-  <div class="backroom-noise"></div>
+#back-page{
+  --br-ink:#eadcc5;--br-muted:rgba(234,220,197,.66);--br-faint:rgba(234,220,197,.42);
+  --br-black:#0d0708;--br-deep:#170b0d;--br-card:#211213;
+  --br-burgundy:#6f3040;--br-burgundy-deep:#35151e;
+  --br-rose:#a96875;--br-dusty:#c88b98;--br-pale:#e2b1b9;
+  --br-gold:#b99a5b;--br-gold-light:#ddc98f;--br-line:rgba(221,201,143,.2);
+  position:fixed;inset:0;z-index:9999;display:none;width:100%;height:100vh;
+  overflow-y:auto;overflow-x:hidden;isolation:isolate;opacity:0;
+  color:var(--br-ink);
+  background:
+    radial-gradient(ellipse at 50% -8%,rgba(168,97,112,.2),transparent 34%),
+    radial-gradient(ellipse at 8% 35%,rgba(89,35,49,.18),transparent 30%),
+    radial-gradient(ellipse at 92% 78%,rgba(185,154,91,.07),transparent 28%),
+    linear-gradient(180deg,#0d0708 0%,#170b0d 42%,#110809 100%);
+  font-family:'Cormorant Garamond',Georgia,serif;
+  transition:opacity .7s ease;
+}
+#back-page.visible{display:block;opacity:1}
+#back-page::before{
+  content:'';position:fixed;inset:0;z-index:-2;pointer-events:none;opacity:.3;
+  background:
+    linear-gradient(rgba(221,201,143,.045) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(221,201,143,.035) 1px,transparent 1px),
+    radial-gradient(circle at center,transparent 42%,rgba(0,0,0,.58) 100%);
+  background-size:44px 44px,44px 44px,100% 100%;
+  mask-image:radial-gradient(ellipse at center,black 25%,transparent 88%);
+}
+#back-page::after{
+  content:'❦';position:fixed;right:-90px;bottom:-130px;z-index:-1;
+  color:rgba(200,139,152,.075);font:420px/1 'Cormorant Garamond',serif;
+  transform:rotate(-18deg);pointer-events:none;
+}
 
-  <header class="backroom-hero">
-    <div class="seal-clock" aria-hidden="true">
-      <span>XI</span>
-    </div>
+/* ─── HERO ─── */
+#back-page .back-hero{
+  position:relative;z-index:2;width:min(1180px,calc(100% - 44px));
+  min-height:clamp(620px,88vh,900px);margin:22px auto 0;padding:90px 40px 70px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+  border:1px solid rgba(221,201,143,.2);
+  background:
+    linear-gradient(90deg,transparent,rgba(90,38,51,.08),transparent),
+    radial-gradient(circle at 50% 35%,rgba(200,139,152,.07),transparent 42%);
+  box-shadow:inset 0 0 0 5px rgba(16,9,8,.72),inset 0 0 0 6px rgba(221,201,143,.055),0 24px 70px rgba(0,0,0,.32);
+  overflow:hidden;
+}
+#back-page .back-hero::before{
+  content:'✦  ❦  ✦';position:absolute;top:20px;left:19px;right:19px;
+  padding-bottom:16px;border-bottom:1px solid rgba(221,201,143,.16);
+  color:rgba(221,201,143,.58);font-size:16px;letter-spacing:.55em;
+}
+#back-page .back-hero::after{
+  content:'❦  ·  ✦  ·  ❦';position:absolute;bottom:20px;left:19px;right:19px;
+  padding-top:16px;border-top:1px solid rgba(221,201,143,.16);
+  color:rgba(221,201,143,.48);font-size:13px;letter-spacing:.45em;
+}
+#back-page .seal-clock{
+  position:relative;z-index:2;width:84px;aspect-ratio:1;display:grid;place-items:center;
+  margin-bottom:28px;border-radius:50%;color:var(--br-gold-light);font:600 1rem 'Cinzel',serif;
+  background:radial-gradient(circle,#6d3542 0 34%,#351820 35% 47%,#a96875 48% 51%,#251015 52% 100%);
+  border:1px solid rgba(221,201,143,.45);
+  box-shadow:0 0 0 4px rgba(169,104,117,.16),0 0 0 7px rgba(221,201,143,.12),0 14px 34px rgba(0,0,0,.45);
+}
+#back-page .seal-clock::before,#back-page .seal-clock::after{
+  content:'';position:absolute;left:50%;bottom:50%;width:2px;background:var(--br-gold-light);transform-origin:50% 100%;
+}
+#back-page .seal-clock::before{height:24px;transform:translateX(-50%) rotate(38deg)}
+#back-page .seal-clock::after{height:17px;transform:translateX(-50%) rotate(112deg)}
+#back-page .back-eyebrow{
+  position:relative;z-index:2;margin-bottom:18px;color:var(--br-gold);
+  font:500 10px 'Cinzel',serif;letter-spacing:.32em;text-transform:uppercase;
+}
+#back-page .back-title{
+  position:relative;z-index:2;margin:0;color:#f0dfc5;
+  font:500 clamp(42px,7vw,86px)/.98 'Cinzel',serif;letter-spacing:.06em;
+  text-shadow:0 3px 0 #080405,0 12px 34px rgba(0,0,0,.55);
+}
+#back-page .back-title em{color:var(--br-pale);font:500 1.12em 'Cormorant Garamond',serif;font-style:italic;letter-spacing:.01em}
+#back-page .back-subtitle{
+  position:relative;z-index:2;max-width:680px;margin:22px auto 0;color:var(--br-faint);
+  font-size:18px;font-style:italic;line-height:1.6;letter-spacing:.04em;
+}
+#back-page .warning-strip{
+  position:relative;z-index:2;max-width:900px;margin:34px auto 0;padding:15px 22px;
+  border:1px solid rgba(200,139,152,.45);
+  background:linear-gradient(90deg,rgba(90,38,51,.12),rgba(169,104,117,.13),rgba(90,38,51,.12));
+  color:var(--br-pale);font:500 10px/1.7 'Cinzel',serif;letter-spacing:.16em;text-transform:uppercase;
+  box-shadow:inset 0 0 0 2px rgba(221,201,143,.055),0 10px 30px rgba(0,0,0,.18);
+}
 
-    <div class="hero-title-wrap">
-      <p class="eyebrow">Behind Florenzia</p>
-      <h1>THE BACKROOM</h1>
-      <p class="hero-subtitle">Ledgers, sealed requests, and flowers that never reach the front shelves.</p>
-    </div>
+/* ─── EXTRACTS ─── */
+#back-page .extracts-inner{
+  position:relative;z-index:2;width:min(1120px,calc(100% - 44px));margin:0 auto;padding:78px 0 96px;
+}
+#back-page .extracts-ribbon{
+  position:relative;display:flex;align-items:center;min-height:82px;margin:0 0 34px;
+  padding:14px 32px 14px 94px;border:1px solid rgba(221,201,143,.42);
+  background:linear-gradient(90deg,rgba(111,48,63,.96),rgba(73,28,40,.96) 72%,rgba(53,21,30,.96));
+  box-shadow:0 18px 38px rgba(0,0,0,.36),inset 0 0 0 2px rgba(255,255,255,.025);
+}
+#back-page .extracts-ribbon::before,#back-page .extracts-ribbon::after{
+  content:'';position:absolute;bottom:-9px;width:18px;height:18px;background:var(--br-burgundy-deep);
+  border-bottom:1px solid rgba(221,201,143,.24);
+}
+#back-page .extracts-ribbon::before{left:-1px;transform:skewY(28deg)}
+#back-page .extracts-ribbon::after{right:-1px;transform:skewY(-28deg)}
+#back-page .rose-cluster{
+  position:absolute;left:22px;width:52px;height:52px;display:grid;place-items:center;border-radius:50%;
+  color:#f2c9d0;background:radial-gradient(circle,#c88b98 0 28%,#75404d 29% 57%,#3d1d27 58% 100%);
+  border:1px solid rgba(221,201,143,.56);box-shadow:0 0 0 4px rgba(221,201,143,.08),0 8px 18px rgba(0,0,0,.25);
+  font-size:24px;
+}
+#back-page .extracts-ribbon h2{margin:0;color:#fff0dc;font:500 clamp(22px,4vw,34px) 'Cinzel',serif;letter-spacing:.04em}
+#back-page .circle-note{
+  max-width:920px;margin:0 auto 42px;padding:24px 28px;
+  border-left:2px solid var(--br-gold);border-top:1px solid rgba(221,201,143,.1);border-bottom:1px solid rgba(221,201,143,.08);
+  background:linear-gradient(90deg,rgba(185,154,91,.055),transparent 70%);
+}
+#back-page .circle-note p{margin:0 0 12px;color:var(--br-muted);font-size:16px;line-height:1.8}
+#back-page .circle-note p:last-child{margin-bottom:0}
+#back-page .circle-note strong{color:var(--br-gold-light);font:500 13px 'Cinzel',serif;letter-spacing:.09em}
+#back-page .circle-small{margin-top:18px!important;color:rgba(234,220,197,.42)!important;font-style:italic}
+#back-page .extract-table-header,#back-page .extract-row{display:grid;grid-template-columns:1.4fr .7fr 1.5fr .65fr;gap:30px}
+#back-page .extract-table-header{
+  padding:0 20px 12px;border-bottom:1px solid var(--br-line);color:rgba(221,201,143,.62);
+  font:500 10px 'Cinzel',serif;letter-spacing:.2em;text-transform:uppercase;
+}
+#back-page .extract-row{
+  position:relative;align-items:start;margin-top:10px;padding:25px 24px 25px 34px;
+  border:1px solid rgba(221,201,143,.14);
+  background:linear-gradient(135deg,rgba(255,255,255,.022),rgba(169,104,117,.025));
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,.2);
+  transition:transform .25s ease,border-color .25s ease,background .25s ease,box-shadow .25s ease;
+}
+#back-page .extract-row::before{content:'';position:absolute;inset:0 auto 0 0;width:5px;background:linear-gradient(180deg,var(--br-dusty),var(--br-burgundy))}
+#back-page .extract-row:hover{transform:translateX(4px);border-color:rgba(221,201,143,.3);background:rgba(169,104,117,.055);box-shadow:0 12px 28px rgba(0,0,0,.25)}
+#back-page .ext-name{margin:0;color:#f0ddc3;font:600 26px/1.15 'Cormorant Garamond',serif}
+#back-page .ext-source{margin:6px 0 0;color:rgba(234,220,197,.42);font-size:13px;font-style:italic;line-height:1.5}
+#back-page .ext-effect{margin:0;color:rgba(234,220,197,.67);font-size:15px;line-height:1.75}
+#back-page .ext-price{margin:0;color:var(--br-gold-light);font:500 16px/1.4 'Cinzel',serif;white-space:nowrap}
+#back-page .ext-grade{
+  display:inline-flex;align-items:center;justify-content:center;min-width:82px;padding:7px 10px;border-radius:2px;
+  font:500 10px 'Cinzel',serif;letter-spacing:.06em;box-shadow:inset 0 0 0 1px rgba(255,255,255,.06);
+}
+#back-page .grade-i{color:#f4e6c7;background:linear-gradient(135deg,#9b6872,#68404a)}
+#back-page .grade-ii{color:#f1d5da;background:linear-gradient(135deg,#78424e,#4a2931)}
+#back-page .grade-iii{color:#e6cf9b;background:linear-gradient(135deg,#5c4a30,#2d2419);border:1px solid rgba(221,201,143,.35)}
 
-    <div class="fleur-row" aria-hidden="true">✦ ❦ ❦ ❦ ✦</div>
-  </header>
+/* ─── LEDGER / ROOTWORK ─── */
+#back-page .ledger-section{
+  position:relative;z-index:2;width:min(1120px,calc(100% - 44px));margin:0 auto;padding:70px 0;
+  display:grid;grid-template-columns:1fr 1fr;gap:22px;
+}
+#back-page .ledger-block{
+  position:relative;padding:34px;border:1px solid rgba(221,201,143,.2);
+  background:linear-gradient(145deg,rgba(255,255,255,.022),rgba(169,104,117,.035));box-shadow:0 16px 34px rgba(0,0,0,.24);
+}
+#back-page .ledger-block::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--br-gold),transparent);opacity:.65;
+}
+#back-page .ledger-block.red-ledger::before{background:linear-gradient(90deg,var(--br-rose),transparent)}
+#back-page .ledger-title{margin:0 0 18px;color:var(--br-gold-light);font:500 22px/1.2 'Cinzel',serif;letter-spacing:.04em}
+#back-page .ledger-body{margin:0;color:rgba(234,220,197,.65);font-size:16px;line-height:1.8}
+#back-page .ledger-body strong{color:var(--br-pale)}
+#back-page .ledger-body em{color:#c88b98}
 
-  <main class="backroom-ledger">
-    <section class="project-ribbon">
-      <div class="rose-cluster" aria-hidden="true">✥</div>
-      <div>
-        <p class="ribbon-kicker">The Proprietress keeps record of</p>
-        <h2>Quiet Commissions</h2>
-      </div>
-      <span class="task-count">VII Notes</span>
-    </section>
+/* ─── CURRENT COMPLICATIONS ─── */
+#back-page .tension-section{
+  position:relative;z-index:2;width:min(1120px,calc(100% - 44px));margin:0 auto;padding:72px 0 96px;
+}
+#back-page .tension-title{margin:0 0 30px;color:#f0ddc3;font:500 clamp(28px,5vw,48px)/1.1 'Cinzel',serif;text-align:center;letter-spacing:.04em}
+#back-page .status-legend{display:flex;flex-wrap:wrap;justify-content:center;gap:18px;margin-bottom:40px;color:rgba(234,220,197,.5);font-size:13px}
+#back-page .legend-item{display:flex;align-items:center;gap:8px}
+#back-page .dot{width:8px;height:8px;border-radius:50%;box-shadow:0 0 10px currentColor}
+#back-page .dot.critical{color:#a85c68;background:#a85c68}
+#back-page .dot.warning{color:#b99a5b;background:#b99a5b}
+#back-page .dot.stable{color:#71816a;background:#71816a}
+#back-page .tension-item{display:grid;grid-template-columns:6px 1fr;gap:22px;padding:24px 0;border-bottom:1px solid rgba(221,201,143,.11)}
+#back-page .tension-marker{width:5px;min-height:100%;border-radius:4px}
+#back-page .t-red{background:#9d5965}.t-amber{background:#b99a5b}.t-green{background:#71816a}
+#back-page .tension-name{margin:0 0 6px;color:var(--br-pale);font:500 15px/1.4 'Cinzel',serif;letter-spacing:.04em}
+#back-page .tension-text{margin:0;color:rgba(234,220,197,.58);font-size:16px;line-height:1.75}
 
-    <article class="task-card active">
-      <div class="card-stem"></div>
-      <div class="card-content">
-        <div class="card-topline">
-          <div>
-            <h3>Violet Ink Request</h3>
-            <p>Muted rose-grey · sealed beneath wax</p>
-          </div>
-          <span class="status active">ACTIVE</span>
-        </div>
-        <div class="progress-frame">
-          <span style="width: 64%"></span>
-        </div>
-        <div class="card-footer">
-          <span>✦ ◆ ❦ ❦ ◆ ✦</span>
-          <button type="button">Open Ledger</button>
-        </div>
-      </div>
-    </article>
+/* ─── FOOTER ─── */
+#back-page .footer-back{
+  position:relative;z-index:2;padding:70px 20px 100px;text-align:center;border-top:1px solid rgba(221,201,143,.16);
+}
+#back-page .footer-back::before{content:'❦  ✦  ❦';display:block;margin-bottom:24px;color:rgba(221,201,143,.42);letter-spacing:.45em}
+#back-page .footer-back-text{margin:0 0 24px;color:rgba(234,220,197,.38);font-size:15px;font-style:italic}
+#back-page .back-btn{
+  padding:12px 24px;border:1px solid rgba(221,201,143,.38);border-radius:999px;background:rgba(20,10,11,.75);
+  color:var(--br-gold-light);font:500 11px 'Cinzel',serif;letter-spacing:.08em;cursor:pointer;
+  transition:background .25s ease,color .25s ease,border-color .25s ease,transform .25s ease;
+}
+#back-page .back-btn:hover{transform:translateY(-2px);background:var(--br-burgundy);color:#fff1dc;border-color:var(--br-pale)}
 
-    <section class="project-ribbon compact">
-      <div class="rose-cluster" aria-hidden="true">✥</div>
-      <h2>Hidden Stock</h2>
-      <span class="task-count">XIV Stems</span>
-    </section>
-
-    <article class="task-card done">
-      <div class="card-stem"></div>
-      <div class="card-content row-card">
-        <div>
-          <h3>Belladonna Bundle</h3>
-          <p>Kept away from the morning light</p>
-        </div>
-        <span class="round-clock">Ⅷ</span>
-        <span class="status done">DONE</span>
-      </div>
-    </article>
-
-    <article class="task-card pending">
-      <div class="card-stem"></div>
-      <div class="card-content row-card">
-        <div>
-          <h3>Moonwort Parcel</h3>
-          <p>Awaiting a name without a face</p>
-        </div>
-        <span class="date-mark">XIV<br>APR</span>
-        <span class="status pending">PENDING</span>
-      </div>
-    </article>
-
-    <article class="task-card overdue">
-      <div class="card-stem"></div>
-      <div class="card-content row-card muted">
-        <div>
-          <h3>Crimson Root</h3>
-          <p>Record incomplete · do not display</p>
-        </div>
-        <span class="status overdue">OVERDUE</span>
-      </div>
-    </article>
-  </main>
-</section>
-
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,500&display=swap');
-
-  :root {
-    --backroom-black: #17100d;
-    --backroom-brown: #2a1d17;
-    --ink: #eadcc5;
-    --old-gold: #b99a5b;
-    --soft-gold: #d6bf86;
-    --rose: #a86170;
-    --rose-dark: #6e3945;
-    --rose-pale: #d8a5ae;
-    --lace: rgba(234, 220, 197, 0.22);
-    --shadow: rgba(0, 0, 0, 0.48);
-  }
-
-  #backroom.backroom-page {
-    position: relative;
-    min-height: 100vh;
-    overflow: hidden;
-    padding: 18px 14px 86px;
-    color: var(--ink);
-    background:
-      radial-gradient(circle at 50% 16%, rgba(169, 97, 112, 0.18), transparent 28%),
-      radial-gradient(circle at 20% 76%, rgba(185, 154, 91, 0.12), transparent 24%),
-      linear-gradient(180deg, #100b09 0%, #211713 48%, #0d0908 100%);
-    font-family: 'Cormorant Garamond', Georgia, serif;
-  }
-
-  .backroom-page::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0.18;
-    background-image:
-      linear-gradient(rgba(214, 191, 134, 0.22) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(214, 191, 134, 0.16) 1px, transparent 1px);
-    background-size: 34px 34px;
-    mask-image: radial-gradient(circle at center, black, transparent 78%);
-  }
-
-  .backroom-page::after {
-    content: 'Ⅻ Ⅰ Ⅱ Ⅲ Ⅳ Ⅴ Ⅵ Ⅶ Ⅷ Ⅸ Ⅹ Ⅺ';
-    position: absolute;
-    inset: 110px auto auto 50%;
-    transform: translateX(-50%);
-    width: 640px;
-    max-width: 160vw;
-    height: 640px;
-    border: 1px solid rgba(214, 191, 134, 0.18);
-    border-radius: 50%;
-    color: rgba(214, 191, 134, 0.09);
-    font-family: 'Cinzel', serif;
-    font-size: clamp(2.6rem, 10vw, 6.6rem);
-    letter-spacing: 0.14em;
-    display: grid;
-    place-items: start center;
-    padding-top: 42px;
-    pointer-events: none;
-  }
-
-  .backroom-noise {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0.17;
-    background-image: radial-gradient(rgba(255,255,255,.55) .7px, transparent .7px);
-    background-size: 5px 5px;
-    mix-blend-mode: overlay;
-  }
-
-  .backroom-hero,
-  .backroom-ledger {
-    position: relative;
-    z-index: 1;
-    width: min(760px, 100%);
-    margin-inline: auto;
-  }
-
-  .backroom-hero {
-    min-height: 154px;
-    padding: 22px 18px 20px 112px;
-    border: 1px solid rgba(214, 191, 134, 0.36);
-    border-radius: 28px 28px 8px 8px;
-    background:
-      linear-gradient(90deg, rgba(42, 29, 23, 0.95), rgba(27, 17, 13, 0.84)),
-      repeating-linear-gradient(90deg, transparent 0 18px, rgba(214,191,134,.08) 18px 19px);
-    box-shadow: 0 18px 40px var(--shadow), inset 0 0 0 3px rgba(185,154,91,.08);
-  }
-
-  .backroom-hero::before,
-  .backroom-hero::after {
-    content: '❦ ❦ ❦ ❦ ❦ ❦ ❦ ❦ ❦ ❦';
-    position: absolute;
-    left: 18px;
-    right: 18px;
-    overflow: hidden;
-    white-space: nowrap;
-    color: rgba(214, 191, 134, 0.54);
-    font-size: 0.95rem;
-    letter-spacing: 0.35em;
-  }
-
-  .backroom-hero::before { top: 8px; }
-  .backroom-hero::after { bottom: 8px; transform: rotate(180deg); }
-
-  .seal-clock {
-    position: absolute;
-    left: 22px;
-    top: 24px;
-    width: 72px;
-    aspect-ratio: 1;
-    display: grid;
-    place-items: center;
-    border-radius: 50%;
-    color: var(--soft-gold);
-    font: 600 1.1rem 'Cinzel', serif;
-    background:
-      radial-gradient(circle, #5b363d 0 42%, #a76c76 43% 48%, #4c2a2f 49% 55%, #211713 56% 100%);
-    box-shadow: 0 0 0 4px #8b5761, 0 0 0 7px rgba(214,191,134,.44), 0 8px 24px var(--shadow);
-  }
-
-  .seal-clock::before,
-  .seal-clock::after {
-    content: '';
-    position: absolute;
-    width: 2px;
-    height: 22px;
-    background: var(--soft-gold);
-    transform-origin: bottom center;
-    bottom: 50%;
-    left: calc(50% - 1px);
-  }
-
-  .seal-clock::before { transform: rotate(42deg); }
-  .seal-clock::after { height: 17px; transform: rotate(104deg); }
-
-  .eyebrow,
-  .ribbon-kicker {
-    margin: 0 0 4px;
-    color: var(--old-gold);
-    font: 600 0.7rem 'Cinzel', serif;
-    letter-spacing: 0.34em;
-    text-transform: uppercase;
-  }
-
-  .backroom-hero h1 {
-    margin: 0;
-    font: 500 clamp(2rem, 8vw, 4rem) 'Cinzel', serif;
-    letter-spacing: 0.1em;
-    text-shadow: 0 2px 0 #000;
-  }
-
-  .hero-subtitle {
-    max-width: 440px;
-    margin: 8px 0 0;
-    color: rgba(234, 220, 197, 0.75);
-    font-size: 1.12rem;
-    font-style: italic;
-  }
-
-  .fleur-row {
-    margin-top: 14px;
-    color: var(--old-gold);
-    letter-spacing: 0.2em;
-  }
-
-  .backroom-ledger {
-    margin-top: 20px;
-  }
-
-  .project-ribbon {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    min-height: 76px;
-    margin: 24px 0 14px;
-    padding: 13px 14px 13px 82px;
-    border: 1px solid rgba(214, 191, 134, 0.45);
-    background:
-      linear-gradient(90deg, rgba(165, 94, 108, .95), rgba(111, 57, 69, .9)),
-      repeating-linear-gradient(45deg, rgba(255,255,255,.1) 0 12px, transparent 12px 24px);
-    box-shadow: 0 10px 28px var(--shadow), inset 0 0 0 2px rgba(255,255,255,.06);
-  }
-
-  .project-ribbon.compact {
-    min-height: 62px;
-  }
-
-  .rose-cluster {
-    position: absolute;
-    left: 16px;
-    width: 48px;
-    aspect-ratio: 1;
-    display: grid;
-    place-items: center;
-    border-radius: 50%;
-    color: #f0c2ca;
-    background: radial-gradient(circle, #b87482, #543038 68%);
-    box-shadow: 0 0 0 4px rgba(214,191,134,.22);
-    font-size: 1.7rem;
-  }
-
-  .project-ribbon h2 {
-    margin: 0;
-    font: italic 600 clamp(1.7rem, 7vw, 3rem) 'Cormorant Garamond', serif;
-    line-height: 1;
-  }
-
-  .task-count {
-    margin-left: auto;
-    flex: 0 0 auto;
-    padding: 8px 12px;
-    border: 1px solid rgba(214, 191, 134, 0.65);
-    background: rgba(26, 17, 14, 0.76);
-    color: #f2dfb7;
-    font: 600 .9rem 'Cinzel', serif;
-    box-shadow: inset 0 0 0 2px rgba(255,255,255,.06);
-  }
-
-  .task-card {
-    position: relative;
-    margin: 11px 0;
-    padding: 2px;
-    border: 1px solid rgba(214, 191, 134, 0.42);
-    background:
-      linear-gradient(90deg, rgba(185,154,91,.42), transparent 18%, transparent 82%, rgba(185,154,91,.26)),
-      #1a100d;
-    box-shadow: 0 12px 24px rgba(0,0,0,.34), inset 0 0 0 2px rgba(214,191,134,.08);
-  }
-
-  .task-card::before,
-  .task-card::after {
-    content: '';
-    position: absolute;
-    left: 8px;
-    right: 8px;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(214,191,134,.68), transparent);
-  }
-
-  .task-card::before { top: 7px; }
-  .task-card::after { bottom: 7px; }
-
-  .card-stem {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 34px;
-    background: linear-gradient(#9f5d69, #c58c98);
-    border-right: 1px solid rgba(214,191,134,.42);
-  }
-
-  .card-content {
-    position: relative;
-    padding: 20px 14px 18px 52px;
-  }
-
-  .card-topline,
-  .row-card {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    justify-content: space-between;
-  }
-
-  .task-card h3 {
-    margin: 0;
-    color: #fff0d7;
-    font-size: clamp(1.35rem, 5vw, 2.1rem);
-    line-height: 1;
-  }
-
-  .task-card p {
-    margin: 5px 0 0;
-    color: rgba(234, 220, 197, 0.68);
-    font-size: 1.02rem;
-    font-style: italic;
-  }
-
-  .status {
-    flex: 0 0 auto;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 84px;
-    padding: 9px 12px;
-    border-radius: 14px;
-    font: 600 .82rem 'Cinzel', serif;
-    letter-spacing: .06em;
-    box-shadow: inset 0 1px 0 rgba(255,255,255,.22), 0 6px 16px rgba(0,0,0,.28);
-  }
-
-  .status.active {
-    background: linear-gradient(#c98491, #8f4a57);
-    color: #fff1e7;
-  }
-
-  .status.done {
-    background: linear-gradient(#d9bd7f, #8b6431);
-    color: #fff8df;
-  }
-
-  .status.pending {
-    background: transparent;
-    border: 1px solid rgba(234,220,197,.4);
-    color: rgba(234,220,197,.62);
-  }
-
-  .status.overdue {
-    background: linear-gradient(#59443c, #2e211d);
-    color: #e4c7b8;
-  }
-
-  .progress-frame {
-    height: 18px;
-    margin: 18px 0 12px;
-    padding: 2px;
-    border: 1px solid rgba(214, 191, 134, .5);
-    border-radius: 999px;
-    background: #0b0706;
-    overflow: hidden;
-  }
-
-  .progress-frame span {
-    display: block;
-    height: 100%;
-    border-radius: inherit;
-    background:
-      repeating-linear-gradient(45deg, #e7c8cd 0 12px, #9d5965 12px 24px),
-      linear-gradient(90deg, var(--rose-pale), var(--rose));
-  }
-
-  .card-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    color: var(--old-gold);
-  }
-
-  .card-footer button {
-    cursor: pointer;
-    border: 1px solid rgba(214,191,134,.55);
-    background: rgba(26,17,14,.8);
-    color: #f0dfbd;
-    padding: 7px 11px;
-    border-radius: 999px;
-    font: 600 .74rem 'Cinzel', serif;
-    letter-spacing: .08em;
-  }
-
-  .round-clock {
-    display: grid;
-    place-items: center;
-    width: 42px;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    border: 1px solid rgba(214,191,134,.55);
-    color: var(--soft-gold);
-    font: 600 .96rem 'Cinzel', serif;
-    background: radial-gradient(circle, #30201a, #0f0a08);
-  }
-
-  .date-mark {
-    color: #e3b1ba;
-    text-align: center;
-    font: 600 1.1rem/0.95 'Cinzel', serif;
-  }
-
-  .muted {
-    opacity: .58;
-  }
-
-  @media (max-width: 520px) {
-    #backroom.backroom-page {
-      padding-inline: 10px;
-    }
-
-    .backroom-hero {
-      padding: 100px 18px 24px;
-      text-align: center;
-    }
-
-    .seal-clock {
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    .project-ribbon {
-      padding-left: 68px;
-    }
-
-    .project-ribbon h2 {
-      font-size: 1.85rem;
-    }
-
-    .task-count,
-    .status {
-      min-width: auto;
-      font-size: .7rem;
-      padding-inline: 9px;
-    }
-
-    .row-card {
-      align-items: flex-start;
-    }
-  }
+/* ─── RESPONSIVE ─── */
+@media (max-width:900px){
+  #back-page .extract-table-header{display:none}
+  #back-page .extract-row{grid-template-columns:1fr 1fr;gap:16px 20px}
+  #back-page .extract-row>div:first-child{grid-column:1/-1}
+  #back-page .extract-row>div:nth-child(2){align-self:center}
+  #back-page .ext-price{white-space:normal}
+  #back-page .ledger-section{grid-template-columns:1fr}
+}
+@media (max-width:700px){
+  .top-tabs{top:10px;width:calc(100% - 20px);overflow-x:auto;justify-content:flex-start;white-space:nowrap;scrollbar-width:none}
+  .top-tabs::-webkit-scrollbar{display:none}
+  .top-tabs a{padding:8px 11px;font-size:10px}
+  .about-strip{grid-template-columns:1fr}
+  .products-section,.ledger-section,.tension-section{padding:48px 28px}
+  .front-hero{padding:60px 24px 40px}
+  .footer-front{flex-direction:column;gap:12px;text-align:center}
+  #back-page .back-hero{width:calc(100% - 24px);margin:12px auto 0;min-height:640px;padding:76px 18px 62px}
+  #back-page .back-title{font-size:clamp(34px,11vw,58px)}
+  #back-page .back-subtitle{font-size:16px;max-width:92%}
+  #back-page .warning-strip{max-width:94%;padding:12px 15px;font-size:8px;letter-spacing:.12em}
+  #back-page .extracts-inner,#back-page .ledger-section,#back-page .tension-section{width:calc(100% - 28px)}
+  #back-page .extracts-inner{padding:52px 0 70px}
+  #back-page .extracts-ribbon{min-height:70px;padding:12px 18px 12px 78px}
+  #back-page .rose-cluster{left:16px;width:44px;height:44px;font-size:20px}
+  #back-page .extracts-ribbon h2{font-size:21px}
+  #back-page .circle-note{padding:18px 18px 18px 20px}
+  #back-page .extract-row{grid-template-columns:1fr;gap:14px;padding:22px 18px 22px 26px}
+  #back-page .extract-row>div:first-child{grid-column:auto}
+  #back-page .ext-name{font-size:23px}
+  #back-page .ledger-section{padding:50px 0}
+  #back-page .ledger-block{padding:25px}
+  #back-page .tension-section{padding:50px 0 70px}
+}
+@media (max-width:480px){
+  #back-page .seal-clock{width:72px}
+  #back-page .back-title{font-size:34px}
+  #back-page .back-subtitle{font-size:15px}
+  #back-page .warning-strip{font-size:8px;line-height:1.8}
+  #back-page .ledger-title{font-size:19px}
+  #back-page .ledger-body,#back-page .tension-text{font-size:15px}
+}
 </style>
-
 </head>
 <body>
   <nav class="top-tabs">
