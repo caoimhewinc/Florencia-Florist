@@ -143,20 +143,324 @@ body::before {
   font-weight: 300;
 }
 
-.shop-logo {
+/* ═══════════════════════════════════════════════
+   FLORENZIA — LOGO
+═══════════════════════════════════════════════ */
+
+.shop-logo-wrap {
+  position: relative;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  margin: 15px auto 30px;
+  justify-content: center;
+
   width: 100%;
+  margin: 15px auto 30px;
+
+  perspective: 900px;
 }
 
+
+/* ═══════════════════════════════════════════════
+   LOGO BUTTON
+═══════════════════════════════════════════════ */
+
+.shop-logo {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: min(600px, 80vw);
+
+  padding: 0;
+  margin: 0;
+
+  border: none;
+  background: transparent;
+
+  cursor: pointer;
+
+  transform-style: preserve-3d;
+
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.45s ease;
+}
+
+
+/* ═══════════════════════════════════════════════
+   LOGO IMAGE
+═══════════════════════════════════════════════ */
+
 .shop-logo img {
+  position: relative;
+  z-index: 2;
+
   display: block;
-  width: min(700px, 85vw);
+
+  width: 100%;
   height: auto;
+
   object-fit: contain;
-  filter: drop-shadow(1px 2px 2px rgba(60, 50, 35, 0.18));
+
+  user-select: none;
+  -webkit-user-drag: none;
+
+  filter:
+    drop-shadow(
+      1px
+      2px
+      2px
+      rgba(60, 50, 35, 0.18)
+    );
+
+  transition:
+    filter 0.45s ease,
+    transform 0.45s ease;
+}
+
+
+/* ═══════════════════════════════════════════════
+   HOVER — LOGO FLOAT
+═══════════════════════════════════════════════ */
+
+.shop-logo:hover {
+  transform:
+    translateY(-3px)
+    scale(1.015);
+}
+
+.shop-logo:hover img {
+  filter:
+    drop-shadow(
+      2px
+      6px
+      5px
+      rgba(60, 50, 35, 0.22)
+    )
+    drop-shadow(
+      0
+      0
+      10px
+      rgba(180, 150, 90, 0.15)
+    );
+}
+
+
+/* ═══════════════════════════════════════════════
+   GOLDEN SHIMMER
+═══════════════════════════════════════════════ */
+
+.logo-shimmer {
+  position: absolute;
+
+  top: 0;
+  left: -30%;
+
+  width: 20%;
+  height: 100%;
+
+  z-index: 3;
+
+  pointer-events: none;
+
+  opacity: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 248, 220, 0.65),
+      transparent
+    );
+
+  transform:
+    skewX(-20deg);
+
+  filter:
+    blur(2px);
+}
+
+
+/* Shimmer happens once when page opens */
+
+.shop-logo-wrap.anim-d2 .logo-shimmer {
+  animation:
+    logoShimmer 1.6s ease-in-out 0.9s 1;
+}
+
+
+@keyframes logoShimmer {
+
+  0% {
+    left: -30%;
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 0.8;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    left: 120%;
+    opacity: 0;
+  }
+
+}
+
+
+/* ═══════════════════════════════════════════════
+   SECRET INSCRIPTION
+═══════════════════════════════════════════════ */
+
+.logo-secret {
+  margin-top: 10px;
+
+  font-family:
+    'Cormorant Garamond',
+    Georgia,
+    serif;
+
+  font-size: 13px;
+
+  font-style: italic;
+
+  letter-spacing: 0.04em;
+
+  color: var(--moss);
+
+  opacity: 0;
+
+  transform: translateY(-4px);
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+}
+
+
+/* Show secret when hovering logo */
+
+.shop-logo-wrap:hover .logo-secret {
+  opacity: 0.8;
+
+  transform: translateY(0);
+}
+
+
+/* ═══════════════════════════════════════════════
+   CLICK — STAMP EFFECT
+═══════════════════════════════════════════════ */
+
+.shop-logo.is-stamped {
+  animation:
+    logoStamp 0.45s ease;
+}
+
+
+@keyframes logoStamp {
+
+  0% {
+    transform:
+      scale(1)
+      rotate(0deg);
+  }
+
+  35% {
+    transform:
+      scale(0.96)
+      rotate(-1deg);
+  }
+
+  65% {
+    transform:
+      scale(1.02)
+      rotate(0.5deg);
+  }
+
+  100% {
+    transform:
+      scale(1)
+      rotate(0deg);
+  }
+
+}
+
+
+/* ═══════════════════════════════════════════════
+   MOBILE
+═══════════════════════════════════════════════ */
+
+@media (max-width: 600px) {
+
+  .shop-logo {
+    width: 85vw;
+  }
+
+  .logo-secret {
+    font-size: 11px;
+
+    max-width: 85vw;
+
+    text-align: center;
+  }
+
+}
+
+  /* ═══════════════════════════════════════════════
+   FLORENZIA LOGO — MOUSE PARALLAX
+═══════════════════════════════════════════════ */
+
+const logo = document.querySelector('.shop-logo');
+
+if (logo) {
+
+  logo.addEventListener('mousemove', (event) => {
+
+    const rect = logo.getBoundingClientRect();
+
+    const x =
+      event.clientX - rect.left;
+
+    const y =
+      event.clientY - rect.top;
+
+    const centerX =
+      rect.width / 2;
+
+    const centerY =
+      rect.height / 2;
+
+    const rotateY =
+      ((x - centerX) / centerX) * 2;
+
+    const rotateX =
+      ((centerY - y) / centerY) * 1.5;
+
+    logo.style.transform = `
+      translateY(-3px)
+      scale(1.015)
+      rotateX(${rotateX}deg)
+      rotateY(${rotateY}deg)
+    `;
+
+  });
+
+
+  logo.addEventListener('mouseleave', () => {
+
+    logo.style.transform = '';
+
+  });
+
 }
 
 .shop-divider {
@@ -1278,45 +1582,78 @@ body::before {
 
 <div class="page-frame"></div>
 
-  
-
 <!-- ═══ FRONT PAGE ═══ -->
 <div id="front-page">
 
-<section class="front-hero">
+  <section class="front-hero">
 
-  <p class="shop-eyebrow anim anim-d1">
-    Est. in the reign of Thrael Oriendel de Fortuna
-  </p>
+    <p class="shop-eyebrow anim anim-d1">
+      Est. in the reign of Thrael Oriendel de Fortuna
+    </p>
 
-  <!-- LOGO -->
-  <div class="shop-logo anim anim-d2">
-    <img 
-      src="images/Florencia.png" 
-      alt="Florencia Florist"
-    >
-  </div>
-  
+    <!-- LOGO -->
+    <div class="shop-logo-wrap anim anim-d2">
+
+      <button 
+        class="shop-logo"
+        type="button"
+        aria-label="Florencia Florist"
+      >
+
+        <span class="logo-shimmer"></span>
+
+        <img 
+          src="images/Florencia.png" 
+          alt="Florencia Florist"
+        >
+
+      </button>
+
+      <span class="logo-secret">
+        Kept by Caoimhe Winchester · These Hundred Years and More
+      </span>
+
+    </div>
+
     <div class="shop-divider anim anim-d2">
       <span></span>
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1">
-        <circle cx="7" cy="7" r="2"/><line x1="7" y1="0" x2="7" y2="4"/><line x1="7" y1="10" x2="7" y2="14"/>
-        <line x1="0" y1="7" x2="4" y2="7"/><line x1="10" y1="7" x2="14" y2="7"/>
+
+      <svg 
+        width="14" 
+        height="14" 
+        viewBox="0 0 14 14" 
+        fill="none" 
+        stroke="currentColor" 
+        stroke-width="1"
+      >
+        <circle cx="7" cy="7" r="2"/>
+        <line x1="7" y1="0" x2="7" y2="4"/>
+        <line x1="7" y1="10" x2="7" y2="14"/>
+        <line x1="0" y1="7" x2="4" y2="7"/>
+        <line x1="10" y1="7" x2="14" y2="7"/>
       </svg>
+
       <span></span>
     </div>
+
     <p class="shop-tagline anim anim-d3">
       For every day in thy life, &amp; those thou wouldst make more fair,
-a flower shall ever await thee.
+      a flower shall ever await thee.
     </p>
-    <p class="shop-address anim anim-d3">221B Carter Street · Anclona 9¾ Quarter · Fortuna Imperia</p>
+
+    <p class="shop-address anim anim-d3">
+      221B Carter Street · Anclona 9¾ Quarter · Fortuna Imperia
+    </p>
+
     <nav class="front-nav anim anim-d4">
-<span class="florencia-phrase">Flowers</span>
-<span class="florencia-phrase">Garlands</span>
-<span class="florencia-phrase">Botanicals</span>
-      
+      <span class="florencia-phrase">Flowers</span>
+      <span class="florencia-phrase">Garlands</span>
+      <span class="florencia-phrase">Botanicals</span>
     </nav>
+
   </section>
+
+</div>
 
   <!-- Products -->
   <section class="products-section" id="flowers">
