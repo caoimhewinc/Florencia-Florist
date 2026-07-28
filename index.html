@@ -143,20 +143,19 @@ body::before {
   font-weight: 300;
 }
 
-.shop-title {
-  font-family: 'IM Fell English', Georgia, serif;
-  font-size: clamp(56px, 10vw, 96px);
-  font-weight: 400;
-  letter-spacing: -0.02em;
-  line-height: 0.9;
-  color: var(--ink);
-  margin-bottom: 8px;
-  text-align: center;
+.shop-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px auto 25px;
 }
 
-.shop-title em {
-  font-style: italic;
-  color: var(--moss);
+.shop-logo img {
+  display: block;
+  width: min(420px, 75vw);
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(1px 2px 2px rgba(60, 50, 35, 0.18));
 }
 
 .shop-divider {
@@ -1283,11 +1282,20 @@ body::before {
 <!-- ═══ FRONT PAGE ═══ -->
 <div id="front-page">
 
-  <section class="front-hero">
-    <p class="shop-eyebrow anim anim-d1">Est. in the reign of Thrael Oriendel de Fortuna</p>
-    <h1 class="shop-title anim anim-d2">
-      <em>Florencia Florist</em>
-    </h1>
+<section class="front-hero">
+
+  <p class="shop-eyebrow anim anim-d1">
+    Est. in the reign of Thrael Oriendel de Fortuna
+  </p>
+
+  <!-- LOGO -->
+  <div class="shop-logo anim anim-d2">
+    <img 
+      src="images/Florencia.png" 
+      alt="Florencia Florist"
+    >
+  </div>
+  
     <div class="shop-divider anim anim-d2">
       <span></span>
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1">
