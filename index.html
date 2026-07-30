@@ -1,4 +1,4 @@
-<!D<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -29,7 +29,7 @@ FRONT PAGE
 .front-hero::after {content:''; position:absolute; bottom:0; right:-60px; width:520px; height:520px; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Cg fill='none' stroke='%235a7248' stroke-width='0.6' opacity='0.12'%3E%3Cellipse cx='150' cy='150' rx='120' ry='80' transform='rotate(-20 150 150)'/%3E%3Cellipse cx='150' cy='150' rx='100' ry='60' transform='rotate(15 150 150)'/%3E%3Cellipse cx='150' cy='150' rx='80' ry='40' transform='rotate(50 150 150)'/%3E%3Cline x1='150' y1='30' x2='150' y2='270'/%3E%3Cline x1='30' y1='150' x2='270' y2='150'/%3E%3Ccircle cx='150' cy='150' r='8'/%3E%3Ccircle cx='150' cy='150' r='4'/%3E%3C/g%3E%3C/svg%3E"); background-size:contain; background-repeat:no-repeat; pointer-events:none; opacity:0.8;}
 .shop-eyebrow {font-family:'Crimson Pro', serif; font-size:11px; letter-spacing:0.28em; text-transform:uppercase; color:var(--gold); margin-bottom:20px; font-weight:300;}
 /* ═══════════════════════════════════════════════
-FLORENCIA — LOGO
+FLORENZIA — LOGO
 ═══════════════════════════════════════════════ */
 .shop-logo-wrap {position:relative; display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; margin:15px auto 30px; perspective:900px;}
 /* ═══════════════════════════════════════════════
@@ -78,21 +78,8 @@ MOBILE
 .logo-secret {font-size:11px; max-width:85vw; text-align:center;}
 }
 /* ═══════════════════════════════════════════════
-FLORENCIA LOGO — MOUSE PARALLAX
+FLORENZIA LOGO — MOUSE PARALLAX
 ═══════════════════════════════════════════════ */
-const logo = document.querySelector('.shop-logo'); if(logo) {logo.addEventListener('mousemove', (event) => {const rect = logo.getBoundingClientRect(); const x = event.clientX - rect.left; const y = event.clientY - rect.top; const centerX = rect.width / 2; const centerY = rect.height / 2; const rotateY =((x - centerX) / centerX) * 2; const rotateX =((centerY - y) / centerY) * 1.5; logo.style.transform = `
-translateY(-3px)
-scale(1.015)
-rotateX(${rotateX}deg)
-rotateY(${rotateY}deg)
-`;}
-); logo.addEventListener('mouseleave', () => {logo.style.transform = '';}
-);}
-/* ═══════════════════════════════════════════════
-FLORENCIA LOGO — STAMP CLICK
-═══════════════════════════════════════════════ */
-if(logo) {logo.addEventListener('click', () => {logo.classList.remove('is-stamped'); void logo.offsetWidth; logo.classList.add('is-stamped');}
-);}
 .shop-divider {display:flex; align-items:center; gap:16px; margin:24px 0; width:320px;}
 .shop-divider span {flex:1; height:1px; background:linear-gradient(to right, transparent, var(--gold), transparent);}
 .shop-divider svg {color:var(--gold); flex-shrink:0;}
@@ -352,6 +339,305 @@ All rules are scoped to #back-page.
 #back-page .ledger-title {font-size:19px}
 #back-page .ledger-body, #back-page .tension-text {font-size:15px}
 }
+/* ═══════════════════════════════════════════════
+   FLORENCIA FRONT — CENTERED BOTANICAL LAYOUT
+═══════════════════════════════════════════════ */
+
+html {scroll-behavior:smooth;}
+
+#front-page {
+  position:relative;
+  min-height:100vh;
+  overflow:hidden;
+  background:
+    linear-gradient(rgba(248,244,234,.76), rgba(242,233,215,.84)),
+    url("images/Botanical-vintage.jpg");
+  background-size:cover;
+  background-position:center top;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+}
+
+#front-page::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(255,253,247,.18), transparent 38%),
+    linear-gradient(180deg, rgba(255,252,245,.04), rgba(238,225,201,.16));
+}
+
+#front-page > * {
+  position:relative;
+  z-index:1;
+}
+
+.front-hero {
+  width:100%;
+  min-height:100vh;
+  padding:112px 24px 72px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  background:transparent;
+}
+
+.shop-eyebrow {
+  width:100%;
+  margin:0 auto 22px;
+  text-align:center;
+}
+
+.shop-logo-wrap {
+  width:100%;
+  max-width:760px;
+  margin:10px auto 28px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
+.shop-logo {
+  width:min(620px,82vw);
+  margin:0 auto;
+}
+
+.shop-divider {
+  width:min(340px,72vw);
+  margin:22px auto;
+}
+
+.shop-tagline {
+  width:min(100%,500px);
+  max-width:500px;
+  margin:0 auto 34px;
+  text-align:center;
+  font-size:19px;
+  line-height:1.65;
+}
+
+.shop-address {
+  width:100%;
+  margin:0 auto 38px;
+  padding:0 16px;
+  text-align:center;
+  line-height:1.8;
+}
+
+.front-nav {
+  width:100%;
+  max-width:520px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:clamp(22px,4vw,54px);
+  text-align:center;
+}
+
+.florencia-phrase {
+  flex:0 0 auto;
+  padding:10px 4px;
+  text-align:center;
+}
+
+.top-tabs {
+  position:fixed;
+  top:12px;
+  left:50%;
+  right:auto;
+  width:calc(100% - 32px);
+  max-width:1500px;
+  transform:translateX(-50%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:6px 14px;
+  background:rgba(247,242,232,.8);
+  border:1px solid rgba(184,151,42,.28);
+  border-radius:999px;
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  box-shadow:0 8px 28px rgba(40,29,15,.1), inset 0 1px 0 rgba(255,255,255,.5);
+  z-index:9999;
+}
+
+.top-tabs a {
+  flex:1 1 0;
+  min-width:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:13px 12px;
+  text-align:center;
+  white-space:nowrap;
+}
+
+.products-section {
+  position:relative;
+  width:100%;
+  padding:100px 40px 110px;
+  text-align:center;
+  background:linear-gradient(rgba(249,245,236,.58), rgba(245,238,225,.64));
+}
+
+.products-section::before {
+  content:"";
+  position:absolute;
+  inset:24px;
+  pointer-events:none;
+  border:1px solid rgba(184,151,42,.16);
+}
+
+.products-section .section-label,
+.products-section .section-heading,
+.products-section .section-sub {
+  position:relative;
+  z-index:1;
+  width:100%;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center;
+}
+
+.products-section .section-label {margin-bottom:14px;}
+.products-section .section-heading {margin-bottom:10px;}
+
+.products-section .section-sub {
+  max-width:640px;
+  margin-bottom:54px;
+  line-height:1.6;
+}
+
+.products-grid {
+  position:relative;
+  z-index:1;
+  width:min(100%,1220px);
+  max-width:1220px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:30px;
+  text-align:left;
+}
+
+.product-card {
+  min-width:0;
+  height:100%;
+  padding:34px 28px;
+  display:flex;
+  flex-direction:column;
+  background:rgba(248,243,233,.78);
+  border:1px solid rgba(184,151,42,.24);
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+  box-shadow:0 12px 34px rgba(58,43,24,.06), inset 0 1px 0 rgba(255,255,255,.48);
+}
+
+.product-card::before {
+  top:7px;
+  left:7px;
+  right:-7px;
+  bottom:-7px;
+}
+
+.product-desc {flex-grow:1;}
+.product-price {margin-top:22px;}
+
+.about-strip {
+  width:100%;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  background:transparent;
+}
+
+.about-text {
+  padding:90px clamp(40px,6vw,100px);
+}
+
+.about-text p {max-width:620px;}
+.about-image {min-height:700px;}
+
+@media (max-width:1050px) {
+  .products-grid {grid-template-columns:repeat(2,minmax(0,1fr));}
+  .about-strip {grid-template-columns:1fr;}
+  .about-image {min-height:520px;}
+}
+
+@media (max-width:700px) {
+  #front-page {
+    background-attachment:scroll;
+    background-position:center top;
+  }
+
+  .front-hero {
+    min-height:100svh;
+    padding:100px 20px 58px;
+  }
+
+  .shop-logo {width:min(88vw,540px);}
+
+  .shop-eyebrow {
+    padding:0 20px;
+    font-size:9px;
+    line-height:1.7;
+  }
+
+  .shop-tagline {
+    max-width:360px;
+    font-size:17px;
+  }
+
+  .shop-address {
+    max-width:370px;
+    font-size:10px;
+  }
+
+  .front-nav {
+    max-width:340px;
+    gap:18px;
+  }
+
+  .florencia-phrase {
+    font-size:10px;
+    letter-spacing:.15em;
+  }
+
+  .top-tabs {
+    width:calc(100% - 20px);
+    padding:5px 8px;
+    overflow-x:auto;
+    justify-content:flex-start;
+    scrollbar-width:none;
+  }
+
+  .top-tabs::-webkit-scrollbar {display:none;}
+
+  .top-tabs a {
+    flex:0 0 auto;
+    min-width:120px;
+    padding:10px 14px;
+    font-size:9px;
+  }
+
+  .products-section {padding:72px 20px 82px;}
+  .products-section::before {inset:10px;}
+
+  .products-grid {
+    grid-template-columns:1fr;
+    max-width:460px;
+    gap:24px;
+  }
+
+  .product-card {padding:30px 24px;}
+  .about-text {padding:64px 28px;}
+  .about-image {min-height:420px;}
+}
 </style>
 </head>
 <body>
@@ -362,7 +648,6 @@ All rules are scoped to #back-page.
   <a href="#about">The Proprietress</a>
   <a href="#complications">Complications</a>
 </nav>
-</html>
 <div class="page-frame"></div>
 <!-- ═══ FRONT PAGE ═══ -->
 <div id="front-page">
@@ -404,8 +689,7 @@ All rules are scoped to #back-page.
       <span class="florencia-phrase">Botanicals</span>
     </nav>
   </section>
-</div>
-  <!-- Products -->
+<!-- Products -->
   <section class="products-section" id="flowers">
     <p class="section-label">Seasonal Selection</p>
     <h2 class="section-heading">Fresh from the Glasshouse</h2>
@@ -1465,8 +1749,10 @@ function enterBackroom() {
   if(frontMusic){
     frontMusic.pause();
   }
-  backMusic.volume = 1;
-  backMusic.play();
+  if (backMusic) {
+    backMusic.volume = 1;
+    backMusic.play().catch(() => {});
+  }
   document.querySelector(".top-tabs").style.display = "none";
   document.getElementById('front-page').style.opacity='0';
   document.getElementById('front-page').style.transform='scale(0.98)';
@@ -1489,8 +1775,10 @@ function exitBackroom() {
   document.getElementById("bgm");
   const backMusic =
   document.getElementById("backroomBgm");
-  backMusic.pause();
-  backMusic.currentTime = 0;
+  if (backMusic) {
+    backMusic.pause();
+    backMusic.currentTime = 0;
+  }
   if(frontMusic){
     frontMusic.play();
   }
@@ -1515,6 +1803,42 @@ function exitBackroom() {
   },700);
 }
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const logo = document.querySelector('.shop-logo');
+
+  if (!logo) return;
+
+  logo.addEventListener('mousemove', event => {
+    const rect = logo.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateY = ((x - centerX) / centerX) * 2;
+    const rotateX = ((centerY - y) / centerY) * 1.5;
+
+    logo.style.transform = `
+      translateY(-3px)
+      scale(1.015)
+      rotateX(${rotateX}deg)
+      rotateY(${rotateY}deg)
+    `;
+  });
+
+  logo.addEventListener('mouseleave', () => {
+    logo.style.transform = '';
+  });
+
+  logo.addEventListener('click', () => {
+    logo.classList.remove('is-stamped');
+    void logo.offsetWidth;
+    logo.classList.add('is-stamped');
+  });
+});
+</script>
+
 <audio id="bgm" src="./audio/Florencia-sound.mp3" loop preload="auto"></audio>
 <div id="enterSoundLayer" style=" position: fixed; inset: 0; z-index: 999999; cursor: pointer; "></div>
 <script>
