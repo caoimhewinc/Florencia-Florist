@@ -803,15 +803,6 @@ html {scroll-behavior:smooth;}
 @keyframes backroomBorderGlint {
   to {--glint-angle:360deg;}
 }
-
-/* 05 — หัวข้อปรากฏก่อน แล้วจึงกะพริบเหมือนแสงเทียน */
-#back-page .back-title.anim {
-  opacity:0;
-
-  animation:
-    fadeInUp 0.7s ease 0.25s forwards,
-    backroomTitleFlicker 6s ease-in-out 1s infinite;
-}
 @keyframes backroomTitleFlicker {
   0%,100% {
     text-shadow:0 3px 0 #080405,0 12px 34px rgba(0,0,0,.55),0 0 0 rgba(226,177,185,0);
@@ -1037,13 +1028,59 @@ html {scroll-behavior:smooth;}
     right:-230px;
   }
 }
-/* FIX — Restore Backroom heading */
-#back-page .back-title.anim {
-  opacity:0 !important;
+   /* FIX FINAL — Backroom title visible + candle flicker */
+#back-page .back-title {
+  display:block !important;
+  visibility:visible !important;
+  opacity:1 !important;
+  transform:none !important;
 
   animation:
-    fadeInUp 0.7s ease 0.25s forwards,
-    backroomTitleFlicker 6s ease-in-out 1s infinite !important;
+    backroomTitleReveal 0.8s ease both,
+    backroomTitleFlicker 6s ease-in-out 0.8s infinite !important;
+}
+
+@keyframes backroomTitleReveal {
+  0% {
+    opacity:0;
+    transform:translateY(20px);
+  }
+
+  100% {
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes backroomTitleFlicker {
+  0%,
+  100% {
+    text-shadow:
+      0 3px 0 #080405,
+      0 12px 34px rgba(0,0,0,.55),
+      0 0 0 rgba(226,177,185,0);
+  }
+
+  25% {
+    text-shadow:
+      0 3px 0 #080405,
+      0 12px 34px rgba(0,0,0,.55),
+      0 0 16px rgba(226,177,185,.08);
+  }
+
+  50% {
+    text-shadow:
+      0 3px 0 #080405,
+      0 13px 36px rgba(0,0,0,.58),
+      0 0 20px rgba(221,201,143,.06);
+  }
+
+  75% {
+    text-shadow:
+      0 3px 0 #080405,
+      0 11px 32px rgba(0,0,0,.52),
+      0 0 12px rgba(226,177,185,.05);
+  }
 }
 </style>
 </head>
@@ -1180,9 +1217,9 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
   <section class="back-hero">
     <div class="seal-clock anim anim-d1" aria-hidden="true"><span>XI</span></div>
     <p class="back-eyebrow anim anim-d1">Restricted · For known clients only</p>
-    <h1 class="back-title anim anim-d2">
-      The <em>Backroom</em><br>Catalogue
-    </h1>
+    <h1 class="back-title">
+  The <em>Backroom</em><br>Catalogue
+</h1>
     <p class="back-subtitle anim anim-d3">Botanical extracts of restricted classification · By arrangement only</p>
     <div class="warning-strip anim anim-d4">
       Discretion is assumed · All transactions unrecorded · Deny knowledge if questioned
