@@ -605,6 +605,70 @@ to{transform: translateX(-50%) rotate(421deg);}
 @media(max-width:700px){#flowers .product-card{min-height:350px}.product-card-face{padding:30px 24px}.product-card:hover{transform:translateY(-4px)}.product-sketch{opacity:.09}.product-herbarium-label{display:none}.specimen-meta div{grid-template-columns:90px 1fr}}
 @media(hover:none),(pointer:coarse){.product-card-light{display:none}.product-card:hover .product-icon{animation:none}.product-meaning{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){#flowers::after,.product-card:hover .product-icon,.card-pollen,.card-petal{animation:none!important}.product-card,.product-card-inner,.product-sketch,.product-stem{transition:none!important}}
+
+/* FRONT HERO — GRAND OPENING */
+.front-hero{--hero-x:0px;--hero-y:0px;--hero-rx:0deg;--hero-ry:0deg;isolation:isolate}
+.front-hero>.shop-eyebrow,.front-hero>.shop-logo-wrap,.front-hero>.shop-divider,.front-hero>.shop-tagline,.front-hero>.shop-address{position:relative;z-index:5}
+.hero-opening-light,.hero-leaf-shadow,.hero-pollen,.hero-flourish{position:absolute;inset:0;pointer-events:none}
+.hero-opening-light{z-index:1;background:radial-gradient(circle at 50% 42%,rgba(255,255,245,.68),rgba(255,244,214,.22) 32%,transparent 67%);opacity:0;animation:heroLightAwake 2.4s ease .05s forwards}
+@keyframes heroLightAwake{0%{opacity:0;filter:brightness(.82)}100%{opacity:1;filter:brightness(1)}}
+.hero-leaf-shadow{z-index:1;inset:-12%;opacity:.16;background:radial-gradient(ellipse at 18% 24%,rgba(74,91,53,.23),transparent 18%),radial-gradient(ellipse at 84% 30%,rgba(74,91,53,.18),transparent 20%),radial-gradient(ellipse at 30% 90%,rgba(74,91,53,.15),transparent 24%);filter:blur(22px);animation:heroLeafShadow 18s ease-in-out infinite alternate}
+@keyframes heroLeafShadow{from{transform:translate3d(-1.5%,0,0) rotate(-1deg)}to{transform:translate3d(1.5%,-1%,0) rotate(1.5deg)}}
+.hero-glass-sweep{position:absolute;inset:-30% -45%;z-index:6;pointer-events:none;opacity:0;background:linear-gradient(112deg,transparent 38%,rgba(255,244,205,.02) 44%,rgba(255,250,227,.48) 50%,rgba(255,237,185,.14) 55%,transparent 62%);transform:translateX(-65%) skewX(-7deg)}
+.front-hero.hero-awake .hero-glass-sweep{animation:heroGlassSweep 2.1s ease 1.75s 1,heroGlassReturn 20s ease-in-out 8s infinite}
+@keyframes heroGlassSweep{0%{opacity:0;transform:translateX(-65%) skewX(-7deg)}25%{opacity:.85}100%{opacity:0;transform:translateX(65%) skewX(-7deg)}}
+@keyframes heroGlassReturn{0%,72%{opacity:0;transform:translateX(-65%) skewX(-7deg)}78%{opacity:.45}94%{opacity:.18;transform:translateX(65%) skewX(-7deg)}100%{opacity:0}}
+.hero-flourish{z-index:3;display:flex;align-items:center;justify-content:center;transform:translate3d(calc(var(--hero-x)*.75),calc(var(--hero-y)*.75),0);transition:transform .12s linear}
+.hero-flourish svg{position:absolute;width:min(860px,90vw);height:auto;overflow:visible}
+.hero-flourish path{fill:none;stroke:rgba(129,83,28,.48);stroke-width:1.15;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:900;stroke-dashoffset:900}
+.front-hero.hero-awake .hero-flourish path{animation:heroBranchDraw 1.85s cubic-bezier(.22,1,.36,1) .2s forwards}
+@keyframes heroBranchDraw{to{stroke-dashoffset:0}}
+.hero-flourish .leaf{transform-box:fill-box;transform-origin:center;opacity:0;transform:scale(.2) rotate(-18deg)}
+.front-hero.hero-awake .hero-flourish .leaf{animation:heroLeafOpen .72s cubic-bezier(.2,1.45,.35,1) forwards}
+.front-hero.hero-awake .hero-flourish .leaf:nth-of-type(2n){animation-delay:1s}.front-hero.hero-awake .hero-flourish .leaf:nth-of-type(2n+1){animation-delay:1.2s}
+@keyframes heroLeafOpen{to{opacity:.62;transform:scale(1) rotate(0)}}
+.shop-logo-wrap{transform-style:preserve-3d;transform:translate3d(calc(var(--hero-x)*.42),calc(var(--hero-y)*.42),0) rotateX(var(--hero-rx)) rotateY(var(--hero-ry));transition:transform .18s ease-out}
+.shop-logo{filter:blur(7px);opacity:0;clip-path:inset(48% 0 48% 0);transform:translateY(10px) scale(.97)}
+.front-hero.hero-awake .shop-logo{animation:heroInkBloom 1.3s cubic-bezier(.22,1,.36,1) .52s forwards}
+@keyframes heroInkBloom{0%{filter:blur(8px);opacity:0;clip-path:inset(48% 0 48% 0);transform:translateY(10px) scale(.97)}55%{opacity:.76;filter:blur(2px)}100%{filter:blur(0);opacity:1;clip-path:inset(0);transform:translateY(0) scale(1)}}
+.shop-logo img{transform:translateZ(24px)}
+.front-hero.hero-awake .shop-logo img{animation:heroLogoBreathe 8s ease-in-out 4s infinite}
+@keyframes heroLogoBreathe{0%,100%{transform:translateZ(24px) scale(1)}50%{transform:translateZ(24px) scale(1.008)}}
+.logo-shimmer{animation:none!important}
+.front-hero.hero-awake .logo-shimmer{animation:heroLogoShimmer 1.35s ease 1.7s 1!important}
+@keyframes heroLogoShimmer{0%{left:-28%;opacity:0}25%{opacity:.85}100%{left:120%;opacity:0}}
+.shop-eyebrow{opacity:0!important;transform:translateY(-8px);letter-spacing:.42em}
+.front-hero.hero-awake .shop-eyebrow{animation:heroEyebrow .8s ease .1s forwards!important}
+@keyframes heroEyebrow{to{opacity:1;transform:none;letter-spacing:.28em}}
+.logo-secret{opacity:0!important;transform:translateY(5px)!important;clip-path:inset(0 100% 0 0)}
+.front-hero.hero-awake .logo-secret{animation:heroSecretWrite 1.25s steps(24,end) 1.92s forwards}
+.shop-logo-wrap:hover .logo-secret{opacity:.82!important;clip-path:inset(0)!important;transform:none!important}
+@keyframes heroSecretWrite{to{opacity:.42;clip-path:inset(0);transform:none}}
+.shop-divider{transform:translate3d(calc(var(--hero-x)*-.16),calc(var(--hero-y)*-.16),0)}
+.shop-divider span{transform:scaleX(0);transform-origin:center}
+.shop-divider svg{opacity:0;transform:rotate(-90deg) scale(.55)}
+.front-hero.hero-awake .shop-divider span{animation:heroDividerLine .9s cubic-bezier(.22,1,.36,1) 2.05s forwards}
+.front-hero.hero-awake .shop-divider svg{animation:heroDividerBloom .8s cubic-bezier(.2,1.5,.35,1) 2.15s forwards}
+@keyframes heroDividerLine{to{transform:scaleX(1)}}@keyframes heroDividerBloom{to{opacity:1;transform:rotate(45deg) scale(1)}}
+.shop-divider:hover svg{animation:heroDividerHover .7s ease!important}
+@keyframes heroDividerHover{50%{transform:rotate(135deg) scale(1.35)}}
+.shop-tagline{opacity:0!important;clip-path:inset(0 100% 0 0);transform:translateY(7px)}
+.front-hero.hero-awake .shop-tagline{animation:heroTaglineWrite 1.25s cubic-bezier(.22,1,.36,1) 2.55s forwards!important}
+@keyframes heroTaglineWrite{to{opacity:1;clip-path:inset(0);transform:none}}
+.shop-address{opacity:0!important;filter:blur(4px);transform:scale(1.07)}
+.front-hero.hero-awake .shop-address{animation:heroAddressStamp .48s cubic-bezier(.2,1.35,.35,1) 3.03s forwards!important}
+@keyframes heroAddressStamp{55%{opacity:1;filter:blur(0);transform:scale(.985)}100%{opacity:1;filter:blur(0);transform:scale(1)}}
+.hero-stamp-dust{position:absolute;z-index:7;width:3px;height:3px;border-radius:50%;background:#c69d31;box-shadow:0 0 7px rgba(198,157,49,.45);animation:heroStampDust .9s ease-out forwards}
+@keyframes heroStampDust{0%{opacity:0;transform:scale(.3)}25%{opacity:.9}100%{opacity:0;transform:translate(var(--dust-x),var(--dust-y)) scale(.15)}}
+.hero-pollen{z-index:7;overflow:hidden}
+.hero-pollen i{position:absolute;width:3px;height:3px;border-radius:50%;background:rgba(195,151,42,.72);box-shadow:0 0 7px rgba(195,151,42,.34);animation:heroPollenFloat var(--pollen-time,7s) ease-in-out forwards}
+@keyframes heroPollenFloat{0%{opacity:0;transform:translate(0,10px) scale(.4)}18%{opacity:.75}100%{opacity:0;transform:translate(var(--pollen-x),var(--pollen-y)) scale(.15)}}
+.shop-logo:hover img{filter:drop-shadow(3px 8px 8px rgba(60,50,35,.22)) drop-shadow(0 0 18px rgba(184,151,42,.16))}
+.hero-logo-glow{position:absolute;left:50%;top:50%;z-index:0;width:min(720px,90vw);height:330px;border-radius:50%;pointer-events:none;background:radial-gradient(ellipse,rgba(255,248,224,.32),rgba(212,178,74,.055) 42%,transparent 70%);transform:translate(calc(-50% + var(--hero-x)*.1),calc(-50% + var(--hero-y)*.1));filter:blur(10px);animation:heroGlowBreathe 7s ease-in-out infinite}
+@keyframes heroGlowBreathe{0%,100%{opacity:.45;scale:.98}50%{opacity:.78;scale:1.03}}
+@media(max-width:700px){.hero-flourish svg{width:118vw}.hero-leaf-shadow{opacity:.1}.shop-logo-wrap{transform:none}.hero-logo-glow{height:230px}.front-hero.hero-awake .shop-address{animation-delay:2.75s!important}}
+@media(hover:none),(pointer:coarse){.shop-logo-wrap{transform:none!important}}
+@media(prefers-reduced-motion:reduce){.hero-opening-light,.hero-leaf-shadow,.hero-glass-sweep,.hero-flourish path,.hero-flourish .leaf,.shop-logo,.shop-logo img,.shop-eyebrow,.logo-secret,.shop-divider span,.shop-divider svg,.shop-tagline,.shop-address,.hero-logo-glow{animation:none!important;opacity:1!important;filter:none!important;transform:none!important;clip-path:none!important;stroke-dashoffset:0!important}.hero-pollen{display:none}}
 </style></head><body><nav class="top-tabs"><a href="#flowers">Flowers</a><a href="#garlands">Garlands</a><a href="#botanicals">Botanicals</a><a href="#about">The Proprietress</a><a href="#complications">Complications</a></nav><div class="page-frame"></div><!-- ═══ FRONT PAGE ═══ --><div id="front-page"><section class="front-hero"><p class="shop-eyebrow anim anim-d1">
       Est. in the reign of Thrael Oriendel de Fortuna
     </p><!-- LOGO --><div class="shop-logo-wrap anim anim-d2"><button class="shop-logo" type="button" aria-label="Florencia Florist" ><span class="logo-shimmer"></span><img src="images/FlorenciaLogo.png" alt="Florencia Florist" ></button><span class="logo-secret">
@@ -1514,5 +1578,17 @@ card.addEventListener("pointerleave",()=>{card.style.setProperty("--tilt-x","0de
 const flip=()=>{card.classList.toggle("is-flipped");card.setAttribute("aria-pressed",card.classList.contains("is-flipped"))};card.addEventListener("click",flip);card.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();flip()}});
 card.addEventListener("mouseenter",()=>grid.classList.add("is-shelving"));card.addEventListener("mouseleave",()=>grid.classList.remove("is-shelving"));
 });
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded",()=>{const hero=document.querySelector(".front-hero"),logo=hero?.querySelector(".shop-logo"),address=hero?.querySelector(".shop-address");if(!hero||!logo)return;
+hero.insertAdjacentHTML("afterbegin",`<span class="hero-opening-light"></span><span class="hero-leaf-shadow"></span><span class="hero-logo-glow"></span><span class="hero-glass-sweep"></span><span class="hero-flourish" aria-hidden="true"><svg viewBox="0 0 900 430"><path d="M90 185C210 75 690 75 810 185M118 184c44 18 70 44 91 84M782 184c-44 18-70 44-91 84M211 119c52-22 105-31 157-31M689 119c-52-22-105-31-157-31"/><path class="leaf" d="M218 117c-20-25-15-47 6-59 18 19 16 41-6 59Z"/><path class="leaf" d="M294 96c-8-29 3-48 27-53 10 25 1 44-27 53Z"/><path class="leaf" d="M374 87c3-28 19-43 43-38 1 25-14 39-43 38Z"/><path class="leaf" d="M682 117c20-25 15-47-6-59-18 19-16 41 6 59Z"/><path class="leaf" d="M606 96c8-29-3-48-27-53-10 25-1 44 27 53Z"/><path class="leaf" d="M526 87c-3-28-19-43-43-38-1 25 14 39 43 38Z"/></svg></span><span class="hero-pollen" aria-hidden="true"></span>`);
+requestAnimationFrame(()=>hero.classList.add("hero-awake"));
+hero.addEventListener("pointermove",e=>{if(matchMedia("(pointer:coarse)").matches)return;const r=hero.getBoundingClientRect(),nx=(e.clientX-r.left)/r.width-.5,ny=(e.clientY-r.top)/r.height-.5;hero.style.setProperty("--hero-x",`${nx*12}px`);hero.style.setProperty("--hero-y",`${ny*9}px`);hero.style.setProperty("--hero-rx",`${ny*-1.2}deg`);hero.style.setProperty("--hero-ry",`${nx*1.8}deg`)});
+hero.addEventListener("pointerleave",()=>["--hero-x","--hero-y"].forEach(v=>hero.style.setProperty(v,"0px")));
+const pollen=hero.querySelector(".hero-pollen"),release=(x,y,count=7)=>{for(let i=0;i<count;i++){const p=document.createElement("i");p.style.left=`${x+(Math.random()-.5)*35}px`;p.style.top=`${y+(Math.random()-.5)*24}px`;p.style.setProperty("--pollen-x",`${(Math.random()-.5)*100}px`);p.style.setProperty("--pollen-y",`${-(35+Math.random()*100)}px`);p.style.setProperty("--pollen-time",`${4+Math.random()*4}s`);pollen.appendChild(p);p.addEventListener("animationend",()=>p.remove(),{once:true})}};
+setInterval(()=>{const r=logo.getBoundingClientRect();release(r.left+r.width*(.25+Math.random()*.5)-hero.getBoundingClientRect().left,r.top+r.height*(.3+Math.random()*.35)-hero.getBoundingClientRect().top,2)},2400);
+logo.addEventListener("mouseenter",()=>{const r=logo.getBoundingClientRect(),h=hero.getBoundingClientRect();release(r.left+r.width/2-h.left,r.top+r.height/2-h.top,9)});
+setTimeout(()=>{if(!address)return;const r=address.getBoundingClientRect(),h=hero.getBoundingClientRect();for(let i=0;i<7;i++){const d=document.createElement("i");d.className="hero-stamp-dust";d.style.left=`${r.left-h.left+r.width/2}px`;d.style.top=`${r.top-h.top+r.height/2}px`;d.style.setProperty("--dust-x",`${(Math.random()-.5)*130}px`);d.style.setProperty("--dust-y",`${(Math.random()-.5)*55}px`);hero.appendChild(d);d.addEventListener("animationend",()=>d.remove(),{once:true})}},3050);
 });
 </script></body></html>
