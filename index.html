@@ -804,9 +804,13 @@ html {scroll-behavior:smooth;}
   to {--glint-angle:360deg;}
 }
 
-/* 05 — หัวข้อสั่นเหมือนแสงเทียน */
-#back-page .back-title {
-  animation:backroomTitleFlicker 6s ease-in-out infinite;
+/* 05 — หัวข้อปรากฏก่อน แล้วจึงกะพริบเหมือนแสงเทียน */
+#back-page .back-title.anim {
+  opacity:0;
+
+  animation:
+    fadeInUp 0.7s ease 0.25s forwards,
+    backroomTitleFlicker 6s ease-in-out 1s infinite;
 }
 @keyframes backroomTitleFlicker {
   0%,100% {
@@ -1033,7 +1037,14 @@ html {scroll-behavior:smooth;}
     right:-230px;
   }
 }
+/* FIX — Restore Backroom heading */
+#back-page .back-title.anim {
+  opacity:0 !important;
 
+  animation:
+    fadeInUp 0.7s ease 0.25s forwards,
+    backroomTitleFlicker 6s ease-in-out 1s infinite !important;
+}
 </style>
 </head>
 <body>
@@ -2317,57 +2328,123 @@ document.addEventListener('DOMContentLoaded', () => {
   const tickSound = document.getElementById('backroomTickSfx');
 
   const awakenBackroomAudio = async () => {
-    backPage.classList.add('audio-awake');
+  backPage.classList.add('audio-awake');
 
-    window.setTimeout(() => {
-      backPage.classList.remove('audio-awake');
-    }, 1900);
+  window.setTimeout(() => {
+    backPage.classList.remove('audio-awake');
+  }, 1900);
 
-    if (doorSound) {
-      try {
-        doorSound.currentTime = 0;
-        doorSound.volume = 0.42;
-        await doorSound.play();
-      } catch (error) {
-        console.warn('Backroom door sound could not play:', error);
+  /* เตรียมเสียงทั้งสองไฟล์ */
+  if (tickSound) {
+    tickSound.pause();
+    tickSound.currentTime = 0;
+    tickSound.volume = 0;
+    tickSound.loop = true;
+  }
+
+  if (doorSound) {
+    doorSound.pause();
+    doorSound.currentTime = 0;
+    doorSound.volume = 0.55;
+  }
+
+  /*
+    สั่งเล่นทั้งสองเสียงทันทีจากการคลิกเดียวกัน
+    นาฬิกาเล่นอยู่แล้ว แต่ยังเงียบเพราะ volume = 0
+  */
+  const tickPlayPromise = tickSound
+    ? tickSound.play().catch(error => {
+        console.warn('Clock sound could not start:', error);
+      })
+    : Promise.resolve();
+
+  const doorPlayPromise = doorSound
+    ? doorSound.play().catch(error => {
+        console.warn('Door sound could not start:', error);
+      })
+    : Promise.resolve();
+
+  await Promise.allSettled([
+    tickPlayPromise,
+    doorPlayPromise
+  ]);
+
+  /*
+    รอเสียงประตูจบ หรือครบ 5 วินาที
+    อย่างใดอย่างหนึ่งเกิดก่อน
+  */
+  await Promise.race([
+    new Promise(resolve => {
+      if (!doorSound) {
+        resolve();
+        return;
       }
+
+      doorSound.addEventListener(
+        'ended',
+        resolve,
+        { once: true }
+      );
+    }),
+
+    new Promise(resolve => {
+      window.setTimeout(resolve, 5000);
+    })
+  ]);
+
+  /* ถ้านาฬิกาถูกหยุด ให้ลองเปิดอีกครั้ง */
+  if (tickSound && tickSound.paused) {
+    try {
+      tickSound.volume = 0;
+      await tickSound.play();
+    } catch (error) {
+      console.warn('Clock sound could not resume:', error);
+      return;
     }
+  }
 
-    if (tickSound) {
-      try {
-        tickSound.volume = 0;
-        await tickSound.play();
+  /* ค่อย ๆ เพิ่มเสียงนาฬิกา */
+  if (tickSound) {
+    let volume = 0;
 
-        let volume = 0;
-        const fadeIn = window.setInterval(() => {
-          volume = Math.min(volume + 0.004, 0.045);
-          tickSound.volume = volume;
+    const targetVolume = 0.20;
+    const fadeDuration = 2500;
+    const fadeStepTime = 50;
+    const totalSteps = fadeDuration / fadeStepTime;
+    const volumeStep = targetVolume / totalSteps;
 
-          if (volume >= 0.045) {
-            window.clearInterval(fadeIn);
-          }
-        }, 80);
-      } catch (error) {
-        console.warn('Backroom clock sound could not play:', error);
-      }
-    }
-  };
+    const fadeIn = window.setInterval(() => {
+      volume = Math.min(
+        volume + volumeStep,
+        targetVolume
+      );
 
-  const sleepBackroomAudio = () => {
-    if (!tickSound) return;
-
-    let volume = tickSound.volume;
-    const fadeOut = window.setInterval(() => {
-      volume = Math.max(volume - 0.006, 0);
       tickSound.volume = volume;
 
-      if (volume <= 0) {
-        window.clearInterval(fadeOut);
-        tickSound.pause();
-        tickSound.currentTime = 0;
+      if (volume >= targetVolume) {
+        tickSound.volume = targetVolume;
+        window.clearInterval(fadeIn);
       }
-    }, 60);
-  };
+    }, fadeStepTime);
+  }
+};
+
+  const sleepBackroomAudio = () => {
+  if (!tickSound) return;
+
+  let volume = tickSound.volume;
+
+  const fadeOut = window.setInterval(() => {
+    volume = Math.max(volume - 0.006, 0);
+    tickSound.volume = volume;
+
+    if (volume <= 0) {
+      window.clearInterval(fadeOut);
+      tickSound.pause();
+      tickSound.currentTime = 0;
+    }
+  }, 60);
+};
 
   if (enterButton) {
     enterButton.addEventListener('click', awakenBackroomAudio);
