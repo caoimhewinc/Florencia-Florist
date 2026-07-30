@@ -679,6 +679,52 @@ to{transform: translateX(-50%) rotate(421deg);}
 .front-hero.hero-ready .logo-secret,
 .front-hero.hero-ready .shop-tagline,
 .front-hero.hero-ready .shop-address{opacity:1;filter:none;clip-path:inset(0);transform:none}
+
+/* FRONT HERO — HERBARIUM WORKSPACE SIDES */
+.front-hero{isolation:isolate}
+.hero-workspace,.hero-window-grid,.hero-side-notes,.hero-side-specimens,.hero-tools{position:absolute;inset:0;pointer-events:none}
+.hero-window-grid{z-index:0;opacity:.12;background:linear-gradient(90deg,transparent 0 18%,rgba(125,105,65,.18) 18% 18.12%,transparent 18.12% 50%,rgba(125,105,65,.18) 50% 50.12%,transparent 50.12% 82%,rgba(125,105,65,.18) 82% 82.12%,transparent 82.12%),linear-gradient(0deg,transparent 0 28%,rgba(125,105,65,.14) 28% 28.12%,transparent 28.12% 66%,rgba(125,105,65,.14) 66% 66.12%,transparent 66.12%);mask-image:linear-gradient(90deg,black,transparent 24%,transparent 76%,black);animation:heroWindowDrift 22s ease-in-out infinite alternate}
+@keyframes heroWindowDrift{from{transform:translateX(-.7%)}to{transform:translateX(.7%)}}
+
+.hero-workspace{z-index:2}
+.hero-workspace .workspace-item{position:absolute;color:rgba(92,72,40,.2);filter:sepia(.35);transform-origin:center;transition:opacity .5s ease,transform .5s ease}
+.hero-workspace .workspace-item svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.1}
+.hero-workspace .pressed-left{left:2.5%;top:18%;width:210px;height:360px;transform:rotate(-8deg)}
+.hero-workspace .pressed-right{right:2.5%;top:16%;width:230px;height:390px;transform:rotate(7deg)}
+.hero-workspace .diagram-right{right:1.2%;bottom:4%;width:250px;height:250px;opacity:.6;animation:heroDiagramOrbit 90s linear infinite}
+@keyframes heroDiagramOrbit{to{transform:rotate(360deg)}}
+.hero-workspace .quill-left{left:5%;bottom:4%;width:210px;height:210px;transform:rotate(-14deg)}
+.hero-workspace .wax-right{right:8%;bottom:8%;width:92px;height:92px;display:grid;place-items:center;border:1px solid rgba(139,82,54,.18);border-radius:50%;font:34px 'Cormorant Garamond',serif;color:rgba(139,82,54,.22);box-shadow:inset 0 0 0 5px rgba(139,82,54,.035);transform:rotate(9deg);animation:heroWaxBreathe 9s ease-in-out infinite}
+@keyframes heroWaxBreathe{0%,100%{scale:1;opacity:.55}50%{scale:1.035;opacity:.78}}
+
+.hero-side-notes{z-index:3;font-family:'Cormorant Garamond',serif;color:rgba(74,60,39,.22)}
+.hero-note{position:absolute;max-width:180px;font-size:14px;line-height:1.45;font-style:italic;letter-spacing:.03em;text-align:left;transform-origin:center;animation:heroNoteFloat 11s ease-in-out infinite}
+.hero-note small{display:block;margin-bottom:5px;font:9px 'Cinzel',serif;letter-spacing:.17em;text-transform:uppercase;color:rgba(151,116,35,.38)}
+.hero-note.left-one{left:6%;top:31%;transform:rotate(-5deg)}
+.hero-note.left-two{left:9%;bottom:16%;transform:rotate(3deg);animation-delay:-5s}
+.hero-note.right-one{right:6%;top:30%;transform:rotate(4deg);text-align:right}
+.hero-note.right-two{right:8%;bottom:17%;transform:rotate(-3deg);text-align:right;animation-delay:-6s}
+@keyframes heroNoteFloat{0%,100%{translate:0 0;opacity:.58}50%{translate:0 -4px;opacity:.8}}
+
+.hero-side-specimens{z-index:2}
+.hero-specimen{position:absolute;width:86px;height:180px;border:1px solid rgba(113,91,52,.12);background:rgba(255,250,237,.09);box-shadow:0 8px 24px rgba(70,55,35,.03);transform-origin:top center}
+.hero-specimen::before{content:"";position:absolute;left:50%;top:15px;width:1px;height:128px;background:rgba(89,101,65,.25);transform:translateX(-50%)}
+.hero-specimen::after{content:"";position:absolute;left:50%;top:53px;width:38px;height:22px;border:1px solid rgba(143,95,82,.22);border-radius:70% 30% 70% 30%;transform:translateX(-50%) rotate(-24deg)}
+.hero-specimen.left{left:1.6%;top:53%;transform:rotate(-7deg);animation:heroSpecimenSway 8s ease-in-out infinite}
+.hero-specimen.right{right:1.6%;top:49%;transform:rotate(6deg);animation:heroSpecimenSway 9s ease-in-out -4s infinite}
+@keyframes heroSpecimenSway{0%,100%{rotate:-1deg}50%{rotate:1deg}}
+
+.hero-side-line{position:absolute;top:10%;bottom:10%;width:1px;background:linear-gradient(transparent,rgba(184,151,42,.24),transparent)}
+.hero-side-line.left{left:3.2%}.hero-side-line.right{right:3.2%}
+.hero-side-line::before,.hero-side-line::after{content:"❦";position:absolute;left:50%;transform:translateX(-50%);color:rgba(184,151,42,.28);font:18px 'Cormorant Garamond',serif}
+.hero-side-line::before{top:20%}.hero-side-line::after{bottom:20%;transform:translateX(-50%) rotate(180deg)}
+
+.front-hero.hero-awake .hero-workspace .workspace-item,.front-hero.hero-awake .hero-note,.front-hero.hero-awake .hero-specimen,.front-hero.hero-awake .hero-side-line{animation-name:heroSideReveal,var(--side-motion,none);animation-duration:1.5s,10s;animation-delay:1.7s,3.2s;animation-fill-mode:both;animation-timing-function:ease,ease-in-out}
+@keyframes heroSideReveal{from{opacity:0;filter:blur(5px);translate:0 10px}to{opacity:1;filter:none;translate:0 0}}
+
+@media(max-width:1100px){.hero-workspace .pressed-left,.hero-workspace .pressed-right{width:150px;opacity:.65}.hero-note{font-size:12px;max-width:130px}.hero-note.left-one,.hero-note.left-two{left:3%}.hero-note.right-one,.hero-note.right-two{right:3%}.hero-workspace .quill-left{width:150px}.hero-workspace .diagram-right{width:190px;height:190px}}
+@media(max-width:760px){.hero-window-grid,.hero-note,.hero-specimen,.hero-workspace .quill-left,.hero-workspace .wax-right{display:none}.hero-workspace .pressed-left,.hero-workspace .pressed-right{width:100px;height:220px;opacity:.28}.hero-workspace .pressed-left{left:-25px}.hero-workspace .pressed-right{right:-25px}.hero-workspace .diagram-right{width:130px;height:130px;right:-30px;bottom:3%;opacity:.25}.hero-side-line.left{left:10px}.hero-side-line.right{right:10px}}
+@media(prefers-reduced-motion:reduce){.hero-window-grid,.hero-note,.hero-specimen,.hero-workspace .diagram-right,.hero-workspace .wax-right{animation:none!important}}
 </style></head><body><nav class="top-tabs"><a href="#flowers">Flowers</a><a href="#garlands">Garlands</a><a href="#botanicals">Botanicals</a><a href="#about">The Proprietress</a><a href="#complications">Complications</a></nav><div class="page-frame"></div><!-- ═══ FRONT PAGE ═══ --><div id="front-page"><section class="front-hero"><p class="shop-eyebrow anim anim-d1">
       Est. in the reign of Thrael Oriendel de Fortuna
     </p><!-- LOGO --><div class="shop-logo-wrap anim anim-d2"><button class="shop-logo" type="button" aria-label="Florencia Florist" ><span class="logo-shimmer"></span><img src="images/FlorenciaLogo.png" alt="Florencia Florist" ></button><span class="logo-secret">
@@ -1600,5 +1646,26 @@ const pollen=hero.querySelector(".hero-pollen"),release=(x,y,count=7)=>{for(let 
 setInterval(()=>{const r=logo.getBoundingClientRect();release(r.left+r.width*(.25+Math.random()*.5)-hero.getBoundingClientRect().left,r.top+r.height*(.3+Math.random()*.35)-hero.getBoundingClientRect().top,2)},2400);
 logo.addEventListener("mouseenter",()=>{const r=logo.getBoundingClientRect(),h=hero.getBoundingClientRect();release(r.left+r.width/2-h.left,r.top+r.height/2-h.top,9)});
 setTimeout(()=>{if(!address)return;const r=address.getBoundingClientRect(),h=hero.getBoundingClientRect();for(let i=0;i<7;i++){const d=document.createElement("i");d.className="hero-stamp-dust";d.style.left=`${r.left-h.left+r.width/2}px`;d.style.top=`${r.top-h.top+r.height/2}px`;d.style.setProperty("--dust-x",`${(Math.random()-.5)*130}px`);d.style.setProperty("--dust-y",`${(Math.random()-.5)*55}px`);hero.appendChild(d);d.addEventListener("animationend",()=>d.remove(),{once:true})}},3050);
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded",()=>{const hero=document.querySelector(".front-hero");if(!hero||hero.querySelector(".hero-workspace"))return;
+hero.insertAdjacentHTML("afterbegin",`
+<div class="hero-window-grid" aria-hidden="true"></div>
+<div class="hero-workspace" aria-hidden="true">
+  <span class="workspace-item pressed-left"><svg viewBox="0 0 210 360"><path d="M105 340C106 274 99 213 111 139M111 208c-31-20-48-44-57-74M111 177c29-20 48-47 58-79M61 135c-27-6-45-24-52-49 28 1 50 18 58 43M162 101c24-18 45-19 61-6-13 25-37 36-62 28M111 139c-23-18-37-43-31-69 24 1 42 19 47 47 7-28 27-46 51-47 3 27-15 52-42 69-8 5-17 6-25 0Z"/></svg></span>
+  <span class="workspace-item pressed-right"><svg viewBox="0 0 230 390"><path d="M118 370C117 302 126 241 114 161M115 235c34-18 53-44 63-76M115 205c-30-22-50-49-62-82M173 161c27-8 44-28 50-55-28 3-49 19-57 45M59 126C33 109 12 111 0 126c16 24 41 34 66 23M114 161c27-20 42-48 34-75-25 3-43 22-48 51-8-29-29-46-55-46-1 28 18 53 47 70 7 5 16 5 22 0Z"/></svg></span>
+  <span class="workspace-item quill-left"><svg viewBox="0 0 210 210"><path d="M26 183C91 135 129 87 174 24M57 155c34-3 66-20 91-49M86 127c-1-24 5-45 18-64M174 24c-28-4-54 4-72 24-19 22-21 51-16 79 22-1 49-12 66-34 17-20 24-44 22-69Z"/></svg></span>
+  <span class="workspace-item diagram-right"><svg viewBox="0 0 250 250"><circle cx="125" cy="125" r="88"/><circle cx="125" cy="125" r="55"/><circle cx="125" cy="125" r="12"/><path d="M125 15v220M15 125h220M47 47l156 156M203 47L47 203"/></svg></span>
+  <span class="workspace-item wax-right">❦</span>
+</div>
+<div class="hero-side-notes" aria-hidden="true">
+  <span class="hero-note left-one"><small>Pressed study · 1884</small>Sepals retained their colour longer than expected.</span>
+  <span class="hero-note left-two"><small>Florencia Herbarium</small>Handle only by the stem. Do not expose to flame.</span>
+  <span class="hero-note right-one"><small>Plate XII</small>Collected before sunrise from the eastern glasshouse.</span>
+  <span class="hero-note right-two"><small>Private notation</small>The bloom opened again after pressing.</span>
+</div>
+<div class="hero-side-specimens" aria-hidden="true"><span class="hero-specimen left"></span><span class="hero-specimen right"></span></div>
+<span class="hero-side-line left" aria-hidden="true"></span><span class="hero-side-line right" aria-hidden="true"></span>`);
 });
 </script></body></html>
