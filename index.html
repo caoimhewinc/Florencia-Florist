@@ -415,7 +415,73 @@ body::before {
 
 }
 
-  .shop-divider {
+  /* ═══════════════════════════════════════════════
+   FLORENZIA LOGO — MOUSE PARALLAX
+═══════════════════════════════════════════════ */
+
+const logo = document.querySelector('.shop-logo');
+
+if (logo) {
+
+  logo.addEventListener('mousemove', (event) => {
+
+    const rect = logo.getBoundingClientRect();
+
+    const x =
+      event.clientX - rect.left;
+
+    const y =
+      event.clientY - rect.top;
+
+    const centerX =
+      rect.width / 2;
+
+    const centerY =
+      rect.height / 2;
+
+    const rotateY =
+      ((x - centerX) / centerX) * 2;
+
+    const rotateX =
+      ((centerY - y) / centerY) * 1.5;
+
+    logo.style.transform = `
+      translateY(-3px)
+      scale(1.015)
+      rotateX(${rotateX}deg)
+      rotateY(${rotateY}deg)
+    `;
+
+  });
+
+
+  logo.addEventListener('mouseleave', () => {
+
+    logo.style.transform = '';
+
+  });
+
+}
+
+  /* ═══════════════════════════════════════════════
+   FLORENZIA LOGO — STAMP CLICK
+═══════════════════════════════════════════════ */
+
+if (logo) {
+
+  logo.addEventListener('click', () => {
+
+    logo.classList.remove('is-stamped');
+
+    void logo.offsetWidth;
+
+    logo.classList.add('is-stamped');
+
+  });
+
+}
+
+.shop-divider {
   display: flex;
   align-items: center;
   gap: 16px;
@@ -1520,633 +1586,6 @@ body::before {
   #back-page .ledger-title{font-size:19px}
   #back-page .ledger-body,#back-page .tension-text{font-size:15px}
 }
-
-/* ═══════════════════════════════════════════════════════════════
-   FLORENCIA FRONT PAGE — REARRANGED, NO NEW IMAGE ASSETS
-═══════════════════════════════════════════════════════════════ */
-
-html { scroll-behavior: smooth; }
-
-#front-page {
-  position: relative;
-  min-height: 100vh;
-  background:
-    linear-gradient(rgba(248,243,232,.84), rgba(239,229,210,.94)),
-    url("images/Botanical-vintage.jpg") center top / cover fixed no-repeat;
-}
-
-#front-page::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    linear-gradient(90deg, rgba(184,151,42,.08) 1px, transparent 1px),
-    linear-gradient(rgba(184,151,42,.06) 1px, transparent 1px);
-  background-size: 64px 64px;
-  mask-image: linear-gradient(to bottom, rgba(0,0,0,.5), transparent 72%);
-}
-
-.top-tabs {
-  top: 14px;
-  left: 50%;
-  right: auto;
-  width: min(920px, calc(100% - 40px));
-  transform: translateX(-50%);
-  padding: 5px;
-  border-radius: 0;
-  background: rgba(245,240,232,.92);
-  border: 1px solid rgba(112,84,34,.28);
-  box-shadow:
-    0 9px 25px rgba(20,12,5,.1),
-    inset 0 0 0 3px rgba(255,255,255,.4);
-}
-
-.top-tabs::before,
-.top-tabs::after {
-  content: "❦";
-  flex: 0 0 42px;
-  text-align: center;
-  color: rgba(139,46,46,.55);
-}
-
-.top-tabs a {
-  position: relative;
-  padding: 11px 8px;
-  font-size: 10px;
-  letter-spacing: .18em;
-}
-
-.top-tabs a + a::before {
-  content: "·";
-  position: absolute;
-  left: -2px;
-  color: rgba(184,151,42,.48);
-}
-
-.top-tabs a:hover {
-  border-radius: 0;
-  background: rgba(184,151,42,.06);
-}
-
-.front-hero {
-  min-height: 780px;
-  padding: 118px 42px 54px;
-  display: block;
-  overflow: hidden;
-}
-
-.front-hero::after {
-  width: 430px;
-  height: 430px;
-  right: -110px;
-  bottom: -80px;
-  opacity: .45;
-}
-
-.hero-inner {
-  position: relative;
-  z-index: 2;
-  width: min(1120px, 100%);
-  min-height: 560px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: minmax(0, 1.55fr) minmax(280px, .7fr);
-  align-items: center;
-  gap: clamp(32px, 6vw, 88px);
-}
-
-.hero-identity {
-  min-width: 0;
-  text-align: center;
-  padding: 38px 24px;
-  border-top: 1px solid rgba(184,151,42,.28);
-  border-bottom: 1px solid rgba(184,151,42,.28);
-  background: linear-gradient(90deg, transparent, rgba(245,240,232,.56), transparent);
-}
-
-.shop-logo-wrap {
-  margin: 8px auto 12px;
-}
-
-.shop-logo {
-  width: min(590px, 100%);
-}
-
-.shop-divider {
-  width: min(360px, 74%);
-  margin: 10px auto 20px;
-}
-
-.shop-tagline {
-  max-width: 540px;
-  margin: 0 auto 26px;
-  font-size: clamp(18px, 2vw, 23px);
-  line-height: 1.65;
-}
-
-.shop-address {
-  margin: 0;
-  font-size: 10px;
-  line-height: 1.8;
-}
-
-.hero-notice {
-  position: relative;
-  padding: 44px 34px;
-  background:
-    linear-gradient(135deg, rgba(255,253,247,.9), rgba(231,219,193,.9));
-  border: 1px solid rgba(112,84,34,.32);
-  box-shadow:
-    14px 16px 0 rgba(90,66,35,.07),
-    0 18px 45px rgba(35,24,12,.13),
-    inset 0 0 0 5px rgba(255,255,255,.36);
-  transform: rotate(1deg);
-}
-
-.hero-notice::before,
-.hero-notice::after {
-  content: "";
-  position: absolute;
-  width: 32px;
-  height: 32px;
-  border-color: rgba(139,46,46,.38);
-}
-
-.hero-notice::before {
-  top: 11px;
-  left: 11px;
-  border-top: 1px solid;
-  border-left: 1px solid;
-}
-
-.hero-notice::after {
-  right: 11px;
-  bottom: 11px;
-  border-right: 1px solid;
-  border-bottom: 1px solid;
-}
-
-.notice-kicker {
-  margin-bottom: 18px;
-  color: var(--rouge);
-  font-size: 10px;
-  letter-spacing: .22em;
-  text-transform: uppercase;
-}
-
-.notice-title {
-  margin-bottom: 18px;
-  font-family: "IM Fell English", serif;
-  font-size: clamp(24px, 3vw, 35px);
-  line-height: 1.14;
-}
-
-.notice-copy,
-.notice-small {
-  color: var(--ink-muted);
-  font-size: 15px;
-  line-height: 1.7;
-}
-
-.notice-rule {
-  margin: 22px 0;
-  text-align: center;
-  color: var(--gold);
-  letter-spacing: .3em;
-}
-
-.notice-small {
-  font-family: "Cormorant Garamond", serif;
-  font-style: italic;
-  opacity: .72;
-}
-
-.front-nav {
-  position: relative;
-  z-index: 3;
-  width: min(920px, calc(100% - 20px));
-  margin: 26px auto 0;
-  padding: 15px 22px;
-  display: flex;
-  justify-content: center;
-  gap: clamp(20px, 5vw, 64px);
-  border-top: 1px solid rgba(184,151,42,.28);
-  border-bottom: 1px solid rgba(184,151,42,.28);
-  background: rgba(245,240,232,.5);
-}
-
-.front-nav a {
-  font-size: 11px;
-}
-
-.front-content {
-  position: relative;
-  z-index: 2;
-}
-
-.about-strip {
-  width: min(1160px, calc(100% - 48px));
-  min-height: 620px;
-  margin: 40px auto 90px;
-  grid-template-columns: minmax(280px, .76fr) minmax(0, 1.35fr);
-  border: 1px solid rgba(184,151,42,.27);
-  box-shadow: 0 24px 70px rgba(35,24,12,.16);
-}
-
-.about-image {
-  min-height: 100%;
-  background-position: center;
-}
-
-.about-image::after {
-  content: "THE PROPRIETRESS";
-  position: absolute;
-  inset: auto 18px 18px;
-  padding: 12px;
-  border: 1px solid rgba(245,240,232,.35);
-  color: rgba(245,240,232,.82);
-  font-family: "Cinzel", serif;
-  font-size: 10px;
-  letter-spacing: .22em;
-  text-align: center;
-}
-
-.about-text {
-  position: relative;
-  padding: clamp(48px, 7vw, 86px);
-  background:
-    linear-gradient(rgba(26,20,16,.96), rgba(26,20,16,.98)),
-    repeating-linear-gradient(0deg, transparent 0 31px, rgba(245,240,232,.035) 32px);
-  justify-content: flex-start;
-}
-
-.about-text::before {
-  content: "❦";
-  position: absolute;
-  top: 34px;
-  right: 42px;
-  color: rgba(184,151,42,.24);
-  font-size: 70px;
-}
-
-.about-text .section-heading {
-  margin-bottom: 30px;
-  color: var(--cream);
-  font-size: clamp(38px, 5vw, 58px);
-}
-
-.proprietress-copy {
-  columns: 2;
-  column-gap: 42px;
-  column-rule: 1px solid rgba(184,151,42,.16);
-}
-
-.about-text .proprietress-copy p {
-  max-width: none;
-  margin: 0 0 22px;
-  break-inside: avoid;
-  text-align: justify;
-}
-
-.about-warning {
-  max-width: none !important;
-  margin-top: 26px;
-  padding-top: 18px;
-  border-top: 1px solid rgba(184,151,42,.2);
-  font-size: 14px !important;
-  font-style: italic;
-  color: rgba(237,229,208,.45) !important;
-}
-
-.catalogue-section {
-  width: min(1160px, calc(100% - 48px));
-  margin: 0 auto;
-  padding: 0 0 104px;
-  overflow: visible;
-}
-
-.catalogue-heading {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(240px, .6fr);
-  gap: 40px;
-  align-items: end;
-  margin-bottom: 42px;
-  padding: 0 6px 22px;
-  border-bottom: 1px solid rgba(112,84,34,.28);
-}
-
-.catalogue-heading .section-heading {
-  font-size: clamp(38px, 5vw, 58px);
-}
-
-.catalogue-heading .section-sub {
-  margin: 0;
-  text-align: right;
-  line-height: 1.6;
-}
-
-.products-grid {
-  max-width: none;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 22px;
-}
-
-.product-card {
-  min-height: 100%;
-  padding: 36px 30px 30px;
-  background: rgba(249,245,235,.9);
-  border: 1px solid rgba(112,84,34,.25);
-  box-shadow: 8px 10px 0 rgba(90,66,35,.055);
-}
-
-.product-card::before {
-  inset: 7px;
-  z-index: 0;
-  pointer-events: none;
-}
-
-.product-card > * {
-  position: relative;
-  z-index: 1;
-}
-
-.product-card.featured-card {
-  transform: translateY(-14px);
-  background:
-    linear-gradient(rgba(249,245,235,.95), rgba(239,226,202,.94));
-  border-color: rgba(139,46,46,.32);
-}
-
-.product-card.featured-card:hover {
-  transform: translateY(-18px);
-}
-
-.product-number {
-  position: absolute;
-  top: 15px;
-  right: 18px;
-  color: rgba(112,84,34,.48);
-  font-family: "Cinzel", serif;
-  font-size: 9px;
-  letter-spacing: .14em;
-}
-
-.product-icon {
-  width: 54px;
-  height: 54px;
-  margin: 0 0 22px;
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(184,151,42,.28);
-  border-radius: 50%;
-  background: rgba(255,255,255,.44);
-  font-size: 25px;
-}
-
-.product-name {
-  font-size: 27px;
-}
-
-.product-latin {
-  min-height: 34px;
-  margin-bottom: 18px;
-  padding-bottom: 14px;
-  border-bottom: 1px solid rgba(184,151,42,.18);
-}
-
-.product-desc {
-  font-size: 15px;
-  line-height: 1.72;
-  text-align: left;
-}
-
-.product-price {
-  margin-top: 24px;
-  padding-top: 15px;
-  border-top: 1px solid rgba(58,74,46,.16);
-  font-family: "Cinzel", serif;
-  font-size: 11px;
-}
-
-.garland-ledger {
-  position: relative;
-  width: min(950px, calc(100% - 48px));
-  margin: 8px auto 112px;
-  padding: 68px clamp(34px, 8vw, 100px);
-  text-align: center;
-  border-top: 1px solid rgba(139,46,46,.28);
-  border-bottom: 1px solid rgba(139,46,46,.28);
-  background:
-    linear-gradient(90deg, transparent, rgba(245,240,232,.82), transparent);
-}
-
-.garland-ledger::before,
-.garland-ledger::after {
-  content: "";
-  position: absolute;
-  top: 18px;
-  bottom: 18px;
-  width: 1px;
-  background: linear-gradient(transparent, rgba(184,151,42,.3), transparent);
-}
-
-.garland-ledger::before { left: 22px; }
-.garland-ledger::after { right: 22px; }
-
-.garland-ornament {
-  margin-bottom: 13px;
-  color: var(--rouge);
-  font-size: 32px;
-}
-
-.garland-ledger .section-heading {
-  margin: 0 auto 22px;
-  max-width: 760px;
-  font-size: clamp(34px, 5vw, 52px);
-}
-
-.garland-ledger > p:not(.section-label) {
-  max-width: 700px;
-  margin: 0 auto;
-  color: var(--ink-muted);
-  font-size: 17px;
-  line-height: 1.8;
-}
-
-.ledger-link {
-  display: inline-block;
-  margin-top: 26px;
-  padding-bottom: 4px;
-  border-bottom: 1px solid var(--gold);
-  color: var(--moss);
-  text-decoration: none;
-  font-size: 11px;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-}
-
-.footer-front {
-  position: relative;
-  padding: 38px max(40px, calc((100% - 1160px) / 2));
-  gap: 26px;
-  border-top: 1px solid rgba(184,151,42,.25);
-}
-
-.footer-motto {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 13px;
-  font-style: italic;
-  text-align: center;
-}
-
-.secret-btn {
-  white-space: nowrap;
-}
-
-@media (max-width: 960px) {
-  .hero-inner {
-    grid-template-columns: 1fr;
-    max-width: 760px;
-  }
-
-  .hero-notice {
-    max-width: 620px;
-    margin: 0 auto;
-    transform: none;
-  }
-
-  .front-hero {
-    min-height: auto;
-  }
-
-  .about-strip {
-    grid-template-columns: 1fr;
-  }
-
-  .about-image {
-    min-height: 420px;
-  }
-
-  .proprietress-copy {
-    columns: 1;
-  }
-
-  .products-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .product-card.featured-card {
-    transform: none;
-  }
-
-  .product-card.featured-card:hover {
-    transform: translateY(-3px);
-  }
-}
-
-@media (max-width: 700px) {
-  .top-tabs {
-    left: 10px;
-    right: 10px;
-    width: auto;
-    transform: none;
-  }
-
-  .top-tabs::before,
-  .top-tabs::after {
-    display: none;
-  }
-
-  .front-hero {
-    padding: 100px 18px 36px;
-  }
-
-  .hero-identity {
-    padding: 28px 8px;
-  }
-
-  .hero-notice {
-    padding: 34px 24px;
-  }
-
-  .front-nav {
-    width: 100%;
-    gap: 8px;
-    padding-inline: 8px;
-    overflow-x: auto;
-    justify-content: flex-start;
-  }
-
-  .front-nav a {
-    flex: 0 0 auto;
-    padding: 8px 10px;
-  }
-
-  .about-strip,
-  .catalogue-section,
-  .garland-ledger {
-    width: calc(100% - 28px);
-  }
-
-  .about-strip {
-    margin-bottom: 70px;
-  }
-
-  .about-image {
-    min-height: 330px;
-  }
-
-  .about-text {
-    padding: 46px 26px;
-  }
-
-  .catalogue-heading {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  .catalogue-heading .section-sub {
-    text-align: left;
-  }
-
-  .products-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .product-card {
-    padding: 34px 26px 28px;
-  }
-
-  .garland-ledger {
-    padding: 54px 28px;
-  }
-
-  .footer-front {
-    padding: 34px 26px;
-  }
-}
-
-
-
-/* ============================================================
-   FLORENZIA V3 — ASYMMETRICAL EDITORIAL FRONT PAGE
-   ============================================================ */
-.v3-front{--v3-ink:#402b28;--v3-rose:#a86f78;--v3-soft:#ead8d0;--v3-ivory:#f7f0e5;--v3-sage:#7e8169;--v3-gold:#9d7b43;background:linear-gradient(rgba(248,241,231,.94),rgba(248,241,231,.94)),url('images/Botanical-vintage.jpg') center/cover fixed;color:var(--v3-ink);overflow:hidden}
-.v3-front *{box-sizing:border-box}.v3-front h1,.v3-front h2,.v3-front h3,.v3-front p{margin-top:0}.v3-folio,.v3-kicker{font:600 10px/1.4 Georgia,serif;letter-spacing:.24em;text-transform:uppercase;color:var(--v3-rose)}
-.v3-hero{min-height:88vh;display:grid;grid-template-columns:minmax(0,48%) minmax(0,52%);border-bottom:1px solid rgba(64,43,40,.35)}
-.v3-hero-left,.v3-hero-right{position:relative;padding:clamp(64px,8vw,130px) clamp(30px,6vw,95px);display:flex;flex-direction:column;justify-content:center}
-.v3-hero-left{border-right:1px solid rgba(64,43,40,.35);align-items:center;text-align:center;background:rgba(234,216,208,.28)}
-.v3-logo-stage{width:min(390px,85%);margin:38px auto 26px;position:relative}.v3-logo-stage .shop-logo{width:100%;background:none;border:0;cursor:pointer}.v3-logo-stage img{display:block;width:100%;height:auto;filter:drop-shadow(0 18px 25px rgba(62,40,34,.16))}.v3-est{font:italic 13px/1.7 Georgia,serif;max-width:290px}.v3-hero-right{align-items:flex-start}.v3-hero-right h1{font:400 clamp(48px,5.5vw,92px)/.96 Georgia,serif;letter-spacing:-.045em;max-width:780px;margin:24px 0 34px}.v3-lede{font:italic clamp(17px,1.5vw,24px)/1.6 Georgia,serif;max-width:570px}.v3-address-block{display:flex;gap:14px 30px;flex-wrap:wrap;margin:35px 0 42px;padding-top:22px;border-top:1px solid rgba(64,43,40,.3);font:11px/1.4 Georgia,serif;letter-spacing:.12em;text-transform:uppercase}.v3-text-link{font:600 11px/1.2 Georgia,serif;letter-spacing:.15em;text-transform:uppercase;color:inherit;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:8px}.v3-text-link span{display:inline-block;margin-left:16px;transition:.25s}.v3-text-link:hover span{transform:translate(5px,5px)}
-.v3-nav{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid rgba(64,43,40,.35);background:rgba(247,240,229,.88);position:sticky;top:0;z-index:30;backdrop-filter:blur(9px)}.v3-nav a{padding:19px 28px;color:inherit;text-decoration:none;font:italic 16px Georgia,serif;border-right:1px solid rgba(64,43,40,.25)}.v3-nav a:last-child{border-right:0}.v3-nav small{display:block;font:9px/1.4 Georgia,serif;letter-spacing:.2em;color:var(--v3-rose);margin-bottom:5px}
-.v3-main{max-width:1480px;margin:auto}.v3-about{display:grid;grid-template-columns:54% 46%;min-height:950px;border-left:1px solid rgba(64,43,40,.25);border-right:1px solid rgba(64,43,40,.25)}.v3-about-copy{padding:clamp(75px,9vw,145px) clamp(40px,8vw,125px)}.v3-about-copy h2{font:400 clamp(64px,8vw,118px)/.82 Georgia,serif;letter-spacing:-.06em;margin:30px 0 42px}.v3-rule{height:1px;background:rgba(64,43,40,.35);width:72%;margin-bottom:40px}.v3-about-copy p{font:15px/1.9 Georgia,serif;max-width:720px}.v3-dropcap:first-letter{float:left;font-size:72px;line-height:.72;padding:13px 12px 0 0;color:var(--v3-rose)}.v3-note{margin-top:45px!important;padding:20px 0;border-top:1px solid rgba(64,43,40,.3);border-bottom:1px solid rgba(64,43,40,.3);font-style:italic!important}.v3-about-image{margin:0;position:relative;min-height:100%;overflow:hidden}.v3-about-image img{width:100%;height:100%;object-fit:cover;filter:saturate(.72) sepia(.14);display:block}.v3-about-image:after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 90px rgba(43,29,25,.35);pointer-events:none}.v3-about-image figcaption{position:absolute;left:26px;bottom:24px;background:rgba(247,240,229,.88);padding:11px 15px;font:italic 11px Georgia,serif;z-index:2}
-.v3-flowers{padding:clamp(90px,10vw,160px) clamp(28px,6vw,90px);border:1px solid rgba(64,43,40,.25);border-top:0}.v3-section-head{display:grid;grid-template-columns:1fr 330px;align-items:end;gap:60px}.v3-section-head h2{font:400 clamp(58px,7vw,108px)/.88 Georgia,serif;letter-spacing:-.055em;margin:25px 0 0}.v3-section-head>p{font:italic 16px/1.8 Georgia,serif;border-left:1px solid rgba(64,43,40,.35);padding-left:30px}.v3-flower-ledger{display:grid;grid-template-columns:repeat(12,1fr);gap:30px;margin-top:110px;align-items:start}.v3-specimen{background:rgba(247,240,229,.72);border:1px solid rgba(64,43,40,.32);padding:34px 34px 38px;box-shadow:8px 10px 0 rgba(168,111,120,.09)}.v3-specimen-a{grid-column:1/6}.v3-specimen-b{grid-column:7/13;margin-top:150px}.v3-specimen-c{grid-column:2/8;margin-top:-20px}.v3-specimen-top{display:flex;justify-content:space-between;font:10px Georgia,serif;letter-spacing:.18em;text-transform:uppercase;color:var(--v3-rose)}.v3-specimen-top span:last-child{font-size:28px}.v3-specimen h3{font:400 clamp(36px,4vw,62px)/1 Georgia,serif;margin:40px 0 9px}.v3-specimen i{display:block;font:italic 12px/1.5 Georgia,serif;color:var(--v3-sage);margin-bottom:28px}.v3-specimen p{font:14px/1.85 Georgia,serif}.v3-specimen strong{display:block;margin-top:30px;padding-top:18px;border-top:1px solid rgba(64,43,40,.25);font:400 22px Georgia,serif}.v3-specimen strong small{font-size:10px;letter-spacing:.15em;text-transform:uppercase}.v3-margin-quote{grid-column:7/12;margin:0;padding:80px 0 0;font:italic 24px/1.55 Georgia,serif;color:var(--v3-rose)}
-.v3-garlands{display:grid;grid-template-columns:58% 42%;min-height:790px;border-left:1px solid rgba(64,43,40,.25);border-right:1px solid rgba(64,43,40,.25);border-bottom:1px solid rgba(64,43,40,.25)}.v3-garland-image{background:linear-gradient(rgba(53,43,32,.08),rgba(53,43,32,.18)),url('images/Botanical-vintage.jpg') center/cover;min-height:100%;filter:saturate(.7)}.v3-garland-copy{padding:clamp(70px,8vw,130px) clamp(35px,6vw,90px);display:flex;flex-direction:column;justify-content:center}.v3-garland-copy h2{font:400 clamp(56px,6vw,96px)/.9 Georgia,serif;letter-spacing:-.055em;margin:28px 0 42px}.v3-garland-copy p:not(.v3-folio){font:16px/1.9 Georgia,serif;margin-bottom:45px}
-.v3-botanicals{padding:clamp(90px,10vw,155px) clamp(28px,6vw,90px);border:1px solid rgba(64,43,40,.25);border-top:0}.v3-botanical-copy{display:grid;grid-template-columns:2fr 1fr;gap:70px;align-items:end}.v3-botanical-copy h2{font:400 clamp(52px,6vw,96px)/.95 Georgia,serif;letter-spacing:-.05em;margin:25px 0 0}.v3-botanical-copy>p:last-child{font:italic 16px/1.8 Georgia,serif;padding-left:30px;border-left:1px solid rgba(64,43,40,.3)}.v3-botanical-cards{margin-top:100px;display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-items:start}.v3-botanical-card{padding:30px 28px 35px;border-top:1px solid rgba(64,43,40,.45);border-bottom:1px solid rgba(64,43,40,.25);background:rgba(234,216,208,.18)}.v3-botanical-card-shift{margin-top:90px}.v3-botanical-card>span{font:10px Georgia,serif;letter-spacing:.2em;color:var(--v3-rose)}.v3-botanical-card b{display:block;font:400 38px Georgia,serif;margin:34px 0 5px}.v3-botanical-card i{font:italic 12px Georgia,serif;color:var(--v3-sage)}.v3-botanical-card p{font:14px/1.8 Georgia,serif;margin:28px 0}.v3-botanical-card strong{font:400 19px Georgia,serif}
-.v3-footer{display:grid;grid-template-columns:1fr 1fr auto;gap:40px;align-items:end;padding:55px clamp(28px,6vw,90px);background:#3f2d29;color:#f4e9dd}.v3-footer p{font:italic 14px/1.6 Georgia,serif;margin-bottom:0}.v3-footer div p{font:400 27px Georgia,serif}.v3-footer span{font:10px/1.6 Georgia,serif;letter-spacing:.12em;text-transform:uppercase}.v3-footer .secret-btn{color:#f4e9dd;border-color:rgba(244,233,221,.45)}
-@media(max-width:900px){.v3-hero{grid-template-columns:1fr}.v3-hero-left{border-right:0;border-bottom:1px solid rgba(64,43,40,.35);min-height:78vh}.v3-hero-right{min-height:72vh}.v3-nav{grid-template-columns:repeat(2,1fr);position:relative}.v3-nav a:nth-child(2){border-right:0}.v3-nav a:nth-child(-n+2){border-bottom:1px solid rgba(64,43,40,.25)}.v3-about{grid-template-columns:1fr}.v3-about-image{min-height:720px;order:-1}.v3-section-head,.v3-botanical-copy{grid-template-columns:1fr}.v3-section-head>p,.v3-botanical-copy>p:last-child{max-width:520px}.v3-flower-ledger{display:block}.v3-specimen,.v3-margin-quote{margin:32px 0}.v3-margin-quote{padding:45px 8vw}.v3-garlands{grid-template-columns:1fr}.v3-garland-image{min-height:560px}.v3-botanical-cards{grid-template-columns:1fr}.v3-botanical-card-shift{margin-top:0}.v3-footer{grid-template-columns:1fr;align-items:start}}
-@media(max-width:560px){.v3-hero-left,.v3-hero-right{padding:65px 24px}.v3-hero-right h1{font-size:50px}.v3-nav a{padding:15px}.v3-about-copy,.v3-flowers,.v3-botanicals{padding-left:24px;padding-right:24px}.v3-about-copy h2{font-size:61px}.v3-about-image{min-height:520px}.v3-section-head h2,.v3-garland-copy h2,.v3-botanical-copy h2{font-size:52px}.v3-specimen{padding:26px 22px}.v3-specimen h3{font-size:39px}.v3-garland-image{min-height:390px}.v3-footer{padding:45px 24px}}
-
 </style>
 </head>
 <body>
@@ -2157,144 +1596,166 @@ html { scroll-behavior: smooth; }
   <a href="#about">The Proprietress</a>
   <a href="#complications">Complications</a>
 </nav>
+</html>
 
 <div class="page-frame"></div>
 
-<!-- ═══ FRONT PAGE — FLORENZIA V3 EDITORIAL ═══ -->
-<div id="front-page" class="v3-front">
+<!-- ═══ FRONT PAGE ═══ -->
+<div id="front-page">
 
-  <header class="v3-hero" id="home">
-    <div class="v3-hero-left">
-      <p class="v3-kicker">An old florist of Fortuna Imperia</p>
-      <div class="v3-logo-stage">
-        <button class="shop-logo" type="button" aria-label="Florenzia Florist">
-          <span class="logo-shimmer"></span>
-          <img src="images/FlorenciaLogo.png" alt="Florenzia Florist">
-        </button>
-        <span class="logo-secret">Keche flour I kepen remembreth a lyf that I somtyme lyved.</span>
-      </div>
-      <p class="v3-est">Established in the reign of Thrael Oriendel de Fortuna</p>
+  <section class="front-hero">
+
+    <p class="shop-eyebrow anim anim-d1">
+      Est. in the reign of Thrael Oriendel de Fortuna
+    </p>
+
+    <!-- LOGO -->
+    <div class="shop-logo-wrap anim anim-d2">
+
+      <button 
+        class="shop-logo"
+        type="button"
+        aria-label="Florencia Florist"
+      >
+
+        <span class="logo-shimmer"></span>
+
+        <img 
+          src="images/FlorenciaLogo.png" 
+          alt="Florencia Florist"
+        >
+
+      </button>
+
+      <span class="logo-secret">
+        Keche flour I kepen remembreth a lyf that I somtyme lyved.
+      </span>
+
     </div>
 
-    <div class="v3-hero-right">
-      <p class="v3-folio">Folio I · The Public Shop</p>
-      <h1>Flowers for remembrance,<br>devotion, and quieter affairs.</h1>
-      <p class="v3-lede">For every day in thy life, and those thou wouldst make more fair, a flower shall ever await thee.</p>
-      <div class="v3-address-block">
-        <span>221B Carter Street</span>
-        <span>Anclona 9¾ Quarter</span>
-        <span>Fortuna Imperia</span>
-      </div>
-      <a class="v3-text-link" href="#flowers">Open the seasonal ledger <span>↘</span></a>
+    <div class="shop-divider anim anim-d2">
+      <span></span>
+
+      <svg 
+        width="14" 
+        height="14" 
+        viewBox="0 0 14 14" 
+        fill="none" 
+        stroke="currentColor" 
+        stroke-width="1"
+      >
+        <circle cx="7" cy="7" r="2"/>
+        <line x1="7" y1="0" x2="7" y2="4"/>
+        <line x1="7" y1="10" x2="7" y2="14"/>
+        <line x1="0" y1="7" x2="4" y2="7"/>
+        <line x1="10" y1="7" x2="14" y2="7"/>
+      </svg>
+
+      <span></span>
     </div>
-  </header>
 
-  <nav class="v3-nav" aria-label="Florenzia sections">
-    <a href="#flowers"><small>01</small> Flowers</a>
-    <a href="#garlands"><small>02</small> Garlands</a>
-    <a href="#botanicals"><small>03</small> Botanicals</a>
-    <a href="#about"><small>04</small> The Proprietress</a>
-  </nav>
+    <p class="shop-tagline anim anim-d3">
+      For every day in thy life, &amp; those thou wouldst make more fair,
+      a flower shall ever await thee.
+    </p>
 
-  <main class="v3-main">
+    <p class="shop-address anim anim-d3">
+      221B Carter Street · Anclona 9¾ Quarter · Fortuna Imperia
+    </p>
 
-    <section class="v3-about" id="about">
-      <div class="v3-about-copy">
-        <p class="v3-folio">Folio II · The Proprietress</p>
-        <h2>Caoimhe<br>Winchester</h2>
-        <div class="v3-rule"></div>
-        <p class="v3-dropcap">At present, Florenzia remaineth under the keeping of Miss Caoimhe Winchester, by whose hand the greater part of all arrangements are fashioned. Thus, it stirreth little surprise should the shop door remain fast shut for the better course of a day, whilst letters of reply continueth nonetheless to depart with unfailing punctuality.</p>
-        <p>The establishment hath grown known for methods of preservation deemed uncommon, for blooms seldom espied within the common markets, and for certain distilled preparations whose cultivation records appear nowhere plainly kept.</p>
-        <p>Few, if any, have witnessed Miss Winchester purchasing stock from market merchants or public growers. Nevertheless, fresh blooms persist within the shop in every season alike, including several varieties long believed lost beyond these lands.</p>
-        <p class="v3-note">Walk-ins be welcome. Pray keep thy hands from the shelves beyond.</p>
+    <nav class="front-nav anim anim-d4">
+      <span class="florencia-phrase">Flowers</span>
+      <span class="florencia-phrase">Garlands</span>
+      <span class="florencia-phrase">Botanicals</span>
+    </nav>
+
+  </section>
+
+</div>
+
+  <!-- Products -->
+  <section class="products-section" id="flowers">
+    <p class="section-label">Seasonal Selection</p>
+    <h2 class="section-heading">Fresh from the Glasshouse</h2>
+    <p class="section-sub">Tenderly cultivated. Available each day—until thy heart be drawn to our blooms.</p>
+
+    <div class="products-grid">
+      <div class="product-card">
+        <span class="product-icon">🌼</span>
+        <h3 class="product-name">Cutter Flower</h3>
+        <p class="product-latin">Symphyotrichum ericoides(L.) G.L.Nesom</p>
+        <p class="product-desc">A delicate cluster of pale blossoms oft dismissed as mere adornment beside grander blooms. Favoured by florists for its softness and quiet volume, the Cutter Bloom is said to linger longest in arrangements prepared for unspoken affections and unfinished farewells.
+Though harmless in appearance, prolonged exposure to its dried pollen is rumoured to deepen sentimentality and disturb restful sleep in susceptible hearts.</p>
+        <p class="product-price">4 DNS per bundle</p>
       </div>
-      <figure class="v3-about-image">
-        <img src="images/Woman-in-flower-shop.jpg" alt="The proprietress within Florenzia Florist">
-        <figcaption>Observed within the front shop, sometime after closing.</figcaption>
-      </figure>
-    </section>
-
-    <section class="v3-flowers" id="flowers">
-      <header class="v3-section-head">
-        <div>
-          <p class="v3-folio">Folio III · Seasonal Selection</p>
-          <h2>Fresh from<br>the Glasshouse</h2>
-        </div>
-        <p>Tenderly cultivated. Available each day—until thy heart be drawn to our blooms.</p>
-      </header>
-
-      <div class="v3-flower-ledger">
-        <article class="v3-specimen v3-specimen-a">
-          <div class="v3-specimen-top"><span>No. 01</span><span>🌼</span></div>
-          <h3>Cutter Flower</h3>
-          <i>Symphyotrichum ericoides (L.) G.L.Nesom</i>
-          <p>A delicate cluster of pale blossoms oft dismissed as mere adornment beside grander blooms. Favoured for softness, quiet volume, and unfinished farewells.</p>
-          <strong>4 DNS <small>per bundle</small></strong>
-        </article>
-
-        <blockquote class="v3-margin-quote">“Some flowers are chosen for beauty. Others are chosen because one hath no safer manner of speaking.”</blockquote>
-
-        <article class="v3-specimen v3-specimen-b">
-          <div class="v3-specimen-top"><span>No. 02</span><span>🌹</span></div>
-          <h3>Damask Rose</h3>
-          <i>Rosa damascena Mill.</i>
-          <p>A richly layered rose long cultivated within secluded monastery gardens and noble estates. Prepared for declarations too earnest to remain concealed.</p>
-          <strong>8 DNS <small>per stem</small></strong>
-        </article>
-
-        <article class="v3-specimen v3-specimen-c">
-          <div class="v3-specimen-top"><span>No. 03</span><span>🌸</span></div>
-          <h3>Camellia</h3>
-          <i>Camellia japonica L.</i>
-          <p>An immaculate bloom of soft structure and near-perfect symmetry, admired for dignified affection, quiet loyalty, and sentiment without expectation of return.</p>
-          <strong>7 DNS <small>per stem</small></strong>
-        </article>
+      <div class="product-card">
+        <span class="product-icon">🌹</span>
+        <h3 class="product-name">Damask Rose</h3>
+        <p class="product-latin">Rosa damascena Mill.</p>
+        <p class="product-desc">A richly layered rose long cultivated within secluded monastery gardens and noble estates alike. Revered for its deep fragrance and velvety petals, the Damask Rose is frequently prepared for declarations too earnest to remain concealed. Distilled oil from mature blooms is prized among perfumers and apothecaries, said to soothe grief whilst sharpening longing in equal measure.</p>
+        <p class="product-price">8 DNS per stem</p>
       </div>
-    </section>
-
-    <section class="v3-garlands" id="garlands">
-      <div class="v3-garland-image" aria-hidden="true"></div>
-      <div class="v3-garland-copy">
-        <p class="v3-folio">Folio IV · Private Commissions</p>
-        <h2>Garlands,<br>never twice alike.</h2>
-        <p>Certain arrangements are never displayed openly within the shop, nor spoken of except through private correspondence. Such commissions are accepted according to season, purpose, and the temperament of the flowers concerned.</p>
-        <a class="v3-text-link" href="#botanicals">Continue through the ledger <span>↘</span></a>
+      <div class="product-card">
+        <span class="product-icon">🌸</span>
+        <h3 class="product-name">Camellia</h3>
+        <p class="product-latin">Camellia japonica L.</p>
+        <p class="product-desc">An immaculate bloom of soft structure and near-perfect symmetry, favoured in arrangements where restraint is valued above extravagance. Though absent of strong fragrance, the Camellia is admired for its enduring freshness once cut. Florists oft associate it with dignified affection, quiet loyalty, and sentiments carried without expectation of return.</p>
+        <p class="product-price">7 DNS per stem</p>
       </div>
-    </section>
-
-    <section class="v3-botanicals" id="botanicals">
-      <div class="v3-botanical-copy">
-        <p class="v3-folio">Folio V · Lasting Character</p>
-        <h2>Botanicals for sentiments less readily named.</h2>
-        <p>For apology, remembrance, devotion, and those affections which become altered by being spoken aloud.</p>
+      <div class="product-card">
+        <span class="product-icon">💧</span>
+        <h3 class="product-name">Hydrangea</h3>
+        <p class="product-latin">Hydrangea macrophylla (Thunb.) Ser.</p>
+        <p class="product-desc">A voluminous cluster bloom known to alter subtly in hue according to the soil in which it is raised. Coveted for its cloud-like fullness, the Hydrangea is often chosen for arrangements concerning apology, remembrance, and emotions too complicated for simpler flowers to bear. Improper drying may result in bitterness of scent.</p>
+        <p class="product-price">9 DNS per bloom</p>
       </div>
-
-      <div class="v3-botanical-cards">
-        <article class="v3-botanical-card">
-          <span>04</span><b>Hydrangea</b><i>Hydrangea macrophylla</i>
-          <p>A cloud-like bloom chosen for apology, remembrance, and emotions too complicated for simpler flowers to bear.</p>
-          <strong>9 DNS</strong>
-        </article>
-        <article class="v3-botanical-card v3-botanical-card-shift">
-          <span>05</span><b>Pompon</b><i>Chrysanthemum morifolium</i>
-          <p>Compact spherical blooms tied to mourning, ancestral devotion, and memorial preservation.</p>
-          <strong>5 DNS</strong>
-        </article>
-        <article class="v3-botanical-card">
-          <span>06</span><b>Carnation</b><i>Dianthus caryophyllus L.</i>
-          <p>A hardy flower of enduring affection, persistent where finer blooms oft wither.</p>
-          <strong>4 DNS</strong>
-        </article>
+      <div class="product-card">
+        <span class="product-icon">☁️</span>
+        <h3 class="product-name">Pompon</h3>
+        <p class="product-latin">Chrysanthemum morifolium</p>
+        <p class="product-desc">A meticulously cultivated chrysanthemum bearing compact spherical blooms of remarkable uniformity. Though outwardly cheerful in appearance, it remaineth closely tied to rituals of mourning and ancestral devotion throughout several eastern provinces. Its petals retain form long after drying, making it suitable for keepsakes and memorial preservation.</p>
+        <p class="product-price">5 DNS per stem</p>
       </div>
-    </section>
+      <div class="product-card">
+        <span class="product-icon">🎀</span>
+        <h3 class="product-name">Carnation</h3>
+        <p class="product-latin">Dianthus caryophyllus L.</p>
+        <p class="product-desc">A hardy flowering stem distinguished by ruffled petals and an unexpectedly clove-like fragrance. Long associated with enduring affection amongst common folk, the Carnation is neither rare nor extravagant, yet persisteth where finer blooms oft wither. Certain crimson cultivars are quietly exchanged in districts where open courtship remaineth discouraged.</p>
+        <p class="product-price">4 DNS per stem</p>
+      </div>
+    </div>
+  </section>
 
-  </main>
+  <!-- About strip -->
+  <section class="about-strip" id="about">
+    <div class="about-text">
+      <p class="section-label">The Florist</p>
+      <h2 class="section-heading" style="color:var(--cream); margin-bottom:20px;">Caoimhe Winchester</h2>
+      <p>At present, Florencia remaineth under the keeping of Miss Caoimhe Winchester, by whose hand the greater part of all arrangements are fashioned. Thus, it stirreth little surprise should the shop door remain fast shut for the better course of a day, whilst letters of reply continueth nonetheless to depart with unfailing punctuality — most especially those bearing the seals of ancient houses from the inner quarter.</p>  ㅤ
+<p>The establishment hath grown known for methods of preservation deemed uncommon, for blooms seldom espied within the common markets, and for certain distilled preparations whose cultivation records appear nowhere plainly kept. Some patrons have returned unto Florencia for years together, yet remain wholly ignorant as to whence particular flowers within the shop are truly gathered.</p>     ㅤ
+<p>Few, if any, have witnessed Miss Winchester purchasing stock from market merchants or public growers. Nevertheless, fresh blooms persist within the shop in every season alike, including several varieties long believed lost beyond these lands.
+Many patrons depart Florencia with an unease difficult to name, as though they had confessed somewhat more than first intended. There are, besides, quieter rumours oft exchanged in lowered voice — that certain flowers sold by Miss Winchester refuseth unfamiliar hands altogether, and that some arrangements are never displayed openly within the shop, nor spoken of except through private correspondence.</p>
+<br>
+<p style="font-size:14px; color:rgba(237,229,208,0.45);">
+  Walk-ins be welcome. Pray keep thy hands from the shelves beyond.
+</p>
 
-  <footer class="v3-footer">
-    <div><p>Florenzia Florist</p><span>221B Carter Street · Fortuna Imperia</span></div>
-    <p>The florist remaineth open upon most days—save for those of greater consequence.</p>
-    <button class="secret-btn" onclick="enterBackroom()">for discreet commissions and rarer arrangements</button>
-  </footer>
+</div>
+
+<div class="about-image"></div>
+
+</section>
+  
+<!-- Footer front -->
+<footer class="footer-front">
+  <span>© Florencia Florist · 221B Carter Street · Fortuna Imperia</span>
+  <span style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:13px;">
+    The florist remaineth open upon most days — save for those of greater consequence.
+  </span>
+  <button class="secret-btn" onclick="enterBackroom()">
+    for discreet commissions and rarer arrangements
+  </button>
+</footer>
 </div>
 
 <!-- ═══ BACK PAGE ═══ -->
@@ -3477,40 +2938,5 @@ document.addEventListener('DOMContentLoaded', () => {
   <source src="audio/feel-my-rhythm-demo.mp3" type="audio/mpeg">
 </audio>
   
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const logo = document.querySelector('.shop-logo');
-  if (!logo) return;
-
-  logo.addEventListener('mousemove', (event) => {
-    const rect = logo.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    const rotateY = ((x - centerX) / centerX) * 2;
-    const rotateX = ((centerY - y) / centerY) * 1.5;
-
-    logo.style.transform = `
-      translateY(-3px)
-      scale(1.015)
-      rotateX(${rotateX}deg)
-      rotateY(${rotateY}deg)
-    `;
-  });
-
-  logo.addEventListener('mouseleave', () => {
-    logo.style.transform = '';
-  });
-
-  logo.addEventListener('click', () => {
-    logo.classList.remove('is-stamped');
-    void logo.offsetWidth;
-    logo.classList.add('is-stamped');
-  });
-});
-</script>
-
 </body>
 </html>
