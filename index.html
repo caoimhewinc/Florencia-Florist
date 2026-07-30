@@ -1483,33 +1483,29 @@ paras.forEach(p=>{p.addEventListener("mouseenter",()=>{copy.classList.add("is-re
 const progress=()=>{const r=text.getBoundingClientRect(),vh=innerHeight,start=vh*.82,end=vh*.18-r.height,value=Math.max(0,Math.min(1,(start-r.top)/(start-end)));text.style.setProperty("--about-progress",`${value*100}%`)};addEventListener("scroll",progress,{passive:true});progress();
 ["mouseenter","focus"].forEach(ev=>name.addEventListener(ev,()=>section.classList.add("name-hover")));["mouseleave","blur"].forEach(ev=>name.addEventListener(ev,()=>section.classList.remove("name-hover")));
 const quotes=[
-  "Pray, tarry as long as pleaseth thee; no blossom here shall take offence.",
-  "Perchance it be not thou who seekest the flower, but the flower that seeketh thee.",
-  "Let not haste govern thy hand, but rather the quiet counsel of thy heart.",
-  "To every blossom is appointed the hand that shall bear it hence.",
-  "If counsel be thy want, speak but a word.",
-  "No two posies are wrought alike beneath this roof.",
-  "Oft doth a single blossom utter that which no tongue may rightly tell.",
-  "The fairest gifts are not ever those dearest bought.",
-  "Beneath this humble roof shalt thou ever find welcome.",
-  "Should Fortune bring thee hither again, thou shalt find me where thou didst leave me.",
-  "There is no blossom so humble that it be without grace.",
-  "Not every bloom seeketh the fairest vase, but the truest home.",
-  "Whoso entereth here, let him lay all haste aside.",
-  "Every flower in my keeping beareth witness to a life I once did live."];let qi=0;
-setInterval(()=>{
-  if(!quote)return;
+  "Pray, tarry as long as pleaseth you; no blossom here shall take offence.",
+"Perchance it be not you who seeketh the flower, but the flower that seeketh you.",
+"Let not haste govern your hand, but rather the quiet counsel of your heart.",
+"To every blossom is appointed the hand that shall bear it hence.",
+"If counsel be your want, speak but a word.",
+"No two posies are wrought alike beneath this roof.",
+"Oft doth a single blossom utter that which no tongue may rightly tell.",
+"The fairest gifts are not ever those dearest bought.",
+"Beneath this humble roof shall you ever find welcome.",
+"Should Fortune bring you hither again, you shall find me where you did leave me.",
+"There is no blossom so humble that it be without grace.",
+"Not every bloom seeketh the fairest vase, but the truest home.",
+"Whoso entereth here, let them lay all haste aside.",
+"Every flower I keep beareth witness unto a life I once did live."];let qi = 0;
+setInterval(() => {
+  if (!quote) return;
   quote.classList.add("is-changing");
-  setTimeout(()=>{
-    let next;
-    do{
-      next=Math.floor(Math.random()*quotes.length);
-    }while(next===qi);
-    qi=next;
-    quote.textContent=quotes[qi];
+  setTimeout(() => {
+    qi = (qi + 1) % quotes.length;
+    quote.textContent = quotes[qi];
     quote.classList.remove("is-changing");
-  },460);
-},6500);
+  }, 460);
+}, 6500);
 const addPetal=()=>{if(!petals||matchMedia("(prefers-reduced-motion: reduce)").matches)return;const p=document.createElement("i");p.className="about-image-petal";p.style.left=`${58+Math.random()*34}%`;p.style.top=`${12+Math.random()*27}%`;p.style.setProperty("--petal-time",`${4+Math.random()*2.8}s`);p.style.setProperty("--petal-drift",`${(Math.random()-.25)*70}px`);petals.appendChild(p);p.addEventListener("animationend",()=>p.remove(),{once:true})};setInterval(addPetal,3200);
 image.addEventListener("pointermove",e=>{if(Math.random()>.38)return;const r=image.getBoundingClientRect(),d=document.createElement("i");d.className="about-image-pollen";d.style.left=`${e.clientX-r.left}px`;d.style.top=`${e.clientY-r.top}px`;d.style.setProperty("--pollen-x",`${(Math.random()-.5)*50}px`);d.style.setProperty("--pollen-y",`${-(12+Math.random()*40)}px`);petals.appendChild(d);d.addEventListener("animationend",()=>d.remove(),{once:true})});
 });
