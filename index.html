@@ -700,21 +700,30 @@ html {scroll-behavior:smooth;}
 ═══════════════════════════════════════════════ */
 
 /* 01 — เข็มนาฬิกาเดิน */
-#back-page .seal-clock::before {
-  animation: backroomMinuteHand 120s linear infinite;
+.seal-clock::before {
+    animation: backroomMinuteHand 3600s linear infinite;
 }
-#back-page .seal-clock::after {
-  animation: backroomHourHand 1440s linear infinite;
+.seal-clock::after {
+    animation: backroomHourHand 43200s linear infinite;
 }
+/* Minute Hand */
 @keyframes backroomMinuteHand {
-  from {transform:translateX(-50%) rotate(38deg);}
-  to {transform:translateX(-50%) rotate(398deg);}
+    from {
+        transform: translateX(-50%) rotate(12deg);
+    }
+    to {
+        transform: translateX(-50%) rotate(372deg);
+    }
 }
+/* Hour Hand */
 @keyframes backroomHourHand {
-  from {transform:translateX(-50%) rotate(112deg);}
-  to {transform:translateX(-50%) rotate(472deg);}
+    from {
+        transform: translateX(-50%) rotate(61deg);
+    }
+    to {
+        transform: translateX(-50%) rotate(421deg);
+    }
 }
-
 /* 02 — พื้นหลังหายใจ */
 #back-page {
   background-size:115% 115%,110% 110%,112% 112%,100% 100%;
@@ -1215,7 +1224,7 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
   <div class="backroom-orbit backroom-orbit-two" aria-hidden="true"></div>
 
   <section class="back-hero">
-    <div class="seal-clock anim anim-d1" aria-hidden="true"><span>XI</span></div>
+    <div class="seal-clock anim anim-d1" aria-hidden="true"><span>✦</span></div>
     <p class="back-eyebrow anim anim-d1">Restricted · For known clients only</p>
     <h1 class="back-title">
   The <em>Backroom</em><br>Catalogue
