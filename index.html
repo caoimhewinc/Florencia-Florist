@@ -605,51 +605,6 @@ to{transform: translateX(-50%) rotate(421deg);}
 @media(max-width:700px){#flowers .product-card{min-height:350px}.product-card-face{padding:30px 24px}.product-card:hover{transform:translateY(-4px)}.product-sketch{opacity:.09}.product-herbarium-label{display:none}.specimen-meta div{grid-template-columns:90px 1fr}}
 @media(hover:none),(pointer:coarse){.product-card-light{display:none}.product-card:hover .product-icon{animation:none}.product-meaning{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){#flowers::after,.product-card:hover .product-icon,.card-pollen,.card-petal{animation:none!important}.product-card,.product-card-inner,.product-sketch,.product-stem{transition:none!important}}
-
-/* HERO LOGO — LIVING BOTANICAL CREST */
-.front-hero{isolation:isolate}
-.shop-logo-wrap{isolation:isolate;overflow:visible;--hero-x:50%;--hero-y:50%}
-.shop-logo-wrap::before{content:"";position:absolute;left:50%;top:48%;z-index:-2;width:min(760px,94vw);height:min(500px,62vw);transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle at var(--hero-x) var(--hero-y),rgba(255,245,205,.38),rgba(226,197,127,.10) 29%,transparent 66%);filter:blur(10px);opacity:.72;transition:background-position .12s linear}
-.hero-logo-stage{position:absolute;inset:-18% -22%;z-index:1;pointer-events:none;overflow:visible}
-.hero-vine{position:absolute;left:50%;top:48%;width:min(780px,96vw);height:min(360px,44vw);transform:translate(-50%,-50%);overflow:visible}
-.hero-vine path{fill:none;stroke:#8c6b2a;stroke-width:1.45;stroke-linecap:round;stroke-linejoin:round;opacity:.7;filter:drop-shadow(0 1px 1px rgba(93,61,13,.14));stroke-dasharray:1100;stroke-dashoffset:1100;animation:heroVineDraw 2.8s cubic-bezier(.2,.75,.22,1) .25s forwards}
-.hero-vine .leaf{fill:rgba(100,116,70,.12);stroke:#78814f;stroke-width:1;transform-box:fill-box;transform-origin:center;opacity:0;animation:heroLeafOpen .8s cubic-bezier(.22,1,.36,1) forwards}
-.hero-vine .leaf:nth-of-type(1){animation-delay:1.3s}.hero-vine .leaf:nth-of-type(2){animation-delay:1.48s}.hero-vine .leaf:nth-of-type(3){animation-delay:1.66s}.hero-vine .leaf:nth-of-type(4){animation-delay:1.84s}.hero-vine .leaf:nth-of-type(5){animation-delay:2.02s}.hero-vine .leaf:nth-of-type(6){animation-delay:2.2s}
-@keyframes heroVineDraw{to{stroke-dashoffset:0}}
-@keyframes heroLeafOpen{0%{opacity:0;transform:scale(.1) rotate(-18deg)}100%{opacity:.68;transform:scale(1) rotate(0)}}
-.shop-logo{z-index:3;animation:heroLogoReveal 1.25s cubic-bezier(.2,.8,.2,1) both,heroLogoBreath 9s ease-in-out 3s infinite}
-@keyframes heroLogoReveal{0%{opacity:0;transform:translateY(14px) scale(.92);filter:blur(4px)}70%{opacity:1;filter:blur(0)}100%{transform:translateY(0) scale(1)}}
-@keyframes heroLogoBreath{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-2px) scale(1.009)}}
-.shop-logo:hover{animation-play-state:paused;transform:translateY(-5px) scale(1.025)}
-.hero-logo-light{position:absolute;inset:-25% -45%;z-index:5;pointer-events:none;background:linear-gradient(112deg,transparent 38%,rgba(255,255,245,0) 44%,rgba(255,246,213,.64) 49%,rgba(255,255,255,.48) 51%,rgba(255,246,213,.22) 54%,transparent 61%);transform:translateX(-60%) skewX(-8deg);mix-blend-mode:screen;opacity:0;animation:heroSunSweep 14s ease-in-out 3.5s infinite}
-@keyframes heroSunSweep{0%,70%{transform:translateX(-60%) skewX(-8deg);opacity:0}76%{opacity:.8}90%{transform:translateX(60%) skewX(-8deg);opacity:.55}100%{transform:translateX(60%) skewX(-8deg);opacity:0}}
-.hero-logo-shadow{position:absolute;inset:-10% -8%;z-index:4;pointer-events:none;opacity:0;background:radial-gradient(ellipse at 34% 28%,rgba(71,88,51,.16),transparent 26%),radial-gradient(ellipse at 72% 67%,rgba(71,88,51,.12),transparent 22%);filter:blur(8px);transform:rotate(-3deg) scale(1.03);transition:opacity .65s ease;animation:heroLeafShadow 15s ease-in-out 4s infinite}
-@keyframes heroLeafShadow{0%,100%{transform:translate(-1%,-.5%) rotate(-3deg) scale(1.03)}50%{transform:translate(1%,.8%) rotate(1deg) scale(1.05)}}
-.shop-logo-wrap:hover .hero-logo-shadow{opacity:.72}
-.hero-gold-path{position:absolute;left:50%;top:48%;z-index:6;width:min(760px,94vw);height:min(260px,34vw);transform:translate(-50%,-50%);pointer-events:none;overflow:visible}
-.hero-gold-path path{fill:none;stroke:rgba(214,178,74,.12);stroke-width:1}
-.hero-spark{position:absolute;z-index:7;width:4px;height:4px;border-radius:50%;background:#d6b24a;box-shadow:0 0 7px rgba(214,178,74,.72),0 0 13px rgba(255,226,155,.32);opacity:0;pointer-events:none;animation:heroSparkDrift var(--spark-time,2.4s) ease-out forwards}
-@keyframes heroSparkDrift{0%{opacity:0;transform:translate(0,0) scale(.4)}20%{opacity:.9}100%{opacity:0;transform:translate(var(--spark-x,20px),var(--spark-y,-35px)) scale(.15)}}
-.hero-signature{position:absolute;left:50%;bottom:-13px;z-index:8;width:min(410px,70vw);height:58px;transform:translateX(-50%);pointer-events:none;opacity:0;animation:heroSignatureAppear 1.1s ease 2.4s forwards}
-.hero-signature svg{width:100%;height:100%;overflow:visible}
-.hero-signature path{fill:none;stroke:rgba(106,68,37,.72);stroke-width:1.1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:680;stroke-dashoffset:680;animation:heroSignatureWrite 2.2s ease 2.55s forwards}
-.hero-signature text{fill:rgba(91,58,33,.64);font:italic 15px 'Cormorant Garamond',serif;letter-spacing:.04em;opacity:0;animation:heroSignatureText .8s ease 4s forwards}
-@keyframes heroSignatureAppear{to{opacity:1}}
-@keyframes heroSignatureWrite{to{stroke-dashoffset:0}}
-@keyframes heroSignatureText{to{opacity:1}}
-.hero-hidden-quote{position:absolute;left:50%;bottom:-49px;z-index:8;transform:translateX(-50%) translateY(7px);white-space:nowrap;color:rgba(77,65,44,.55);font:italic 14px 'Cormorant Garamond',serif;letter-spacing:.08em;opacity:0;transition:opacity .8s ease .7s,transform .8s ease .7s}
-.shop-logo-wrap:hover .hero-hidden-quote{opacity:1;transform:translateX(-50%) translateY(0)}
-.hero-logo-pollen{position:absolute;inset:-8% -12%;z-index:7;overflow:visible;pointer-events:none}
-.hero-pollen{position:absolute;width:3px;height:3px;border-radius:50%;background:rgba(210,172,74,.84);box-shadow:0 0 7px rgba(210,172,74,.48);animation:heroPollen 2.1s ease-out forwards}
-@keyframes heroPollen{0%{opacity:0;transform:scale(.4)}15%{opacity:.9}100%{opacity:0;transform:translate(var(--px,20px),var(--py,-42px)) scale(.1)}}
-.hero-moth{position:absolute;z-index:8;width:18px;height:12px;opacity:0;pointer-events:none;filter:drop-shadow(0 2px 3px rgba(90,66,34,.18));animation:heroMothFlight 8s ease-in-out forwards}
-.hero-moth::before,.hero-moth::after{content:"";position:absolute;top:2px;width:9px;height:8px;border-radius:80% 20% 70% 30%;background:rgba(158,126,73,.48);transform-origin:100% 50%;animation:heroMothWing .2s ease-in-out infinite alternate}
-.hero-moth::before{right:50%}.hero-moth::after{left:50%;transform-origin:0 50%;transform:scaleX(-1)}
-@keyframes heroMothWing{to{transform:rotateX(65deg) rotate(8deg)}}
-@keyframes heroMothFlight{0%{left:-8%;top:70%;opacity:0;transform:rotate(-8deg)}10%{opacity:.75}35%{top:34%;transform:rotate(8deg)}65%{top:54%;transform:rotate(-5deg)}90%{opacity:.7}100%{left:108%;top:26%;opacity:0;transform:rotate(8deg)}}
-@media(max-width:700px){.hero-vine{width:102vw;height:52vw}.hero-signature{bottom:-7px}.hero-hidden-quote{bottom:-39px;font-size:12px}.hero-logo-stage{inset:-10% -12%}}
-@media(hover:none),(pointer:coarse){.hero-hidden-quote{opacity:.45;transform:translateX(-50%) translateY(0)}.hero-logo-shadow{opacity:.25}}
-@media(prefers-reduced-motion:reduce){.shop-logo,.hero-vine path,.hero-vine .leaf,.hero-logo-light,.hero-logo-shadow,.hero-signature,.hero-signature path,.hero-signature text,.hero-moth,.hero-moth::before,.hero-moth::after{animation:none!important}.shop-logo{opacity:1}.hero-vine path{stroke-dashoffset:0}.hero-vine .leaf,.hero-signature,.hero-signature text{opacity:1}.hero-signature path{stroke-dashoffset:0}}
 </style></head><body><nav class="top-tabs"><a href="#flowers">Flowers</a><a href="#garlands">Garlands</a><a href="#botanicals">Botanicals</a><a href="#about">The Proprietress</a><a href="#complications">Complications</a></nav><div class="page-frame"></div><!-- ═══ FRONT PAGE ═══ --><div id="front-page"><section class="front-hero"><p class="shop-eyebrow anim anim-d1">
       Est. in the reign of Thrael Oriendel de Fortuna
     </p><!-- LOGO --><div class="shop-logo-wrap anim anim-d2"><button class="shop-logo" type="button" aria-label="Florencia Florist" ><span class="logo-shimmer"></span><img src="images/FlorenciaLogo.png" alt="Florencia Florist" ></button><span class="logo-secret">
@@ -1559,14 +1514,5 @@ card.addEventListener("pointerleave",()=>{card.style.setProperty("--tilt-x","0de
 const flip=()=>{card.classList.toggle("is-flipped");card.setAttribute("aria-pressed",card.classList.contains("is-flipped"))};card.addEventListener("click",flip);card.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();flip()}});
 card.addEventListener("mouseenter",()=>grid.classList.add("is-shelving"));card.addEventListener("mouseleave",()=>grid.classList.remove("is-shelving"));
 });
-});
-</script>
-<script>
-document.addEventListener("DOMContentLoaded",()=>{const wrap=document.querySelector(".shop-logo-wrap"),logo=wrap?.querySelector(".shop-logo");if(!wrap||!logo)return;
-const stage=document.createElement("div");stage.className="hero-logo-stage";stage.setAttribute("aria-hidden","true");stage.innerHTML=`<svg class="hero-vine" viewBox="0 0 780 360"><path d="M42 208C115 134 198 113 286 140C334 155 364 171 390 171C431 171 470 140 519 126C602 102 681 132 739 196"/><path d="M88 177C128 206 170 220 216 218M563 211C610 211 655 197 700 166"/><path class="leaf" d="M145 158c-19-31-46-33-59-17 15 25 37 33 59 17Z"/><path class="leaf" d="M222 135c-4-34-29-47-49-37 5 30 24 45 49 37Z"/><path class="leaf" d="M306 148c10-33-8-53-31-51-7 28 4 48 31 51Z"/><path class="leaf" d="M474 142c-11-32 5-53 28-53 9 28-1 48-28 53Z"/><path class="leaf" d="M560 123c7-34 33-45 52-34-7 29-27 43-52 34Z"/><path class="leaf" d="M641 151c21-29 49-28 60-10-16 24-39 30-60 10Z"/></svg><span class="hero-logo-light"></span><span class="hero-logo-shadow"></span><div class="hero-logo-pollen"></div><div class="hero-signature"><svg viewBox="0 0 410 58"><path d="M47 37C87 12 118 47 155 30C188 15 221 46 258 29C291 14 322 39 364 22"/><text x="122" y="50">Caoimhe Winchester · Florencia</text></svg></div><span class="hero-hidden-quote">Every flower remembers a life once lived.</span></div>`;
-wrap.prepend(stage);
-wrap.addEventListener("pointermove",e=>{const r=wrap.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;wrap.style.setProperty("--hero-x",`${x}px`);wrap.style.setProperty("--hero-y",`${y}px`);if(Math.random()<.22){const p=document.createElement("i");p.className="hero-pollen";p.style.left=`${x}px`;p.style.top=`${y}px`;p.style.setProperty("--px",`${(Math.random()-.5)*48}px`);p.style.setProperty("--py",`${-(18+Math.random()*52)}px`);stage.querySelector(".hero-logo-pollen").append(p);p.addEventListener("animationend",()=>p.remove(),{once:true})}});
-let sparkTimer=setInterval(()=>{if(document.hidden)return;const r=logo.getBoundingClientRect(),w=wrap.getBoundingClientRect();for(let i=0;i<3;i++){const s=document.createElement("i");s.className="hero-spark";s.style.left=`${r.left-w.left+r.width*(.18+Math.random()*.64)}px`;s.style.top=`${r.top-w.top+r.height*(.18+Math.random()*.42)}px`;s.style.setProperty("--spark-x",`${(Math.random()-.5)*36}px`);s.style.setProperty("--spark-y",`${-(18+Math.random()*36)}px`);s.style.setProperty("--spark-time",`${1.5+Math.random()*1.4}s`);wrap.append(s);s.addEventListener("animationend",()=>s.remove(),{once:true})}},2700);
-const releaseMoth=()=>{if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;const moth=document.createElement("i");moth.className="hero-moth";wrap.append(moth);moth.addEventListener("animationend",()=>{moth.remove();setTimeout(releaseMoth,40000+Math.random()*30000)},{once:true})};setTimeout(releaseMoth,22000);
 });
 </script></body></html>
