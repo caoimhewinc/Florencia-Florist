@@ -638,6 +638,62 @@ html {scroll-behavior:smooth;}
   .about-text {padding:64px 28px;}
   .about-image {min-height:420px;}
 }
+  /* ═══════════════════════════════════════════════
+   BACKROOM — REMOVE OUTER SECTION BACKGROUNDS
+   ลบพื้นหลังแผ่นใหญ่ แต่เก็บพื้นหลังกล่องข้อความ
+═══════════════════════════════════════════════ */
+
+/* ให้พื้นที่ Backroom ใช้พื้นหลังหลักเดียวกันตลอดหน้า */
+#back-page .extracts-section,
+#back-page .extracts-inner,
+#back-page .ledger-section,
+#back-page .tension-section,
+#back-page .footer-back {
+  background: transparent !important;
+}
+
+/* ลบเงาหรือกรอบที่ทำให้แต่ละหมวดดูเป็นแผ่นสี่เหลี่ยมใหญ่ */
+#back-page .extracts-inner,
+#back-page .ledger-section,
+#back-page .tension-section {
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* คงพื้นหลังของรายการสินค้าแต่ละแถว */
+#back-page .extract-row {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.022),
+      rgba(169, 104, 117, 0.025)
+    );
+}
+
+/* คงกล่องข้อความ Bloom Ledger และ Rootwork */
+#back-page .ledger-block {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.022),
+      rgba(169, 104, 117, 0.035)
+    );
+}
+
+/* คงพื้นหลังคำอธิบายสถานะ */
+#back-page .status-legend {
+  background: rgba(15, 10, 6, 0.38);
+}
+
+/* รายการ Current Complications ไม่มีพื้นหลังแผ่นย่อย */
+#back-page .tension-item {
+  background: transparent;
+}
+
+/* ทำให้พื้นที่ Footer กลืนกับพื้นหลังหลัก */
+#back-page .footer-back {
+  box-shadow: none;
+}
 </style>
 </head>
 <body>
