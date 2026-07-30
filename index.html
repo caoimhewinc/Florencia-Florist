@@ -549,6 +549,62 @@ to{transform: translateX(-50%) rotate(421deg);}
 @media(prefers-reduced-motion:reduce){.about-kicker::after,.about-botanical-margin span,.about-image::before,.about-image-light,.about-image-grain{animation:none!important}
 .about-image-petal,.about-image-pollen{display:none}
 }
+
+/* GLASSHOUSE CATALOGUE — LIVING HERBARIUM */
+#flowers{isolation:isolate;--glass-x:-45%;--glass-alpha:.16}
+#flowers::after{content:"";position:absolute;inset:-15% -35%;z-index:2;pointer-events:none;background:linear-gradient(112deg,transparent 38%,rgba(255,245,210,0) 43%,rgba(255,245,210,var(--glass-alpha)) 49%,rgba(255,255,245,.32) 51%,rgba(255,245,210,var(--glass-alpha)) 54%,transparent 61%);transform:translateX(var(--glass-x));animation:glasshouseSweep 18s ease-in-out infinite}
+@keyframes glasshouseSweep{0%,15%{transform:translateX(-45%);opacity:0}24%{opacity:1}52%{transform:translateX(45%);opacity:.9}64%,100%{transform:translateX(45%);opacity:0}}
+#flowers .products-grid{perspective:1400px}
+#flowers .product-card{--bloom:#a86170;--leaf:#65744f;--light-x:50%;--light-y:45%;height:auto;min-height:370px;padding:0;overflow:visible;background:transparent;border:0;box-shadow:none;transform-style:preserve-3d;transition:transform .45s cubic-bezier(.22,1,.36,1),filter .45s ease;cursor:pointer}
+#flowers .product-card:hover{transform:translateY(-8px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg));filter:saturate(1.03)}
+#flowers .product-card::before{display:none}
+.product-card-inner{position:relative;display:grid;min-height:inherit;height:100%;transform-style:preserve-3d;transition:transform .85s cubic-bezier(.2,.8,.2,1)}
+.product-card.is-flipped .product-card-inner{transform:rotateY(180deg)}
+.product-card-face{grid-area:1/1;position:relative;display:flex;flex-direction:column;min-height:inherit;padding:34px 28px;overflow:hidden;border:1px solid rgba(184,151,42,.25);background:rgba(248,243,233,.86);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);box-shadow:0 12px 34px rgba(58,43,24,.07),inset 0 1px 0 rgba(255,255,255,.55);backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.product-card-face::before{content:"";position:absolute;inset:7px -7px -7px 7px;z-index:-1;border:1px solid rgba(184,151,42,.12);pointer-events:none}
+.product-card-back{transform:rotateY(180deg);justify-content:center;background:linear-gradient(145deg,rgba(245,237,220,.96),rgba(235,224,199,.94))}
+.product-card-light{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0;background:radial-gradient(circle 170px at var(--light-x) var(--light-y),rgba(255,243,202,.48),rgba(255,230,166,.13) 35%,transparent 72%);mix-blend-mode:screen;transition:opacity .35s ease}
+.product-card:hover .product-card-light{opacity:1}
+.product-card-content{position:relative;z-index:3;display:flex;flex-direction:column;flex:1}
+.product-icon{position:relative;z-index:4;width:max-content;transform-origin:50% 80%;transition:transform .7s cubic-bezier(.2,.85,.25,1),filter .5s ease}
+.product-card:hover .product-icon{animation:livingBloom 2.3s ease-in-out infinite;filter:drop-shadow(0 5px 7px color-mix(in srgb,var(--bloom) 28%,transparent))}
+@keyframes livingBloom{0%,100%{transform:scale(1) rotate(-1deg)}45%{transform:scale(1.16) rotate(3deg)}70%{transform:scale(1.08) rotate(-2deg)}}
+.product-stem{position:absolute;left:42px;top:72px;z-index:2;width:1px;height:0;background:linear-gradient(var(--leaf),rgba(101,116,79,.12));transform-origin:top;transition:height .8s cubic-bezier(.22,1,.36,1)}
+.product-stem::after{content:"";position:absolute;left:-1px;bottom:18%;width:13px;height:7px;border:1px solid color-mix(in srgb,var(--leaf) 65%,transparent);border-left:0;border-bottom:0;border-radius:100% 0;transform:rotate(-34deg);opacity:.55}
+.product-card:hover .product-stem{height:74px}
+.product-sketch{position:absolute;right:-6%;bottom:-8%;z-index:1;width:58%;height:72%;opacity:0;color:color-mix(in srgb,var(--leaf) 50%,transparent);transform:translate(16px,12px) rotate(-5deg) scale(.94);transition:opacity .7s ease,transform 1s cubic-bezier(.22,1,.36,1);pointer-events:none}
+.product-sketch svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.15}
+.product-card:hover .product-sketch{opacity:.16;transform:translate(0,0) rotate(-2deg) scale(1)}
+.product-latin{position:relative;width:max-content;max-width:100%;overflow:hidden}
+.product-latin::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 0%,rgba(248,243,233,.96) 12%,rgba(248,243,233,.96) 100%);transform:translateX(-108%);pointer-events:none}
+.product-card:hover .product-latin::after{animation:latinReveal 1.15s steps(18,end) 1}
+@keyframes latinReveal{from{transform:translateX(0)}to{transform:translateX(108%)}}
+.product-herbarium-label{position:absolute;right:20px;top:18px;z-index:4;padding:7px 9px;border:1px solid rgba(96,82,47,.18);background:rgba(239,228,203,.62);color:rgba(76,63,39,.54);font:9px/1.45 'Cinzel',serif;letter-spacing:.11em;text-align:right;text-transform:uppercase;opacity:0;transform:translateY(-7px) rotate(1deg);transition:.5s}
+.product-card:hover .product-herbarium-label{opacity:.78;transform:translateY(0) rotate(1deg)}
+.product-stamp{position:absolute;right:20px;bottom:18px;z-index:2;width:54px;height:54px;display:grid;place-items:center;border:1px solid color-mix(in srgb,var(--bloom) 28%,transparent);border-radius:50%;color:color-mix(in srgb,var(--bloom) 34%,transparent);font:20px 'Cormorant Garamond',serif;transform:rotate(-11deg);transition:.5s}
+.product-card:hover .product-stamp{color:color-mix(in srgb,var(--bloom) 70%,transparent);border-color:color-mix(in srgb,var(--bloom) 55%,transparent);transform:rotate(-5deg) scale(1.04)}
+.product-particles{position:absolute;inset:0;z-index:6;overflow:hidden;pointer-events:none}
+.card-pollen{position:absolute;width:3px;height:3px;border-radius:50%;background:color-mix(in srgb,var(--bloom) 68%,#d6b24a);box-shadow:0 0 7px color-mix(in srgb,var(--bloom) 44%,transparent);animation:cardPollen 1.35s ease-out forwards}
+.card-petal{position:absolute;width:8px;height:13px;border-radius:70% 30% 65% 35%;background:color-mix(in srgb,var(--bloom) 76%,#fff);box-shadow:0 1px 4px rgba(80,45,35,.12);animation:cardPetal 1.7s ease-out forwards}
+@keyframes cardPollen{0%{opacity:0;transform:scale(.4)}18%{opacity:.9}100%{opacity:0;transform:translate(var(--px,18px),var(--py,-34px)) scale(.15)}}
+@keyframes cardPetal{0%{opacity:.75;transform:translate(0,0) rotate(0)}100%{opacity:0;transform:translate(var(--px,36px),var(--py,75px)) rotate(230deg)}}
+.product-meaning{margin-top:13px;padding-top:11px;border-top:1px solid rgba(94,74,34,.15);color:rgba(58,74,46,.68);font:italic 13px 'Cormorant Garamond',serif;opacity:0;transform:translateY(5px);transition:.55s .25s}
+.product-card:hover .product-meaning{opacity:1;transform:none}
+.product-price{position:relative;z-index:3}
+.product-availability{display:inline-flex;align-items:center;gap:7px;margin-top:12px;color:rgba(58,74,46,.62);font:10px 'Cinzel',serif;letter-spacing:.1em;text-transform:uppercase}
+.product-availability::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--availability,#75855e);box-shadow:0 0 7px color-mix(in srgb,var(--availability) 60%,transparent)}
+.specimen-heading{margin-bottom:18px;color:#4d3c28;font:25px 'IM Fell English',serif}
+.specimen-meta{display:grid;gap:11px;margin:0 0 20px}
+.specimen-meta div{display:grid;grid-template-columns:105px 1fr;gap:12px;padding-bottom:9px;border-bottom:1px solid rgba(87,67,34,.13)}
+.specimen-meta dt{font:9px 'Cinzel',serif;letter-spacing:.11em;text-transform:uppercase;color:#9a7c31}
+.specimen-meta dd{margin:0;color:#514536;font:14px 'Cormorant Garamond',serif}
+.specimen-note{color:#76644e;font:italic 14px/1.55 'Cormorant Garamond',serif}
+.flip-hint{position:absolute;right:18px;bottom:14px;z-index:8;color:rgba(76,61,37,.44);font:9px 'Cinzel',serif;letter-spacing:.1em;text-transform:uppercase;pointer-events:none}
+.product-card:focus-visible{outline:2px solid rgba(184,151,42,.55);outline-offset:6px}
+.products-grid.is-shelving .product-card:not(:hover){transform:scale(.985);opacity:.82}
+@media(max-width:700px){#flowers .product-card{min-height:350px}.product-card-face{padding:30px 24px}.product-card:hover{transform:translateY(-4px)}.product-sketch{opacity:.09}.product-herbarium-label{display:none}.specimen-meta div{grid-template-columns:90px 1fr}}
+@media(hover:none),(pointer:coarse){.product-card-light{display:none}.product-card:hover .product-icon{animation:none}.product-meaning{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){#flowers::after,.product-card:hover .product-icon,.card-pollen,.card-petal{animation:none!important}.product-card,.product-card-inner,.product-sketch,.product-stem{transition:none!important}}
 </style></head><body><nav class="top-tabs"><a href="#flowers">Flowers</a><a href="#garlands">Garlands</a><a href="#botanicals">Botanicals</a><a href="#about">The Proprietress</a><a href="#complications">Complications</a></nav><div class="page-frame"></div><!-- ═══ FRONT PAGE ═══ --><div id="front-page"><section class="front-hero"><p class="shop-eyebrow anim anim-d1">
       Est. in the reign of Thrael Oriendel de Fortuna
     </p><!-- LOGO --><div class="shop-logo-wrap anim anim-d2"><button class="shop-logo" type="button" aria-label="Florencia Florist" ><span class="logo-shimmer"></span><img src="images/FlorenciaLogo.png" alt="Florencia Florist" ></button><span class="logo-secret">
@@ -1429,5 +1485,34 @@ const progress=()=>{const r=text.getBoundingClientRect(),vh=innerHeight,start=vh
 const quotes=["Every bloom remembers.","Flowers are quieter than people.","I seldom forget a face.","Some petals should never be pressed."];let qi=0;setInterval(()=>{if(!quote)return;quote.classList.add("is-changing");setTimeout(()=>{qi=(qi+1)%quotes.length;quote.textContent=quotes[qi];quote.classList.remove("is-changing")},460)},6500);
 const addPetal=()=>{if(!petals||matchMedia("(prefers-reduced-motion: reduce)").matches)return;const p=document.createElement("i");p.className="about-image-petal";p.style.left=`${58+Math.random()*34}%`;p.style.top=`${12+Math.random()*27}%`;p.style.setProperty("--petal-time",`${4+Math.random()*2.8}s`);p.style.setProperty("--petal-drift",`${(Math.random()-.25)*70}px`);petals.appendChild(p);p.addEventListener("animationend",()=>p.remove(),{once:true})};setInterval(addPetal,3200);
 image.addEventListener("pointermove",e=>{if(Math.random()>.38)return;const r=image.getBoundingClientRect(),d=document.createElement("i");d.className="about-image-pollen";d.style.left=`${e.clientX-r.left}px`;d.style.top=`${e.clientY-r.top}px`;d.style.setProperty("--pollen-x",`${(Math.random()-.5)*50}px`);d.style.setProperty("--pollen-y",`${-(12+Math.random()*40)}px`);petals.appendChild(d);d.addEventListener("animationend",()=>d.remove(),{once:true})});
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded",()=>{const grid=document.querySelector("#flowers .products-grid");if(!grid)return;
+const profiles=[
+{bloom:"#d4ad49",leaf:"#68734b",meaning:"Unfinished affection",status:"Fresh today",avail:"#72845c",region:"North glasshouse",season:"Late summer",method:"Air-dried in shade",note:"May deepen sentimentality after prolonged handling."},
+{bloom:"#a85d69",leaf:"#5e7047",meaning:"Devotion without concealment",status:"Reserved stems remain",avail:"#a67a44",region:"Monastery garden",season:"High summer",method:"Petal press, low heat",note:"Distilled only after the third bell."},
+{bloom:"#ce8798",leaf:"#67734f",meaning:"Dignified affection",status:"Fresh today",avail:"#72845c",region:"Eastern conservatory",season:"Winter to spring",method:"Cold press",note:"Best handled without haste."},
+{bloom:"#7f9fc8",leaf:"#60704f",meaning:"Remembrance and apology",status:"Awaiting harvest",avail:"#a67a44",region:"Acid-soil house",season:"Rain season",method:"Hung whole",note:"Improper drying may sour the scent."},
+{bloom:"#aaa7cf",leaf:"#63714d",meaning:"Ancestral devotion",status:"Only by request",avail:"#8f6a5f",region:"Memorial court",season:"Autumn",method:"Layered paper press",note:"Traditionally kept with letters of mourning."},
+{bloom:"#b44f61",leaf:"#65724c",meaning:"Enduring affection",status:"Fresh tomorrow",avail:"#72845c",region:"Southern beds",season:"All seasons",method:"Ribbon-bound drying",note:"Crimson cultivars are not displayed openly."}
+];
+const sketch=`<span class="product-sketch" aria-hidden="true"><svg viewBox="0 0 180 240"><path d="M92 235C94 184 88 142 99 92M98 152c-24-14-35-30-40-51M97 125c25-15 38-34 45-57M62 103c-20-5-31-19-34-36 19 2 33 13 38 31M139 70c17-11 30-10 39-1-9 16-24 23-41 16M99 94c-18-13-29-31-25-50 18 2 31 14 36 34 4-20 18-33 36-34 1 20-12 38-31 50-5 4-11 5-16 0Z"/><path d="M92 205c-13-8-21-18-24-31 13 0 23 7 29 18M94 181c15-8 25-19 30-32-15-1-27 6-33 20"/></svg></span>`;
+grid.querySelectorAll(".product-card").forEach((card,i)=>{const p=profiles[i]||profiles[0],children=[...card.childNodes],name=card.querySelector(".product-name")?.textContent.trim()||`Specimen ${i+1}`,latin=card.querySelector(".product-latin")?.textContent.trim()||"Unclassified",price=card.querySelector(".product-price")?.textContent.trim()||"By arrangement";
+card.style.setProperty("--bloom",p.bloom);card.style.setProperty("--leaf",p.leaf);card.style.setProperty("--availability",p.avail);card.tabIndex=0;card.setAttribute("role","button");card.setAttribute("aria-label",`${name}. Click to view herbarium record.`);card.dataset.specimen=`FL-${String(1884+i).padStart(4,"0")}-${String(i+1).padStart(3,"0")}`;
+const inner=document.createElement("div");inner.className="product-card-inner";
+const front=document.createElement("div");front.className="product-card-face product-card-front";
+const content=document.createElement("div");content.className="product-card-content";children.forEach(n=>content.appendChild(n));
+const back=document.createElement("div");back.className="product-card-face product-card-back";
+front.innerHTML=`<span class="product-card-light"></span><span class="product-particles"></span><span class="product-stem"></span>${sketch}<span class="product-herbarium-label">Collected<br>${card.dataset.specimen}<br>Florencia Archive</span><span class="product-stamp">❦</span>`;
+front.appendChild(content);content.insertAdjacentHTML("beforeend",`<p class="product-meaning">Language of Flowers · ${p.meaning}</p><span class="product-availability">${p.status}</span>`);
+back.innerHTML=`<h3 class="specimen-heading">${name}</h3><dl class="specimen-meta"><div><dt>Archive No.</dt><dd>${card.dataset.specimen}</dd></div><div><dt>Botanical name</dt><dd><em>${latin}</em></dd></div><div><dt>Origin</dt><dd>${p.region}</dd></div><div><dt>Season</dt><dd>${p.season}</dd></div><div><dt>Preservation</dt><dd>${p.method}</dd></div><div><dt>Price</dt><dd>${price}</dd></div></dl><p class="specimen-note">${p.note}</p><span class="flip-hint">Click to return</span>`;
+inner.append(front,back);card.replaceChildren(inner);front.insertAdjacentHTML("beforeend",`<span class="flip-hint">Click for specimen record</span>`);
+const particles=front.querySelector(".product-particles");
+card.addEventListener("pointermove",e=>{const r=card.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top,rx=((y/r.height)-.5)*-4,ry=((x/r.width)-.5)*5;card.style.setProperty("--light-x",`${x}px`);card.style.setProperty("--light-y",`${y}px`);card.style.setProperty("--tilt-x",`${rx}deg`);card.style.setProperty("--tilt-y",`${ry}deg`);if(Math.random()<.2){const d=document.createElement("i");d.className="card-pollen";d.style.left=`${x}px`;d.style.top=`${y}px`;d.style.setProperty("--px",`${(Math.random()-.5)*45}px`);d.style.setProperty("--py",`${-(14+Math.random()*42)}px`);particles.append(d);d.addEventListener("animationend",()=>d.remove(),{once:true})}});
+card.addEventListener("pointerleave",()=>{card.style.setProperty("--tilt-x","0deg");card.style.setProperty("--tilt-y","0deg");for(let n=0;n<2;n++){const d=document.createElement("i");d.className="card-petal";d.style.left=`${42+Math.random()*18}%`;d.style.top=`${14+Math.random()*12}%`;d.style.setProperty("--px",`${(Math.random()-.5)*80}px`);d.style.setProperty("--py",`${45+Math.random()*65}px`);particles.append(d);d.addEventListener("animationend",()=>d.remove(),{once:true})}});
+const flip=()=>{card.classList.toggle("is-flipped");card.setAttribute("aria-pressed",card.classList.contains("is-flipped"))};card.addEventListener("click",flip);card.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();flip()}});
+card.addEventListener("mouseenter",()=>grid.classList.add("is-shelving"));card.addEventListener("mouseleave",()=>grid.classList.remove("is-shelving"));
+});
 });
 </script></body></html>
