@@ -694,6 +694,346 @@ html {scroll-behavior:smooth;}
 #back-page .footer-back {
   box-shadow: none;
 }
+
+/* ═══════════════════════════════════════════════
+   BACKROOM — 12 INTERACTIVE EFFECTS
+═══════════════════════════════════════════════ */
+
+/* 01 — เข็มนาฬิกาเดิน */
+#back-page .seal-clock::before {
+  animation: backroomMinuteHand 120s linear infinite;
+}
+#back-page .seal-clock::after {
+  animation: backroomHourHand 1440s linear infinite;
+}
+@keyframes backroomMinuteHand {
+  from {transform:translateX(-50%) rotate(38deg);}
+  to {transform:translateX(-50%) rotate(398deg);}
+}
+@keyframes backroomHourHand {
+  from {transform:translateX(-50%) rotate(112deg);}
+  to {transform:translateX(-50%) rotate(472deg);}
+}
+
+/* 02 — พื้นหลังหายใจ */
+#back-page {
+  background-size:115% 115%,110% 110%,112% 112%,100% 100%;
+  animation:backroomBreath 18s ease-in-out infinite;
+}
+@keyframes backroomBreath {
+  0%,100% {
+    background-position:50% -8%,8% 35%,92% 78%,center;
+    filter:brightness(1);
+  }
+  50% {
+    background-position:50% -5%,10% 37%,90% 76%,center;
+    filter:brightness(1.035);
+  }
+}
+
+/* 03 — ฝุ่นทองลอย */
+.backroom-dust-layer {
+  position:fixed;
+  inset:0;
+  z-index:20;
+  overflow:hidden;
+  pointer-events:none;
+}
+.backroom-dust {
+  position:absolute;
+  bottom:-20px;
+  width:var(--dust-size,3px);
+  height:var(--dust-size,3px);
+  border-radius:50%;
+  background:rgba(221,201,143,.72);
+  box-shadow:0 0 6px rgba(221,201,143,.35),0 0 12px rgba(200,139,152,.12);
+  opacity:0;
+  animation:
+    backroomDustRise var(--dust-duration,18s) linear infinite,
+    backroomDustFlicker 4s ease-in-out infinite;
+  animation-delay:var(--dust-delay,0s);
+}
+@keyframes backroomDustRise {
+  0% {
+    transform:translate3d(0,0,0) scale(.7);
+    opacity:0;
+  }
+  10% {opacity:.45;}
+  55% {
+    transform:translate3d(var(--dust-drift,20px),-55vh,0) scale(1);
+    opacity:.32;
+  }
+  100% {
+    transform:translate3d(calc(var(--dust-drift,20px) * -.35),-110vh,0) scale(.65);
+    opacity:0;
+  }
+}
+@keyframes backroomDustFlicker {
+  0%,100% {filter:brightness(.8);}
+  50% {filter:brightness(1.4);}
+}
+
+/* 04 — แสงวิ่งตามกรอบ */
+#back-page .back-hero {isolation:isolate;}
+#back-page .backroom-border-glint {
+  position:absolute;
+  inset:0;
+  z-index:10;
+  pointer-events:none;
+  padding:1px;
+  background:conic-gradient(
+    from var(--glint-angle,0deg),
+    transparent 0deg,
+    transparent 310deg,
+    rgba(221,201,143,.05) 330deg,
+    rgba(255,235,180,.62) 344deg,
+    rgba(221,201,143,.05) 354deg,
+    transparent 360deg
+  );
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+  animation:backroomBorderGlint 12s linear infinite;
+}
+@property --glint-angle {
+  syntax:"<angle>";
+  inherits:false;
+  initial-value:0deg;
+}
+@keyframes backroomBorderGlint {
+  to {--glint-angle:360deg;}
+}
+
+/* 05 — หัวข้อสั่นเหมือนแสงเทียน */
+#back-page .back-title {
+  animation:backroomTitleFlicker 6s ease-in-out infinite;
+}
+@keyframes backroomTitleFlicker {
+  0%,100% {
+    text-shadow:0 3px 0 #080405,0 12px 34px rgba(0,0,0,.55),0 0 0 rgba(226,177,185,0);
+  }
+  24% {
+    text-shadow:.4px 3px 0 #080405,0 12px 34px rgba(0,0,0,.55),0 0 16px rgba(226,177,185,.06);
+  }
+  49% {
+    text-shadow:-.35px 3px 0 #080405,0 13px 36px rgba(0,0,0,.58),0 0 20px rgba(221,201,143,.04);
+  }
+  74% {
+    text-shadow:.2px 3px 0 #080405,0 11px 32px rgba(0,0,0,.52),0 0 12px rgba(226,177,185,.04);
+  }
+}
+
+/* 06 — แสงโคมตามเมาส์ */
+.backroom-cursor-light {
+  position:fixed;
+  left:0;
+  top:0;
+  z-index:8;
+  width:420px;
+  height:420px;
+  border-radius:50%;
+  pointer-events:none;
+  opacity:0;
+  transform:translate3d(
+    calc(var(--mouse-x,-500px) - 50%),
+    calc(var(--mouse-y,-500px) - 50%),
+    0
+  );
+  background:radial-gradient(
+    circle,
+    rgba(255,224,173,.07) 0%,
+    rgba(200,139,152,.035) 28%,
+    rgba(111,48,63,.014) 48%,
+    transparent 72%
+  );
+  filter:blur(3px);
+  transition:opacity .45s ease,transform .06s linear;
+}
+#back-page.visible .backroom-cursor-light {opacity:1;}
+
+/* 07 — แถบข้างรายการขยาย */
+#back-page .extract-row {overflow:hidden;}
+#back-page .extract-row::before {
+  width:5px;
+  transition:
+    width .38s cubic-bezier(.22,1,.36,1),
+    opacity .38s ease,
+    filter .38s ease;
+}
+#back-page .extract-row:hover::before {
+  width:13px;
+  opacity:.95;
+  filter:saturate(1.2) brightness(1.12);
+  box-shadow:0 0 20px rgba(200,139,152,.18);
+}
+
+/* 08 — เส้น Complications เต้น */
+#back-page .tension-marker {transform-origin:center;}
+#back-page .tension-item:hover .tension-marker {
+  animation:backroomConcernPulse 1.65s ease-in-out infinite;
+}
+@keyframes backroomConcernPulse {
+  0%,100% {
+    opacity:.58;
+    filter:brightness(.85);
+    box-shadow:0 0 5px currentColor;
+  }
+  50% {
+    opacity:1;
+    filter:brightness(1.3);
+    box-shadow:0 0 12px currentColor,0 0 22px currentColor;
+  }
+}
+
+/* 09 — นาฬิกาตื่นเมื่อเข้า Backroom */
+#back-page.audio-awake .seal-clock {
+  animation:backroomClockWake 1.8s ease;
+}
+@keyframes backroomClockWake {
+  0% {
+    transform:scale(.88);
+    filter:brightness(.6);
+  }
+  45% {
+    transform:scale(1.05);
+    filter:brightness(1.25);
+  }
+  100% {
+    transform:scale(1);
+    filter:brightness(1);
+  }
+}
+
+/* 10 — ชื่อสารสกัดแผ่ตัว */
+#back-page .ext-name {
+  letter-spacing:.01em;
+  transition:
+    letter-spacing .55s cubic-bezier(.22,1,.36,1),
+    color .35s ease,
+    text-shadow .35s ease;
+}
+#back-page .extract-row:hover .ext-name {
+  letter-spacing:.065em;
+  color:#f8e7ce;
+  text-shadow:0 0 14px rgba(226,177,185,.08);
+}
+
+/* 11 — วงแหวนหมุนช้ามาก */
+.backroom-orbit {
+  position:fixed;
+  z-index:1;
+  pointer-events:none;
+  border-radius:50%;
+  border:1px solid rgba(221,201,143,.09);
+  opacity:.72;
+}
+.backroom-orbit::before,
+.backroom-orbit::after {
+  content:"";
+  position:absolute;
+  border-radius:50%;
+  border:1px solid rgba(200,139,152,.055);
+}
+.backroom-orbit::before {inset:9%;}
+.backroom-orbit::after {inset:24%;}
+.backroom-orbit-one {
+  width:760px;
+  height:760px;
+  left:-330px;
+  top:52px;
+  border-top-color:rgba(221,201,143,.22);
+  border-right-color:transparent;
+  animation:backroomOrbitClockwise 220s linear infinite;
+}
+.backroom-orbit-two {
+  width:500px;
+  height:500px;
+  right:-270px;
+  bottom:-170px;
+  border-bottom-color:rgba(200,139,152,.14);
+  border-left-color:transparent;
+  animation:backroomOrbitCounter 280s linear infinite;
+}
+@keyframes backroomOrbitClockwise {
+  to {transform:rotate(360deg);}
+}
+@keyframes backroomOrbitCounter {
+  to {transform:rotate(-360deg);}
+}
+
+/* 12 — ป้ายลับเรืองแสง */
+#back-page .grade-forbidden,
+#back-page .grade-restricted,
+#back-page .grade-occult,
+#back-page .grade-illicit {
+  position:relative;
+  overflow:hidden;
+  color:#f1d8dc;
+  border:1px solid rgba(200,139,152,.36);
+  background:linear-gradient(135deg,rgba(111,48,63,.62),rgba(35,15,21,.86));
+  transition:
+    transform .32s ease,
+    color .32s ease,
+    border-color .32s ease,
+    box-shadow .32s ease,
+    filter .32s ease;
+}
+#back-page .grade-occult {
+  color:#decda2;
+  border-color:rgba(185,154,91,.38);
+  background:linear-gradient(135deg,rgba(92,74,48,.78),rgba(25,18,12,.9));
+}
+#back-page .grade-illicit {
+  color:#f0c7ce;
+  border-color:rgba(168,92,104,.48);
+  background:linear-gradient(135deg,rgba(126,40,55,.82),rgba(40,12,18,.94));
+}
+#back-page .grade-forbidden:hover,
+#back-page .grade-restricted:hover,
+#back-page .grade-occult:hover,
+#back-page .grade-illicit:hover {
+  transform:translateY(-1px) scale(1.035);
+  color:#fff1e4;
+  border-color:rgba(244,214,177,.68);
+  filter:brightness(1.18) saturate(1.08);
+  box-shadow:
+    0 0 10px rgba(200,139,152,.24),
+    0 0 24px rgba(221,201,143,.11),
+    inset 0 0 12px rgba(255,255,255,.04);
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion:reduce) {
+  #back-page,
+  #back-page *,
+  #back-page *::before,
+  #back-page *::after {
+    animation-duration:.001ms !important;
+    animation-iteration-count:1 !important;
+    scroll-behavior:auto !important;
+  }
+  .backroom-cursor-light,
+  .backroom-dust-layer,
+  .backroom-orbit {
+    display:none !important;
+  }
+}
+
+@media (max-width:700px) {
+  .backroom-cursor-light {display:none;}
+  .backroom-dust-layer {opacity:.55;}
+  .backroom-orbit-one {
+    width:520px;
+    height:520px;
+    left:-310px;
+  }
+  .backroom-orbit-two {
+    width:360px;
+    height:360px;
+    right:-230px;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -820,6 +1160,12 @@ Many patrons depart Florencia with an unease difficult to name, as though they h
 </div>
 <!-- ═══ BACK PAGE ═══ -->
 <div id="back-page">
+
+  <div class="backroom-cursor-light" aria-hidden="true"></div>
+  <div class="backroom-dust-layer" aria-hidden="true"></div>
+  <div class="backroom-orbit backroom-orbit-one" aria-hidden="true"></div>
+  <div class="backroom-orbit backroom-orbit-two" aria-hidden="true"></div>
+
   <section class="back-hero">
     <div class="seal-clock anim anim-d1" aria-hidden="true"><span>XI</span></div>
     <p class="back-eyebrow anim anim-d1">Restricted · For known clients only</p>
@@ -1910,5 +2256,128 @@ document.addEventListener('DOMContentLoaded', () => {
   <audio id="backroomBgm" loop>
   <source src="audio/feel-my-rhythm-demo.mp3" type="audio/mpeg">
 </audio>
+
+<audio id="backroomDoorSfx" preload="auto">
+  <source src="audio/Old-Wooden-Doors.mp3" type="audio/mpeg">
+</audio>
+<audio id="backroomTickSfx" loop preload="auto">
+  <source src="audio/Old-Clock-Sound.mp3" type="audio/mpeg">
+</audio>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const backPage = document.getElementById('back-page');
+  const backHero = document.querySelector('#back-page .back-hero');
+  const dustLayer = document.querySelector('.backroom-dust-layer');
+
+  if (!backPage) return;
+
+  /* 03 — สร้างฝุ่นทอง */
+  if (dustLayer && !dustLayer.dataset.ready) {
+    const dustCount = 18;
+
+    for (let index = 0; index < dustCount; index += 1) {
+      const dust = document.createElement('span');
+      dust.className = 'backroom-dust';
+      dust.style.left = `${Math.random() * 100}%`;
+      dust.style.setProperty('--dust-size', `${(Math.random() * 2.6 + 1).toFixed(2)}px`);
+      dust.style.setProperty('--dust-duration', `${(Math.random() * 18 + 16).toFixed(2)}s`);
+      dust.style.setProperty('--dust-delay', `${(Math.random() * -28).toFixed(2)}s`);
+      dust.style.setProperty('--dust-drift', `${(Math.random() * 110 - 55).toFixed(2)}px`);
+      dustLayer.appendChild(dust);
+    }
+
+    dustLayer.dataset.ready = 'true';
+  }
+
+  /* 04 — สร้างแสงวิ่งตามกรอบ */
+  if (backHero && !backHero.querySelector('.backroom-border-glint')) {
+    const borderGlint = document.createElement('span');
+    borderGlint.className = 'backroom-border-glint';
+    borderGlint.setAttribute('aria-hidden', 'true');
+    backHero.appendChild(borderGlint);
+  }
+
+  /* 06 — แสงโคมตามเมาส์ */
+  backPage.addEventListener('pointermove', event => {
+    backPage.style.setProperty('--mouse-x', `${event.clientX}px`);
+    backPage.style.setProperty('--mouse-y', `${event.clientY}px`);
+  });
+
+  backPage.addEventListener('pointerleave', () => {
+    backPage.style.setProperty('--mouse-x', '-500px');
+    backPage.style.setProperty('--mouse-y', '-500px');
+  });
+
+  /* 09 — เสียงและนาฬิกาตื่น */
+  const enterButton = document.querySelector('.secret-btn');
+  const exitButton = document.querySelector('#back-page .back-btn');
+  const doorSound = document.getElementById('backroomDoorSfx');
+  const tickSound = document.getElementById('backroomTickSfx');
+
+  const awakenBackroomAudio = async () => {
+    backPage.classList.add('audio-awake');
+
+    window.setTimeout(() => {
+      backPage.classList.remove('audio-awake');
+    }, 1900);
+
+    if (doorSound) {
+      try {
+        doorSound.currentTime = 0;
+        doorSound.volume = 0.42;
+        await doorSound.play();
+      } catch (error) {
+        console.warn('Backroom door sound could not play:', error);
+      }
+    }
+
+    if (tickSound) {
+      try {
+        tickSound.volume = 0;
+        await tickSound.play();
+
+        let volume = 0;
+        const fadeIn = window.setInterval(() => {
+          volume = Math.min(volume + 0.004, 0.045);
+          tickSound.volume = volume;
+
+          if (volume >= 0.045) {
+            window.clearInterval(fadeIn);
+          }
+        }, 80);
+      } catch (error) {
+        console.warn('Backroom clock sound could not play:', error);
+      }
+    }
+  };
+
+  const sleepBackroomAudio = () => {
+    if (!tickSound) return;
+
+    let volume = tickSound.volume;
+    const fadeOut = window.setInterval(() => {
+      volume = Math.max(volume - 0.006, 0);
+      tickSound.volume = volume;
+
+      if (volume <= 0) {
+        window.clearInterval(fadeOut);
+        tickSound.pause();
+        tickSound.currentTime = 0;
+      }
+    }, 60);
+  };
+
+  if (enterButton) {
+    enterButton.addEventListener('click', awakenBackroomAudio);
+  }
+
+  if (exitButton) {
+    exitButton.addEventListener('click', sleepBackroomAudio);
+  }
+});
+</script>
+
 </body>
 </html>
