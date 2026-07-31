@@ -663,67 +663,49 @@ to{transform: translateX(-50%) rotate(421deg);}
   width:min(1500px,96vw);
   aspect-ratio:3/2;
   overflow:hidden;
-  background:#5a4032;
-  box-shadow:0 35px 85px rgba(37,21,11,.36),inset 0 3px rgba(255,255,255,.2);
-  transform:translateZ(0);.cw-desk-frame{
-  position:relative;
-  width:min(1500px,96vw);
-  aspect-ratio:3/2;
-  overflow:hidden;
   isolation:isolate;
-
+  border-radius:48px;
   background:#5a4032;
-
-  border-radius:46px;
-
   box-shadow:
-    0 35px 85px rgba(37,21,11,.30),
-    0 10px 30px rgba(64,41,24,.14),
-    inset 0 3px rgba(255,255,255,.20);
-
-  -webkit-mask-image:
-    radial-gradient(
-      ellipse at center,
-      #000 0%,
-      #000 72%,
-      rgba(0,0,0,.96) 82%,
-      rgba(0,0,0,.72) 91%,
-      transparent 100%
-    );
-
-  mask-image:
-    radial-gradient(
-      ellipse at center,
-      #000 0%,
-      #000 72%,
-      rgba(0,0,0,.96) 82%,
-      rgba(0,0,0,.72) 91%,
-      transparent 100%
-    );
-
+    0 34px 80px rgba(37,21,11,.28),
+    0 12px 34px rgba(64,41,24,.12),
+    inset 0 0 0 1px rgba(255,255,255,.14);
+  -webkit-mask-image:radial-gradient(
+    ellipse 76% 76% at center,
+    #000 0%,
+    #000 82%,
+    rgba(0,0,0,.96) 88%,
+    rgba(0,0,0,.72) 94%,
+    transparent 100%
+  );
+  mask-image:radial-gradient(
+    ellipse 76% 76% at center,
+    #000 0%,
+    #000 82%,
+    rgba(0,0,0,.96) 88%,
+    rgba(0,0,0,.72) 94%,
+    transparent 100%
+  );
   transform:translateZ(0);
 }
-   .cw-desk-frame::before{
+.cw-desk-frame::before{
   content:"";
   position:absolute;
   inset:0;
   z-index:40;
-  pointer-events:none;
-
   border-radius:inherit;
-
+  pointer-events:none;
   background:
     radial-gradient(
       ellipse at center,
-      transparent 54%,
-      rgba(65,38,22,.035) 70%,
-      rgba(54,31,18,.12) 88%,
-      rgba(36,20,12,.24) 100%
+      transparent 57%,
+      rgba(52,31,18,.035) 73%,
+      rgba(43,24,14,.10) 88%,
+      rgba(31,17,10,.22) 100%
     );
-
   box-shadow:
-    inset 0 0 45px rgba(255,239,205,.06),
-    inset 0 0 95px rgba(42,22,12,.13);
+    inset 0 0 48px rgba(255,239,205,.05),
+    inset 0 0 105px rgba(42,22,12,.12);
 }
 .cw-desk-layer{
   position:absolute;
@@ -896,6 +878,27 @@ to{transform: translateX(-50%) rotate(421deg);}
 }
 @media(prefers-reduced-motion:reduce){
   .cw-desk-layer,.cw-hitbox::after{transition:none!important}
+}
+
+
+@media(max-width:760px){
+  .cw-desk-frame{
+    border-radius:24px;
+    -webkit-mask-image:radial-gradient(
+      ellipse 84% 82% at center,
+      #000 0%,
+      #000 88%,
+      rgba(0,0,0,.88) 95%,
+      transparent 100%
+    );
+    mask-image:radial-gradient(
+      ellipse 84% 82% at center,
+      #000 0%,
+      #000 88%,
+      rgba(0,0,0,.88) 95%,
+      transparent 100%
+    );
+  }
 }
 
 </style></head><body><nav class="top-tabs"><a href="#flowers">Flowers</a><a href="#garlands">Garlands</a><a href="#botanicals">Botanicals</a><a href="#about">The Proprietress</a><a href="#complications">Complications</a></nav><div class="page-frame"></div><!-- ═══ FRONT PAGE ═══ --><div id="front-page"><section class="front-hero caoimhe-desk" aria-label="Caoimhe Winchester's work desk">
