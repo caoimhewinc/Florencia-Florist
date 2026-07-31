@@ -607,19 +607,20 @@ to{transform: translateX(-50%) rotate(421deg);}
 @media(prefers-reduced-motion:reduce){#flowers::after,.product-card:hover .product-icon,.card-pollen,.card-petal{animation:none!important}.product-card,.product-card-inner,.product-sketch,.product-stem{transition:none!important}}
 
 /* ═══════════════════════════════════════════════════════════
-   CAOIMHE DESK — replaces only the original front hero
+   CAOIMHE DESK
+   Layout → layers → hover → hitboxes → copy → responsive
    ═══════════════════════════════════════════════════════════ */
+
+/* 01. Variables */
 :root{
   --cw-lift:-10px;
   --cw-lift-scale:1.015;
   --cw-soft-lift:-5px;
   --cw-soft-scale:1.006;
-  --cw-logo-y:-18%;
-  --cw-logo-scale:.46;
-  --cw-logo-hover-scale:.475;
   --cw-ease:cubic-bezier(.19,1,.22,1);
 }
 
+/* 02. Hero and desk frame */
 #front-page .front-hero.caoimhe-desk{
   position:relative;
   display:grid;
@@ -627,11 +628,13 @@ to{transform: translateX(-50%) rotate(421deg);}
   width:100%;
   min-height:100svh;
   padding:82px 28px 72px;
-  overflow:hidden;
+  overflow:visible;
   isolation:isolate;
   text-align:initial;
   background:transparent;
+  filter:drop-shadow(0 22px 34px rgba(45,27,15,.16));
 }
+
 #front-page .front-hero.caoimhe-desk::before{
   content:"";
   position:absolute;
@@ -643,17 +646,13 @@ to{transform: translateX(-50%) rotate(421deg);}
     radial-gradient(circle at 50% 42%,rgba(255,235,190,.25),transparent 40%),
     linear-gradient(rgba(246,240,226,.72),rgba(233,222,202,.76));
 }
+
 #front-page .front-hero.caoimhe-desk::after{
   content:"";
   position:absolute;
   inset:0;
   z-index:50;
-  width:auto;
-  height:auto;
-  right:auto;
-  bottom:auto;
   pointer-events:none;
-  opacity:1;
   background:none;
   box-shadow:inset 0 0 110px rgba(46,27,14,.17);
 }
@@ -664,341 +663,11 @@ to{transform: translateX(-50%) rotate(421deg);}
   aspect-ratio:3/2;
   overflow:hidden;
   isolation:isolate;
-  background:#5a4032;
-  border-radius:46px;
-
-  box-shadow:
-    0 35px 85px rgba(37,21,11,.30),
-    0 10px 30px rgba(64,41,24,.14),
-    inset 0 3px rgba(255,255,255,.20);
-
-  -webkit-mask-image:
-    radial-gradient(
-      ellipse at center,
-      #000 0%,
-      #000 72%,
-      rgba(0,0,0,.96) 82%,
-      rgba(0,0,0,.72) 91%,
-      transparent 100%
-    );
-
-  mask-image:
-    radial-gradient(
-      ellipse at center,
-      #000 0%,
-      #000 72%,
-      rgba(0,0,0,.96) 82%,
-      rgba(0,0,0,.72) 91%,
-      transparent 100%
-    );
-
-  transform:translateZ(0);
-}
-   .cw-desk-frame::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  z-index:40;
-  pointer-events:none;
-
-  border-radius:inherit;
-
-  background:
-    radial-gradient(
-      ellipse at center,
-      transparent 54%,
-      rgba(65,38,22,.035) 70%,
-      rgba(54,31,18,.12) 88%,
-      rgba(36,20,12,.24) 100%
-    );
-
-  box-shadow:
-    inset 0 0 45px rgba(255,239,205,.06),
-    inset 0 0 95px rgba(42,22,12,.13);
-}
-.cw-desk-layer{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:fill;
-  pointer-events:none;
-  transform:translateY(0) scale(1);
-  transform-origin:center;
-  transition:transform .55s var(--cw-ease),filter .45s ease,opacity .45s ease;
-  will-change:transform,filter;
-}
-
-/* Materials */
-.cw-layer-stain{opacity:.82;mix-blend-mode:multiply;filter:sepia(.1) saturate(.78) brightness(.94)}
-.cw-layer-paper{filter:sepia(.08) saturate(.92) brightness(.985) drop-shadow(8px 12px 10px rgba(27,15,8,.22))}
-.cw-layer-flower{filter:sepia(.04) saturate(.92) brightness(.96) drop-shadow(4px 7px 6px rgba(27,14,7,.18))}
-.cw-layer-metal{filter:sepia(.08) saturate(.86) brightness(.94) drop-shadow(7px 11px 9px rgba(22,11,6,.25))}
-.cw-layer-fabric{filter:sepia(.04) saturate(.82) brightness(.98) drop-shadow(3px 6px 6px rgba(30,17,8,.15))}
-.cw-layer-logo{filter:sepia(.08) saturate(.88) brightness(.88) contrast(1.04) drop-shadow(0 5px 6px rgba(0,0,0,.18))}
-
-/* Canva stacking order */
-#cwWood{z-index:0}
-#cwCoffee{z-index:1}
-#cwClover{
-  z-index:3;
-  transform:translateY(12px);
-  filter:sepia(.22) saturate(.72) brightness(.88);
-}
-#cwPaper{z-index:4}
-#cwHand02{z-index:5}
-#cwLace{z-index:6}
-#cwDried{z-index:7}
-#cwEnvelope{z-index:8}
-#cwPurple{z-index:9}
-#cwRedRose{z-index:10}
-#cwPinkRose{z-index:11}
-#cwWax{z-index:12}
-#cwPetals{z-index:13}
-#cwHand01{z-index:14}
-#cwBlankTag{z-index:15}
-#cwFloralTag{z-index:16}
-#cwPressed{z-index:17}
-#cwGrid{z-index:18}
-#cwWatch{z-index:19}
-#cwQuill{z-index:20}
-#cwKey{z-index:21}
-#cwLogo{
-  z-index:22;
-  inset:auto;
-  left:51.5%;
-  top:15.5%;
-  width:43%;
-  height:auto;
-  object-fit:contain;
-  transform:
-    translateX(-50%)
-    rotate(-3deg);
-  transform-origin:center center;
-  transition:
-    transform .55s cubic-bezier(.19,1,.22,1),
-    filter .45s ease;
-}
-
-/* Hover */
-.cw-desk-layer.is-hovered{
-  transform:
-    translateY(var(--cw-lift))
-    scale(var(--cw-lift-scale));
-
-  filter:
-    sepia(.03)
-    saturate(.98)
-    brightness(1.045)
-    drop-shadow(10px 18px 14px rgba(24,12,6,.34));
-}
-
-.cw-desk-layer.is-soft-hovered{
-  transform:
-    translateY(var(--cw-soft-lift))
-    scale(var(--cw-soft-scale));
-
-  filter:
-    sepia(.04)
-    saturate(.94)
-    brightness(1.025)
-    drop-shadow(7px 13px 11px rgba(24,12,6,.25));
-}
-
-#cwLogo.is-hovered{
-  transform:
-    translateX(-50%)
-    translateY(-9px)
-    rotate(-3deg)
-    scale(1.025);
-
-  filter:
-    sepia(.02)
-    saturate(.98)
-    brightness(1.045)
-    drop-shadow(0 13px 12px rgba(38,20,9,.28))
-    drop-shadow(0 0 16px rgba(255,237,192,.13));
-}
-
-.cw-logo-effect-zone{
-  transform:rotate(-3deg);
-  transform-origin:center;
-}
-
-#cwClover.is-hovered{
-  transform:
-    translateY(calc(12px + var(--cw-lift)))
-    scale(var(--cw-lift-scale));
-}
-   #cwRedRose,
-#cwPinkRose{
-  transform-origin:center bottom;
-}
-
-#cwRedRose.is-hovered{
-  transform:
-    translateY(-13px)
-    rotate(-1.2deg)
-    scale(1.045);
-
-  filter:
-    sepia(.02)
-    saturate(1.04)
-    brightness(1.04)
-    drop-shadow(8px 17px 13px rgba(27,14,7,.32));
-}
-
-#cwPinkRose.is-hovered{
-  transform:
-    translateY(-12px)
-    rotate(1deg)
-    scale(1.045);
-
-  filter:
-    sepia(.02)
-    saturate(1.02)
-    brightness(1.045)
-    drop-shadow(8px 17px 13px rgba(27,14,7,.30));
-}
-
-/* Transparent hover zones */
-.cw-hitbox{
-  position:absolute;
-  z-index:60;
-  margin:0;
-  padding:0;
-  border:0;
-  border-radius:18px;
-  outline:none;
-  background:transparent;
-  cursor:pointer;
-  appearance:none;
-  -webkit-appearance:none;
-  -webkit-tap-highlight-color:transparent;
-}
-.cw-hitbox::after{
-  content:"";
-  position:absolute;
-  inset:8%;
-  z-index:-1;
-  border-radius:50%;
-  background:rgba(255,226,169,.16);
-  filter:blur(24px);
-  opacity:0;
-  transition:opacity .35s ease;
-}
-.cw-hitbox:hover::after,.cw-hitbox:focus-visible::after{opacity:1}
-
-/* Hitboxes based on the 1500 × 1000 Canva canvas */
-.cw-hit-logo{left:30%;top:14%;width:44%;height:30%}
-.cw-hit-paper{left:18%;top:5%;width:64%;height:84%}
-.cw-hit-envelope{left:0;top:0;width:25.5%;height:33%}
-.cw-hit-dried{left:0;top:7%;width:25%;height:78%}
-.cw-hit-lace{left:0;top:39%;width:20%;height:61%}
-.cw-hit-red{left:0;top:63%;width:17%;height:28%}
-.cw-hit-pink{left:0;top:75%;width:22%;height:25%}
-.cw-hit-purple{left:21%;top:0;width:10%;height:21%}
-.cw-hit-clover{left:29%;top:0;width:13%;height:15%}
-.cw-hit-key{left:60%;top:0;width:18%;height:19%}
-.cw-hit-coffee{right:0;top:0;width:27%;height:17%}
-.cw-hit-pressed{right:0;top:6%;width:25%;height:55%}
-.cw-hit-blank-tag{right:9%;top:29%;width:14%;height:37%}
-.cw-hit-floral-tag{right:0;top:31%;width:14%;height:36%}
-.cw-hit-quill{right:0;top:39%;width:19%;height:48%}
-.cw-hit-grid{right:0;bottom:0;width:31%;height:45%}
-.cw-hit-watch{right:0;bottom:0;width:15%;height:30%}
-.cw-hit-hand01{left:53%;bottom:0;width:25%;height:31%}
-.cw-hit-hand02{left:9%;bottom:0;width:18%;height:28%}
-.cw-hit-petals{left:25%;bottom:0;width:29%;height:31%}
-.cw-hit-wax{left:0;top:12%;width:6%;height:13%}
-
-/* จัดลำดับพื้นที่ Hover ของวัตถุด้านซ้าย */
-.cw-hit-dried{z-index:61}
-.cw-hit-lace{z-index:62}
-
-/* ดอกกุหลาบต้องอยู่เหนือ Hitbox ของดอกไม้แห้งและลูกไม้ */
-.cw-hit-red{
-  z-index:73;
-  left:0;
-  top:58%;
-  width:19%;
-  height:30%;
-}
-.cw-hit-pink{
-  z-index:74;
-  left:2%;
-  top:72%;
-  width:21%;
-  height:27%;
-}
-.cw-hit-envelope{z-index:68}
-.cw-hit-purple{z-index:69}
-.cw-hit-wax{z-index:70} 
-
-.cw-desk-light{
-  position:absolute;
-  z-index:45;
-  width:360px;
-  height:360px;
-  border-radius:50%;
-  pointer-events:none;
-  opacity:0;
-  transform:translate(-50%,-50%);
-  background:radial-gradient(circle,rgba(255,229,174,.13),transparent 70%);
-  transition:opacity .25s;
-}
-.cw-desk-frame:hover .cw-desk-light{opacity:1}
-.cw-desk-hint{
-  position:absolute;
-  left:50%;
-  bottom:12px;
-  z-index:70;
-  margin:0;
-  color:rgba(244,226,191,.76);
-  font-size:11px;
-  font-style:italic;
-  letter-spacing:.09em;
-  text-shadow:0 2px 5px rgba(22,12,7,.8);
-  pointer-events:none;
-  transform:translateX(-50%);
-}
-
-@media(max-width:760px){
-  :root{
-    --cw-lift:-7px;
-    --cw-lift-scale:1.01;
-    --cw-soft-lift:-3px;
-    --cw-soft-scale:1.003;
-  }
-  #front-page .front-hero.caoimhe-desk{min-height:auto;padding:68px 0 0}
-  .cw-desk-frame{width:100vw}
-  .cw-desk-hint{bottom:6px;font-size:9px}
-}
-@media(hover:none){
-  .cw-hitbox{cursor:default}
-}
-@media(prefers-reduced-motion:reduce){
-  .cw-desk-layer,.cw-hitbox::after{transition:none!important}
-}
-
-
-/* ═══════════════════════════════════════════════════════════
-   FINAL DESK EDGE OVERRIDE
-   Strong feathered edge that blends into the floral background
-   ═══════════════════════════════════════════════════════════ */
-#front-page .front-hero.caoimhe-desk{
-  overflow:visible;
-  filter:drop-shadow(0 22px 34px rgba(45,27,15,.16));
-}
-
-#front-page .cw-desk-frame{
-  position:relative;
-  overflow:hidden;
-  isolation:isolate;
   border-radius:34px;
+  background:#5a4032;
   box-shadow:none;
+  transform:translateZ(0);
 
-  /* Make the wooden scene fade into the page background */
   -webkit-mask-image:radial-gradient(
     ellipse 68% 66% at 50% 48%,
     #000 0%,
@@ -1027,8 +696,7 @@ to{transform: translateX(-50%) rotate(421deg);}
   mask-size:100% 100%;
 }
 
-/* Soft vignette inside the wooden scene */
-#front-page .cw-desk-frame::before{
+.cw-desk-frame::before{
   content:"";
   position:absolute;
   inset:-2%;
@@ -1047,40 +715,257 @@ to{transform: translateX(-50%) rotate(421deg);}
   transform:scale(1.02);
 }
 
-/* Preserve the interactive light above the vignette */
-#front-page .cw-desk-light{z-index:45}
-
-@media(max-width:760px){
-  #front-page .front-hero.caoimhe-desk{
-    overflow:hidden;
-    filter:none;
-  }
-  #front-page .cw-desk-frame{
-    border-radius:18px;
-    -webkit-mask-image:radial-gradient(
-      ellipse 78% 76% at 50% 49%,
-      #000 0%,
-      #000 76%,
-      rgba(0,0,0,.92) 85%,
-      rgba(0,0,0,.48) 94%,
-      transparent 100%
-    );
-    mask-image:radial-gradient(
-      ellipse 78% 76% at 50% 49%,
-      #000 0%,
-      #000 76%,
-      rgba(0,0,0,.92) 85%,
-      rgba(0,0,0,.48) 94%,
-      transparent 100%
-    );
-  }
+/* 03. Shared layer behavior */
+.cw-desk-layer{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:fill;
+  pointer-events:none;
+  transform:translateY(0) scale(1);
+  transform-origin:center;
+  transition:
+    transform .55s var(--cw-ease),
+    filter .45s ease,
+    opacity .45s ease;
+  will-change:transform,filter;
 }
 
+.cw-layer-stain{
+  opacity:.82;
+  mix-blend-mode:multiply;
+  filter:sepia(.1) saturate(.78) brightness(.94);
+}
 
-/* ═══════════════════════════════════════════════════════════
-   DESK HERO COPY + ORIGINAL LOGO EFFECTS
-   Restores the wording and interactions from the former hero
-   ═══════════════════════════════════════════════════════════ */
+.cw-layer-paper{
+  filter:
+    sepia(.08)
+    saturate(.92)
+    brightness(.985)
+    drop-shadow(8px 12px 10px rgba(27,15,8,.22));
+}
+
+.cw-layer-flower{
+  filter:
+    sepia(.04)
+    saturate(.92)
+    brightness(.96)
+    drop-shadow(4px 7px 6px rgba(27,14,7,.18));
+}
+
+.cw-layer-metal{
+  filter:
+    sepia(.08)
+    saturate(.86)
+    brightness(.94)
+    drop-shadow(7px 11px 9px rgba(22,11,6,.25));
+}
+
+.cw-layer-fabric{
+  filter:
+    sepia(.04)
+    saturate(.82)
+    brightness(.98)
+    drop-shadow(3px 6px 6px rgba(30,17,8,.15));
+}
+
+.cw-layer-logo{
+  filter:
+    sepia(.08)
+    saturate(.88)
+    brightness(.88)
+    contrast(1.04)
+    drop-shadow(0 5px 6px rgba(0,0,0,.18));
+}
+
+/* 04. Layer stacking */
+#cwWood{z-index:0}
+#cwCoffee{z-index:1}
+#cwClover{
+  z-index:3;
+  transform:translateY(12px);
+  filter:sepia(.22) saturate(.72) brightness(.88);
+}
+#cwPaper{z-index:4}
+#cwHand02{z-index:5}
+#cwLace{z-index:6}
+#cwDried{z-index:7}
+#cwEnvelope{z-index:8}
+#cwPurple{z-index:9}
+#cwRedRose{z-index:10;transform-origin:center bottom}
+#cwPinkRose{z-index:11;transform-origin:center bottom}
+#cwWax{z-index:12}
+#cwPetals{z-index:13}
+#cwHand01{z-index:14}
+#cwBlankTag{z-index:15}
+#cwFloralTag{z-index:16}
+#cwPressed{z-index:17}
+#cwGrid{z-index:18}
+#cwWatch{z-index:19}
+#cwQuill{z-index:20}
+#cwKey{z-index:21}
+
+/* Cropped logo asset: position independently from full-canvas PNG layers */
+#cwLogo{
+  z-index:22;
+  inset:auto;
+  left:51.5%;
+  top:15.5%;
+  width:43%;
+  height:auto;
+  object-fit:contain;
+  transform:
+    translateX(-50%)
+    rotate(-3deg);
+  transform-origin:center;
+  transition:
+    transform .55s var(--cw-ease),
+    filter .45s ease;
+}
+
+/* 05. Hover states */
+.cw-desk-layer.is-hovered{
+  transform:
+    translateY(var(--cw-lift))
+    scale(var(--cw-lift-scale));
+  filter:
+    sepia(.03)
+    saturate(.98)
+    brightness(1.045)
+    drop-shadow(10px 18px 14px rgba(24,12,6,.34));
+}
+
+.cw-desk-layer.is-soft-hovered{
+  transform:
+    translateY(var(--cw-soft-lift))
+    scale(var(--cw-soft-scale));
+  filter:
+    sepia(.04)
+    saturate(.94)
+    brightness(1.025)
+    drop-shadow(7px 13px 11px rgba(24,12,6,.25));
+}
+
+#cwLogo.is-hovered{
+  transform:
+    translateX(-50%)
+    translateY(-9px)
+    rotate(-3deg)
+    scale(1.025);
+  filter:
+    sepia(.02)
+    saturate(.98)
+    brightness(1.045)
+    drop-shadow(0 13px 12px rgba(38,20,9,.28))
+    drop-shadow(0 0 16px rgba(255,237,192,.13));
+}
+
+#cwClover.is-hovered{
+  transform:
+    translateY(calc(12px + var(--cw-lift)))
+    scale(var(--cw-lift-scale));
+}
+
+#cwRedRose.is-hovered{
+  transform:
+    translateY(-13px)
+    rotate(-1.2deg)
+    scale(1.045);
+  filter:
+    sepia(.02)
+    saturate(1.04)
+    brightness(1.04)
+    drop-shadow(8px 17px 13px rgba(27,14,7,.32));
+}
+
+#cwPinkRose.is-hovered{
+  transform:
+    translateY(-12px)
+    rotate(1deg)
+    scale(1.045);
+  filter:
+    sepia(.02)
+    saturate(1.02)
+    brightness(1.045)
+    drop-shadow(8px 17px 13px rgba(27,14,7,.30));
+}
+
+/* 06. Hitboxes */
+.cw-hitbox{
+  position:absolute;
+  z-index:60;
+  margin:0;
+  padding:0;
+  border:0;
+  border-radius:18px;
+  outline:none;
+  background:transparent;
+  cursor:pointer;
+  appearance:none;
+  -webkit-appearance:none;
+  -webkit-tap-highlight-color:transparent;
+}
+
+.cw-hitbox::after{
+  content:"";
+  position:absolute;
+  inset:8%;
+  z-index:-1;
+  border-radius:50%;
+  background:rgba(255,226,169,.16);
+  filter:blur(24px);
+  opacity:0;
+  transition:opacity .35s ease;
+}
+
+.cw-hitbox:hover::after,
+.cw-hitbox:focus-visible::after{
+  opacity:1;
+}
+
+/* Coordinates based on the 1500 × 1000 Canva canvas */
+.cw-hit-logo{left:30%;top:14%;width:44%;height:30%}
+.cw-hit-paper{left:18%;top:5%;width:64%;height:84%}
+.cw-hit-envelope{left:0;top:0;width:25.5%;height:33%;z-index:68}
+.cw-hit-dried{left:0;top:7%;width:25%;height:78%;z-index:61}
+.cw-hit-lace{left:0;top:39%;width:20%;height:61%;z-index:62}
+.cw-hit-red{left:0;top:58%;width:19%;height:30%;z-index:73}
+.cw-hit-pink{left:2%;top:72%;width:21%;height:27%;z-index:74}
+.cw-hit-purple{left:21%;top:0;width:10%;height:21%;z-index:69}
+.cw-hit-clover{left:29%;top:0;width:13%;height:15%}
+.cw-hit-key{left:60%;top:0;width:18%;height:19%}
+.cw-hit-coffee{right:0;top:0;width:27%;height:17%}
+.cw-hit-pressed{right:0;top:6%;width:25%;height:55%}
+.cw-hit-blank-tag{right:9%;top:29%;width:14%;height:37%}
+.cw-hit-floral-tag{right:0;top:31%;width:14%;height:36%}
+.cw-hit-quill{right:0;top:39%;width:19%;height:48%}
+.cw-hit-grid{right:0;bottom:0;width:31%;height:45%}
+.cw-hit-watch{right:0;bottom:0;width:15%;height:30%}
+.cw-hit-hand01{left:53%;bottom:0;width:25%;height:31%}
+.cw-hit-hand02{left:9%;bottom:0;width:18%;height:28%}
+.cw-hit-petals{left:25%;bottom:0;width:29%;height:31%}
+.cw-hit-wax{left:0;top:12%;width:6%;height:13%;z-index:70}
+
+/* 07. Cursor light */
+.cw-desk-light{
+  position:absolute;
+  z-index:45;
+  width:360px;
+  height:360px;
+  border-radius:50%;
+  pointer-events:none;
+  opacity:0;
+  transform:translate(-50%,-50%);
+  background:radial-gradient(circle,rgba(255,229,174,.13),transparent 70%);
+  transition:opacity .25s;
+}
+
+.cw-desk-frame:hover .cw-desk-light{
+  opacity:1;
+}
+
+/* 08. Hero copy and logo shimmer */
 .cw-hero-copy{
   position:absolute;
   inset:0;
@@ -1090,12 +975,18 @@ to{transform: translateX(-50%) rotate(421deg);}
   text-align:center;
   font-family:'Cormorant Garamond',Georgia,serif;
 }
-.cw-est,.cw-logo-secret,.cw-tagline,.cw-address,.cw-divider{
+
+.cw-est,
+.cw-logo-secret,
+.cw-tagline,
+.cw-address,
+.cw-divider{
   position:absolute;
   left:50%;
   margin:0;
   transform:translateX(-50%);
 }
+
 .cw-est{
   top:7.4%;
   width:64%;
@@ -1106,6 +997,7 @@ to{transform: translateX(-50%) rotate(421deg);}
   opacity:.84;
   animation:cwCopyReveal .9s .15s both;
 }
+
 .cw-logo-secret{
   top:35.2%;
   width:48%;
@@ -1115,8 +1007,12 @@ to{transform: translateX(-50%) rotate(421deg);}
   letter-spacing:.025em;
   opacity:.28;
   transform:translate(-50%,-5px);
-  transition:opacity .42s ease,transform .42s var(--cw-ease),text-shadow .42s ease;
+  transition:
+    opacity .42s ease,
+    transform .42s var(--cw-ease),
+    text-shadow .42s ease;
 }
+
 .cw-divider{
   top:41.8%;
   display:flex;
@@ -1128,16 +1024,19 @@ to{transform: translateX(-50%) rotate(421deg);}
   opacity:.76;
   animation:cwCopyReveal .9s .48s both;
 }
+
 .cw-divider span{
   height:1px;
   flex:1;
   background:linear-gradient(90deg,transparent,rgba(184,151,42,.82),transparent);
 }
+
 .cw-divider b{
   font-size:10px;
   font-weight:400;
   line-height:1;
 }
+
 .cw-tagline{
   top:46.1%;
   width:49%;
@@ -1149,6 +1048,7 @@ to{transform: translateX(-50%) rotate(421deg);}
   text-shadow:0 1px rgba(255,255,255,.38);
   animation:cwCopyReveal .9s .62s both;
 }
+
 .cw-address{
   bottom:8.3%;
   width:66%;
@@ -1159,7 +1059,6 @@ to{transform: translateX(-50%) rotate(421deg);}
   animation:cwCopyReveal .9s .78s both;
 }
 
-/* Moving light over the logo area */
 .cw-logo-shimmer{
   position:absolute;
   left:25.5%;
@@ -1169,7 +1068,10 @@ to{transform: translateX(-50%) rotate(421deg);}
   overflow:hidden;
   opacity:.82;
   clip-path:inset(0 round 16px);
+  transform:rotate(-3deg);
+  transform-origin:center;
 }
+
 .cw-logo-shimmer::before{
   content:"";
   position:absolute;
@@ -1192,16 +1094,17 @@ to{transform: translateX(-50%) rotate(421deg);}
   animation:cwLogoShimmer 7s 1.1s ease-in-out infinite;
 }
 
-/* Hovering the real logo hitbox restores the raised text treatment */
 .cw-desk-frame.cw-logo-active .cw-logo-secret{
   opacity:.88;
   transform:translate(-50%,0);
   text-shadow:0 4px 12px rgba(77,59,33,.16);
 }
+
 .cw-desk-frame.cw-logo-active .cw-logo-shimmer::before{
   animation-duration:1.15s;
   animation-delay:0s;
 }
+
 .cw-desk-frame.cw-logo-active .cw-est,
 .cw-desk-frame.cw-logo-active .cw-divider,
 .cw-desk-frame.cw-logo-active .cw-tagline{
@@ -1214,21 +1117,105 @@ to{transform: translateX(-50%) rotate(421deg);}
   82%{opacity:.9}
   94%,100%{left:122%;opacity:0}
 }
+
 @keyframes cwCopyReveal{
-  from{opacity:0;filter:blur(2px)}
-  to{filter:blur(0)}
+  from{
+    opacity:0;
+    filter:blur(2px);
+  }
+  to{
+    filter:blur(0);
+  }
 }
 
+/* 09. Responsive */
 @media(max-width:760px){
-  .cw-est{top:6.5%;width:74%;letter-spacing:.22em}
-  .cw-logo-secret{top:35%;width:60%}
-  .cw-divider{top:42%;width:38%}
-  .cw-tagline{top:46.5%;width:58%;line-height:1.42}
-  .cw-address{bottom:7.2%;width:78%;letter-spacing:.12em}
-  .cw-logo-shimmer{left:24%;top:10%;width:52%;height:29%}
+  :root{
+    --cw-lift:-7px;
+    --cw-lift-scale:1.01;
+    --cw-soft-lift:-3px;
+    --cw-soft-scale:1.003;
+  }
+
+  #front-page .front-hero.caoimhe-desk{
+    min-height:auto;
+    padding:68px 0 0;
+    overflow:hidden;
+    filter:none;
+  }
+
+  #front-page .cw-desk-frame{
+    width:100vw;
+    border-radius:18px;
+    -webkit-mask-image:radial-gradient(
+      ellipse 78% 76% at 50% 49%,
+      #000 0%,
+      #000 76%,
+      rgba(0,0,0,.92) 85%,
+      rgba(0,0,0,.48) 94%,
+      transparent 100%
+    );
+    mask-image:radial-gradient(
+      ellipse 78% 76% at 50% 49%,
+      #000 0%,
+      #000 76%,
+      rgba(0,0,0,.92) 85%,
+      rgba(0,0,0,.48) 94%,
+      transparent 100%
+    );
+  }
+
+  .cw-est{
+    top:6.5%;
+    width:74%;
+    letter-spacing:.22em;
+  }
+
+  .cw-logo-secret{
+    top:35%;
+    width:60%;
+  }
+
+  .cw-divider{
+    top:42%;
+    width:38%;
+  }
+
+  .cw-tagline{
+    top:46.5%;
+    width:58%;
+    line-height:1.42;
+  }
+
+  .cw-address{
+    bottom:7.2%;
+    width:78%;
+    letter-spacing:.12em;
+  }
+
+  .cw-logo-shimmer{
+    left:24%;
+    top:10%;
+    width:52%;
+    height:29%;
+  }
 }
+
+@media(hover:none){
+  .cw-hitbox{cursor:default}
+}
+
 @media(prefers-reduced-motion:reduce){
-  .cw-logo-shimmer::before,.cw-est,.cw-divider,.cw-tagline,.cw-address{animation:none!important}
+  .cw-desk-layer,
+  .cw-hitbox::after,
+  .cw-logo-shimmer::before,
+  .cw-est,
+  .cw-divider,
+  .cw-tagline,
+  .cw-address{
+    transition:none!important;
+    animation:none!important;
+  }
 }
 
 </style></head><body><nav class="top-tabs"><a href="#flowers">Flowers</a><a href="#garlands">Garlands</a><a href="#botanicals">Botanicals</a><a href="#about">The Proprietress</a><a href="#complications">Complications</a></nav><div class="page-frame"></div><!-- ═══ FRONT PAGE ═══ --><div id="front-page"><section class="front-hero caoimhe-desk" aria-label="Caoimhe Winchester's work desk">
@@ -2171,6 +2158,7 @@ card.addEventListener("mouseenter",()=>grid.classList.add("is-shelving"));card.a
 });
 });
 </script>
+<!-- ═══ CAOIMHE DESK SCRIPT ═══ -->
 <script>
 document.addEventListener("DOMContentLoaded",()=>{
   const layerRoot=document.getElementById("cwDeskLayers");
