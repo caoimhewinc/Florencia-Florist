@@ -665,7 +665,65 @@ to{transform: translateX(-50%) rotate(421deg);}
   overflow:hidden;
   background:#5a4032;
   box-shadow:0 35px 85px rgba(37,21,11,.36),inset 0 3px rgba(255,255,255,.2);
+  transform:translateZ(0);.cw-desk-frame{
+  position:relative;
+  width:min(1500px,96vw);
+  aspect-ratio:3/2;
+  overflow:hidden;
+  isolation:isolate;
+
+  background:#5a4032;
+
+  border-radius:46px;
+
+  box-shadow:
+    0 35px 85px rgba(37,21,11,.30),
+    0 10px 30px rgba(64,41,24,.14),
+    inset 0 3px rgba(255,255,255,.20);
+
+  -webkit-mask-image:
+    radial-gradient(
+      ellipse at center,
+      #000 0%,
+      #000 72%,
+      rgba(0,0,0,.96) 82%,
+      rgba(0,0,0,.72) 91%,
+      transparent 100%
+    );
+
+  mask-image:
+    radial-gradient(
+      ellipse at center,
+      #000 0%,
+      #000 72%,
+      rgba(0,0,0,.96) 82%,
+      rgba(0,0,0,.72) 91%,
+      transparent 100%
+    );
+
   transform:translateZ(0);
+}
+   .cw-desk-frame::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:40;
+  pointer-events:none;
+
+  border-radius:inherit;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      transparent 54%,
+      rgba(65,38,22,.035) 70%,
+      rgba(54,31,18,.12) 88%,
+      rgba(36,20,12,.24) 100%
+    );
+
+  box-shadow:
+    inset 0 0 45px rgba(255,239,205,.06),
+    inset 0 0 95px rgba(42,22,12,.13);
 }
 .cw-desk-layer{
   position:absolute;
