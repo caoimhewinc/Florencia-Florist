@@ -6,29 +6,31 @@
 <title>Florencia Florist — Interactive Caoimhe Desk</title>
 <style>
 :root{
-  --repo:"https://raw.githubusercontent.com/caoimhewinc/Florencia-Florist/main/assets/";
-  --lift:-12px;
-  --lift-scale:1.018;
-  --ease:cubic-bezier(.22,1,.36,1);
+  --asset-root:"https://raw.githubusercontent.com/caoimhewinc/Florencia-Florist/main/assets/";
+  --lift:-10px;
+  --lift-scale:1.015;
+  --soft-lift:-5px;
+  --soft-scale:1.006;
+  --logo-y:-18%;
+  --logo-scale:.46;
+  --logo-hover-scale:.475;
+  --ease:cubic-bezier(.19,1,.22,1);
 }
 *{box-sizing:border-box}
 html,body{margin:0;min-height:100%;background:#18130f}
-body{font-family:Georgia,serif;overflow-x:hidden}
+body{overflow-x:hidden;font-family:Georgia,serif}
 img{display:block;user-select:none;-webkit-user-drag:none}
 
-/* วาง section นี้แทน Hero เดิมได้ */
 .caoimhe-desk{
   position:relative;
-  width:100%;
-  min-height:100svh;
   display:grid;
   place-items:center;
+  width:100%;
+  min-height:100svh;
   padding:28px;
   overflow:hidden;
   isolation:isolate;
-  background:
-    radial-gradient(circle at 50% 42%,rgba(255,235,190,.25),transparent 40%),
-    #e9dfca;
+  background:radial-gradient(circle at 50% 42%,rgba(255,235,190,.25),transparent 40%),#e9dfca;
 }
 .caoimhe-desk::before{
   content:"";
@@ -55,16 +57,10 @@ img{display:block;user-select:none;-webkit-user-drag:none}
   aspect-ratio:3/2;
   overflow:hidden;
   background:#5a4032;
-  box-shadow:
-    0 35px 85px rgba(37,21,11,.36),
-    0 3px 0 rgba(255,255,255,.2) inset;
+  box-shadow:0 35px 85px rgba(37,21,11,.36),inset 0 3px rgba(255,255,255,.2);
   transform:translateZ(0);
 }
 
-/*
-  ทุก PNG ยังเป็นขนาด Canvas เดิมเหมือนใน Canva
-  จึงซ้อนเต็มกรอบ 100% แล้วตำแหน่ง/ขนาดจะตรงกับ Canva อัตโนมัติ
-*/
 .desk-layer{
   position:absolute;
   inset:0;
@@ -74,46 +70,20 @@ img{display:block;user-select:none;-webkit-user-drag:none}
   pointer-events:none;
   transform:translateY(0) scale(1);
   transform-origin:center;
-  transition:
-    transform .42s var(--ease),
-    filter .42s ease,
-    opacity .42s ease;
+  transition:transform .55s var(--ease),filter .45s ease,opacity .45s ease;
   will-change:transform,filter;
 }
 
-/* โทนและเงาปกติ แยกตามชนิดวัสดุ */
+/* Materials */
 .layer-bg{z-index:0}
-.layer-stain{
-  z-index:2;
-  opacity:.82;
-  mix-blend-mode:multiply;
-  filter:sepia(.1) saturate(.78) brightness(.94);
-}
-.layer-paper{
-  filter:
-    sepia(.08) saturate(.9) brightness(.98)
-    drop-shadow(5px 8px 7px rgba(29,16,8,.18));
-}
-.layer-flower{
-  filter:
-    sepia(.04) saturate(.92) brightness(.96)
-    drop-shadow(4px 7px 6px rgba(27,14,7,.18));
-}
-.layer-metal{
-  filter:
-    sepia(.08) saturate(.86) brightness(.94)
-    drop-shadow(7px 11px 9px rgba(22,11,6,.25));
-}
-.layer-fabric{
-  filter:
-    sepia(.04) saturate(.82) brightness(.98)
-    drop-shadow(3px 6px 6px rgba(30,17,8,.15));
-}
-.layer-logo{
-  filter:sepia(.08) saturate(.88) brightness(.88) contrast(1.04);
-}
+.layer-stain{opacity:.82;mix-blend-mode:multiply;filter:sepia(.1) saturate(.78) brightness(.94)}
+.layer-paper{filter:sepia(.08) saturate(.92) brightness(.985) drop-shadow(8px 12px 10px rgba(27,15,8,.22))}
+.layer-flower{filter:sepia(.04) saturate(.92) brightness(.96) drop-shadow(4px 7px 6px rgba(27,14,7,.18))}
+.layer-metal{filter:sepia(.08) saturate(.86) brightness(.94) drop-shadow(7px 11px 9px rgba(22,11,6,.25))}
+.layer-fabric{filter:sepia(.04) saturate(.82) brightness(.98) drop-shadow(3px 6px 6px rgba(30,17,8,.15))}
+.layer-logo{filter:sepia(.08) saturate(.88) brightness(.88) contrast(1.04) drop-shadow(0 5px 6px rgba(0,0,0,.18))}
 
-/* ลำดับการทับตามภาพ Canva */
+/* Stacking */
 #wood{z-index:0}
 #coffee{z-index:1}
 #paper{z-index:4}
@@ -121,8 +91,8 @@ img{display:block;user-select:none;-webkit-user-drag:none}
 #lace{z-index:6}
 #dried{z-index:7}
 #envelope{z-index:8}
-#purple{z-index:9}
-#clover{z-index:9}
+#purple{z-index:9;}
+#clover{z-index:3;transform:translateY(12px);filter:sepia(.22) saturate(.72) brightness(.88);}
 #redRose{z-index:10}
 #pinkRose{z-index:11}
 #wax{z-index:12}
@@ -135,24 +105,38 @@ img{display:block;user-select:none;-webkit-user-drag:none}
 #watch{z-index:19}
 #quill{z-index:20}
 #key{z-index:21}
-#logo{z-index:22}
+#logo{
+  z-index:22;
+  transform:translateY(var(--logo-y)) scale(var(--logo-scale));
+  transform-origin:center;
+}
 
-/*
-  Hitbox เป็นพื้นที่เมาส์เท่านั้น
-  จึงไม่เกิดปัญหา PNG โปร่งใสเต็มหน้าไปบังชิ้นอื่น
-*/
+/* Hover states */
+.desk-layer.is-hovered{
+  transform:translateY(var(--lift)) scale(var(--lift-scale));
+  filter:sepia(.03) saturate(.98) brightness(1.045) drop-shadow(10px 18px 14px rgba(24,12,6,.34));
+}
+.desk-layer.is-soft-hovered{
+  transform:translateY(var(--soft-lift)) scale(var(--soft-scale));
+  filter:sepia(.04) saturate(.94) brightness(1.025) drop-shadow(7px 13px 11px rgba(24,12,6,.25));
+}
+#logo.is-hovered{
+  transform:translateY(calc(var(--logo-y) + var(--lift))) scale(var(--logo-hover-scale));
+}
+
+/* Invisible hover zones */
 .hitbox{
   position:absolute;
   z-index:60;
-  cursor:pointer;
-  border:0;
-  padding:0;
   margin:0;
-  background:transparent;
+  padding:0;
+  border:0;
   border-radius:18px;
   outline:none;
-  -webkit-appearance:none;
+  background:transparent;
+  cursor:pointer;
   appearance:none;
+  -webkit-appearance:none;
   -webkit-tap-highlight-color:transparent;
 }
 .hitbox::after{
@@ -166,68 +150,50 @@ img{display:block;user-select:none;-webkit-user-drag:none}
   opacity:0;
   transition:opacity .35s ease;
 }
-.hitbox:hover::after,
-.hitbox:focus-visible::after{opacity:1}
+.hitbox:hover::after,.hitbox:focus-visible::after{opacity:1}
 
-/* ผูก hitbox กับ layer ผ่าน data-target ด้วย JS */
-.desk-layer.is-hovered{
-  transform:translateY(var(--lift)) scale(var(--lift-scale));
-  filter:
-    sepia(.03) saturate(.98) brightness(1.045)
-    drop-shadow(10px 18px 14px rgba(24,12,6,.34));
-}
-.desk-layer.is-soft-hovered{
-  transform:translateY(-6px) scale(1.008);
-  filter:
-    sepia(.04) saturate(.94) brightness(1.025)
-    drop-shadow(7px 13px 11px rgba(24,12,6,.25));
-}
-
-/* พิกัดอิง Canvas 1500 × 1000 ของภาพ Canva */
-.hit-logo{left:24%;top:12%;width:47%;height:31%}
+/* Hitboxes based on the original 1500×1000 Canva canvas */
+.hit-logo{left:27%;top:12%;width:46%;height:30%}
 .hit-paper{left:18%;top:5%;width:64%;height:84%}
-.hit-envelope{left:0%;top:0%;width:25.5%;height:33%}
-.hit-dried{left:0%;top:7%;width:25%;height:78%}
-.hit-lace{left:0%;top:39%;width:20%;height:61%}
-.hit-red{left:0%;top:63%;width:17%;height:28%}
-.hit-pink{left:0%;top:75%;width:22%;height:25%}
-.hit-purple{left:21%;top:0%;width:10%;height:21%}
-.hit-clover{left:29%;top:0%;width:13%;height:15%}
-.hit-key{left:60%;top:0%;width:18%;height:19%}
-.hit-coffee{right:0%;top:0%;width:27%;height:17%}
-.hit-pressed{right:0%;top:6%;width:25%;height:55%}
+.hit-envelope{left:0;top:0;width:25.5%;height:33%}
+.hit-dried{left:0;top:7%;width:25%;height:78%}
+.hit-lace{left:0;top:39%;width:20%;height:61%}
+.hit-red{left:0;top:63%;width:17%;height:28%}
+.hit-pink{left:0;top:75%;width:22%;height:25%}
+.hit-purple{left:21%;top:0;width:10%;height:21%}
+.hit-clover{left:29%;top:0;width:13%;height:15%}
+.hit-key{left:60%;top:0;width:18%;height:19%}
+.hit-coffee{right:0;top:0;width:27%;height:17%}
+.hit-pressed{right:0;top:6%;width:25%;height:55%}
 .hit-blank-tag{right:9%;top:29%;width:14%;height:37%}
-.hit-floral-tag{right:0%;top:31%;width:14%;height:36%}
-.hit-quill{right:0%;top:39%;width:19%;height:48%}
-.hit-grid{right:0%;bottom:0%;width:31%;height:45%}
-.hit-watch{right:0%;bottom:0%;width:15%;height:30%}
-.hit-hand01{left:53%;bottom:0%;width:25%;height:31%}
-.hit-hand02{left:9%;bottom:0%;width:18%;height:28%}
-.hit-petals{left:25%;bottom:0%;width:29%;height:31%}
-.hit-wax{left:0%;top:12%;width:6%;height:13%}
+.hit-floral-tag{right:0;top:31%;width:14%;height:36%}
+.hit-quill{right:0;top:39%;width:19%;height:48%}
+.hit-grid{right:0;bottom:0;width:31%;height:45%}
+.hit-watch{right:0;bottom:0;width:15%;height:30%}
+.hit-hand01{left:53%;bottom:0;width:25%;height:31%}
+.hit-hand02{left:9%;bottom:0;width:18%;height:28%}
+.hit-petals{left:25%;bottom:0;width:29%;height:31%}
+.hit-wax{left:0;top:12%;width:6%;height:13%}
 
-/* Cursor light */
 .desk-light{
   position:absolute;
+  z-index:45;
   width:360px;
   height:360px;
-  z-index:45;
-  pointer-events:none;
   border-radius:50%;
+  pointer-events:none;
+  opacity:0;
   transform:translate(-50%,-50%);
   background:radial-gradient(circle,rgba(255,229,174,.13),transparent 70%);
-  opacity:0;
   transition:opacity .25s;
 }
 .desk-frame:hover .desk-light{opacity:1}
 
-/* ข้อความเล็กสำหรับบอกว่าของแตะได้ */
 .desk-hint{
   position:absolute;
   left:50%;
   bottom:12px;
   z-index:70;
-  transform:translateX(-50%);
   margin:0;
   color:rgba(244,226,191,.76);
   font-size:11px;
@@ -235,19 +201,24 @@ img{display:block;user-select:none;-webkit-user-drag:none}
   letter-spacing:.09em;
   text-shadow:0 2px 5px rgba(22,12,7,.8);
   pointer-events:none;
+  transform:translateX(-50%);
 }
 
-/* มือถือ: ไม่ให้ hover เด้งแรง และรักษาสัดส่วนภาพ */
 @media(max-width:760px){
-  .caoimhe-desk{padding:0;min-height:auto}
-  .desk-frame{width:100vw;border-radius:0}
-  :root{--lift:-7px;--lift-scale:1.01}
-  .desk-hint{font-size:9px;bottom:6px}
+  :root{
+    --lift:-7px;
+    --lift-scale:1.01;
+    --soft-lift:-3px;
+    --soft-scale:1.003;
+  }
+  .caoimhe-desk{min-height:auto;padding:0}
+  .desk-frame{width:100vw}
+  .desk-hint{bottom:6px;font-size:9px}
 }
 @media(hover:none){
   .hitbox{cursor:default}
   .desk-layer.is-hovered,
-  .desk-layer.is-soft-hovered{transform:none}
+  .desk-layer.is-soft-hovered{filter:none}
 }
 @media(prefers-reduced-motion:reduce){
   .desk-layer,.hitbox::after{transition:none!important}
@@ -259,117 +230,96 @@ img{display:block;user-select:none;-webkit-user-drag:none}
 <section class="caoimhe-desk" aria-label="Caoimhe Winchester's work desk">
   <div class="desk-frame" id="deskFrame">
     <div class="desk-light" id="deskLight"></div>
-
-    <!-- Background -->
-    <img id="wood" class="desk-layer layer-bg"
-      src="https://raw.githubusercontent.com/caoimhewinc/Florencia-Florist/main/assets/wood-desk.png" alt="">
-
-    <!-- Stains / flat details -->
-    <img id="coffee" class="desk-layer layer-stain"
-      src="https://raw.githubusercontent.com/caoimhewinc/Florencia-Florist/main/assets/coffee-ring-stain.png" alt="">
-
-    <!-- Main paper -->
-    <img id="paper" class="desk-layer layer-paper"
-      src="https://raw.githubusercontent.com/caoimhewinc/Florencia-Florist/main/assets/aged-paper.png" alt="Aged parchment">
-
-    <!-- Left cluster -->
-    <img id="hand02" class="desk-layer layer-paper"
-      src="https://raw.githubusercontent.com/caoimhewinc/Florencia-Florist/main/assets/handwritten-note02.png" alt="">
-    <img id="lace" class="desk-layer layer-fabric"
-      src="https://raw.githubusercontent.com/caoimhewinc/Florencia-Florist/main/assets/lace-ribbon.png" alt="">
-    <img id="dried" class="desk-layer layer-flower"
-      src="https://raw.githubusercontent.com/caoimhewinc/Florencia-Florist/main/assets/dried-flowers.png" alt="">
-    <img id="envelope" class="desk-layer layer-paper"
-      src="https://raw.githubusercontent.com/caoimhewinc/Florencia-Florist/main/assets/envelope-corner.png" alt="Vintage envelope">
-    <img id="purple" class="desk-layer layer-flower"
-      src="https://raw.githubusercontent.com/caoimhewinc/Florencia-Florist/main/assets/purple-columbine.png" alt="">
-    <img id="clover" class="desk-layer layer-flower"
-      src="https://raw.githubusercontent.com/caoimhewinc/Florencia-Florist/main/assets/four-leaf-clover.png" alt="">
-    <img id="redRose" class="desk-layer layer-flower"
-      src="https://raw.githubusercontent.com/caoimhewinc/Florencia-Florist/main/assets/red-rose.png" alt="">
-    <img id="pinkRose" class="desk-layer layer-flower"
-      src="https://raw.githubusercontent.com/caoimhewinc/Florencia-Florist/main/assets/pink-rose.png" alt="">
-    <img id="wax" class="desk-layer layer-metal"
-      src="https://raw.githubusercontent.com/caoimhewinc/Florencia-Florist/main/assets/wax-seal.png" alt="">
-
-    <!-- Bottom / right paper cluster -->
-    <img id="petals" class="desk-layer layer-flower"
-      src="https://raw.githubusercontent.com/caoimhewinc/Florencia-Florist/main/assets/rose-petals.png" alt="">
-    <img id="hand01" class="desk-layer layer-paper"
-      src="https://raw.githubusercontent.com/caoimhewinc/Florencia-Florist/main/assets/handwritten-note.png" alt="">
-    <img id="blankTag" class="desk-layer layer-paper"
-      src="https://raw.githubusercontent.com/caoimhewinc/Florencia-Florist/main/assets/blank-tag.png" alt="">
-    <img id="floralTag" class="desk-layer layer-paper"
-      src="https://raw.githubusercontent.com/caoimhewinc/Florencia-Florist/main/assets/floral-tag.png" alt="">
-    <img id="pressed" class="desk-layer layer-flower"
-      src="https://raw.githubusercontent.com/caoimhewinc/Florencia-Florist/main/assets/pressed-flower.png" alt="">
-    <img id="grid" class="desk-layer layer-paper"
-      src="https://raw.githubusercontent.com/caoimhewinc/Florencia-Florist/main/assets/grid-notebook.png" alt="">
-    <img id="watch" class="desk-layer layer-metal"
-      src="https://raw.githubusercontent.com/caoimhewinc/Florencia-Florist/main/assets/pocket-watch.png" alt="Pocket watch">
-    <img id="quill" class="desk-layer layer-metal"
-      src="https://raw.githubusercontent.com/caoimhewinc/Florencia-Florist/main/assets/feather-quill.png" alt="Feather quill">
-    <img id="key" class="desk-layer layer-metal"
-      src="https://raw.githubusercontent.com/caoimhewinc/Florencia-Florist/main/assets/antique-key.png" alt="Antique key">
-
-    <!-- Logo อยู่บนสุด และยังยกขึ้นแยกได้ -->
-    <img id="logo" class="desk-layer layer-logo"
-      src="https://raw.githubusercontent.com/caoimhewinc/Florencia-Florist/main/assets/Florencia-Florist-Logo.png"
-      alt="Florencia Florist">
-
-    <!-- Invisible hitboxes: ปรับตำแหน่งได้จาก CSS ด้านบน -->
-    <button class="hitbox hit-logo" data-target="logo" aria-label="Florencia Florist logo"></button>
-    <button class="hitbox hit-paper" data-target="paper" data-soft aria-label="Aged parchment"></button>
-    <button class="hitbox hit-envelope" data-target="envelope" aria-label="Vintage envelope"></button>
-    <button class="hitbox hit-dried" data-target="dried" data-soft aria-label="Dried flowers"></button>
-    <button class="hitbox hit-lace" data-target="lace" data-soft aria-label="Lace ribbon"></button>
-    <button class="hitbox hit-red" data-target="redRose" aria-label="Red rose"></button>
-    <button class="hitbox hit-pink" data-target="pinkRose" aria-label="Pink rose"></button>
-    <button class="hitbox hit-purple" data-target="purple" aria-label="Purple columbine"></button>
-    <button class="hitbox hit-clover" data-target="clover" aria-label="Four leaf clover"></button>
-    <button class="hitbox hit-key" data-target="key" aria-label="Antique key"></button>
-    <button class="hitbox hit-coffee" data-target="coffee" data-soft aria-label="Coffee ring"></button>
-    <button class="hitbox hit-pressed" data-target="pressed" aria-label="Pressed flower"></button>
-    <button class="hitbox hit-blank-tag" data-target="blankTag" aria-label="Blank tag"></button>
-    <button class="hitbox hit-floral-tag" data-target="floralTag" aria-label="Floral tag"></button>
-    <button class="hitbox hit-quill" data-target="quill" aria-label="Feather quill"></button>
-    <button class="hitbox hit-grid" data-target="grid" aria-label="Grid notebook"></button>
-    <button class="hitbox hit-watch" data-target="watch" aria-label="Pocket watch"></button>
-    <button class="hitbox hit-hand01" data-target="hand01" aria-label="Handwritten note"></button>
-    <button class="hitbox hit-hand02" data-target="hand02" aria-label="Handwritten note"></button>
-    <button class="hitbox hit-petals" data-target="petals" data-soft aria-label="Rose petals"></button>
-    <button class="hitbox hit-wax" data-target="wax" aria-label="Wax seal"></button>
-
+    <div id="layers"></div>
+    <div id="hitboxes"></div>
     <p class="desk-hint">Move thy hand gently across the table.</p>
   </div>
 </section>
 
 <script>
 (() => {
-  const frame = document.getElementById("deskFrame");
-  const light = document.getElementById("deskLight");
-  const hitboxes = frame.querySelectorAll(".hitbox");
+  const ASSET_ROOT="https://raw.githubusercontent.com/caoimhewinc/Florencia-Florist/main/assets/";
 
-  function setHovered(hitbox, active) {
-    const target = document.getElementById(hitbox.dataset.target);
-    if (!target) return;
-    const className = hitbox.hasAttribute("data-soft")
-      ? "is-soft-hovered"
-      : "is-hovered";
-    target.classList.toggle(className, active);
+  const layers=[
+    ["wood","wood-desk.png","layer-bg",""],
+    ["coffee","coffee-ring-stain.png","layer-stain",""],
+    ["paper","aged-paper.png","layer-paper","Aged parchment"],
+    ["hand02","handwritten-note02.png","layer-paper",""],
+    ["lace","lace-ribbon.png","layer-fabric",""],
+    ["dried","dried-flowers.png","layer-flower",""],
+    ["envelope","envelope-corner.png","layer-paper","Vintage envelope"],
+    ["purple","purple-columbine.png","layer-flower",""],
+    ["clover","four-leaf-clover.png","layer-flower",""],
+    ["redRose","red-rose.png","layer-flower",""],
+    ["pinkRose","pink-rose.png","layer-flower",""],
+    ["wax","wax-seal.png","layer-metal",""],
+    ["petals","rose-petals.png","layer-flower",""],
+    ["hand01","handwritten-note.png","layer-paper",""],
+    ["blankTag","blank-tag.png","layer-paper",""],
+    ["floralTag","floral-tag.png","layer-paper",""],
+    ["pressed","pressed-flower.png","layer-flower",""],
+    ["grid","grid-notebook.png","layer-paper",""],
+    ["watch","pocket-watch.png","layer-metal","Pocket watch"],
+    ["quill","feather-quill.png","layer-metal","Feather quill"],
+    ["key","antique-key.png","layer-metal","Antique key"],
+    ["logo","Florencia-Florist-Logo.png","layer-logo","Florencia Florist"]
+  ];
+
+  const hitboxes=[
+    ["hit-logo","logo","Florencia Florist logo"],
+    ["hit-paper","paper","Aged parchment","soft"],
+    ["hit-envelope","envelope","Vintage envelope"],
+    ["hit-dried","dried","Dried flowers","soft"],
+    ["hit-lace","lace","Lace ribbon","soft"],
+    ["hit-red","redRose","Red rose"],
+    ["hit-pink","pinkRose","Pink rose"],
+    ["hit-purple","purple","Purple columbine"],
+    ["hit-clover","clover","Four leaf clover"],
+    ["hit-key","key","Antique key"],
+    ["hit-coffee","coffee","Coffee ring","soft"],
+    ["hit-pressed","pressed","Pressed flower"],
+    ["hit-blank-tag","blankTag","Blank tag"],
+    ["hit-floral-tag","floralTag","Floral tag"],
+    ["hit-quill","quill","Feather quill"],
+    ["hit-grid","grid","Grid notebook"],
+    ["hit-watch","watch","Pocket watch"],
+    ["hit-hand01","hand01","Handwritten note"],
+    ["hit-hand02","hand02","Handwritten note"],
+    ["hit-petals","petals","Rose petals","soft"],
+    ["hit-wax","wax","Wax seal"]
+  ];
+
+  const layerRoot=document.getElementById("layers");
+  const hitboxRoot=document.getElementById("hitboxes");
+  const frame=document.getElementById("deskFrame");
+  const light=document.getElementById("deskLight");
+
+  layerRoot.innerHTML=layers.map(([id,file,type,alt])=>
+    `<img id="${id}" class="desk-layer ${type}" src="${ASSET_ROOT}${file}" alt="${alt}">`
+  ).join("");
+
+  hitboxRoot.innerHTML=hitboxes.map(([className,target,label,mode])=>
+    `<button class="hitbox ${className}" data-target="${target}"${mode==="soft"?" data-soft":""} aria-label="${label}"></button>`
+  ).join("");
+
+  function toggleHover(hitbox,active){
+    const target=document.getElementById(hitbox.dataset.target);
+    if(!target)return;
+    const className=hitbox.hasAttribute("data-soft")?"is-soft-hovered":"is-hovered";
+    target.classList.toggle(className,active);
   }
 
-  hitboxes.forEach(hitbox => {
-    hitbox.addEventListener("pointerenter", () => setHovered(hitbox, true));
-    hitbox.addEventListener("pointerleave", () => setHovered(hitbox, false));
-    hitbox.addEventListener("focus", () => setHovered(hitbox, true));
-    hitbox.addEventListener("blur", () => setHovered(hitbox, false));
+  hitboxRoot.querySelectorAll(".hitbox").forEach(hitbox=>{
+    hitbox.addEventListener("pointerenter",()=>toggleHover(hitbox,true));
+    hitbox.addEventListener("pointerleave",()=>toggleHover(hitbox,false));
+    hitbox.addEventListener("focus",()=>toggleHover(hitbox,true));
+    hitbox.addEventListener("blur",()=>toggleHover(hitbox,false));
   });
 
-  frame.addEventListener("pointermove", event => {
-    const rect = frame.getBoundingClientRect();
-    light.style.left = `${event.clientX - rect.left}px`;
-    light.style.top = `${event.clientY - rect.top}px`;
+  frame.addEventListener("pointermove",event=>{
+    const rect=frame.getBoundingClientRect();
+    light.style.left=`${event.clientX-rect.left}px`;
+    light.style.top=`${event.clientY-rect.top}px`;
   });
 })();
 </script>
