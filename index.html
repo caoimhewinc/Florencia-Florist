@@ -1148,6 +1148,309 @@ to{transform: translateX(-50%) rotate(421deg);}
   .cw-logo-shimmer::before,.cw-est,.cw-divider,.cw-tagline,.cw-address{animation:none!important}
 }
 
+
+/* ═══════════════════════════════════════════════════════════
+   FINAL PAPER-CENTERED HERO COMPOSITION
+   ═══════════════════════════════════════════════════════════ */
+
+/* Logo size and movement */
+:root{
+  --cw-final-logo-scale:.34;
+  --cw-final-logo-hover-scale:.352;
+  --cw-final-logo-y:-10%;
+}
+
+#cwLogo{
+  z-index:22;
+  transform:
+    translateY(var(--cw-final-logo-y))
+    rotateX(var(--cw-logo-tilt-x,0deg))
+    rotateY(var(--cw-logo-tilt-y,0deg))
+    scale(var(--cw-final-logo-scale));
+  transform-origin:center;
+  transition:
+    transform .58s cubic-bezier(.19,1,.22,1),
+    filter .45s ease;
+}
+
+#cwLogo.is-hovered{
+  transform:
+    translateY(calc(var(--cw-final-logo-y) - 8px))
+    rotateX(var(--cw-logo-tilt-x,0deg))
+    rotateY(var(--cw-logo-tilt-y,0deg))
+    scale(var(--cw-final-logo-hover-scale));
+  filter:
+    sepia(.02)
+    saturate(.96)
+    brightness(1.045)
+    drop-shadow(0 12px 12px rgba(46,25,12,.26))
+    drop-shadow(0 0 18px rgba(255,236,188,.12));
+}
+
+/* Correct hover zone for the resized logo */
+.cw-hit-logo{
+  left:29%;
+  top:16%;
+  width:42%;
+  height:26%;
+}
+
+/* Copy is positioned relative to the main parchment, not the viewport */
+.cw-hero-copy{
+  position:absolute;
+  inset:0;
+  z-index:54;
+  pointer-events:none;
+  color:#65401f;
+  font-family:'Cormorant Garamond',Georgia,serif;
+}
+
+.cw-paper-copy{
+  position:absolute;
+  left:18.5%;
+  top:7%;
+  width:64%;
+  height:80%;
+  text-align:center;
+  pointer-events:none;
+}
+
+.cw-est,
+.cw-logo-secret,
+.cw-tagline,
+.cw-address,
+.cw-divider{
+  position:absolute;
+  left:50%;
+  width:100%;
+  margin:0;
+  transform:translateX(-50%);
+}
+
+/* Vertical rhythm on the parchment */
+.cw-est{
+  top:5.5%;
+  color:#9a741c;
+  font:500 clamp(7px,.7vw,11px)/1.4 'Crimson Pro',serif;
+  letter-spacing:.31em;
+  text-transform:uppercase;
+  opacity:.86;
+  animation:cwHeroFadeDown .9s .12s both;
+}
+
+.cw-logo-secret{
+  top:43.5%;
+  width:62%;
+  color:#66705b;
+  font-size:clamp(8px,.85vw,13px);
+  font-style:italic;
+  letter-spacing:.025em;
+  opacity:.26;
+  transform:translate(-50%,-5px);
+  transition:
+    opacity .42s ease,
+    transform .42s cubic-bezier(.19,1,.22,1),
+    text-shadow .42s ease,
+    color .42s ease;
+}
+
+.cw-divider{
+  top:51%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:13px;
+  width:48%;
+  color:#b8972a;
+  opacity:.78;
+  animation:cwDividerReveal .95s .46s both;
+}
+
+.cw-divider span{
+  height:1px;
+  flex:1;
+  background:linear-gradient(90deg,transparent,rgba(184,151,42,.82),transparent);
+}
+
+.cw-divider b{
+  font-size:10px;
+  font-weight:400;
+  line-height:1;
+}
+
+.cw-tagline{
+  top:58%;
+  width:72%;
+  color:#68594a;
+  font-size:clamp(11px,1.18vw,18px);
+  font-style:italic;
+  line-height:1.55;
+  letter-spacing:.015em;
+  text-shadow:0 1px rgba(255,255,255,.36);
+  animation:cwHeroFadeUp .95s .62s both;
+}
+
+.cw-address{
+  top:75.5%;
+  color:#a47b1d;
+  font:500 clamp(7px,.7vw,11px)/1.5 'Crimson Pro',serif;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  animation:cwHeroFadeUp .95s .8s both;
+}
+
+/* Light sweep, glow, and pointer response */
+.cw-logo-effect-zone{
+  position:absolute;
+  left:18%;
+  top:12%;
+  width:64%;
+  height:34%;
+  overflow:hidden;
+  border-radius:22px;
+  pointer-events:none;
+  perspective:900px;
+}
+
+.cw-logo-glow{
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:78%;
+  height:70%;
+  border-radius:50%;
+  opacity:.16;
+  transform:translate(-50%,-50%);
+  background:radial-gradient(
+    ellipse,
+    rgba(255,243,204,.54) 0%,
+    rgba(255,232,175,.16) 42%,
+    transparent 72%
+  );
+  filter:blur(18px);
+  transition:opacity .4s ease,transform .5s cubic-bezier(.19,1,.22,1);
+}
+
+.cw-logo-shimmer{
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+  opacity:.9;
+}
+
+.cw-logo-shimmer::before{
+  content:"";
+  position:absolute;
+  top:-35%;
+  bottom:-35%;
+  left:-45%;
+  width:18%;
+  opacity:0;
+  transform:skewX(-18deg);
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,249,222,.08),
+    rgba(255,247,212,.72),
+    rgba(255,255,245,.30),
+    transparent
+  );
+  filter:blur(2px);
+  mix-blend-mode:screen;
+  animation:cwLogoSweep 6.5s 1.2s ease-in-out infinite;
+}
+
+.cw-desk-frame.cw-logo-active .cw-logo-secret{
+  opacity:.92;
+  color:#4f5d46;
+  transform:translate(-50%,0);
+  text-shadow:0 5px 14px rgba(75,55,30,.18);
+}
+
+.cw-desk-frame.cw-logo-active .cw-logo-glow{
+  opacity:.42;
+  transform:translate(-50%,-50%) scale(1.08);
+}
+
+.cw-desk-frame.cw-logo-active .cw-logo-shimmer::before{
+  animation-duration:1.05s;
+  animation-delay:0s;
+}
+
+/* Gentle breathing, retained from the original hero feel */
+.cw-paper-copy{
+  animation:cwPaperCopyBreathe 8s ease-in-out infinite;
+}
+
+@keyframes cwLogoSweep{
+  0%,66%{left:-45%;opacity:0}
+  71%{opacity:.18}
+  82%{opacity:.92}
+  94%,100%{left:125%;opacity:0}
+}
+
+@keyframes cwHeroFadeDown{
+  from{opacity:0;transform:translate(-50%,-10px);filter:blur(2px)}
+  to{opacity:.86;transform:translate(-50%,0);filter:blur(0)}
+}
+
+@keyframes cwHeroFadeUp{
+  from{opacity:0;transform:translate(-50%,10px);filter:blur(2px)}
+  to{opacity:1;transform:translate(-50%,0);filter:blur(0)}
+}
+
+@keyframes cwDividerReveal{
+  from{opacity:0;transform:translateX(-50%) scaleX(.35)}
+  to{opacity:.78;transform:translateX(-50%) scaleX(1)}
+}
+
+@keyframes cwPaperCopyBreathe{
+  0%,100%{filter:brightness(1)}
+  50%{filter:brightness(1.018)}
+}
+
+/* Responsive parchment composition */
+@media(max-width:900px){
+  :root{
+    --cw-final-logo-scale:.36;
+    --cw-final-logo-hover-scale:.372;
+    --cw-final-logo-y:-9%;
+  }
+  .cw-paper-copy{left:17%;width:66%;top:7%;height:81%}
+  .cw-est{top:5%;letter-spacing:.24em}
+  .cw-logo-secret{top:43%;width:68%}
+  .cw-divider{top:51%;width:52%}
+  .cw-tagline{top:58%;width:78%}
+  .cw-address{top:76%;letter-spacing:.16em}
+}
+
+@media(max-width:760px){
+  :root{
+    --cw-final-logo-scale:.38;
+    --cw-final-logo-hover-scale:.39;
+    --cw-final-logo-y:-8%;
+  }
+  .cw-paper-copy{left:15%;top:6%;width:70%;height:84%}
+  .cw-est{top:5%;width:90%;letter-spacing:.16em}
+  .cw-logo-secret{top:42%;width:76%}
+  .cw-divider{top:50%;width:58%}
+  .cw-tagline{top:57%;width:86%;line-height:1.42}
+  .cw-address{top:76%;width:90%;letter-spacing:.08em}
+  .cw-logo-effect-zone{left:13%;top:11%;width:74%;height:36%}
+  .cw-hit-logo{left:24%;top:14%;width:52%;height:30%}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .cw-paper-copy,
+  .cw-est,
+  .cw-divider,
+  .cw-tagline,
+  .cw-address,
+  .cw-logo-shimmer::before{
+    animation:none!important;
+  }
+}
+
 </style></head><body><nav class="top-tabs"><a href="#flowers">Flowers</a><a href="#garlands">Garlands</a><a href="#botanicals">Botanicals</a><a href="#about">The Proprietress</a><a href="#complications">Complications</a></nav><div class="page-frame"></div><!-- ═══ FRONT PAGE ═══ --><div id="front-page"><section class="front-hero caoimhe-desk" aria-label="Caoimhe Winchester's work desk">
   <div class="cw-desk-frame" id="cwDeskFrame">
     <div class="cw-desk-light" id="cwDeskLight"></div>
@@ -1155,12 +1458,24 @@ to{transform: translateX(-50%) rotate(421deg);}
     <div id="cwDeskHitboxes"></div>
 
     <div class="cw-hero-copy" aria-hidden="true">
-      <p class="cw-est">Est. in the reign of Thrael Oriendel de Fortuna</p>
-      <div class="cw-logo-shimmer"></div>
-      <p class="cw-logo-secret">Keche flour I kepen remembreth a lyf that I somtyme lyved.</p>
-      <div class="cw-divider"><span></span><b>✦</b><span></span></div>
-      <p class="cw-tagline">For every day in thy life, &amp; those thou wouldst make more fair, a flower shall ever await thee.</p>
-      <p class="cw-address">221B Carter Street · Anclona 9¾ Quarter · Fortuna Imperia</p>
+      <div class="cw-paper-copy">
+        <p class="cw-est">Est. in the reign of Thrael Oriendel de Fortuna</p>
+
+        <div class="cw-logo-effect-zone">
+          <div class="cw-logo-glow"></div>
+          <div class="cw-logo-shimmer"></div>
+        </div>
+
+        <p class="cw-logo-secret">Keche flour I kepen remembreth a lyf that I somtyme lyved.</p>
+
+        <div class="cw-divider" aria-hidden="true">
+          <span></span><b>✦</b><span></span>
+        </div>
+
+        <p class="cw-tagline">For every day in thy life, &amp; those thou wouldst make more fair,<br>a flower shall ever await thee.</p>
+
+        <p class="cw-address">221B Carter Street · Anclona 9¾ Quarter · Fortuna Imperia</p>
+      </div>
     </div>
     <p class="cw-desk-hint">Move thy hand gently across the table.</p>
   </div>
@@ -2172,6 +2487,35 @@ document.addEventListener("DOMContentLoaded",()=>{
     const rect=frame.getBoundingClientRect();
     light.style.left=`${event.clientX-rect.left}px`;
     light.style.top=`${event.clientY-rect.top}px`;
+  });
+});
+</script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+  const frame=document.getElementById("cwDeskFrame");
+  const logo=document.getElementById("cwLogo");
+  const logoHit=document.querySelector(".cw-hit-logo");
+  if(!frame||!logo||!logoHit)return;
+
+  let raf=0;
+  const updateTilt=(event)=>{
+    const rect=logoHit.getBoundingClientRect();
+    const px=(event.clientX-rect.left)/rect.width-.5;
+    const py=(event.clientY-rect.top)/rect.height-.5;
+
+    cancelAnimationFrame(raf);
+    raf=requestAnimationFrame(()=>{
+      logo.style.setProperty("--cw-logo-tilt-x",`${(-py*3.2).toFixed(2)}deg`);
+      logo.style.setProperty("--cw-logo-tilt-y",`${(px*4.2).toFixed(2)}deg`);
+    });
+  };
+
+  logoHit.addEventListener("pointermove",updateTilt);
+  logoHit.addEventListener("pointerleave",()=>{
+    logo.style.setProperty("--cw-logo-tilt-x","0deg");
+    logo.style.setProperty("--cw-logo-tilt-y","0deg");
   });
 });
 </script>
