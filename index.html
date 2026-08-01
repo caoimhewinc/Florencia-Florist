@@ -730,7 +730,7 @@ to{transform:translateX(108%)}
 FLORENCIA DESK EFFECTS PACK
 Works with #cwDeskFrame, #cwDeskLayers and existing cw* IDs
 ========================================================= */
-:root{--fx-mouse-x:50%;--fx-mouse-y:50%;--fx-tilt-x:0deg;--fx-tilt-y:0deg;--fx-shadow-x:0px;--fx-shadow-y:10px;--fx-day-warmth:1;--fx-day-brightness:1}
+:root{--fx-mouse-x:50%;--fx-mouse-y:50%;--fx-day-warmth:1;--fx-day-brightness:1}
 .cw-fx-layer,.cw-fx-particles,.cw-fx-events{position:absolute;inset:0;pointer-events:none;overflow:hidden}
 .cw-fx-layer{z-index:42}
 .cw-fx-particles{z-index:43}
@@ -757,8 +757,6 @@ to{transform:translate3d(1.5%,1%,0) rotate(1.3deg) scale(1.04)}
 }
 .cw-fx-cursor-glow{inset:0;opacity:.75;background:radial-gradient( circle 250px at var(--fx-mouse-x) var(--fx-mouse-y),rgba(255,237,191,.12),rgba(255,218,154,.035) 42%,transparent 72% );transition:opacity .4s ease}
 .cw-fx-vignette{inset:0;background:radial-gradient( ellipse at center,transparent 48%,rgba(77,48,28,.025) 72%,rgba(40,24,14,.13) 100% )}
-.cw-desk-frame.fx-parallax{transform:perspective(1100px) rotateX(var(--fx-tilt-x)) rotateY(var(--fx-tilt-y)) translateZ(0);transition:transform .15s linear,filter 2s ease}
-.cw-desk-frame.fx-idle.fx-parallax{transition:transform 2.2s ease,filter 2s ease}
 .cw-desk-layer{--fx-shadow-filter:drop-shadow( var(--fx-shadow-x) var(--fx-shadow-y) 10px rgba(26,14,7,.16) )}
 .cw-layer-metal.fx-metal-glint{animation:fxMetalGlint 1.15s ease}
 @keyframes fxMetalGlint{0%,100%{filter:brightness(1) saturate(.9) drop-shadow(7px 11px 9px rgba(22,11,6,.25))}
@@ -797,8 +795,6 @@ to{transform:translateY(-1.8px) rotate(.22deg)}
 35%{opacity:.62}
 100%{opacity:0;transform:translate(-35%,-45px) scale(1.2) rotate(12deg)}
 }
-.cw-easter-message{position:absolute;left:50%;top:58%;z-index:66;width:min(56%,620px);margin:0;color:rgba(75,52,32,.72);font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(11px,1.1vw,17px);font-style:italic;line-height:1.5;text-align:center;letter-spacing:.025em;text-shadow:0 1px rgba(255,255,255,.35);pointer-events:none;opacity:0;filter:blur(2px);transform:translate(-50%,7px);transition:opacity .45s ease,filter .45s ease,transform .45s ease}
-.cw-easter-message.is-visible{opacity:1;filter:blur(0);transform:translate(-50%,0)}
 #cwWatch.fx-clock-live{animation:fxWatchTick 2s steps(2,end) infinite;transform-origin:center}
 #cwWatch.fx-time-frozen{animation:none!important;filter:sepia(.05) saturate(.78) brightness(.9) drop-shadow(0 0 12px rgba(164,204,223,.25))}
 @keyframes fxWatchTick{0%,100%{transform:rotate(0deg)}
@@ -837,10 +833,9 @@ to{transform:translateY(-1.8px) rotate(.22deg)}
 @media(max-width:760px){.cw-fx-leaves{opacity:.08}
 .cw-fx-cursor-glow{display:none}
 }
-@media(hover:none),(pointer:coarse){.cw-desk-frame.fx-parallax{transform:none!important}
+@media(hover:none),(pointer:coarse){
 }
 @media(prefers-reduced-motion:reduce){.cw-fx-sun,.cw-fx-cloud,.cw-fx-leaves,.cw-fx-dust,.cw-fx-steam::before,.cw-fx-steam::after,.cw-fx-faller,#cwPaper.fx-breeze,#cwLace.fx-breeze,#cwDried.fx-breeze,#cwWatch.fx-clock-live{animation:none!important}
-.cw-desk-frame.fx-parallax{transform:none!important}
 }
 /* ===== END FLORENCIA DESK EFFECTS ===== */
 </style>
@@ -3492,12 +3487,9 @@ particles.setAttribute("aria-hidden", "true");
 const events = document.createElement("div");
 events.className = "cw-fx-events";
 events.setAttribute("aria-hidden", "true");
-const message = document.createElement("p");
-message.className = "cw-easter-message";
-message.setAttribute("aria-live", "polite");
-frame.append(ambient, particles, events, message);
+frame.append(ambient,particles,events);
 /* ---------- Ambient setup ---------- */
-frame.classList.add("fx-parallax");
+
 ["cwPaper", "cwLace", "cwDried"].forEach((id) => {
 document.getElementById(id)?.classList.add("fx-breeze");
 });
@@ -3505,31 +3497,20 @@ document.getElementById("cwWatch")?.classList.add("fx-clock-live");
 createDust(particles, prefersReducedMotion ? 8 : 28);
 updateTimeOfDay(frame);
 window.setInterval(() => updateTimeOfDay(frame), 60000);
-/* ---------- Mouse parallax, light and shadow ---------- */
-let lastPointer = { x: 0.5, y: 0.5 };
-let lastMoveAt = performance.now();
-frame.addEventListener("pointermove", (event) => {
-const rect = frame.getBoundingClientRect();
-const x = clamp((event.clientX - rect.left) / rect.width, 0, 1);
-const y = clamp((event.clientY - rect.top) / rect.height, 0, 1);
-lastPointer = { x, y };
-lastMoveAt = performance.now();
-frame.style.setProperty("--fx-mouse-x", `${x * 100}%`);
-frame.style.setProperty("--fx-mouse-y", `${y * 100}%`);
-if (!prefersReducedMotion) {
-frame.style.setProperty("--fx-tilt-y", `${(x - 0.5) * 1.35}deg`);
-frame.style.setProperty("--fx-tilt-x", `${(0.5 - y) * 1.05}deg`);
-}
-frame.style.setProperty("--fx-shadow-x", `${(x - 0.5) * 7}px`);
-frame.style.setProperty("--fx-shadow-y", `${8 + y * 5}px`);
+/* ---------- Mouse light and activity ---------- */
+let lastPointer={x:.5,y:.5};
+
+frame.addEventListener("pointermove",(event)=>{
+const rect=frame.getBoundingClientRect();
+const x=clamp((event.clientX-rect.left)/rect.width,0,1);
+const y=clamp((event.clientY-rect.top)/rect.height,0,1);
+
+lastPointer={x,y};
+frame.style.setProperty("--fx-mouse-x",`${x*100}%`);
+frame.style.setProperty("--fx-mouse-y",`${y*100}%`);
+
 frame.classList.remove("fx-idle");
 resetIdleTimer();
-});
-frame.addEventListener("pointerleave", () => {
-frame.style.setProperty("--fx-tilt-x", "0deg");
-frame.style.setProperty("--fx-tilt-y", "0deg");
-frame.style.setProperty("--fx-shadow-x", "0px");
-frame.style.setProperty("--fx-shadow-y", "10px");
 });
 /* Fast cursor movement stirs petals */
 let previousPoint = null;
@@ -3572,134 +3553,55 @@ window.setTimeout(
 1300
 );
 }, 23000);
-/* ---------- Hover whispers ---------- */
-const whispers = {
-cwPaper: "For all things muste passe; therefore are they most deare.",
-cwEnvelope: "This letter hath waited longer than its sender intended.",
-cwDried: "Gathered in a season no calendar now remembereth.",
-cwLace: "Mended thrice, and kept for reasons of no consequence.",
-cwRedRose: "For a promise kept beyond its proper ending.",
-cwPinkRose: "For affection that asked no proof of itself.",
-cwPurple: "It grew where no garden had been planted.",
-cwClover: "Fortune is most often noticed after it hath passed.",
-cwKey: "It openeth no door now standing.",
-cwCoffee: "The cup was left unfinished.",
-cwPressed: "A name was once written beneath this bloom.",
-cwBlankTag: "Reserved.",
-cwFloralTag: "This variety appeareth in no common catalogue.",
-cwQuill: "The nib remembereth every word the hand denied.",
-cwGrid: "One item remaineth unaccounted for.",
-cwWatch: "It hath lost eleven minutes, and never sought them again.",
-cwHand01: "The final line was added in another hand.",
-cwHand02: "The date is correct. The year is not.",
-cwPetals: "One petal fell before the flower was cut.",
-cwWax: "Once broken, it cannot truthfully be called untouched.",
-};
-let messageTimer = 0;
-function showMessage(text, duration = 2600) {
-window.clearTimeout(messageTimer);
-message.textContent = text;
-message.classList.add("is-visible");
-messageTimer = window.setTimeout(() => {
-message.classList.remove("is-visible");
-}, duration);
-}
-hitboxesRoot.addEventListener("pointerover", (event) => {
-const hitbox = event.target.closest(".cw-hitbox");
-if (!hitbox) return;
-const text = whispers[hitbox.dataset.target];
-if (text) showMessage(text, 3000);
-});
-hitboxesRoot.addEventListener("focusin", (event) => {
-const hitbox = event.target.closest(".cw-hitbox");
-if (!hitbox) return;
-const text = whispers[hitbox.dataset.target];
-if (text) showMessage(text, 3000);
-});
 /* ---------- Click interactions ---------- */
-let keyClicks = 0;
-let frozenTime = false;
-let quillIndex = 0;
-const quillLines = [
-"Remember.",
-"Not every silence is empty.",
-"The day was ordinary until it was gone.",
-"What we keep is seldom what we meant to keep.",
-];
-const flowerLatin = {
-cwRedRose: "Rosa gallica",
-cwPinkRose: "Rosa × centifolia",
-cwPurple: "Aquilegia vulgaris",
-cwClover: "Trifolium repens",
-cwPressed: "Specimen name withheld",
-cwDried: "Herbarium entry incomplete",
-};
-hitboxesRoot.addEventListener("click", (event) => {
-const hitbox = event.target.closest(".cw-hitbox");
-if (!hitbox) return;
-const targetId = hitbox.dataset.target;
-const target = document.getElementById(targetId);
-if (!target) return;
-switch (targetId) {
-case "cwKey": {
-keyClicks += 1;
-restartClass(target, "fx-key-turn", 850);
-if (keyClicks < KEY_CLICKS_TO_OPEN) {
-showMessage(
-`${roman(KEY_CLICKS_TO_OPEN - keyClicks)} turn${
-KEY_CLICKS_TO_OPEN - keyClicks === 1 ? "" : "s"
-} remain.`,
-1400
-);
-} else {
-keyClicks = 0;
+let keyClicks=0;
+let frozenTime=false;
+
+hitboxesRoot.addEventListener("click",(event)=>{
+const hitbox=event.target.closest(".cw-hitbox");
+if(!hitbox)return;
+
+const targetId=hitbox.dataset.target;
+const target=document.getElementById(targetId);
+if(!target)return;
+
+switch(targetId){
+case "cwKey":{
+keyClicks+=1;
+restartClass(target,"fx-key-turn",850);
+
+if(keyClicks>=KEY_CLICKS_TO_OPEN){
+keyClicks=0;
 frame.classList.add("fx-secret-ready");
-showMessage("The lock remembereth thee.", 1800);
-window.setTimeout(() => {
+
+window.setTimeout(()=>{
 frame.classList.remove("fx-secret-ready");
-if (typeof window.enterBackroom === "function") {
-window.enterBackroom();
-}
-}, 1300);
+if(typeof window.enterBackroom==="function")window.enterBackroom();
+},1300);
 }
 break;
 }
-case "cwWatch": {
-frozenTime = !frozenTime;
-target.classList.toggle("fx-time-frozen", frozenTime);
-target.classList.toggle("fx-clock-live", !frozenTime);
-showMessage(
-frozenTime
-? "For a moment, the hour consented to remain."
-: "Time resumed without apology.",
-2400
-);
+
+case "cwWatch":{
+frozenTime=!frozenTime;
+target.classList.toggle("fx-time-frozen",frozenTime);
+target.classList.toggle("fx-clock-live",!frozenTime);
 break;
 }
-case "cwQuill": {
-restartClass(target, "fx-writing", 2600);
-showMessage(quillLines[quillIndex], 3000);
-quillIndex = (quillIndex + 1) % quillLines.length;
+
+case "cwQuill":{
+restartClass(target,"fx-writing",2600);
 break;
 }
-case "cwWax": {
-restartClass(target, "fx-seal-stamp", 800);
-showMessage("Florencia · sealed and witnessed.", 2200);
+
+case "cwWax":{
+restartClass(target,"fx-seal-stamp",800);
 break;
 }
-case "cwEnvelope": {
+
+case "cwEnvelope":{
 target.classList.toggle("fx-letter-open");
-showMessage(
-target.classList.contains("fx-letter-open")
-? "The letter openeth only so far."
-: "It closeth before the name may be read.",
-2300
-);
 break;
-}
-default: {
-const latin = flowerLatin[targetId];
-if (latin) showMessage(latin, 2300);
 }
 }
 });
@@ -3769,7 +3671,7 @@ if (event.key.length === 1) {
 typed = (typed + event.key.toLowerCase()).slice(-secretWord.length);
 if (typed === secretWord) {
 typed = "";
-showMessage("The shop hath heard its own name.", 1800);
+
 frame.classList.add("fx-secret-ready");
 window.setTimeout(() => {
 frame.classList.remove("fx-secret-ready");
@@ -3783,7 +3685,7 @@ if (event.key === konami[konamiIndex]) {
 konamiIndex += 1;
 if (konamiIndex === konami.length) {
 konamiIndex = 0;
-showMessage("A familiar sequence stirreth the old mechanism.", 1900);
+
 restartClass(document.getElementById("cwKey"), "fx-key-turn", 900);
 window.setTimeout(() => {
 if (typeof window.enterBackroom === "function") {
