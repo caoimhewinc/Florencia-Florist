@@ -417,14 +417,47 @@
      grid-template-columns:1fr 1fr;
      min-height:420px;
    }
-   .about-text {
-     padding:80px 60px;
-     background:var(--ink);
-     color:var(--parchment);
-     display:flex;
-     flex-direction:column;
-     justify-content:center;
-   }
+.about-text {
+    padding:80px 60px 80px 95px; /* เพิ่มพื้นที่ด้านซ้าย */
+    background:var(--ink);
+    color:var(--parchment);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    position:relative;
+    overflow:hidden;
+}
+/* Victorian Double Line */
+.about-text::before{
+    content:"";
+    position:absolute;
+    top:48px;
+    bottom:48px;
+    left:42px;
+    width:1px;
+    background:linear-gradient(
+        to bottom,
+        transparent,
+        rgba(214,191,134,.92) 8%,
+        rgba(214,191,134,1) 50%,
+        rgba(214,191,134,.92) 92%,
+        transparent
+    );
+    box-shadow:
+        0 0 5px rgba(214,191,134,.18),
+        0 0 12px rgba(214,191,134,.08);
+    pointer-events:none;
+}
+.about-text::after{
+    content:"";
+    position:absolute;
+    top:48px;
+    bottom:48px;
+    left:48px;
+    width:1px;
+    background:rgba(255,244,220,.12);
+    pointer-events:none;
+}
    .about-text .section-label {
      color:var(--gold);
    }
@@ -2642,20 +2675,6 @@
        transform:rotate(5deg) translateX(2px)
      }
    }
-   .about-secret-note {
-     position:absolute;
-     right:32px;
-     top:122px;
-     color:rgba(237,229,208,.05);
-     font:italic 14px 'Cormorant Garamond',serif;
-     letter-spacing:.06em;
-     transform:rotate(-5deg);
-     transition:color .8s ease,transform .8s ease
-   }
-   .about-text:hover .about-secret-note {
-     color:rgba(237,229,208,.14);
-     transform:rotate(-3deg)
-   }
    .about-rotating-quote {
      min-height:28px;
      margin:4px 0 24px;
@@ -4389,9 +4408,6 @@ Though harmless in appearance, prolonged exposure to its dried pollen is rumoure
      <h2 class="section-heading about-name" tabindex="0">
        Caoimhe Winchester
       </h2>
-     <div aria-hidden="true" class="about-secret-note">
-      Naught abideth, therefore hath it worth.
-     </div>
      <div class="about-copy">
       <p>
        At present, Florencia remaineth under the keeping of Miss Caoimhe Winchester, by whose hand the greater part of all arrangements are fashioned. Thus, it stirreth little surprise should the shop door remain fast shut for the better course of a day, whilst letters of reply continueth nonetheless to depart with unfailing punctuality — most especially those bearing the seals of ancient houses from the inner quarter.
@@ -4440,9 +4456,6 @@ Though harmless in appearance, prolonged exposure to its dried pollen is rumoure
        <br/>
        Do not ask from whose garden.
       </i>
-     </div>
-     <div class="about-hidden-quote">
-      Every flower remembers.
      </div>
      <div aria-hidden="true" class="about-petal-layer">
      </div>
