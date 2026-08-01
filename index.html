@@ -3880,7 +3880,336 @@
    }
    @media(prefers-reduced-motion:reduce) {
    }
-  </style>
+  
+
+   /* ═══════════════════════════════════════════════════════════
+      CAOIMHE'S LIVING DESK — AMBIENT EFFECTS & EASTER EGGS
+      Visual effects stay beneath the existing asset hitboxes.
+      ═══════════════════════════════════════════════════════════ */
+   .cw-ambient-layer {
+     position:absolute;
+     inset:0;
+     z-index:42;
+     overflow:hidden;
+     pointer-events:none;
+     border-radius:inherit;
+   }
+   .cw-sun-wash {
+     position:absolute;
+     inset:-22%;
+     opacity:.42;
+     mix-blend-mode:screen;
+     background:
+       radial-gradient(ellipse at 24% 18%,rgba(255,242,195,.22),transparent 35%),
+       linear-gradient(112deg,transparent 24%,rgba(255,237,188,.13) 42%,rgba(255,250,224,.22) 49%,transparent 66%);
+     filter:blur(10px);
+     animation:cwSunTravel 74s ease-in-out infinite alternate;
+   }
+   .cw-window-shadow {
+     position:absolute;
+     left:-16%;
+     top:-30%;
+     width:84%;
+     height:150%;
+     opacity:.075;
+     transform:rotate(-10deg);
+     background:
+       linear-gradient(90deg,transparent 0 18%,rgba(45,31,20,.9) 18% 20%,transparent 20% 48%,rgba(45,31,20,.9) 48% 50%,transparent 50% 78%,rgba(45,31,20,.9) 78% 80%,transparent 80%),
+       linear-gradient(0deg,transparent 0 29%,rgba(45,31,20,.9) 29% 31%,transparent 31% 63%,rgba(45,31,20,.9) 63% 65%,transparent 65%);
+     filter:blur(2px);
+     animation:cwWindowTravel 110s linear infinite alternate;
+   }
+   .cw-cloud-veil {
+     position:absolute;
+     inset:-8%;
+     opacity:0;
+     background:rgba(47,40,31,.15);
+     mix-blend-mode:multiply;
+     transition:opacity 4.5s ease;
+   }
+   .cw-cloud-veil.is-passing { opacity:1; }
+   .cw-dust-field,.cw-flight-field,.cw-petal-field,.cw-mouse-dust-field {
+     position:absolute;
+     inset:0;
+     overflow:hidden;
+   }
+   .cw-dust-mote {
+     position:absolute;
+     left:var(--x);
+     top:var(--y);
+     width:var(--s);
+     height:var(--s);
+     border-radius:50%;
+     opacity:0;
+     background:rgba(255,238,195,.88);
+     box-shadow:0 0 7px rgba(255,230,174,.42);
+     animation:cwDustDrift var(--d) linear var(--delay) infinite;
+   }
+   .cw-mouse-dust {
+     position:absolute;
+     width:3px;
+     height:3px;
+     border-radius:50%;
+     background:rgba(255,232,183,.78);
+     box-shadow:0 0 7px rgba(255,225,165,.38);
+     animation:cwMouseDust 1.35s ease-out forwards;
+   }
+   .cw-metal-glint {
+     position:absolute;
+     z-index:44;
+     width:8%;
+     height:34%;
+     opacity:0;
+     transform:translateX(-180%) skewX(-18deg) rotate(-14deg);
+     background:linear-gradient(90deg,transparent,rgba(255,249,218,.75),transparent);
+     filter:blur(2px);
+     mix-blend-mode:screen;
+   }
+   .cw-metal-glint.is-key { left:65%; top:-2%; }
+   .cw-metal-glint.is-quill { left:86%; top:42%; height:48%; transform:translateX(-190%) skewX(-18deg) rotate(20deg); }
+   .cw-metal-glint.is-watch { left:87%; top:69%; width:7%; height:26%; transform:translateX(-190%) skewX(-18deg) rotate(8deg); }
+   .cw-metal-glint.is-shining { animation:cwMetalShine 1.45s ease-in-out; }
+   .cw-steam {
+     position:absolute;
+     right:9%;
+     top:2%;
+     width:100px;
+     height:150px;
+     opacity:.22;
+     filter:blur(5px);
+   }
+   .cw-steam i {
+     position:absolute;
+     left:var(--sx);
+     bottom:-10%;
+     width:18px;
+     height:85px;
+     border-left:2px solid rgba(255,250,235,.52);
+     border-radius:50%;
+     opacity:0;
+     animation:cwSteamRise var(--sd) ease-in-out var(--sdelay) infinite;
+   }
+   .cw-butterfly,.cw-dragonfly {
+     position:absolute;
+     left:-12%;
+     top:var(--fly-y,42%);
+     width:30px;
+     height:22px;
+     opacity:0;
+     transform-origin:center;
+     filter:drop-shadow(0 4px 4px rgba(45,25,13,.2));
+   }
+   .cw-butterfly::before,.cw-butterfly::after {
+     content:"";
+     position:absolute;
+     top:2px;
+     width:16px;
+     height:19px;
+     border-radius:70% 35% 72% 28%;
+     background:linear-gradient(145deg,rgba(167,139,191,.92),rgba(91,72,118,.88));
+     transform-origin:100% 70%;
+     animation:cwWingLeft .18s ease-in-out infinite alternate;
+   }
+   .cw-butterfly::before { right:50%; }
+   .cw-butterfly::after {
+     left:50%;
+     transform-origin:0 70%;
+     transform:scaleX(-1);
+     animation-name:cwWingRight;
+   }
+   .cw-butterfly span {
+     position:absolute;
+     left:calc(50% - 1px);
+     top:4px;
+     width:2px;
+     height:17px;
+     border-radius:50%;
+     background:#413329;
+   }
+   .cw-butterfly.is-flying { animation:cwButterflyFlight 13s cubic-bezier(.42,0,.32,1) forwards; }
+   .cw-butterfly.is-resting { animation:cwButterflyRest 7s ease-in-out forwards; }
+   .cw-dragonfly {
+     width:42px;
+     height:14px;
+   }
+   .cw-dragonfly::before,.cw-dragonfly::after {
+     content:"";
+     position:absolute;
+     left:14px;
+     top:5px;
+     width:26px;
+     height:5px;
+     border-radius:100%;
+     border:1px solid rgba(215,229,207,.72);
+     background:rgba(193,211,186,.15);
+     transform-origin:left center;
+     animation:cwDragonWing .09s linear infinite alternate;
+   }
+   .cw-dragonfly::after { transform:rotate(-18deg); animation-direction:alternate-reverse; }
+   .cw-dragonfly span {
+     position:absolute;
+     left:0;
+     top:6px;
+     width:30px;
+     height:3px;
+     border-radius:50%;
+     background:linear-gradient(90deg,#49634a,#81916c,#3e5142);
+   }
+   .cw-dragonfly.is-flying { animation:cwDragonflyFlight 7.5s ease-in-out forwards; }
+   .cw-falling-petal {
+     position:absolute;
+     top:-8%;
+     left:var(--px);
+     width:15px;
+     height:11px;
+     border-radius:80% 25% 75% 30%;
+     opacity:.82;
+     background:linear-gradient(145deg,#a84655,#6e2631);
+     filter:drop-shadow(0 3px 3px rgba(50,25,20,.18));
+     animation:cwPetalFall var(--pd) cubic-bezier(.25,.55,.45,1) forwards;
+   }
+   .cw-cat-shadow {
+     position:absolute;
+     left:-24%;
+     bottom:3%;
+     width:115px;
+     height:53px;
+     opacity:0;
+     filter:blur(.2px) drop-shadow(0 7px 5px rgba(27,18,12,.22));
+   }
+   .cw-cat-shadow::before {
+     content:"";
+     position:absolute;
+     left:28px;
+     bottom:0;
+     width:64px;
+     height:34px;
+     border-radius:55% 55% 35% 35%;
+     background:rgba(28,22,18,.72);
+   }
+   .cw-cat-shadow::after {
+     content:"";
+     position:absolute;
+     left:76px;
+     bottom:23px;
+     width:27px;
+     height:27px;
+     background:rgba(28,22,18,.72);
+     border-radius:50%;
+     clip-path:polygon(0 28%,18% 0,38% 26%,72% 22%,92% 0,100% 58%,87% 100%,18% 100%,0 62%);
+   }
+   .cw-cat-shadow span {
+     position:absolute;
+     left:0;
+     bottom:18px;
+     width:48px;
+     height:9px;
+     border-radius:100% 0 0 100%;
+     border-top:7px solid rgba(28,22,18,.72);
+     transform:rotate(-14deg);
+   }
+   .cw-cat-shadow.is-walking { animation:cwCatWalk 10s linear forwards; }
+   .cw-time-tint {
+     position:absolute;
+     inset:0;
+     opacity:var(--cw-time-opacity,.08);
+     background:var(--cw-time-color,rgba(255,221,166,.25));
+     mix-blend-mode:soft-light;
+     transition:background 2s ease,opacity 2s ease;
+   }
+   .cw-desk-frame.cw-breeze-active .cw-layer-paper:not(.is-hovered):not(.is-soft-hovered) {
+     animation:cwPaperBreeze 2.7s ease-in-out;
+   }
+   .cw-desk-frame.cw-breeze-active .cw-layer-flower:not(.is-hovered):not(.is-soft-hovered) {
+     animation:cwFlowerBreeze 3.1s ease-in-out;
+   }
+   @keyframes cwSunTravel {
+     from { transform:translate3d(-4%,-2%,0) rotate(-1deg) scale(1); }
+     to { transform:translate3d(7%,3%,0) rotate(1deg) scale(1.05); }
+   }
+   @keyframes cwWindowTravel {
+     from { transform:translate3d(-3%,0,0) rotate(-10deg); }
+     to { transform:translate3d(14%,2%,0) rotate(-8deg); }
+   }
+   @keyframes cwDustDrift {
+     0% { opacity:0; transform:translate3d(0,24px,0) scale(.65); }
+     18% { opacity:var(--o); }
+     70% { opacity:calc(var(--o) * .72); }
+     100% { opacity:0; transform:translate3d(var(--dx),-110px,0) scale(1.15); }
+   }
+   @keyframes cwMouseDust {
+     0% { opacity:.68; transform:translate(0,0) scale(.8); }
+     100% { opacity:0; transform:translate(var(--mx),var(--my)) scale(1.45); }
+   }
+   @keyframes cwMetalShine {
+     0% { opacity:0; translate:-120% 0; }
+     22% { opacity:.82; }
+     65% { opacity:.34; }
+     100% { opacity:0; translate:280% 0; }
+   }
+   @keyframes cwSteamRise {
+     0% { opacity:0; transform:translate3d(0,10px,0) scaleX(.75) rotate(-5deg); }
+     25% { opacity:.42; }
+     70% { opacity:.2; }
+     100% { opacity:0; transform:translate3d(var(--steam-x),-95px,0) scaleX(1.35) rotate(12deg); }
+   }
+   @keyframes cwWingLeft { to { transform:perspective(40px) rotateY(66deg); } }
+   @keyframes cwWingRight { to { transform:scaleX(-1) perspective(40px) rotateY(66deg); } }
+   @keyframes cwButterflyFlight {
+     0% { left:-8%; top:62%; opacity:0; transform:rotate(-8deg) scale(.75); }
+     7% { opacity:.92; }
+     24% { left:25%; top:32%; transform:rotate(12deg) scale(.92); }
+     47% { left:51%; top:46%; transform:rotate(-12deg) scale(1); }
+     69% { left:72%; top:19%; transform:rotate(9deg) scale(.9); }
+     100% { left:108%; top:35%; opacity:0; transform:rotate(-6deg) scale(.72); }
+   }
+   @keyframes cwButterflyRest {
+     0% { left:-8%; top:54%; opacity:0; transform:scale(.76); }
+     18% { left:24%; top:18%; opacity:.92; transform:scale(.9) rotate(8deg); }
+     38%,68% { left:26%; top:15%; opacity:.95; transform:scale(.82) rotate(-6deg); }
+     82% { left:43%; top:8%; opacity:.9; }
+     100% { left:108%; top:24%; opacity:0; transform:scale(.7); }
+   }
+   @keyframes cwDragonWing { to { transform:rotate(22deg) scaleY(.5); } }
+   @keyframes cwDragonflyFlight {
+     0% { left:-10%; top:28%; opacity:0; transform:rotate(2deg) scale(.8); }
+     10% { opacity:.8; }
+     35% { left:38%; top:18%; transform:rotate(-4deg) scale(1); }
+     61% { left:63%; top:48%; transform:rotate(8deg) scale(.92); }
+     100% { left:110%; top:31%; opacity:0; transform:rotate(-5deg) scale(.72); }
+   }
+   @keyframes cwPetalFall {
+     0% { opacity:0; transform:translate3d(0,-10px,0) rotate(0deg); }
+     10% { opacity:.84; }
+     45% { transform:translate3d(var(--drift-a),45vh,0) rotate(210deg); }
+     100% { opacity:0; transform:translate3d(var(--drift-b),105vh,0) rotate(620deg); }
+   }
+   @keyframes cwCatWalk {
+     0% { left:-18%; opacity:0; transform:translateY(0) scale(.82); }
+     8% { opacity:.52; }
+     26% { transform:translateY(-2px) scale(.84); }
+     51% { transform:translateY(1px) scale(.86); }
+     88% { opacity:.48; }
+     100% { left:108%; opacity:0; transform:translateY(-1px) scale(.82); }
+   }
+   @keyframes cwPaperBreeze {
+     0%,100% { rotate:var(--cw-rest-r,0deg); translate:var(--cw-rest-x,0px) var(--cw-rest-y,0px); }
+     42% { rotate:calc(var(--cw-rest-r,0deg) + .18deg); translate:calc(var(--cw-rest-x,0px) + 1px) calc(var(--cw-rest-y,0px) - 1px); }
+     62% { rotate:calc(var(--cw-rest-r,0deg) - .08deg); translate:var(--cw-rest-x,0px) var(--cw-rest-y,0px); }
+   }
+   @keyframes cwFlowerBreeze {
+     0%,100% { rotate:var(--cw-rest-r,0deg); translate:var(--cw-rest-x,0px) var(--cw-rest-y,0px); }
+     48% { rotate:calc(var(--cw-rest-r,0deg) + .35deg); translate:calc(var(--cw-rest-x,0px) + 1px) calc(var(--cw-rest-y,0px) - 2px); }
+   }
+   @media(prefers-reduced-motion:reduce) {
+     .cw-sun-wash,.cw-window-shadow,.cw-dust-mote,.cw-steam i,
+     .cw-butterfly,.cw-dragonfly,.cw-falling-petal,.cw-cat-shadow {
+       animation:none!important;
+     }
+     .cw-dust-field,.cw-flight-field,.cw-petal-field,.cw-mouse-dust-field,
+     .cw-metal-glint,.cw-cloud-veil { display:none!important; }
+   }
+</style>
  </head>
  <body>
   <nav class="top-tabs">
@@ -3907,6 +4236,26 @@
    <section aria-label="Caoimhe Winchester's work desk" class="front-hero caoimhe-desk">
     <div class="cw-desk-frame" id="cwDeskFrame">
      <div class="cw-desk-light" id="cwDeskLight">
+     </div>
+
+     <div class="cw-ambient-layer" id="cwAmbientLayer" aria-hidden="true">
+      <div class="cw-time-tint" id="cwTimeTint"></div>
+      <div class="cw-sun-wash"></div>
+      <div class="cw-window-shadow"></div>
+      <div class="cw-cloud-veil" id="cwCloudVeil"></div>
+      <div class="cw-dust-field" id="cwDustField"></div>
+      <div class="cw-flight-field" id="cwFlightField"></div>
+      <div class="cw-petal-field" id="cwPetalField"></div>
+      <div class="cw-mouse-dust-field" id="cwMouseDustField"></div>
+      <div class="cw-steam" aria-hidden="true">
+       <i style="--sx:18%;--sd:5.8s;--sdelay:-1s;--steam-x:-14px"></i>
+       <i style="--sx:48%;--sd:6.5s;--sdelay:-3.4s;--steam-x:10px"></i>
+       <i style="--sx:72%;--sd:7.2s;--sdelay:-5.2s;--steam-x:-6px"></i>
+      </div>
+      <i class="cw-metal-glint is-key"></i>
+      <i class="cw-metal-glint is-quill"></i>
+      <i class="cw-metal-glint is-watch"></i>
+      <div class="cw-cat-shadow" id="cwCatShadow"><span></span></div>
      </div>
      <div id="cwDeskLayers">
      </div>
@@ -6484,5 +6833,149 @@ Though harmless in appearance, prolonged exposure to its dried pollen is rumoure
    }
    );
   </script>
- </body>
+ 
+  <script>
+   document.addEventListener("DOMContentLoaded",()=> {
+     const frame=document.getElementById("cwDeskFrame");
+     const dustField=document.getElementById("cwDustField");
+     const flightField=document.getElementById("cwFlightField");
+     const petalField=document.getElementById("cwPetalField");
+     const mouseDustField=document.getElementById("cwMouseDustField");
+     const cloud=document.getElementById("cwCloudVeil");
+     const tint=document.getElementById("cwTimeTint");
+     const cat=document.getElementById("cwCatShadow");
+     if(!frame||!dustField||!flightField||!petalField||!mouseDustField||!cloud||!tint)return;
+
+     const reduced=matchMedia("(prefers-reduced-motion: reduce)").matches;
+     const rand=(min,max)=>min+Math.random()*(max-min);
+     const later=(fn,min,max)=>setTimeout(()=>{fn();later(fn,min,max)},rand(min,max));
+
+     /* Time-of-day light: morning, afternoon, evening, and moonlit night. */
+     const applyTimeTint=()=> {
+       const hour=new Date().getHours();
+       let color="rgba(255,220,162,.32)",opacity=.09;
+       if(hour<6){color="rgba(116,143,187,.34)";opacity=.15}
+       else if(hour<10){color="rgba(255,226,173,.34)";opacity=.10}
+       else if(hour<16){color="rgba(255,244,211,.24)";opacity=.07}
+       else if(hour<19){color="rgba(229,157,112,.32)";opacity=.13}
+       else {color="rgba(105,126,171,.32)";opacity=.16}
+       tint.style.setProperty("--cw-time-color",color);
+       tint.style.setProperty("--cw-time-opacity",opacity);
+     };
+     applyTimeTint();
+     setInterval(applyTimeTint,60000);
+
+     /* Fine dust visible mainly in the moving shafts of light. */
+     if(!reduced){
+       for(let i=0;i<26;i++){
+         const mote=document.createElement("i");
+         mote.className="cw-dust-mote";
+         mote.style.setProperty("--x",`${rand(4,96)}%`);
+         mote.style.setProperty("--y",`${rand(15,105)}%`);
+         mote.style.setProperty("--s",`${rand(1.2,3.5)}px`);
+         mote.style.setProperty("--d",`${rand(11,25)}s`);
+         mote.style.setProperty("--delay",`${rand(-24,0)}s`);
+         mote.style.setProperty("--dx",`${rand(-55,55)}px`);
+         mote.style.setProperty("--o",rand(.12,.48).toFixed(2));
+         dustField.appendChild(mote);
+       }
+     }
+
+     /* The desk is never arranged in exactly the same way twice per day. */
+     const dayKey=`cw-desk-${new Date().toISOString().slice(0,10)}`;
+     let dailySeed=localStorage.getItem(dayKey);
+     if(!dailySeed){dailySeed=String(Math.floor(Math.random()*1e9));localStorage.setItem(dayKey,dailySeed)}
+     let seed=Number(dailySeed)||1;
+     const seeded=()=>((seed=(seed*1664525+1013904223)>>>0)/4294967296);
+     const movable=["cwClover","cwHand02","cwPetals","cwHand01","cwBlankTag","cwFloralTag","cwGrid","cwKey"];
+     movable.forEach((id,index)=>{
+       const el=document.getElementById(id);if(!el)return;
+       const x=(seeded()-.5)*(index===6?4:2.8),y=(seeded()-.5)*2.4,r=(seeded()-.5)*(index===7?.8:.42);
+       el.style.setProperty("--cw-rest-x",`${x.toFixed(2)}px`);
+       el.style.setProperty("--cw-rest-y",`${y.toFixed(2)}px`);
+       el.style.setProperty("--cw-rest-r",`${r.toFixed(3)}deg`);
+       el.style.translate=`${x.toFixed(2)}px ${y.toFixed(2)}px`;
+       el.style.rotate=`${r.toFixed(3)}deg`;
+     });
+
+     if(reduced)return;
+
+     /* A cloud occasionally passes before the window. */
+     later(()=>{
+       cloud.classList.add("is-passing");
+       setTimeout(()=>cloud.classList.remove("is-passing"),rand(5500,9000));
+     },42000,105000);
+
+     /* A small draught touches paper and flowers together. */
+     later(()=>{
+       frame.classList.add("cw-breeze-active");
+       setTimeout(()=>frame.classList.remove("cw-breeze-active"),3400);
+     },50000,125000);
+
+     /* Metal catches the moving daylight independently of hover. */
+     later(()=>{
+       const glints=[...frame.querySelectorAll(".cw-metal-glint")];
+       const glint=glints[Math.floor(Math.random()*glints.length)];
+       glint.classList.remove("is-shining");void glint.offsetWidth;glint.classList.add("is-shining");
+     },26000,72000);
+
+     const releaseButterfly=()=>{
+       const butterfly=document.createElement("div");
+       butterfly.className=`cw-butterfly ${Math.random()<.38?"is-resting":"is-flying"}`;
+       butterfly.innerHTML="<span></span>";
+       flightField.appendChild(butterfly);
+       butterfly.addEventListener("animationend",()=>butterfly.remove(),{once:true});
+     };
+     later(releaseButterfly,150000,360000);
+
+     const releaseDragonfly=()=>{
+       const dragonfly=document.createElement("div");
+       dragonfly.className="cw-dragonfly is-flying";
+       dragonfly.innerHTML="<span></span>";
+       flightField.appendChild(dragonfly);
+       dragonfly.addEventListener("animationend",()=>dragonfly.remove(),{once:true});
+     };
+     later(releaseDragonfly,260000,620000);
+
+     const dropPetal=()=>{
+       const petal=document.createElement("i");
+       petal.className="cw-falling-petal";
+       petal.style.setProperty("--px",`${rand(7,93)}%`);
+       petal.style.setProperty("--pd",`${rand(7.5,12)}s`);
+       petal.style.setProperty("--drift-a",`${rand(-45,45)}px`);
+       petal.style.setProperty("--drift-b",`${rand(-100,100)}px`);
+       petalField.appendChild(petal);
+       petal.addEventListener("animationend",()=>petal.remove(),{once:true});
+     };
+     later(dropPetal,35000,95000);
+
+     /* Extremely rare visitor; once seen, it will not return again that day. */
+     const catSeenKey=`cw-cat-seen-${new Date().toISOString().slice(0,10)}`;
+     if(!localStorage.getItem(catSeenKey)&&Math.random()<.08){
+       setTimeout(()=>{
+         cat.classList.add("is-walking");
+         localStorage.setItem(catSeenKey,"1");
+         cat.addEventListener("animationend",()=>cat.classList.remove("is-walking"),{once:true});
+       },rand(90000,240000));
+     }
+
+     /* Mouse movement raises only a few motes, never a particle trail. */
+     let lastDust=0;
+     frame.addEventListener("pointermove",event=>{
+       const now=performance.now();
+       if(now-lastDust<85||Math.random()>.24)return;
+       lastDust=now;
+       const rect=frame.getBoundingClientRect();
+       const mote=document.createElement("i");
+       mote.className="cw-mouse-dust";
+       mote.style.left=`${event.clientX-rect.left}px`;
+       mote.style.top=`${event.clientY-rect.top}px`;
+       mote.style.setProperty("--mx",`${rand(-24,24)}px`);
+       mote.style.setProperty("--my",`${rand(-34,-12)}px`);
+       mouseDustField.appendChild(mote);
+       mote.addEventListener("animationend",()=>mote.remove(),{once:true});
+     });
+   });
+  </script>
+</body>
 </html>
