@@ -741,11 +741,11 @@ Works with #cwDeskFrame, #cwDeskLayers and existing cw* IDs
 .cw-desk-frame.fx-afternoon{--fx-day-warmth:1;--fx-day-brightness:1.02;--fx-light-a:rgba(255,244,211,.14)}
 .cw-desk-frame.fx-evening{--fx-day-warmth:.92;--fx-day-brightness:.96;--fx-light-a:rgba(255,169,98,.17)}
 .cw-desk-frame.fx-night{--fx-day-warmth:.8;--fx-day-brightness:.79;--fx-light-a:rgba(255,177,102,.11)}
-.cw-fx-sun{inset:-35%;opacity:.8;background:linear-gradient( 114deg,transparent 25%,var(--fx-light-b) 38%,var(--fx-light-a) 48%,rgba(255,247,223,.07) 55%,transparent 68% );mix-blend-mode:screen;filter:blur(8px);animation:fxSunTravel 42s ease-in-out infinite alternate}
+.cw-fx-sun{inset:-35%;opacity:var(--fx-sun-opacity,.8);background:linear-gradient( 114deg,transparent 25%,var(--fx-light-b) 38%,var(--fx-light-a) 48%,rgba(255,247,223,.07) 55%,transparent 68% );mix-blend-mode:screen;filter:blur(8px);animation:fxSunTravel 42s ease-in-out infinite alternate}
 @keyframes fxSunTravel{from{transform:translate3d(-16%,-4%,0) rotate(-2deg)}
 to{transform:translate3d(18%,7%,0) rotate(4deg)}
 }
-.cw-fx-leaves{inset:-8%;opacity:.15;mix-blend-mode:multiply;filter:blur(5px);background:radial-gradient(ellipse 11% 23% at 10% 20%,rgba(47,62,34,.55) 0 38%,transparent 43%),radial-gradient(ellipse 8% 19% at 19% 28%,rgba(47,62,34,.46) 0 39%,transparent 44%),radial-gradient(ellipse 12% 25% at 88% 18%,rgba(47,62,34,.42) 0 38%,transparent 43%),radial-gradient(ellipse 9% 21% at 79% 29%,rgba(47,62,34,.38) 0 40%,transparent 45%);animation:fxLeavesSway 13s ease-in-out infinite alternate}
+.cw-fx-leaves{inset:-8%;opacity:var(--fx-leaf-opacity,.15);mix-blend-mode:multiply;filter:blur(5px);background:radial-gradient(ellipse 11% 23% at 10% 20%,rgba(47,62,34,.55) 0 38%,transparent 43%),radial-gradient(ellipse 8% 19% at 19% 28%,rgba(47,62,34,.46) 0 39%,transparent 44%),radial-gradient(ellipse 12% 25% at 88% 18%,rgba(47,62,34,.42) 0 38%,transparent 43%),radial-gradient(ellipse 9% 21% at 79% 29%,rgba(47,62,34,.38) 0 40%,transparent 45%);animation:fxLeavesSway 13s ease-in-out infinite alternate}
 @keyframes fxLeavesSway{from{transform:translate3d(-1.2%,-.5%,0) rotate(-1.5deg) scale(1.02)}
 to{transform:translate3d(1.5%,1%,0) rotate(1.3deg) scale(1.04)}
 }
@@ -3745,48 +3745,43 @@ node.style.setProperty("--h", "3px");
 container.append(node);
 window.setTimeout(() => node.remove(), duration * 1000 + 500);
 }
-function updateTimeOfDay(target) {
-const now = new Date();
-const hour = now.getHours();
-const minutes = now.getMinutes();
-target.classList.remove(
-"fx-morning",
-"fx-afternoon",
-"fx-evening",
-"fx-night",
-"fx-witching-hour"
-);
-if (hour >= 5 && hour < 11) {
-target.classList.add("fx-morning");
-} else if (hour >= 11 && hour < 17) {
-target.classList.add("fx-afternoon");
-} else if (hour >= 17 && hour < 20) {
-target.classList.add("fx-evening");
-} else {
-target.classList.add("fx-night");
+function updateTimeOfDay(target){
+  const now=new Date();
+  const hour=now.getHours()+now.getMinutes()/60;
+  target.classList.remove("fx-dawn","fx-morning","fx-afternoon","fx-evening","fx-night","fx-witching-hour");
+  let brightness=1;let warmth=1;let sunOpacity=.8;let leafOpacity=.15;
+  if(hour>=4.5&&hour<6){
+    const p=(hour-4.5)/1.5;target.classList.add("fx-dawn");brightness=.82+(p*.18);warmth=.82+(p*.14);sunOpacity=.12+(p*.58);leafOpacity=.03+(p*.10);
+  }else if(hour>=6&&hour<10){
+    const p=(hour-6)/4;target.classList.add("fx-morning");brightness=1.00+(p*.035);warmth=.96+(p*.04);sunOpacity=.70+(p*.12);leafOpacity=.13+(p*.04);
+  }else if(hour>=10&&hour<16){
+    const p=(hour-10)/6;target.classList.add("fx-afternoon");brightness=1.035-(p*.015);warmth=1-(p*.03);sunOpacity=.82-(p*.10);leafOpacity=.17-(p*.02);
+  }else if(hour>=16&&hour<19){
+    const p=(hour-16)/3;target.classList.add("fx-evening");brightness=1.02-(p*.13);warmth=.97-(p*.10);sunOpacity=.72-(p*.50);leafOpacity=.15-(p*.09);
+  }else{target.classList.add("fx-night");brightness=.82;warmth=.80;sunOpacity=.05;leafOpacity=.025;
+  }
+  target.style.setProperty("--fx-day-brightness",brightness.toFixed(3));
+  target.style.setProperty("--fx-day-warmth",warmth.toFixed(3));
+  target.style.setProperty("--fx-sun-opacity",sunOpacity.toFixed(3));
+  target.style.setProperty("--fx-leaf-opacity",leafOpacity.toFixed(3));
+ if(now.getHours()===3&&now.getMinutes()<=15){
+  target.classList.add("fx-witching-hour");
 }
-if (hour === 3 && minutes <= 15) {
-target.classList.add("fx-witching-hour");
 }
+function restartClass(element,className,duration){
+  if(!element)return;
+  element.classList.remove(className);
+  void element.offsetWidth;
+  element.classList.add(className);
+  window.setTimeout(()=>{
+    element.classList.remove(className);
+  },duration);
 }
-function restartClass(element, className, duration) {
-if (!element) return;
-element.classList.remove(className);
-void element.offsetWidth;
-element.classList.add(className);
-window.setTimeout(() => {
-element.classList.remove(className);
-}, duration);
+function clamp(value,min,max){return Math.min(Math.max(value,min),max);
 }
-function clamp(value, min, max) {
-return Math.min(Math.max(value, min), max);
+function random(min,max){return Math.random()*(max-min)+min;
 }
-function random(min, max) {
-return Math.random() * (max - min) + min;
-}
-function roman(value) {
-const numerals = ["0", "I", "II", "III", "IV", "V", "VI", "VII"];
-return numerals[value] ?? String(value);
+function roman(value){const numerals=["0","I","II","III","IV","V","VI","VII"];return numerals[value]??String(value);
 }
 });
 })();
