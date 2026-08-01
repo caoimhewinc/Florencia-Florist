@@ -1112,7 +1112,7 @@
      overflow:hidden;
    }
    #back-page .back-hero::before {
-     content:'✦ ❦ ✦';
+     content:'⋆  *̥˟‧̩̥·‧•̥̩̥͙‧·‧̩̥˟*̥˟‧̩̥·‧•̥̩̥͙‧·‧̩̥˟*̥*̥˟‧̩̥·‧•̥̩̥͙‧·‧̩̥˟*̥˟‧̩̥·‧•̥̩̥͙‧·‧̩̥˟*̥*̥˟‧̩̥·‧•̥̩̥͙‧·‧̩̥˟*̥˟‧̩̥·‧•̥̩̥͙‧·‧̩̥˟*̥⋆';
      position:absolute;
      top:20px;
      left:19px;
@@ -1124,7 +1124,7 @@
      letter-spacing:.55em;
    }
    #back-page .back-hero::after {
-     content:'❦ · ✦ · ❦';
+     content:'This leaf was never written.';
      position:absolute;
      bottom:20px;
      left:19px;
@@ -4132,17 +4132,17 @@ Though harmless in appearance, prolonged exposure to its dried pollen is rumoure
     <div class="about-text">
      <div aria-hidden="true" class="about-botanical-margin">
       <span>
-       ❦
+       ꕤ
       </span>
       <i>
       </i>
       <span>
-       ✿
+       ꕤ
       </span>
       <i>
       </i>
       <span>
-       ❧
+       ꕤ
       </span>
      </div>
      <div aria-hidden="true" class="about-reading-progress">
@@ -6482,7 +6482,7 @@ Though harmless in appearance, prolonged exposure to its dried pollen is rumoure
        const front=document.createElement("div");front.className="product-card-face product-card-front";
        const content=document.createElement("div");content.className="product-card-content";children.forEach(n=>content.appendChild(n));
        const back=document.createElement("div");back.className="product-card-face product-card-back";
-       front.innerHTML=`<span class="product-card-light"></span><span class="product-particles"></span><span class="product-stem"></span>${sketch}<span class="product-herbarium-label">Collected<br>${card.dataset.specimen}<br>Florencia Archive</span><span class="product-stamp">❦</span>`;
+       front.innerHTML=`<span class="product-card-light"></span><span class="product-particles"></span><span class="product-stem"></span>${sketch}<span class="product-herbarium-label">Collected<br>${card.dataset.specimen}<br>Florencia Archive</span><span class="product-stamp">❀</span>`;
        front.appendChild(content);content.insertAdjacentHTML("beforeend",`<p class="product-meaning">Language of Flowers · ${p.meaning}</p><span class="product-availability">${p.status}</span>`);
        back.innerHTML=`<h3 class="specimen-heading">${name}</h3><dl class="specimen-meta"><div><dt>Archive No.</dt><dd>${card.dataset.specimen}</dd></div><div><dt>Botanical name</dt><dd><em>${latin}</em></dd></div><div><dt>Origin</dt><dd>${p.region}</dd></div><div><dt>Season</dt><dd>${p.season}</dd></div><div><dt>Preservation</dt><dd>${p.method}</dd></div><div><dt>Price</dt><dd>${price}</dd></div></dl><p class="specimen-note">${p.note}</p><span class="flip-hint">Click to return</span>`;
        inner.append(front,back);card.replaceChildren(inner);front.insertAdjacentHTML("beforeend",`<span class="flip-hint">Click for specimen record</span>`);
