@@ -1083,17 +1083,6 @@
      background-size:44px 44px,44px 44px,100% 100%;
      mask-image:radial-gradient(ellipse at center,black 25%,transparent 88%);
    }
-   #back-page::after {
-     content:'❦';
-     position:fixed;
-     right:-90px;
-     bottom:-130px;
-     z-index:-1;
-     color:rgba(200,139,152,.075);
-     font:420px/1 'Cormorant Garamond',serif;
-     transform:rotate(-18deg);
-     pointer-events:none;
-   }
    #back-page .back-hero {
      position:relative;
      z-index:2;
@@ -1516,13 +1505,6 @@
      padding:70px 20px 100px;
      text-align:center;
      border-top:1px solid rgba(221,201,143,.16);
-   }
-   #back-page .footer-back::before {
-     content:'❦ ✦ ❦';
-     display:block;
-     margin-bottom:24px;
-     color:rgba(221,201,143,.42);
-     letter-spacing:.45em
    }
    #back-page .footer-back-text {
      margin:0 0 24px;
@@ -2624,7 +2606,7 @@
      text-shadow:0 1px 0 #5f4512,0 0 15px rgba(212,178,74,.18)
    }
    .illuminated-c::before {
-     content:"❦";
+     content:"𔘓";
      position:absolute;
      left:-.46em;
      top:-.44em;
@@ -4208,9 +4190,6 @@ Though harmless in appearance, prolonged exposure to its dried pollen is rumoure
        <br/>
        Do not ask from whose garden.
       </i>
-     </div>
-     <div class="about-hidden-quote">
-      Every flower remembers.
      </div>
      <div aria-hidden="true" class="about-petal-layer">
      </div>
@@ -6315,7 +6294,7 @@ Though harmless in appearance, prolonged exposure to its dried pollen is rumoure
          const watermark = document.createElement('span');
          watermark.className = 'ledger-watermark';
          watermark.setAttribute('aria-hidden', 'true');
-         watermark.textContent = index === 0 ? '❦' : 'Ⅻ';
+         watermark.textContent = index === 0 ? '❤︎' : '❤︎';
          card.appendChild(watermark);
        }
        if (!card.querySelector('.ledger-invisible-ink')) {
