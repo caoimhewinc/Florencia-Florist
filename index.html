@@ -763,22 +763,6 @@ to{transform: translateX(-50%) rotate(421deg);}
 #cwWatch{z-index:19}
 #cwQuill{z-index:20}
 #cwKey{z-index:21}
-#cwLogo{
-  z-index:22;
-  inset:auto;
-  left:51.5%;
-  top:15.5%;
-  width:43%;
-  height:auto;
-  object-fit:contain;
-  transform:
-    translateX(-50%)
-    rotate(-3deg);
-  transform-origin:center center;
-  transition:
-    transform .55s cubic-bezier(.19,1,.22,1),
-    filter .45s ease;
-}
 
 /* Hover */
 .cw-desk-layer.is-hovered{
@@ -803,26 +787,6 @@ to{transform: translateX(-50%) rotate(421deg);}
     saturate(.94)
     brightness(1.025)
     drop-shadow(7px 13px 11px rgba(24,12,6,.25));
-}
-
-#cwLogo.is-hovered{
-  transform:
-    translateX(-50%)
-    translateY(-9px)
-    rotate(-3deg)
-    scale(1.025);
-
-  filter:
-    sepia(.02)
-    saturate(.98)
-    brightness(1.045)
-    drop-shadow(0 13px 12px rgba(38,20,9,.28))
-    drop-shadow(0 0 16px rgba(255,237,192,.13));
-}
-
-.cw-logo-effect-zone{
-  transform:rotate(-3deg);
-  transform-origin:center;
 }
 
 #cwClover.is-hovered{
@@ -890,7 +854,6 @@ to{transform: translateX(-50%) rotate(421deg);}
 .cw-hitbox:hover::after,.cw-hitbox:focus-visible::after{opacity:1}
 
 /* Hitboxes based on the 1500 × 1000 Canva canvas */
-.cw-hit-logo{left:30%;top:14%;width:44%;height:30%}
 .cw-hit-paper{left:18%;top:5%;width:64%;height:84%}
 .cw-hit-envelope{left:0;top:0;width:25.5%;height:33%}
 .cw-hit-dried{left:0;top:7%;width:25%;height:78%}
@@ -1081,154 +1044,12 @@ to{transform: translateX(-50%) rotate(421deg);}
    DESK HERO COPY + ORIGINAL LOGO EFFECTS
    Restores the wording and interactions from the former hero
    ═══════════════════════════════════════════════════════════ */
-.cw-hero-copy{
-  position:absolute;
-  inset:0;
-  z-index:55;
-  pointer-events:none;
-  color:#6f3b17;
-  text-align:center;
-  font-family:'Cormorant Garamond',Georgia,serif;
-}
-.cw-est,.cw-logo-secret,.cw-tagline,.cw-address,.cw-divider{
-  position:absolute;
-  left:50%;
-  margin:0;
-  transform:translateX(-50%);
-}
-.cw-est{
-  top:7.4%;
-  width:64%;
-  color:#9a741c;
-  font:500 clamp(7px,.72vw,11px)/1.4 'Crimson Pro',serif;
-  letter-spacing:.31em;
-  text-transform:uppercase;
-  opacity:.84;
-  animation:cwCopyReveal .9s .15s both;
-}
-.cw-logo-secret{
-  top:35.2%;
-  width:48%;
-  color:#667058;
-  font-size:clamp(8px,.9vw,13px);
-  font-style:italic;
-  letter-spacing:.025em;
-  opacity:.28;
-  transform:translate(-50%,-5px);
-  transition:opacity .42s ease,transform .42s var(--cw-ease),text-shadow .42s ease;
-}
-.cw-divider{
-  top:41.8%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:13px;
-  width:31%;
-  color:#b8972a;
-  opacity:.76;
-  animation:cwCopyReveal .9s .48s both;
-}
-.cw-divider span{
-  height:1px;
-  flex:1;
-  background:linear-gradient(90deg,transparent,rgba(184,151,42,.82),transparent);
-}
-.cw-divider b{
-  font-size:10px;
-  font-weight:400;
-  line-height:1;
-}
-.cw-tagline{
-  top:46.1%;
-  width:49%;
-  color:#695a49;
-  font-size:clamp(11px,1.25vw,19px);
-  font-style:italic;
-  line-height:1.55;
-  letter-spacing:.015em;
-  text-shadow:0 1px rgba(255,255,255,.38);
-  animation:cwCopyReveal .9s .62s both;
-}
-.cw-address{
-  bottom:8.3%;
-  width:66%;
-  color:#a47b1d;
-  font:500 clamp(7px,.72vw,11px)/1.5 'Crimson Pro',serif;
-  letter-spacing:.22em;
-  text-transform:uppercase;
-  animation:cwCopyReveal .9s .78s both;
-}
 
-/* Moving light over the logo area */
-.cw-logo-shimmer{
-  position:absolute;
-  left:25.5%;
-  top:10.5%;
-  width:49%;
-  height:27%;
-  overflow:hidden;
-  opacity:.82;
-  clip-path:inset(0 round 16px);
-}
-.cw-logo-shimmer::before{
-  content:"";
-  position:absolute;
-  top:-28%;
-  bottom:-28%;
-  left:-38%;
-  width:20%;
-  opacity:0;
-  transform:skewX(-19deg);
-  background:linear-gradient(
-    90deg,
-    transparent,
-    rgba(255,249,222,.08),
-    rgba(255,248,214,.66),
-    rgba(255,255,245,.30),
-    transparent
-  );
-  filter:blur(2px);
-  mix-blend-mode:screen;
-  animation:cwLogoShimmer 7s 1.1s ease-in-out infinite;
-}
-
-/* Hovering the real logo hitbox restores the raised text treatment */
-.cw-desk-frame.cw-logo-active .cw-logo-secret{
-  opacity:.88;
-  transform:translate(-50%,0);
-  text-shadow:0 4px 12px rgba(77,59,33,.16);
-}
-.cw-desk-frame.cw-logo-active .cw-logo-shimmer::before{
-  animation-duration:1.15s;
-  animation-delay:0s;
-}
-.cw-desk-frame.cw-logo-active .cw-est,
-.cw-desk-frame.cw-logo-active .cw-divider,
-.cw-desk-frame.cw-logo-active .cw-tagline{
-  filter:brightness(1.04);
-}
-
-@keyframes cwLogoShimmer{
-  0%,68%{left:-38%;opacity:0}
-  72%{opacity:.18}
-  82%{opacity:.9}
-  94%,100%{left:122%;opacity:0}
-}
-@keyframes cwCopyReveal{
-  from{opacity:0;filter:blur(2px)}
-  to{filter:blur(0)}
-}
 
 @media(max-width:760px){
-  .cw-est{top:6.5%;width:74%;letter-spacing:.22em}
-  .cw-logo-secret{top:35%;width:60%}
-  .cw-divider{top:42%;width:38%}
-  .cw-tagline{top:46.5%;width:58%;line-height:1.42}
-  .cw-address{bottom:7.2%;width:78%;letter-spacing:.12em}
-  .cw-logo-shimmer{left:24%;top:10%;width:52%;height:29%}
 }
 @media(prefers-reduced-motion:reduce){
-  .cw-logo-shimmer::before,.cw-est,.cw-divider,.cw-tagline,.cw-address{animation:none!important}
+  
 }
 
 </style></head><body><nav class="top-tabs"><a href="#flowers">Flowers</a><a href="#garlands">Garlands</a><a href="#botanicals">Botanicals</a><a href="#about">The Proprietress</a><a href="#complications">Complications</a></nav><div class="page-frame"></div><!-- ═══ FRONT PAGE ═══ --><div id="front-page"><section class="front-hero caoimhe-desk" aria-label="Caoimhe Winchester's work desk">
@@ -1236,15 +1057,6 @@ to{transform: translateX(-50%) rotate(421deg);}
     <div class="cw-desk-light" id="cwDeskLight"></div>
     <div id="cwDeskLayers"></div>
     <div id="cwDeskHitboxes"></div>
-
-    <div class="cw-hero-copy" aria-hidden="true">
-      <p class="cw-est">Est. in the reign of Thrael Oriendel de Fortuna</p>
-      <div class="cw-logo-shimmer"></div>
-      <p class="cw-logo-secret">Keche flour I kepen remembreth a lyf that I somtyme lyved.</p>
-      <div class="cw-divider"><span></span><b>✦</b><span></span></div>
-      <p class="cw-tagline">For every day in thy life, &amp; those thou wouldst make more fair, a flower shall ever await thee.</p>
-      <p class="cw-address">221B Carter Street · Anclona 9¾ Quarter · Fortuna Imperia</p>
-    </div>
   </div>
 </section><!-- Products --><section class="products-section" id="flowers"><p class="section-label">Seasonal Selection</p><h2 class="section-heading">Fresh from the Glasshouse</h2><p class="section-sub">Tenderly cultivated. Available each day—until thy heart be drawn to our blooms.</p><div class="products-grid"><div class="product-card"><span class="product-icon">🌼</span><h3 class="product-name">Cutter Flower</h3><p class="product-latin">Symphyotrichum ericoides(L.) G.L.Nesom</p><p class="product-desc">A delicate cluster of pale blossoms oft dismissed as mere adornment beside grander blooms. Favoured by florists for its softness and quiet volume, the Cutter Bloom is said to linger longest in arrangements prepared for unspoken affections and unfinished farewells.
 Though harmless in appearance, prolonged exposure to its dried pollen is rumoured to deepen sentimentality and disturb restful sleep in susceptible hearts.</p><p class="product-price">4 DNS per bundle</p></div><div class="product-card"><span class="product-icon">🌹</span><h3 class="product-name">Damask Rose</h3><p class="product-latin">Rosa damascena Mill.</p><p class="product-desc">A richly layered rose long cultivated within secluded monastery gardens and noble estates alike. Revered for its deep fragrance and velvety petals, the Damask Rose is frequently prepared for declarations too earnest to remain concealed. Distilled oil from mature blooms is prized among perfumers and apothecaries, said to soothe grief whilst sharpening longing in equal measure.</p><p class="product-price">8 DNS per stem</p></div><div class="product-card"><span class="product-icon">🌸</span><h3 class="product-name">Camellia</h3><p class="product-latin">Camellia japonica L.</p><p class="product-desc">An immaculate bloom of soft structure and near-perfect symmetry, favoured in arrangements where restraint is valued above extravagance. Though absent of strong fragrance, the Camellia is admired for its enduring freshness once cut. Florists oft associate it with dignified affection, quiet loyalty, and sentiments carried without expectation of return.</p><p class="product-price">7 DNS per stem</p></div><div class="product-card"><span class="product-icon">💧</span><h3 class="product-name">Hydrangea</h3><p class="product-latin">Hydrangea macrophylla (Thunb.) Ser.</p><p class="product-desc">A voluminous cluster bloom known to alter subtly in hue according to the soil in which it is raised. Coveted for its cloud-like fullness, the Hydrangea is often chosen for arrangements concerning apology, remembrance, and emotions too complicated for simpler flowers to bear. Improper drying may result in bitterness of scent.</p><p class="product-price">9 DNS per bloom</p></div><div class="product-card"><span class="product-icon">☁️</span><h3 class="product-name">Pompon</h3><p class="product-latin">Chrysanthemum morifolium</p><p class="product-desc">A meticulously cultivated chrysanthemum bearing compact spherical blooms of remarkable uniformity. Though outwardly cheerful in appearance, it remaineth closely tied to rituals of mourning and ancestral devotion throughout several eastern provinces. Its petals retain form long after drying, making it suitable for keepsakes and memorial preservation.</p><p class="product-price">5 DNS per stem</p></div><div class="product-card"><span class="product-icon">🎀</span><h3 class="product-name">Carnation</h3><p class="product-latin">Dianthus caryophyllus L.</p><p class="product-desc">A hardy flowering stem distinguished by ruffled petals and an unexpectedly clove-like fragrance. Long associated with enduring affection amongst common folk, the Carnation is neither rare nor extravagant, yet persisteth where finer blooms oft wither. Certain crimson cultivars are quietly exchanged in districts where open courtship remaineth discouraged.</p><p class="product-price">4 DNS per stem</p></div></div></section><!-- About strip --><section class="about-strip" id="about"><div class="about-text"><div class="about-botanical-margin" aria-hidden="true"><span>❦</span><i></i><span>✿</span><i></i><span>❧</span></div><div class="about-reading-progress" aria-hidden="true"><span></span></div><p class="section-label about-kicker">The Florist</p><h2 class="section-heading about-name" tabindex="0"><span class="illuminated-c">C</span>aoimhe Winchester</h2><div class="about-secret-note" aria-hidden="true">Not all roots ought to be named.</div><div class="about-copy"><p>At present, Florencia remaineth under the keeping of Miss Caoimhe Winchester, by whose hand the greater part of all arrangements are fashioned. Thus, it stirreth little surprise should the shop door remain fast shut for the better course of a day, whilst letters of reply continueth nonetheless to depart with unfailing punctuality — most especially those bearing the seals of ancient houses from the inner quarter.</p><p>The establishment hath grown known for methods of preservation deemed uncommon, for blooms seldom espied within the common markets, and for certain distilled preparations whose cultivation records appear nowhere plainly kept. Some patrons have returned unto Florencia for years together, yet remain wholly ignorant as to whence particular flowers within the shop are truly gathered.</p><p>Few, if any, have witnessed Miss Winchester purchasing stock from market merchants or public growers. Nevertheless, fresh blooms persist within the shop in every season alike, including several varieties long believed lost beyond these lands. Many patrons depart Florencia with an unease difficult to name, as though they had confessed somewhat more than first intended. There are, besides, quieter rumours oft exchanged in lowered voice — that certain flowers sold by Miss Winchester refuseth unfamiliar hands altogether, and that some arrangements are never displayed openly within the shop, nor spoken of except through private correspondence.</p></div><blockquote class="about-rotating-quote" aria-live="polite">Pray, tarry as long as pleaseth thee; no blossom here shall take offence.</blockquote><p class="about-warning">Walk-ins be welcome. Pray keep thy hands from the shelves beyond.</p><div class="about-signature" aria-hidden="true"><span>C.W.</span></div></div><div class="about-image" tabindex="0" aria-label="Archival painting of the florist"><div class="about-image-light" aria-hidden="true"></div><div class="about-image-grain" aria-hidden="true"></div><div class="about-archive-label"><small>Florencia Archive</small><strong>Study of the Florist</strong><em>Vol. III · Plate XII</em></div><div class="about-letter"><span>Dear Eleanor,</span><i>The lilies arrived before dawn.<br>Do not ask from whose garden.</i></div><div class="about-hidden-quote">Every flower remembers.</div><div class="about-petal-layer" aria-hidden="true"></div><div class="about-image-signature" aria-hidden="true">C.W.</div></div></section><!-- Footer front --><footer class="footer-front"><span>© Florencia Florist · 221B Carter Street · Fortuna Imperia</span><span style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:13px;">
@@ -2201,11 +2013,9 @@ document.addEventListener("DOMContentLoaded",()=>{
     ["cwGrid","grid-notebook.png","cw-layer-paper",""],
     ["cwWatch","pocket-watch.png","cw-layer-metal","Pocket watch"],
     ["cwQuill","feather-quill.png","cw-layer-metal","Feather quill"],
-    ["cwKey","antique-key.png","cw-layer-metal","Antique key"],
-    ["cwLogo","FlorenciaF-Logo.png","cw-layer-logo","Florencia Florist"]
+    ["cwKey","antique-key.png","cw-layer-metal","Antique key"]
   ];
   const hitboxes=[
-    ["cw-hit-logo","cwLogo","Florencia Florist logo"],
     ["cw-hit-paper","cwPaper","Aged parchment","soft"],
     ["cw-hit-envelope","cwEnvelope","Vintage envelope"],
     ["cw-hit-dried","cwDried","Dried flowers","soft"],
@@ -2240,7 +2050,6 @@ document.addEventListener("DOMContentLoaded",()=>{
     const target=document.getElementById(hitbox.dataset.target);
     if(!target)return;
     target.classList.toggle(hitbox.hasAttribute("data-soft")?"is-soft-hovered":"is-hovered",active);
-    if(hitbox.dataset.target==="cwLogo")frame.classList.toggle("cw-logo-active",active);
   };
 
   hitboxRoot.querySelectorAll(".cw-hitbox").forEach(hitbox=>{
