@@ -7,50 +7,9 @@
 <link href="pngtree-rose-flowers-vintage.png" rel="icon" type="image/png"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=IM+Fell+English:ital@0;1&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
-/* =========================================================
-   CURRENT COMPLICATIONS — GLOWING CIRCLES
-   เปลี่ยนเฉพาะส่วน Current Complications
-========================================================= */
-
-/* Legend ด้านบน */
-
-/* จุดใน Legend ให้เข้ากับวงกลมของรายการ */
-
-/* รายการแต่ละชิ้น */
-
-/* ชื่อสินค้า — สถานะ */
-
-/* เส้นใต้หัวข้อ */
-
-/* คำอธิบาย */
-
-/* =========================================================
-   วงกลมสถานะ — วาดด้วย CSS
-========================================================= */
-
-/* วงแหวนชั้นใน */
-
-
-/* จุดเรืองแสงตรงกลาง */
-
-
-/* สีตามสถานะ */
-
-/* Hover แล้ววงกลมตื่นขึ้น แต่ยังคงขนาดเดิมโดยรวม */
-
-
-/* หายใจเบา ๆ เหมือนวงเวท ไม่กะพริบแบบหลอดไฟ */
-
 @keyframes tensionOrbBreath{
-  0%,100%{
-    opacity:.72;
-    filter:brightness(.9);
-  }
-
-  50%{
-    opacity:1;
-    filter:brightness(1.14);
-  }
+  0%,100%{opacity:.72;filter:brightness(.9);}
+  50%{opacity:1;filter:brightness(1.14);}
 }
 
 :root{--cream:#f5f0e8;--parchment:#ede5d0;--ink:#1a1410;--ink-muted:#3d3228;--gold:#b8972a;--gold-light:#d4b24a;--moss:#3a4a2e;--moss-light:#5a7248;--rouge:#8b2e2e;--shadow:rgba(20,12,5,0.18);--night:#0d0b08;--night-surface:#16120d;--night-card:#1e1912;--void:#120f0a;--poison-green:#2d5a1b;--poison-bright:#4a8c2a;--poison-glow:#7ec850;--blood:#6b1a1a;--blood-bright:#a02828;--old-gold:#b99a5b;--soft-gold:#d6bf86;--rose:#a86170;--rose-dark:#6e3945;--rose-pale:#d8a5ae}
@@ -58,7 +17,6 @@
 body{font-family:"Crimson Pro",Georgia,serif;background:var(--cream);color:var(--ink);min-height:100vh;overflow-x:hidden;cursor:default}
 body::before{content:"";position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:999;opacity:0.5}
 #front-page{min-height:100vh;transition:opacity 0.8s ease,transform 0.8s ease}
-
 
 .page-frame{position:fixed;inset:12px;border:1px solid rgba(184,151,42,0.25);pointer-events:none;z-index:100}
 .page-frame::before{content:"";position:absolute;inset:4px;border:1px solid rgba(184,151,42,0.1)}
@@ -224,7 +182,6 @@ to{transform:translateX(-50%) rotate(421deg)}
 50%{background-position:50% -5%,10% 37%,90% 76%,center;filter:brightness(1.035)}
 }
 
-
 @keyframes backroomDustRise{0%{transform:translate3d(0,0,0) scale(.7);opacity:0}
 10%{opacity:.45}
 55%{transform:translate3d(var(--dust-drift,20px),-55vh,0) scale(1);opacity:.32}
@@ -233,7 +190,6 @@ to{transform:translateX(-50%) rotate(421deg)}
 @keyframes backroomDustFlicker{0%,100%{filter:brightness(.8)}
 50%{filter:brightness(1.4)}
 }
-
 
 @property --glint-angle{syntax:"<angle>";inherits:false;initial-value:0deg}
 @keyframes backroomBorderGlint{to{--glint-angle:360deg}
@@ -253,14 +209,11 @@ to{transform:translateX(-50%) rotate(421deg)}
 100%{transform:scale(1);filter:brightness(1)}
 }
 
-@keyframes backroomOrbitClockwise{to{transform:rotate(360deg)}
-}
-@keyframes backroomOrbitCounter{to{transform:rotate(-360deg)}
-}
+@keyframes backroomOrbitClockwise{to{transform:rotate(360deg)}}
+@keyframes backroomOrbitCounter{to{transform:rotate(-360deg)}}
 
 @keyframes backroomTitleReveal{0%{opacity:0;transform:translateY(20px)}
-100%{opacity:1;transform:translateY(0)}
-}
+100%{opacity:1;transform:translateY(0)}}
 @keyframes backroomTitleFlicker{0%,100%{text-shadow:0 3px 0 #080405,0 12px 34px rgba(0,0,0,.55),0 0 0 rgba(226,177,185,0)}
 25%{text-shadow:0 3px 0 #080405,0 12px 34px rgba(0,0,0,.55),0 0 16px rgba(226,177,185,.08)}
 50%{text-shadow:0 3px 0 #080405,0 13px 36px rgba(0,0,0,.58),0 0 20px rgba(221,201,143,.06)}
@@ -285,7 +238,6 @@ to{transform:translateX(-50%) rotate(421deg)}
 18%{opacity:.82}
 100%{opacity:0;transform:translate3d(var(--ledger-dust-x,15px),var(--ledger-dust-y,-28px),0) scale(.2)}
 }
-
 
 @keyframes ledgerEdgeShimmer{0%{left:-24%;opacity:0}
 18%{opacity:.65}
@@ -555,7 +507,6 @@ to{transform:translateX(108%)}
 #front-page .cw-desk-frame{border-radius:18px;-webkit-mask-image:radial-gradient(ellipse 78% 76% at 50% 49%,#000 0%,#000 76%,rgba(0,0,0,.92) 85%,rgba(0,0,0,.48) 94%,transparent 100%);mask-image:radial-gradient(ellipse 78% 76% at 50% 49%,#000 0%,#000 76%,rgba(0,0,0,.92) 85%,rgba(0,0,0,.48) 94%,transparent 100%)}
 }
 
-
 /* ===== FLORENCIA DESK EFFECTS ===== */
 /* =========================================================
 FLORENCIA DESK EFFECTS PACK
@@ -737,7 +688,6 @@ CLEAN VERSION: no section bands, no rune bands, no grid cuts
 
 /* Available Extracts */
 
-
 @keyframes brRibbonWake{0%{filter:brightness(.7);transform:translateY(8px);opacity:.4}
 48%{filter:brightness(1.18);transform:translateY(-2px);opacity:1}
 100%{filter:brightness(1);transform:translateY(0);opacity:1}
@@ -802,195 +752,19 @@ to{opacity:.7;transform:scale(1.025)}
 16%{opacity:.65}
 100%{opacity:0;transform:translate3d(var(--drift),110vh,0) rotate(var(--spin))}
 }
-
-/* ===== END FLORENCIA BACKROOM LOWER SECTIONS MAGIC ===== */
-/* ===== BACKROOM CLEAN BACKGROUND OVERRIDE ===== */
-
-/* ===== END BACKROOM CLEAN BACKGROUND OVERRIDE ===== */
-
-/* ===== BACKROOM FOOTER — TRUE FINAL EDGE ===== */
-
-/* ตัดพื้นที่เลื่อนที่เกิดจากวงแหวนซึ่งเคยยื่นต่ำกว่า Footer */
-
-/* ===== END BACKROOM FOOTER — TRUE FINAL EDGE ===== */
-
-
-/* ===== CURRENT COMPLICATIONS — EQUAL NEON MARKERS ===== */
-
 @keyframes equalMarkerPulse{
   0%,100%{opacity:.78;filter:brightness(.92);transform:scaleY(1)}
   50%{opacity:1;filter:brightness(1.22);transform:scaleY(1)}
 }
-/* ===== END CURRENT COMPLICATIONS — EQUAL NEON MARKERS ===== */
-
-
-/* ===== CURRENT COMPLICATIONS — INLINE ORBS FINAL =====
-   คงชื่อปัญหาและคำอธิบายเดิมทั้งหมด
-========================================================= */
-
-/* วงกลมเล็ก วางหน้าหัวข้อ */
-
 @keyframes tensionOrbBreath{
   0%,100%{opacity:.74;filter:brightness(.92)}
   50%{opacity:1;filter:brightness(1.12)}
 }
-
-/* ===== END CURRENT COMPLICATIONS — INLINE ORBS FINAL ===== */
-
-
-/* ===== CURRENT COMPLICATIONS — ORB BEFORE TITLE FIX ===== */
-
-/* ===== END CURRENT COMPLICATIONS — ORB BEFORE TITLE FIX ===== */
-
-/* ===== AVAILABLE EXTRACTS — SOFT LEATHER LEDGER =====
-   เปลี่ยนเฉพาะดีไซน์ของ Available Extracts
-   ไม่แก้ข้อความ ไม่แก้ HTML ไม่ขยับโครงสร้างข้อมูล
-========================================================= */
-
-/* ให้พื้นส่วนนี้กลืนไปกับพื้นหลัง Backroom */
-
-/* หัวข้อ: แถบหนังเก่า กลืนกับฉาก ไม่มีกรอบล้อม */
-
-
-/* เหลือเพียงเส้นทองบางด้านบนและล่าง */
-
-/* ลบสามเหลี่ยม/หางริบบิ้นที่เคยเกิดจาก pseudo element ของหัวข้อ */
-
-
-/* ชื่อหัวข้อให้นุ่มขึ้น */
-
-
-/* ตราดอกไม้แบบ Brass Seal — ลด glow และวงซ้อน */
-
-
-/* Circle note: กลืนกับพื้น ไม่มีกรอบแข็ง */
-
-
-/* เส้นทองเดียวด้านซ้าย จางและละมุน */
-
-/* หัวตาราง: คงตำแหน่งเดิม แต่ลดเส้นแข็ง */
-
-/* แถวสินค้า: กลืนกับฉาก ไม่มีกรอบกล่อง */
-
-/* ตัวอักษรยังอยู่ตำแหน่งเดิม แค่ลดความเป็น UI */
-
-/* ป้าย Circle: ฉลากหมึกเก่า ไม่ใช่ปุ่ม */
-
-/* Availability ใต้ราคาให้จางเหมือนจดดินสอ */
-
-/* ===== END AVAILABLE EXTRACTS — SOFT LEATHER LEDGER ===== */
-
-
-/* ===== AVAILABLE EXTRACTS — SOFT ARCHIVAL REFINEMENT =====
-   ลดความแข็งของแถบหัวข้อ กล่องคำอธิบาย เส้นตาราง และแถวสินค้า
-   ไม่เปลี่ยนข้อความหรือโครงสร้าง
-========================================================= */
-
-/* ตัดกรอบสี่เหลี่ยมกว้าง ๆ ออกจากหัวข้อ */
-
-
-/* เส้นทองไม่ลากเต็มกล่อง ให้ค่อย ๆ จางออก */
-
-/* ให้ขอบของแถบดูไม่ตรงเกินไป */
-
-
-/* ตราทองเหลืองเล็กลงและไม่เป็นปุ่ม */
-
-
-/* กล่อง Circle เดิมแข็งเกินไป: ตัดพื้นสี่เหลี่ยมออก */
-
-
-/* เส้นซ้ายสั้นและจาง ไม่เหมือนกรอบ */
-
-
-/* ลบป้าย EX LIBRIS ที่ทำให้ดูเหมือน UI */
-
-
-/* หัวตารางไม่มีเส้นตัดแข็งเต็มแนว */
-
-/* แถวสินค้าไม่ใช้เส้นแนวนอนเต็มแถว */
-
-
-/* ใช้เส้นสั้นจาง ๆ ระหว่างแถวแทน */
-
-
-/* ตัดเส้นตั้งฝั่งซ้ายออก เหลือเพียงรอยหมึกบาง */
-
-
-/* Hover ไม่ขยับทั้งแถว ลดความเป็นเว็บแอป */
-
-
-/* ชื่อสินค้าไม่กระโดดตอน hover */
-
-
-/* ป้าย Circle ให้นุ่มเหมือนตราหมึก */
-
-/* ลดความเป็นกล่องของพื้นที่รวม */
-
-
-/* บนมือถือยังคงอ่านง่าย */
-
-/* ===== END AVAILABLE EXTRACTS — SOFT ARCHIVAL REFINEMENT ===== */
-/* =========================================================
-   AVAILABLE EXTRACTS — HOVER GLOW FRAME
-   กรอบเรืองแสงเมื่อเมาส์เลื่อนไปโดนสารสกัด
-========================================================= */
-
-/* กรอบชั้นในบาง ๆ */
-
-
-/* Hover ทั่วไป */
-
-/* ให้ชื่อสารสกัดเรืองขึ้นเพียงเล็กน้อย */
-
-
-/* ป้าย Circle ตื่นขึ้นพร้อมกรอบ */
-
-    /* I Circle — เขียวหม่น */
-
-
-/* II Circle — กุหลาบหม่น */
-
-
-/* III Circle — ทองเก่า */
-
-
-/* Forbidden / Restricted / Illicit — เรืองชัดขึ้น */
-
-
-/* Occult — สีทองน้ำตาล */
-
-
-/* ===== CURRENT COMPLICATIONS — LIVING LEDGER HOVER =====
-   เพิ่มเอฟเฟกต์เฉพาะ Current Complications
-   ไม่แก้ข้อความ ไม่เปลี่ยน HTML และไม่ขยับตำแหน่งรายการ
-========================================================= */
-
-/* สีประจำสถานะ */
-
-/* แสงหมึกกวาดผ่านช้า ๆ */
-
-
-/* กรอบชั้นในแบบเอกสารเวท */
-
-
-/* Hover ทั้งรายการ */
-
 @keyframes tensionLedgerSweep{
   from{left:-28%;opacity:0}
   18%{opacity:.72}
   to{left:116%;opacity:0}
 }
-
-/* หัวข้อและคำอธิบายค่อย ๆ ตื่นขึ้น */
-
-/* เส้นใต้หัวข้อยาวขึ้นเล็กน้อย แต่ไม่ขยับ Layout */
-
-/* วงกลมเวทหมุนช้าและเรืองขึ้น */
-
-/* จุดกลางเต้นคล้ายชีพจร */
-
-
 @keyframes tensionOrbCorePulse{
   0%,100%{
     transform:translate(-50%,-50%) scale(.82);
@@ -1001,12 +775,156 @@ to{opacity:.7;transform:scale(1.025)}
     opacity:1;
   }
 }
+@media(max-width:768px),(hover:none),(pointer:coarse){#florencia-cursor-canvas,.backroom-cursor-light,.cw-desk-light,.cw-fx-cursor-glow{display:none!important}.cw-fx-cloud,.cw-fx-leaves,.cw-fx-steam,.backroom-dust-layer,.backroom-orbit,#back-page .bm-haze,#back-page .bm-arc{display:none!important}#back-page .bm-sigil,#back-page .footer-back::before{animation:none!important;opacity:.055!important}body::before,.about-image-grain,#back-page::before,#back-page .extracts-inner::after{display:none!important}.top-tabs,.product-card,.product-card-face,.about-archive-label{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}.cw-desk-frame,#front-page .front-hero.caoimhe-desk{filter:none!important}.cw-desk-layer{will-change:auto!important;transition:transform .25s ease,opacity .25s ease!important}.cw-fx-sun,.cw-fx-cloud,.cw-fx-leaves,#cwPaper.fx-breeze,#cwLace.fx-breeze,#cwDried.fx-breeze,#cwWatch.fx-clock-live{animation:none!important}.cw-layer-paper,.cw-layer-flower,.cw-layer-metal,.cw-layer-fabric,.cw-layer-logo{filter:sepia(.04) saturate(.9) brightness(.97)!important}#flowers .product-card,#flowers .product-card:hover{transform:none!important;filter:none!important}.product-card-light,.product-particles,.product-sketch,.product-stem{display:none!important}.product-card:hover .product-icon{animation:none!important;transform:none!important}.about-image::before,.about-image-light,.about-image-grain,.about-image-petal,.about-image-pollen{animation:none!important}.about-image::before{transform:none!important}#back-page,#back-page.visible,#back-page .back-title,#back-page .seal-clock,#back-page .backroom-border-glint,#back-page .tension-orb,#back-page .ledger-block{animation:none!important}#back-page .extract-row::after,#back-page .ledger-block::after,#back-page .tension-item::before{display:none!important}#back-page .extract-row:hover,#back-page .tension-item:hover,#back-page .ledger-block,#back-page .ledger-block.is-reading{box-shadow:none!important;filter:none!important}#back-page .extract-row:hover,#back-page .tension-item:hover,#back-page .ledger-block:hover{transform:none!important}}
 
-/* Legend ตอบสนองเบา ๆ เพื่อให้ชุดเอฟเฟกต์ไปในทางเดียวกัน */
+/* =========================================================
+   FLORENCIA — MOBILE PERFORMANCE MODE
+   ลดเอฟเฟกต์หนักเฉพาะมือถือและอุปกรณ์สัมผัส
+========================================================= */
 
-/* มือถือ: ใช้กรอบและแสง แต่ตัดการกวาดที่กินทรัพยากร */
+@media(max-width:768px),(hover:none),(pointer:coarse){
 
-/* ===== END CURRENT COMPLICATIONS — LIVING LEDGER HOVER ===== */
+  /* ปิดเอฟเฟกต์ที่ออกแบบมาสำหรับเมาส์ */
+  #florencia-cursor-canvas,
+  .backroom-cursor-light,
+  .cw-desk-light,
+  .cw-fx-cursor-glow{
+    display:none!important;
+  }
+
+  /* ลดเลเยอร์ที่ใช้ Blur หนัก */
+  .cw-fx-cloud,
+  .cw-fx-leaves,
+  .cw-fx-steam,
+  .backroom-dust-layer,
+  .backroom-orbit,
+  #back-page .bm-haze,
+  #back-page .bm-arc{
+    display:none!important;
+  }
+
+  /* คงวงเวทไว้ แต่หยุดหมุน */
+  #back-page .bm-sigil,
+  #back-page .footer-back::before{
+    animation:none!important;
+    opacity:.055!important;
+  }
+
+  /* ลดจำนวนงานจาก Grain และ Noise */
+  body::before,
+  .about-image-grain,
+  #back-page::before,
+  #back-page .extracts-inner::after{
+    display:none!important;
+  }
+
+  /* backdrop-filter กิน GPU มือถือมาก */
+  .top-tabs,
+  .product-card,
+  .product-card-face,
+  .about-archive-label{
+    -webkit-backdrop-filter:none!important;
+    backdrop-filter:none!important;
+  }
+
+  /* ลด Blur และ Drop Shadow ของโต๊ะ */
+  .cw-desk-frame,
+  #front-page .front-hero.caoimhe-desk{
+    filter:none!important;
+  }
+
+  .cw-desk-layer{
+    will-change:auto!important;
+    transition:transform .25s ease,opacity .25s ease!important;
+  }
+
+  /* หยุดแสงและเงาเคลื่อนบนโต๊ะ */
+  .cw-fx-sun,
+  .cw-fx-cloud,
+  .cw-fx-leaves,
+  #cwPaper.fx-breeze,
+  #cwLace.fx-breeze,
+  #cwDried.fx-breeze,
+  #cwWatch.fx-clock-live{
+    animation:none!important;
+  }
+
+  /* ลดเงาหนักของภาพ Assets */
+  .cw-layer-paper,
+  .cw-layer-flower,
+  .cw-layer-metal,
+  .cw-layer-fabric,
+  .cw-layer-logo{
+    filter:sepia(.04) saturate(.9) brightness(.97)!important;
+  }
+
+  /* การ์ดดอกไม้ไม่เอียงตามเมาส์ */
+  #flowers .product-card,
+  #flowers .product-card:hover{
+    transform:none!important;
+    filter:none!important;
+  }
+
+  .product-card-light,
+  .product-particles,
+  .product-sketch,
+  .product-stem{
+    display:none!important;
+  }
+
+  .product-card:hover .product-icon{
+    animation:none!important;
+    transform:none!important;
+  }
+
+  /* ภาพ The Proprietress ลดการเคลื่อนไหว */
+  .about-image::before,
+  .about-image-light,
+  .about-image-grain,
+  .about-image-petal,
+  .about-image-pollen{
+    animation:none!important;
+  }
+
+  .about-image::before{
+    transform:none!important;
+  }
+
+  /* Backroom ลด Animation ที่ทำงานตลอด */
+  #back-page,
+  #back-page.visible,
+  #back-page .back-title,
+  #back-page .seal-clock,
+  #back-page .backroom-border-glint,
+  #back-page .tension-orb,
+  #back-page .ledger-block{
+    animation:none!important;
+  }
+
+  /* ปิด Sweep ที่ใช้ Filter และ Gradient เคลื่อน */
+  #back-page .extract-row::after,
+  #back-page .ledger-block::after,
+  #back-page .tension-item::before{
+    display:none!important;
+  }
+
+  /* ลด Shadow หลายชั้น */
+  #back-page .extract-row:hover,
+  #back-page .tension-item:hover,
+  #back-page .ledger-block,
+  #back-page .ledger-block.is-reading{
+    box-shadow:none!important;
+    filter:none!important;
+  }
+
+  /* ไม่ให้ Hover บนอุปกรณ์สัมผัสทำงานค้าง */
+  #back-page .extract-row:hover,
+  #back-page .tension-item:hover,
+  #back-page .ledger-block:hover{
+    transform:none!important;
+  }
+}
+
 </style></head>
 <body>
 <nav class="top-tabs">
@@ -2148,6 +2066,9 @@ if (!frame || !layersRoot || !hitboxesRoot) return;
 const prefersReducedMotion = window.matchMedia(
 "(prefers-reduced-motion: reduce)"
 ).matches;
+const isMobileDevice = window.matchMedia(
+"(max-width:768px), (hover:none), (pointer:coarse)"
+).matches;
 /* ---------- Build effect layers ---------- */
 const ambient = document.createElement("div");
 ambient.className = "cw-fx-layer";
@@ -2172,7 +2093,14 @@ frame.append(ambient,particles,events);
 document.getElementById(id)?.classList.add("fx-breeze");
 });
 document.getElementById("cwWatch")?.classList.add("fx-clock-live");
-createDust(particles, prefersReducedMotion ? 8 : 28);
+createDust(
+  particles,
+  isMobileDevice
+    ? 5
+    : prefersReducedMotion
+      ? 8
+      : 28
+);
 updateTimeOfDay(frame);
 window.setInterval(() => updateTimeOfDay(frame), 60000);
 /* ---------- Mouse light and activity ---------- */
@@ -2263,7 +2191,7 @@ case "cwEnvelope":{target.classList.toggle("fx-letter-open");break;}
 }
 });
 /* ---------- Random events ---------- */
-if (!prefersReducedMotion) {
+if (!prefersReducedMotion && !isMobileDevice) {
 scheduleRandomEvent();
 }
 function scheduleRandomEvent() {
@@ -2294,7 +2222,7 @@ function resetIdleTimer() {
 window.clearTimeout(idleTimer);
 idleTimer = window.setTimeout(() => {
 frame.classList.add("fx-idle");
-if (!prefersReducedMotion && Math.random() < 0.72) {
+if (!prefersReducedMotion && !isMobileDevice && Math.random() < 0.72) {
 spawnFaller(events, "petal", {
 x: random(35, 65),
 duration: random(8, 12),
@@ -2445,6 +2373,9 @@ document.addEventListener("DOMContentLoaded",()=>{
   const backroom=document.getElementById("back-page");
   if(!backroom||backroom.querySelector(".backroom-magic-root"))return;
   const reducedMotion=matchMedia("(prefers-reduced-motion:reduce)").matches;
+  const isMobileDevice=matchMedia(
+    "(max-width:768px), (hover:none), (pointer:coarse)"
+  ).matches;
   const magicRoot=document.createElement("div");
   magicRoot.className="backroom-magic-root";
   magicRoot.setAttribute("aria-hidden","true");
@@ -2456,7 +2387,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     "rgba(235,221,190,.74)",
     "rgba(119,139,92,.58)"
   ];
-  if(!reducedMotion){
+  if(!reducedMotion&&!isMobileDevice){
     for(let index=0;index<34;index+=1){
       const pollen=document.createElement("i");
       pollen.className="bm-pollen";
@@ -2512,9 +2443,19 @@ document.addEventListener("DOMContentLoaded",()=>{
     magicRoot.appendChild(light);
     setTimeout(()=>light.remove(),5000);
   }
-  setInterval(()=>{if(Math.random()<.75)spawnMemory()},14000);
-  setInterval(()=>{if(Math.random()<.62)spawnPetal()},9000);
-  setInterval(()=>{if(Math.random()<.82)spawnBloomLight()},6500);
+  if(!reducedMotion&&!isMobileDevice){
+    window.setInterval(()=>{
+      if(Math.random()<.75)spawnMemory();
+    },14000);
+
+    window.setInterval(()=>{
+      if(Math.random()<.62)spawnPetal();
+    },9000);
+
+    window.setInterval(()=>{
+      if(Math.random()<.82)spawnBloomLight();
+    },6500);
+  }
   const observer=new MutationObserver(()=>{
     if(!isOpen())return;
     magicRoot.animate(
