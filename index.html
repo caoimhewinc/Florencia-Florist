@@ -175,13 +175,16 @@ to{opacity:1;transform:translateY(0)}
   content:"Ah... it would seem thou hast found thy way unto the chamber that lieth behind my little florist's.";
   position:absolute;
   top:20px;
-  left:19px;
-  right:19px;
+  left:50%;
+  width:min(900px,calc(100% - 70px));
   padding-bottom:16px;
   border-bottom:1px solid rgba(221,201,143,.16);
-  color:rgba(221,201,143,.58);
-  font-size:16px;
-  letter-spacing:.55em;
+  color:rgba(221,201,143,.62);
+  font:italic 18px/1.55 'Cormorant Garamond',serif;
+  letter-spacing:.06em;
+  word-spacing:.04em;
+  text-align:center;
+  transform:translateX(-50%);
 }
 #back-page .seal-clock{position:relative;z-index:2;width:84px;aspect-ratio:1;display:grid;place-items:center;margin-bottom:28px;border-radius:50%;color:var(--br-gold-light);font:600 1rem 'Cinzel',serif;background:radial-gradient(circle,#6d3542 0 34%,#351820 35% 47%,#a96875 48% 51%,#251015 52% 100%);border:1px solid rgba(221,201,143,.45);box-shadow:0 0 0 4px rgba(169,104,117,.16),0 0 0 7px rgba(221,201,143,.12),0 14px 34px rgba(0,0,0,.45)}
 #back-page .seal-clock::before,#back-page .seal-clock::after{content:'';position:absolute;left:50%;bottom:50%;width:2px;background:var(--br-gold-light);transform-origin:50% 100%}
