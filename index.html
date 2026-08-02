@@ -1687,33 +1687,365 @@ to{opacity:.7;transform:scale(1.025)}
 }
 /* ===== END CURRENT COMPLICATIONS — ORB BEFORE TITLE FIX ===== */
 
-/* ===== AVAILABLE EXTRACTS — PRIVATE LEDGER REDESIGN ===== */
-#back-page .extracts-inner{position:relative;isolation:isolate}
-#back-page .extracts-inner::before{content:"";position:absolute;inset:40px -24px 36px;z-index:-2;pointer-events:none;background:radial-gradient(circle at 18% 9%,rgba(185,154,91,.045),transparent 24%),radial-gradient(circle at 86% 40%,rgba(129,78,87,.045),transparent 28%),linear-gradient(180deg,rgba(32,20,17,.18),rgba(12,7,7,.08));border-top:1px solid rgba(221,201,143,.08);border-bottom:1px solid rgba(221,201,143,.06)}
-#back-page .extracts-ribbon{position:relative;min-height:82px;margin:0 0 34px;padding:14px 32px 14px 94px;overflow:visible;border:0;border-radius:0;background:linear-gradient(180deg,rgba(102,50,58,.96),rgba(62,27,33,.98)),repeating-linear-gradient(93deg,rgba(255,255,255,.018) 0 1px,transparent 1px 6px);box-shadow:0 16px 32px rgba(0,0,0,.30),inset 0 1px 0 rgba(240,216,174,.18),inset 0 -1px 0 rgba(0,0,0,.55)}
-#back-page .extracts-ribbon::before{content:"";position:absolute;left:16px;right:16px;top:9px;bottom:9px;width:auto;height:auto;z-index:0;border:1px solid rgba(221,201,143,.28);background:transparent;transform:none;box-shadow:inset 0 0 0 3px rgba(20,10,11,.22),0 0 0 1px rgba(0,0,0,.16)}
-#back-page .extracts-ribbon::after{content:"";position:absolute;left:-13px;right:auto;bottom:-12px;width:32px;height:28px;z-index:-1;background:linear-gradient(145deg,#32151b 0 48%,#1a0b0e 49% 100%);border:0;transform:none;clip-path:polygon(0 0,100% 23%,100% 100%,0 72%);filter:drop-shadow(2px 5px 5px rgba(0,0,0,.28))}
-#back-page .extracts-ribbon h2{position:relative;z-index:2;margin:0;color:#eadcc4;font:400 clamp(24px,4vw,35px)/1.15 'IM Fell English',serif;letter-spacing:.025em;text-transform:none;text-shadow:0 1px 0 #1b0b0e,0 4px 14px rgba(0,0,0,.34)}
-#back-page .extracts-ribbon h2::after{content:"";position:absolute;right:-45px;bottom:-12px;width:32px;height:28px;z-index:-1;background:linear-gradient(215deg,#32151b 0 48%,#1a0b0e 49% 100%);clip-path:polygon(0 23%,100% 0,100% 72%,0 100%);filter:drop-shadow(-2px 5px 5px rgba(0,0,0,.28))}
-#back-page .rose-cluster{position:absolute;left:29px;z-index:3;width:48px;height:48px;color:#d9b1b8;font-size:21px;border:1px solid rgba(221,201,143,.44);background:radial-gradient(circle at 38% 32%,rgba(255,236,205,.18),transparent 20%),radial-gradient(circle,#6d3944 0 31%,#2a151a 32% 58%,#9d7b48 59% 63%,#241315 64% 100%);box-shadow:0 0 0 3px rgba(26,13,15,.78),0 0 0 5px rgba(185,154,91,.30),inset 0 0 13px rgba(0,0,0,.58),0 8px 15px rgba(0,0,0,.30);text-shadow:0 0 7px rgba(221,177,185,.22)}
-#back-page .circle-note{position:relative;max-width:920px;margin:0 auto 42px;padding:26px 30px 26px 36px;border:0;border-left:1px solid rgba(221,201,143,.52);border-top:1px solid rgba(221,201,143,.10);border-bottom:1px solid rgba(221,201,143,.10);background:linear-gradient(90deg,rgba(94,69,39,.075),rgba(57,35,28,.025) 62%,transparent),repeating-linear-gradient(0deg,rgba(221,201,143,.018) 0 1px,transparent 1px 5px);box-shadow:inset 12px 0 22px rgba(185,154,91,.025)}
-#back-page .circle-note::before{content:"";position:absolute;left:-4px;top:22px;bottom:22px;width:7px;background:radial-gradient(circle at center,rgba(221,201,143,.78) 0 1px,transparent 1.7px) center top/7px 18px repeat-y;opacity:.54}
-#back-page .circle-note::after{content:"EX LIBRIS · PRIVATE LEDGER";position:absolute;right:18px;bottom:10px;color:rgba(221,201,143,.10);font:500 8px 'Cinzel',serif;letter-spacing:.17em;pointer-events:none}
-#back-page .extract-table-header{position:relative;padding:0 20px 14px;margin-bottom:0;border-bottom:1px solid rgba(221,201,143,.22);color:rgba(221,201,143,.64);background:transparent;font:500 10px 'Cinzel',serif;letter-spacing:.18em;text-transform:uppercase}
-#back-page .extract-row{position:relative;align-items:start;margin-top:0;padding:26px 24px 27px 34px;overflow:hidden;border:0;border-bottom:1px solid rgba(221,201,143,.13);background:linear-gradient(90deg,rgba(86,47,53,.045),transparent 24%),radial-gradient(circle at 92% 18%,rgba(221,201,143,.025),transparent 22%);box-shadow:none;transition:background .35s ease,box-shadow .35s ease,transform .35s cubic-bezier(.22,1,.36,1)}
-#back-page .extract-row::before{content:"";position:absolute;left:0;top:20px;bottom:20px;width:2px;background:linear-gradient(transparent,var(--br-dusty) 22%,var(--br-burgundy) 78%,transparent);opacity:.68;box-shadow:none;transition:width .35s ease,opacity .35s ease,filter .35s ease}
-#back-page .extract-row:hover{transform:translateX(3px);background:linear-gradient(90deg,rgba(110,57,69,.085),rgba(185,154,91,.025) 52%,transparent),radial-gradient(circle at 92% 18%,rgba(221,201,143,.04),transparent 22%);box-shadow:inset 10px 0 26px rgba(169,104,117,.025),0 8px 24px rgba(0,0,0,.12)}
-#back-page .ext-name{margin:0;color:#ead9c0;font:400 27px/1.1 'IM Fell English',serif;letter-spacing:.012em;text-shadow:0 1px 0 rgba(0,0,0,.42)}
-#back-page .ext-source{margin:7px 0 0;color:rgba(234,220,197,.40);font:italic 13px/1.55 'Cormorant Garamond',serif}
-#back-page .ext-effect{margin:0;color:rgba(234,220,197,.65);font:400 15px/1.78 'Cormorant Garamond',serif}
-#back-page .ext-price{margin:0;color:#d7c08d;font:500 16px/1.4 'Cormorant Garamond',serif;letter-spacing:.025em}
-#back-page .ext-grade{position:relative;display:inline-flex;align-items:center;justify-content:center;min-width:82px;padding:7px 11px 6px;overflow:hidden;border:1px solid rgba(221,201,143,.25);border-radius:0;background:rgba(26,14,15,.52);color:#e7d5b7;font:500 10px 'Cinzel',serif;letter-spacing:.07em;box-shadow:inset 0 0 0 2px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.025)}
-#back-page .grade-i{color:#e7d9bd;border-color:rgba(145,161,132,.38);background:linear-gradient(90deg,rgba(80,98,70,.21),rgba(24,16,15,.54))}
-#back-page .grade-ii{color:#ead0d5;border-color:rgba(200,118,135,.34);background:linear-gradient(90deg,rgba(111,48,63,.25),rgba(24,16,15,.54))}
-#back-page .grade-iii{color:#e2cc99;border-color:rgba(185,154,91,.40);background:linear-gradient(90deg,rgba(92,74,48,.28),rgba(24,16,15,.54))}
-#back-page .grade-forbidden,#back-page .grade-restricted,#back-page .grade-occult,#back-page .grade-illicit{border-radius:0}
-@media(max-width:700px){#back-page .extracts-ribbon{min-height:70px;padding:12px 18px 12px 78px}#back-page .extracts-ribbon::before{left:9px;right:9px;top:7px;bottom:7px}#back-page .rose-cluster{left:20px;width:43px;height:43px;font-size:19px}#back-page .circle-note{padding:21px 18px 24px 25px}#back-page .circle-note::after{display:none}#back-page .extract-row{padding:23px 18px 24px 26px}#back-page .ext-name{font-size:24px}}
-/* ===== END AVAILABLE EXTRACTS — PRIVATE LEDGER REDESIGN ===== */
+
+
+/* ===== AVAILABLE EXTRACTS — SOFT LEATHER LEDGER =====
+   เปลี่ยนเฉพาะดีไซน์ของ Available Extracts
+   ไม่แก้ข้อความ ไม่แก้ HTML ไม่ขยับโครงสร้างข้อมูล
+========================================================= */
+
+/* ให้พื้นส่วนนี้กลืนไปกับพื้นหลัง Backroom */
+#back-page .extracts-inner{
+  position:relative;
+  isolation:isolate;
+}
+
+#back-page .extracts-inner::before{
+  content:"";
+  position:absolute;
+  inset:38px -22px 36px;
+  z-index:-2;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 18% 10%,rgba(185,154,91,.035),transparent 24%),
+    radial-gradient(circle at 84% 36%,rgba(119,68,78,.035),transparent 27%),
+    linear-gradient(180deg,rgba(21,12,14,.05),rgba(10,6,7,.025));
+}
+
+#back-page .extracts-inner::after{
+  content:"";
+  position:absolute;
+  inset:46px -10px 46px;
+  z-index:-1;
+  pointer-events:none;
+  opacity:.08;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.68' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");
+  mix-blend-mode:soft-light;
+}
+
+/* หัวข้อ: แถบหนังเก่า กลืนกับฉาก ไม่มีกรอบล้อม */
+#back-page .extracts-ribbon{
+  position:relative;
+  display:flex;
+  align-items:center;
+  min-height:78px;
+  margin:0 0 34px;
+  padding:14px 28px 14px 88px;
+  overflow:visible;
+  border:0!important;
+  border-radius:0!important;
+  background:
+    radial-gradient(circle at 18% 22%,rgba(255,239,203,.028),transparent 22%),
+    linear-gradient(180deg,rgba(70,34,40,.74),rgba(42,21,25,.80)),
+    repeating-linear-gradient(92deg,rgba(255,255,255,.012) 0 1px,transparent 1px 6px);
+  box-shadow:
+    0 12px 26px rgba(0,0,0,.22),
+    inset 0 1px 0 rgba(221,201,143,.08),
+    inset 0 -1px 0 rgba(0,0,0,.34);
+}
+
+/* เหลือเพียงเส้นทองบางด้านบนและล่าง */
+#back-page .extracts-ribbon::before{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  top:0;
+  bottom:auto;
+  width:auto;
+  height:1px;
+  border:0;
+  background:linear-gradient(90deg,transparent,rgba(221,201,143,.36) 10%,rgba(221,201,143,.18) 50%,rgba(221,201,143,.36) 90%,transparent);
+  transform:none;
+  box-shadow:none;
+}
+
+#back-page .extracts-ribbon::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  top:auto;
+  width:auto;
+  height:1px;
+  border:0;
+  background:linear-gradient(90deg,transparent,rgba(221,201,143,.22) 10%,rgba(221,201,143,.11) 50%,rgba(221,201,143,.22) 90%,transparent);
+  transform:none;
+  box-shadow:none;
+}
+
+/* ลบสามเหลี่ยม/หางริบบิ้นที่เคยเกิดจาก pseudo element ของหัวข้อ */
+#back-page .extracts-ribbon h2::after{
+  content:none!important;
+  display:none!important;
+}
+
+/* ชื่อหัวข้อให้นุ่มขึ้น */
+#back-page .extracts-ribbon h2{
+  position:relative;
+  z-index:2;
+  margin:0;
+  color:#eadcc4;
+  font:400 clamp(24px,4vw,34px)/1.15 'IM Fell English',serif;
+  letter-spacing:.015em;
+  text-transform:none;
+  text-shadow:0 1px 0 rgba(0,0,0,.52),0 3px 10px rgba(0,0,0,.18);
+}
+
+/* ตราดอกไม้แบบ Brass Seal — ลด glow และวงซ้อน */
+#back-page .rose-cluster{
+  position:absolute;
+  left:27px;
+  z-index:3;
+  width:44px;
+  height:44px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  color:#cdaeb2;
+  font-size:19px;
+  border:1px solid rgba(191,158,94,.48);
+  background:
+    radial-gradient(circle at 36% 30%,rgba(255,235,194,.14),transparent 18%),
+    radial-gradient(circle,#5d3038 0 34%,#221315 35% 62%,#8f7444 63% 66%,#1b1012 67% 100%);
+  box-shadow:
+    inset 0 0 9px rgba(0,0,0,.56),
+    0 4px 10px rgba(0,0,0,.26);
+  text-shadow:none;
+}
+
+/* Circle note: กลืนกับพื้น ไม่มีกรอบแข็ง */
+#back-page .circle-note{
+  position:relative;
+  max-width:920px;
+  margin:0 auto 42px;
+  padding:24px 28px 24px 34px;
+  border:0!important;
+  background:
+    linear-gradient(90deg,rgba(185,154,91,.035),rgba(69,38,32,.018) 58%,transparent),
+    repeating-linear-gradient(0deg,rgba(221,201,143,.009) 0 1px,transparent 1px 5px);
+  box-shadow:none;
+}
+
+/* เส้นทองเดียวด้านซ้าย จางและละมุน */
+#back-page .circle-note::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:16px;
+  bottom:16px;
+  width:1px;
+  background:linear-gradient(transparent,rgba(221,201,143,.56) 18%,rgba(221,201,143,.56) 82%,transparent);
+  box-shadow:0 0 8px rgba(221,201,143,.08);
+}
+
+#back-page .circle-note::after{
+  content:"EX LIBRIS · PRIVATE LEDGER";
+  position:absolute;
+  right:16px;
+  bottom:7px;
+  color:rgba(221,201,143,.07);
+  font:500 8px 'Cinzel',serif;
+  letter-spacing:.16em;
+  pointer-events:none;
+}
+
+#back-page .circle-note strong{
+  color:#d3bd8b;
+  font:500 13px 'Cinzel',serif;
+  letter-spacing:.07em;
+}
+
+/* หัวตาราง: คงตำแหน่งเดิม แต่ลดเส้นแข็ง */
+#back-page .extract-table-header{
+  position:relative;
+  padding:0 20px 13px;
+  margin-bottom:0;
+  border-bottom:1px solid rgba(221,201,143,.14);
+  color:rgba(221,201,143,.58);
+  background:transparent;
+  font:500 10px 'Cinzel',serif;
+  letter-spacing:.17em;
+  text-transform:uppercase;
+}
+
+#back-page .extract-table-header::before,
+#back-page .extract-table-header::after{
+  content:none!important;
+  display:none!important;
+}
+
+/* แถวสินค้า: กลืนกับฉาก ไม่มีกรอบกล่อง */
+#back-page .extract-row{
+  position:relative;
+  align-items:start;
+  margin-top:0;
+  padding:26px 24px 27px 34px;
+  overflow:hidden;
+  border:0!important;
+  border-bottom:1px solid rgba(221,201,143,.09)!important;
+  background:
+    linear-gradient(90deg,rgba(85,44,50,.028),transparent 27%),
+    radial-gradient(circle at 92% 18%,rgba(221,201,143,.016),transparent 22%)!important;
+  box-shadow:none!important;
+  transition:background .35s ease,transform .35s cubic-bezier(.22,1,.36,1);
+}
+
+#back-page .extract-row::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:22px;
+  bottom:22px;
+  width:1px!important;
+  background:linear-gradient(transparent,var(--br-dusty) 24%,var(--br-burgundy) 76%,transparent);
+  opacity:.54;
+  box-shadow:none!important;
+  transition:opacity .35s ease,filter .35s ease;
+}
+
+#back-page .extract-row::after{
+  content:none!important;
+  display:none!important;
+}
+
+#back-page .extract-row:hover{
+  transform:translateX(2px);
+  background:
+    linear-gradient(90deg,rgba(110,57,69,.052),rgba(185,154,91,.014) 54%,transparent),
+    radial-gradient(circle at 92% 18%,rgba(221,201,143,.025),transparent 22%)!important;
+  box-shadow:none!important;
+}
+
+#back-page .extract-row:hover::before{
+  width:1px!important;
+  opacity:.82;
+  filter:brightness(1.08);
+  box-shadow:0 0 8px rgba(200,139,152,.08)!important;
+}
+
+/* ตัวอักษรยังอยู่ตำแหน่งเดิม แค่ลดความเป็น UI */
+#back-page .ext-name{
+  margin:0;
+  color:#ead9c0;
+  font:400 27px/1.1 'IM Fell English',serif;
+  letter-spacing:.008em;
+  text-shadow:0 1px 0 rgba(0,0,0,.38);
+}
+
+#back-page .extract-row:hover .ext-name{
+  letter-spacing:.016em;
+  color:#efe0c8;
+  text-shadow:0 1px 0 rgba(0,0,0,.42);
+}
+
+#back-page .ext-source{
+  margin:7px 0 0;
+  color:rgba(234,220,197,.38);
+  font:italic 13px/1.55 'Cormorant Garamond',serif;
+}
+
+#back-page .ext-effect{
+  margin:0;
+  color:rgba(234,220,197,.62);
+  font:400 15px/1.78 'Cormorant Garamond',serif;
+}
+
+#back-page .ext-price{
+  margin:0;
+  color:#d5bf8e;
+  font:500 16px/1.4 'Cormorant Garamond',serif;
+  letter-spacing:.02em;
+}
+
+/* ป้าย Circle: ฉลากหมึกเก่า ไม่ใช่ปุ่ม */
+#back-page .ext-grade{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:82px;
+  padding:7px 11px 6px;
+  overflow:hidden;
+  border:1px solid rgba(221,201,143,.18);
+  border-radius:0!important;
+  background:rgba(22,13,14,.34);
+  color:#dfd0b6;
+  font:500 10px 'Cinzel',serif;
+  letter-spacing:.065em;
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,.16);
+}
+
+#back-page .ext-grade::before{
+  content:none!important;
+  display:none!important;
+}
+
+#back-page .grade-i{
+  color:#dfd6bd;
+  border-color:rgba(145,161,132,.27);
+  background:linear-gradient(90deg,rgba(80,98,70,.13),rgba(22,13,14,.32));
+}
+
+#back-page .grade-ii{
+  color:#e2cbd0;
+  border-color:rgba(200,118,135,.25);
+  background:linear-gradient(90deg,rgba(111,48,63,.16),rgba(22,13,14,.32));
+}
+
+#back-page .grade-iii{
+  color:#dcc894;
+  border-color:rgba(185,154,91,.29);
+  background:linear-gradient(90deg,rgba(92,74,48,.17),rgba(22,13,14,.32));
+}
+
+#back-page .grade-forbidden,
+#back-page .grade-restricted,
+#back-page .grade-occult,
+#back-page .grade-illicit{
+  border-radius:0!important;
+}
+
+/* Availability ใต้ราคาให้จางเหมือนจดดินสอ */
+#back-page .ext-price + p{
+  color:rgba(221,201,143,.22)!important;
+  font-family:'Cormorant Garamond',serif!important;
+  font-style:italic;
+  letter-spacing:.03em!important;
+}
+
+@media(max-width:700px){
+  #back-page .extracts-ribbon{
+    min-height:68px;
+    padding:12px 18px 12px 72px;
+  }
+
+  #back-page .rose-cluster{
+    left:18px;
+    width:40px;
+    height:40px;
+    font-size:18px;
+  }
+
+  #back-page .circle-note{
+    padding:20px 18px 22px 24px;
+  }
+
+  #back-page .circle-note::after{
+    display:none;
+  }
+
+  #back-page .extract-row{
+    padding:23px 18px 24px 26px;
+  }
+
+  #back-page .ext-name{
+    font-size:24px;
+  }
+}
+/* ===== END AVAILABLE EXTRACTS — SOFT LEATHER LEDGER ===== */
+
 </style></head>
 <body>
 <nav class="top-tabs">
