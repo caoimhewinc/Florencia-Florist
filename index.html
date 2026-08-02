@@ -1043,17 +1043,19 @@ to{opacity:.7;transform:scale(1.025)}
 #back-page .extracts-inner,#back-page .ledger-section,#back-page .tension-section,#back-page .footer-back{background:transparent!important;overflow:visible!important;}
 /* ===== END BACKROOM CLEAN BACKGROUND OVERRIDE ===== */
 
-/* ===== BACKROOM FOOTER — CLEAN BACKGROUND FINAL ===== */
+
+
+
+/* ===== BACKROOM FOOTER — COMPACT PANEL FINAL ===== */
 #back-page .footer-back{
   position:relative;
   z-index:2;
-  min-height:150px;
-  padding:40px 0 60px;
+  width:100%;
+  min-height:0;
+  padding:22px 20px 28px;
   display:flex;
-  flex-direction:column;
   justify-content:center;
   align-items:center;
-  gap:20px;
   text-align:center;
   border-top:1px solid rgba(221,201,143,.16);
   background:transparent!important;
@@ -1061,61 +1063,73 @@ to{opacity:.7;transform:scale(1.025)}
   box-shadow:none!important;
 }
 
-#back-page .footer-back-text{
-  width:100%;
-  max-width:700px;
-  margin:0 auto;
-  color:rgba(234,220,197,.38);
-  font-size:15px;
-  font-style:italic;
-  text-align:center;
+#back-page .footer-back::before{content:none!important}
+
+#back-page .footer-back-panel{
+  position:relative;
+  z-index:2;
+  width:min(520px,calc(100% - 32px));
+  min-height:128px;
+  padding:24px 34px 28px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:14px;
+  border:1px solid rgba(221,201,143,.11);
+  background:radial-gradient(circle at 50% 38%,rgba(111,48,63,.08),transparent 68%);
+  overflow:visible;
 }
 
-#back-page .footer-back::before{
+#back-page .footer-back-panel::before{
   content:"";
   position:absolute;
   left:50%;
-  bottom:-140px;
-  width:min(460px,65vw);
+  top:50%;
+  width:min(320px,70vw);
   aspect-ratio:1;
   border-radius:50%;
-  transform:translateX(-50%);
+  transform:translate(-50%,-50%);
   pointer-events:none;
-  opacity:.10;
+  opacity:.18;
   background:
-    radial-gradient(circle,transparent 0 42%,rgba(221,201,143,.25) 42.4% 42.8%,transparent 43.2%),
-    repeating-conic-gradient(from 0deg,rgba(200,139,152,.17) 0 1deg,transparent 1deg 18deg);
-  -webkit-mask:radial-gradient(circle,transparent 0 30%,#000 31% 52%,transparent 53%);
-  mask:radial-gradient(circle,transparent 0 30%,#000 31% 52%,transparent 53%);
-  filter:none;
+    radial-gradient(circle,transparent 0 42%,rgba(221,201,143,.30) 42.4% 42.9%,transparent 43.4%),
+    repeating-conic-gradient(from 0deg,rgba(200,139,152,.22) 0 1deg,transparent 1deg 18deg);
+  -webkit-mask:radial-gradient(circle,transparent 0 30%,#000 31% 54%,transparent 55%);
+  mask:radial-gradient(circle,transparent 0 30%,#000 31% 54%,transparent 55%);
+  filter:
+    drop-shadow(0 0 7px rgba(221,201,143,.18))
+    drop-shadow(0 0 16px rgba(200,139,152,.08));
   animation:brReturnSealTurn 120s linear infinite;
+}
+
+#back-page .footer-back-text{
+  position:relative;
+  z-index:2;
+  width:100%;
+  max-width:460px;
+  margin:0;
+  color:rgba(234,220,197,.42);
+  font-size:15px;
+  font-style:italic;
+  line-height:1.45;
+  text-align:center;
 }
 
 #back-page .back-btn{
   position:relative;
   z-index:3;
   overflow:hidden;
-  padding:12px 24px;
+  padding:11px 23px;
   border:1px solid rgba(221,201,143,.38);
   border-radius:999px;
-  background:rgba(20,10,11,.75);
+  background:rgba(20,10,11,.78);
   color:var(--br-gold-light);
   font:500 11px 'Cinzel',serif;
   letter-spacing:.08em;
   cursor:pointer;
-  box-shadow:0 0 0 rgba(221,201,143,0);
+  box-shadow:0 0 14px rgba(221,201,143,.035);
   transition:background .25s ease,color .25s ease,border-color .25s ease,transform .25s ease,box-shadow .25s ease;
-}
-
-#back-page .back-btn::before{
-  content:"";
-  position:absolute;
-  inset:-2px;
-  border-radius:inherit;
-  opacity:0;
-  pointer-events:none;
-  background:linear-gradient(90deg,transparent,rgba(255,239,200,.38),transparent);
-  transform:translateX(-120%);
 }
 
 #back-page .back-btn:hover{
@@ -1126,14 +1140,12 @@ to{opacity:.7;transform:scale(1.025)}
   box-shadow:0 0 20px rgba(221,201,143,.12),0 0 40px rgba(200,139,152,.07);
 }
 
-#back-page .back-btn:hover::before{animation:brReturnButtonSweep 1.05s ease 1}
-#back-page .back-btn.is-returning{animation:brReturnPortal 1.2s cubic-bezier(.22,1,.36,1)}
-
 @media(max-width:700px){
-  #back-page .footer-back{min-height:130px;padding:34px 20px 48px;gap:16px}
-  #back-page .footer-back::before{width:min(420px,88vw);bottom:-125px}
+  #back-page .footer-back{padding:18px 12px 24px}
+  #back-page .footer-back-panel{width:min(460px,calc(100% - 16px));min-height:116px;padding:22px 18px 24px}
+  #back-page .footer-back-panel::before{width:min(290px,82vw)}
 }
-/* ===== END BACKROOM FOOTER — CLEAN BACKGROUND FINAL ===== */
+/* ===== END BACKROOM FOOTER — COMPACT PANEL FINAL ===== */
 
 </style></head>
 <body>
@@ -2156,8 +2168,10 @@ require conditions not reproducible by ordinary cultivation or laboratory method
 </section>
 <!-- Footer back -->
 <footer class="footer-back">
+<div class="footer-back-panel">
 <p class="footer-back-text">This record does not exist. Neither, officially, does this room.</p>
 <button class="back-btn" onclick="exitBackroom()">← Return to shop floor</button>
+</div>
 </footer>
 </div>
 <script>
