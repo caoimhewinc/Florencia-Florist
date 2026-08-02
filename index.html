@@ -912,8 +912,40 @@ to{transform:translateY(-1.8px) rotate(.22deg)}
 
 
 
-/* MAGIC CSS PLACEHOLDER */
-/* Paste the Victorian Botanical Magic CSS here from previous message */
+/* =========================================================
+   FLORENCIA BACKROOM — VICTORIAN BOTANICAL MAGIC
+   ทำงานเฉพาะภายใน #back-page
+========================================================= */
+#back-page{--bm-gold:#d7bf82;--bm-rose:#b77a88;--bm-moss:#718066;background:radial-gradient(circle at 50% 15%,rgba(181,112,128,.18),transparent 29%),radial-gradient(circle at 12% 66%,rgba(113,128,102,.09),transparent 27%),radial-gradient(circle at 89% 75%,rgba(215,191,130,.08),transparent 25%),linear-gradient(180deg,#10090b 0%,#190e12 46%,#0d0809 100%)}
+#back-page .backroom-magic-root{position:fixed;inset:0;z-index:1;overflow:hidden;pointer-events:none;isolation:isolate}
+#back-page .bm-haze{position:absolute;inset:-20%;opacity:.38;filter:blur(38px);background:radial-gradient(ellipse at 28% 38%,rgba(168,97,112,.13),transparent 48%),radial-gradient(ellipse at 72% 57%,rgba(215,191,130,.09),transparent 45%),radial-gradient(ellipse at 48% 86%,rgba(113,128,102,.07),transparent 43%);animation:bmHazeDrift 25s ease-in-out infinite alternate}
+@keyframes bmHazeDrift{from{transform:translate3d(-2%,-1%,0) scale(1.02)}to{transform:translate3d(2%,1.5%,0) scale(1.07)}}
+#back-page .bm-sigil{position:absolute;left:50%;top:48%;width:min(78vw,980px);aspect-ratio:1;border-radius:50%;opacity:.10;transform:translate(-50%,-50%);background:radial-gradient(circle,transparent 0 43%,rgba(215,191,130,.18) 43.3% 43.8%,transparent 44.2%),radial-gradient(circle,transparent 0 31%,rgba(183,122,136,.15) 31.2% 31.7%,transparent 32.1%),repeating-conic-gradient(from 0deg,rgba(215,191,130,.14) 0 1deg,transparent 1deg 15deg);-webkit-mask:radial-gradient(circle,transparent 0 22%,#000 23% 58%,transparent 59%);mask:radial-gradient(circle,transparent 0 22%,#000 23% 58%,transparent 59%);animation:bmSigilTurn 190s linear infinite}
+#back-page .bm-sigil::before,#back-page .bm-sigil::after{content:"";position:absolute;border-radius:50%}
+#back-page .bm-sigil::before{inset:15%;border:1px solid rgba(215,191,130,.23)}
+#back-page .bm-sigil::after{inset:28%;border:1px solid rgba(183,122,136,.18)}
+@keyframes bmSigilTurn{to{transform:translate(-50%,-50%) rotate(360deg)}}
+#back-page .bm-arc{position:absolute;left:-25%;top:56%;width:150%;height:1px;opacity:0;background:linear-gradient(90deg,transparent,rgba(215,191,130,.28),rgba(183,122,136,.22),transparent);box-shadow:0 0 12px rgba(215,191,130,.15),0 0 28px rgba(183,122,136,.08);transform:translateX(-18%) rotate(-7deg);animation:bmArcSweep 17s ease-in-out infinite}
+@keyframes bmArcSweep{0%,63%,100%{opacity:0;transform:translateX(-18%) rotate(-7deg)}72%{opacity:.58}84%{opacity:.18;transform:translateX(18%) rotate(-7deg)}}
+#back-page .bm-pollen{position:absolute;left:var(--x);top:var(--y);width:var(--s);height:var(--s);border-radius:50%;opacity:0;background:var(--c);box-shadow:0 0 8px var(--c),0 0 18px rgba(215,191,130,.18);animation:bmPollenRise var(--d) linear infinite,bmPollenPulse 4.5s ease-in-out infinite;animation-delay:var(--delay)}
+@keyframes bmPollenRise{0%{opacity:0;transform:translate3d(0,24px,0) scale(.6)}12%{opacity:.72}65%{opacity:.34}100%{opacity:0;transform:translate3d(var(--drift),-125px,0) scale(1.15)}}
+@keyframes bmPollenPulse{0%,100%{filter:brightness(.7)}50%{filter:brightness(1.6)}}
+#back-page .bm-petal{position:absolute;top:-12%;left:var(--x);width:var(--w);height:var(--h);border-radius:75% 25% 68% 32%;opacity:0;background:linear-gradient(145deg,rgba(232,181,191,.72),rgba(142,75,91,.34));filter:blur(.2px) drop-shadow(0 2px 5px rgba(0,0,0,.2));animation:bmPetalFall var(--d) ease-in forwards}
+@keyframes bmPetalFall{0%{opacity:0;transform:translate3d(0,-20px,0) rotate(0)}15%{opacity:.66}100%{opacity:0;transform:translate3d(var(--drift),112vh,0) rotate(var(--spin))}}
+#back-page .bm-memory{position:absolute;left:var(--x);top:var(--y);max-width:240px;color:rgba(229,205,155,0);font:italic 15px/1.5 "Cormorant Garamond",serif;letter-spacing:.06em;text-shadow:0 0 14px rgba(215,191,130,.18);transform:translateY(10px) rotate(var(--r));animation:bmMemoryAppear 9s ease-in-out forwards}
+@keyframes bmMemoryAppear{0%{opacity:0;color:rgba(229,205,155,0);filter:blur(3px)}28%,68%{opacity:.52;color:rgba(229,205,155,.22);filter:blur(.4px)}100%{opacity:0;color:rgba(229,205,155,0);filter:blur(3px);transform:translateY(-8px) rotate(var(--r))}}
+#back-page .bm-bloom-light{position:absolute;left:var(--x);top:var(--y);width:4px;height:4px;border-radius:50%;opacity:0;background:#ead39a;box-shadow:0 0 8px rgba(234,211,154,.9),0 0 20px rgba(183,122,136,.35);animation:bmBloomWake 4.8s ease-in-out forwards}
+@keyframes bmBloomWake{0%,100%{opacity:0;transform:scale(.2)}42%{opacity:.95;transform:scale(1.1)}62%{opacity:.45;transform:scale(.72)}}
+#back-page .backroom-magic-root{animation:bmRoomBreath 18s ease-in-out infinite}
+@keyframes bmRoomBreath{0%,100%{filter:brightness(.985) saturate(.98)}50%{filter:brightness(1.025) saturate(1.03)}}
+#back-page .back-hero{background:linear-gradient(rgba(18,9,11,.74),rgba(18,9,11,.74)),radial-gradient(circle at 50% 34%,rgba(183,122,136,.11),transparent 41%),repeating-linear-gradient(90deg,rgba(215,191,130,.018) 0 1px,transparent 1px 34px),repeating-linear-gradient(0deg,rgba(215,191,130,.014) 0 1px,transparent 1px 34px)}
+#back-page .back-hero::after{content:"";position:absolute;inset:18px;z-index:1;pointer-events:none;opacity:.18;background:radial-gradient(ellipse 9% 3% at 6% 6%,rgba(119,139,92,.42) 0 45%,transparent 50%),radial-gradient(ellipse 9% 3% at 11% 10%,rgba(119,139,92,.34) 0 45%,transparent 50%),radial-gradient(ellipse 9% 3% at 94% 94%,rgba(119,139,92,.42) 0 45%,transparent 50%),radial-gradient(ellipse 9% 3% at 89% 90%,rgba(119,139,92,.34) 0 45%,transparent 50%)}
+#back-page .back-title{text-shadow:0 3px 0 #080405,0 12px 34px rgba(0,0,0,.55),0 0 24px rgba(183,122,136,.07)}
+#back-page .warning-strip{border-color:rgba(215,191,130,.36);background:linear-gradient(90deg,rgba(94,43,56,.17),rgba(111,48,63,.25),rgba(94,43,56,.17));box-shadow:inset 0 0 0 2px rgba(215,191,130,.04),0 0 24px rgba(183,122,136,.035)}
+#back-page .extract-row{background:linear-gradient(135deg,rgba(255,255,255,.018),rgba(169,104,117,.03)),radial-gradient(circle at 90% 10%,rgba(215,191,130,.026),transparent 29%)}
+#back-page .extract-row:hover{transform:translateX(4px) translateY(-1px);box-shadow:0 12px 28px rgba(0,0,0,.25),0 0 25px rgba(183,122,136,.05)}
+@media(max-width:700px){#back-page .bm-sigil{width:130vw;opacity:.07}#back-page .bm-memory{display:none}}
+@media(prefers-reduced-motion:reduce){#back-page .bm-haze,#back-page .bm-sigil,#back-page .bm-arc,#back-page .bm-pollen,#back-page .bm-petal,#back-page .bm-memory,#back-page .bm-bloom-light,#back-page .backroom-magic-root{animation:none!important}}
 
 </style>
 </head>
@@ -4059,7 +4091,106 @@ function roman(value){const numerals=["0","I","II","III","IV","V","VI","VII"];re
 </script>
 
 <script>
-/* Paste the Botanical Magic Engine JS here from previous message */
+/* =========================================================
+   FLORENCIA BACKROOM — BOTANICAL MAGIC ENGINE
+========================================================= */
+document.addEventListener("DOMContentLoaded",()=>{
+  const backroom=document.getElementById("back-page");
+  if(!backroom||backroom.querySelector(".backroom-magic-root"))return;
+
+  const reducedMotion=matchMedia("(prefers-reduced-motion:reduce)").matches;
+  const magicRoot=document.createElement("div");
+  magicRoot.className="backroom-magic-root";
+  magicRoot.setAttribute("aria-hidden","true");
+  magicRoot.innerHTML='<div class="bm-haze"></div><div class="bm-sigil"></div><div class="bm-arc"></div>';
+  backroom.prepend(magicRoot);
+
+  const pollenColors=[
+    "rgba(228,207,154,.82)",
+    "rgba(183,122,136,.72)",
+    "rgba(235,221,190,.74)",
+    "rgba(119,139,92,.58)"
+  ];
+
+  if(!reducedMotion){
+    for(let index=0;index<34;index+=1){
+      const pollen=document.createElement("i");
+      pollen.className="bm-pollen";
+      pollen.style.setProperty("--x",`${Math.random()*100}%`);
+      pollen.style.setProperty("--y",`${10+Math.random()*88}%`);
+      pollen.style.setProperty("--s",`${(1+Math.random()*2.8).toFixed(2)}px`);
+      pollen.style.setProperty("--d",`${(12+Math.random()*20).toFixed(2)}s`);
+      pollen.style.setProperty("--delay",`${(-Math.random()*28).toFixed(2)}s`);
+      pollen.style.setProperty("--drift",`${(-55+Math.random()*110).toFixed(1)}px`);
+      pollen.style.setProperty("--c",pollenColors[Math.floor(Math.random()*pollenColors.length)]);
+      magicRoot.appendChild(pollen);
+    }
+  }
+
+  const memoryTexts=[
+    "The petals remember.",
+    "No root is wholly silent.",
+    "A name once written here.",
+    "Bloom before bellfall.",
+    "Keep the eastern cabinet sealed.",
+    "This room remembers."
+  ];
+
+  const isOpen=()=>backroom.classList.contains("visible");
+
+  function spawnMemory(){
+    if(reducedMotion||document.hidden||!isOpen())return;
+    const note=document.createElement("span");
+    note.className="bm-memory";
+    note.textContent=memoryTexts[Math.floor(Math.random()*memoryTexts.length)];
+    note.style.setProperty("--x",`${12+Math.random()*72}%`);
+    note.style.setProperty("--y",`${18+Math.random()*62}%`);
+    note.style.setProperty("--r",`${(-6+Math.random()*12).toFixed(1)}deg`);
+    magicRoot.appendChild(note);
+    setTimeout(()=>note.remove(),9300);
+  }
+
+  function spawnPetal(){
+    if(reducedMotion||document.hidden||!isOpen())return;
+    const petal=document.createElement("i");
+    petal.className="bm-petal";
+    petal.style.setProperty("--x",`${8+Math.random()*84}%`);
+    petal.style.setProperty("--w",`${(7+Math.random()*7).toFixed(1)}px`);
+    petal.style.setProperty("--h",`${(12+Math.random()*10).toFixed(1)}px`);
+    petal.style.setProperty("--d",`${(8+Math.random()*6).toFixed(1)}s`);
+    petal.style.setProperty("--drift",`${(-120+Math.random()*240).toFixed(1)}px`);
+    petal.style.setProperty("--spin",`${(-420+Math.random()*840).toFixed(0)}deg`);
+    magicRoot.appendChild(petal);
+    setTimeout(()=>petal.remove(),15000);
+  }
+
+  function spawnBloomLight(){
+    if(reducedMotion||document.hidden||!isOpen())return;
+    const light=document.createElement("i");
+    light.className="bm-bloom-light";
+    light.style.setProperty("--x",`${8+Math.random()*84}%`);
+    light.style.setProperty("--y",`${10+Math.random()*78}%`);
+    magicRoot.appendChild(light);
+    setTimeout(()=>light.remove(),5000);
+  }
+
+  setInterval(()=>{if(Math.random()<.75)spawnMemory()},14000);
+  setInterval(()=>{if(Math.random()<.62)spawnPetal()},9000);
+  setInterval(()=>{if(Math.random()<.82)spawnBloomLight()},6500);
+
+  const observer=new MutationObserver(()=>{
+    if(!isOpen())return;
+    magicRoot.animate(
+      [
+        {filter:"brightness(.7)",opacity:.15},
+        {filter:"brightness(1.35)",opacity:1,offset:.45},
+        {filter:"brightness(1)",opacity:1}
+      ],
+      {duration:1800,easing:"cubic-bezier(.22,1,.36,1)"}
+    );
+  });
+  observer.observe(backroom,{attributes:true,attributeFilter:["class"]});
+});
 </script>
 
 </body>
