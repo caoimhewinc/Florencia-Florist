@@ -7,6 +7,345 @@
 <link href="pngtree-rose-flowers-vintage.png" rel="icon" type="image/png"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=IM+Fell+English:ital@0;1&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
+    /* =========================================================
+   CURRENT COMPLICATIONS — GLOWING CIRCLES
+   เปลี่ยนเฉพาะส่วน Current Complications
+========================================================= */
+
+#back-page .tension-section{
+  position:relative;
+  z-index:2;
+  width:min(1120px,calc(100% - 44px));
+  margin:0 auto;
+  padding:72px 0 96px;
+}
+
+#back-page .tension-title{
+  margin:0 0 30px;
+  color:#f0ddc3;
+  font:500 clamp(28px,5vw,48px)/1.1 'Cinzel',serif;
+  text-align:center;
+  letter-spacing:.04em;
+}
+
+/* Legend ด้านบน */
+#back-page .status-legend{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:center;
+  width:fit-content;
+  max-width:100%;
+  margin:0 auto 42px;
+  padding:12px 18px;
+  gap:18px;
+  border:1px solid rgba(221,201,143,.17);
+  background:rgba(15,10,6,.34);
+  color:rgba(234,220,197,.5);
+  font-size:13px;
+}
+
+#back-page .legend-item{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+/* จุดใน Legend ให้เข้ากับวงกลมของรายการ */
+#back-page .dot{
+  position:relative;
+  width:9px;
+  height:9px;
+  flex:0 0 9px;
+  border:1px solid currentColor;
+  border-radius:50%;
+  background:currentColor;
+  box-shadow:0 0 7px currentColor;
+}
+
+#back-page .dot.critical{
+  color:#c87687;
+  background:currentColor;
+}
+
+#back-page .dot.warning{
+  color:#d1ae63;
+  background:currentColor;
+}
+
+#back-page .dot.stable{
+  color:#91a284;
+  background:currentColor;
+}
+
+/* รายการแต่ละชิ้น */
+#back-page .tension-item{
+  position:relative;
+  display:grid;
+  grid-template-columns:46px minmax(0,1fr);
+  gap:20px;
+  align-items:start;
+  margin:0;
+  padding:28px 4px 31px;
+  border-bottom:1px solid rgba(221,201,143,.11);
+  background:transparent;
+  transition:
+    background .35s ease,
+    padding-left .35s cubic-bezier(.22,1,.36,1);
+}
+
+#back-page .tension-item:first-of-type{
+  border-top:1px solid rgba(221,201,143,.08);
+}
+
+#back-page .tension-item:hover{
+  padding-left:8px;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(169,104,117,.035),
+      transparent 46%
+    );
+}
+
+#back-page .tension-content{
+  min-width:0;
+}
+
+/* ชื่อสินค้า — สถานะ */
+#back-page .tension-heading{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:baseline;
+  gap:7px;
+  margin:0;
+  font-family:'Cinzel',serif;
+  line-height:1.4;
+}
+
+#back-page .tension-product{
+  color:#ead8bd;
+  font-size:16px;
+  font-weight:500;
+  letter-spacing:.035em;
+  text-transform:uppercase;
+}
+
+#back-page .tension-dash{
+  color:rgba(221,201,143,.38);
+  font-size:14px;
+}
+
+#back-page .tension-status{
+  font-size:12px;
+  font-weight:500;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+}
+
+/* เส้นใต้หัวข้อ */
+#back-page .tension-rule{
+  width:min(470px,76%);
+  height:1px;
+  margin:10px 0 13px;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(221,201,143,.32),
+      rgba(221,201,143,.10) 66%,
+      transparent
+    );
+}
+
+/* คำอธิบาย */
+#back-page .tension-text{
+  max-width:970px;
+  margin:0;
+  color:rgba(234,220,197,.59);
+  font-size:16px;
+  line-height:1.75;
+}
+
+/* =========================================================
+   วงกลมสถานะ — วาดด้วย CSS
+========================================================= */
+
+#back-page .tension-orb{
+  --orb-color:#d1ae63;
+  position:relative;
+  display:block;
+  width:30px;
+  height:30px;
+  margin:1px auto 0;
+  flex:none;
+  border:1px solid var(--orb-color);
+  border-radius:50%;
+
+  background:
+    radial-gradient(
+      circle,
+      var(--orb-color) 0 2px,
+      transparent 2.5px 7px,
+      color-mix(in srgb,var(--orb-color) 72%,transparent) 7.5px 8px,
+      transparent 8.5px 100%
+    );
+
+  box-shadow:
+    0 0 5px var(--orb-color),
+    0 0 13px color-mix(in srgb,var(--orb-color) 55%,transparent),
+    0 0 25px color-mix(in srgb,var(--orb-color) 20%,transparent),
+    inset 0 0 8px color-mix(in srgb,var(--orb-color) 24%,transparent);
+
+  opacity:.88;
+  transition:
+    transform .4s cubic-bezier(.22,1,.36,1),
+    opacity .35s ease,
+    filter .35s ease,
+    box-shadow .35s ease;
+}
+
+/* วงแหวนชั้นใน */
+#back-page .tension-orb::before{
+  content:"";
+  position:absolute;
+  inset:5px;
+  border:1px solid color-mix(in srgb,var(--orb-color) 60%,transparent);
+  border-radius:50%;
+}
+
+/* จุดเรืองแสงตรงกลาง */
+#back-page .tension-orb::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:4px;
+  height:4px;
+  border-radius:50%;
+  background:var(--orb-color);
+  transform:translate(-50%,-50%);
+  box-shadow:
+    0 0 6px var(--orb-color),
+    0 0 12px var(--orb-color);
+}
+
+/* สีตามสถานะ */
+#back-page .tension-critical{
+  --status-color:#c87687;
+}
+
+#back-page .tension-warning{
+  --status-color:#d1ae63;
+}
+
+#back-page .tension-stable{
+  --status-color:#91a284;
+}
+
+#back-page .tension-critical .tension-orb,
+#back-page .tension-warning .tension-orb,
+#back-page .tension-stable .tension-orb{
+  --orb-color:var(--status-color);
+}
+
+#back-page .tension-critical .tension-status,
+#back-page .tension-warning .tension-status,
+#back-page .tension-stable .tension-status{
+  color:var(--status-color);
+}
+
+/* Hover แล้ววงกลมตื่นขึ้น แต่ยังคงขนาดเดิมโดยรวม */
+#back-page .tension-item:hover .tension-orb{
+  opacity:1;
+  filter:brightness(1.22);
+  transform:scale(1.07);
+  box-shadow:
+    0 0 7px var(--orb-color),
+    0 0 17px color-mix(in srgb,var(--orb-color) 68%,transparent),
+    0 0 31px color-mix(in srgb,var(--orb-color) 27%,transparent),
+    inset 0 0 10px color-mix(in srgb,var(--orb-color) 30%,transparent);
+}
+
+/* หายใจเบา ๆ เหมือนวงเวท ไม่กะพริบแบบหลอดไฟ */
+#back-page .tension-orb{
+  animation:tensionOrbBreath 3.8s ease-in-out infinite;
+}
+
+#back-page .tension-item:nth-of-type(2n) .tension-orb{
+  animation-delay:-1.9s;
+}
+
+@keyframes tensionOrbBreath{
+  0%,100%{
+    opacity:.72;
+    filter:brightness(.9);
+  }
+
+  50%{
+    opacity:1;
+    filter:brightness(1.14);
+  }
+}
+
+@media(max-width:700px){
+  #back-page .tension-section{
+    width:calc(100% - 28px);
+    padding:50px 0 70px;
+  }
+
+  #back-page .status-legend{
+    width:100%;
+    padding:12px 14px;
+    gap:12px 16px;
+    font-size:12px;
+  }
+
+  #back-page .tension-item{
+    grid-template-columns:32px minmax(0,1fr);
+    gap:14px;
+    padding:24px 0 27px;
+  }
+
+  #back-page .tension-item:hover{
+    padding-left:0;
+  }
+
+  #back-page .tension-orb{
+    width:24px;
+    height:24px;
+  }
+
+  #back-page .tension-orb::before{
+    inset:4px;
+  }
+
+  #back-page .tension-product{
+    font-size:14px;
+  }
+
+  #back-page .tension-status{
+    font-size:10px;
+  }
+
+  #back-page .tension-rule{
+    width:90%;
+  }
+
+  #back-page .tension-text{
+    font-size:15px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  #back-page .tension-orb{
+    animation:none!important;
+  }
+
+  #back-page .tension-item,
+  #back-page .tension-orb{
+    transition:none!important;
+  }
+}
 :root{--cream:#f5f0e8;--parchment:#ede5d0;--ink:#1a1410;--ink-muted:#3d3228;--gold:#b8972a;--gold-light:#d4b24a;--moss:#3a4a2e;--moss-light:#5a7248;--rouge:#8b2e2e;--shadow:rgba(20,12,5,0.18);--night:#0d0b08;--night-surface:#16120d;--night-card:#1e1912;--void:#120f0a;--poison-green:#2d5a1b;--poison-bright:#4a8c2a;--poison-glow:#7ec850;--blood:#6b1a1a;--blood-bright:#a02828;--old-gold:#b99a5b;--soft-gold:#d6bf86;--rose:#a86170;--rose-dark:#6e3945;--rose-pale:#d8a5ae}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Crimson Pro',Georgia,serif;background:var(--cream);color:var(--ink);min-height:100vh;overflow-x:hidden;cursor:default}
@@ -2093,120 +2432,258 @@ require conditions not reproducible by ordinary cultivation or laboratory method
 </section>
 <!-- Active tensions -->
 <section class="tension-section" id="complications">
-<h2 class="tension-title">Current Complications</h2>
-<div class="status-legend">
-<div class="legend-item">
-<span class="dot critical">
-</span>
-<span>Under Scrutiny — Immediate Concern</span>
-</div>
-<div class="legend-item">
-<span class="dot warning">
-</span>
-<span>Limited Review — Requires Attention</span>
-</div>
-<div class="legend-item">
-<span class="dot stable">
-</span>
-<span>Contained — Under Observation</span>
-</div>
-</div>
-<div class="tension-item">
-<div class="tension-marker t-red">
-</div>
-<div>
-<p class="tension-name">Moonwake — Exposure Risk</p>
-<p class="tension-text">A long-enduring patron hath purchas’d the preparation upon seven several occasions these two years past. Lately, a second intermediary hath arriv’d with questions that mirror the first. Further discourse is kept to a whisper, until intent be made plain.</p>
-</div>
-</div>
-<div class="tension-item">
-<div class="tension-marker t-amber">
-</div>
-<div>
-<p class="tension-name">Coffin Orchis — Inquiry</p>
-<p class="tension-text">Independent mage-investigators do trace compounds that answer not unto any known record of cultivation. They abide patient, methodical, and ever harder to turn aside from their course.</p>
-</div>
-</div>
-<div class="tension-item">
-<div class="tension-marker t-green">
-</div>
-<div>
-<p class="tension-name">Winter Wisteria — Shortage</p>
-<p class="tension-text">Frost-wound hath cut this season’s bloom-count by near the half. Several standing patrons are like to receive not their wonted share.</p>
-</div>
-</div>
-<div class="tension-item">
-<div class="tension-marker t-red">
-</div>
-<div>
-<p class="tension-name">Rosethorn Rite — Improper Use</p>
-<p class="tension-text">Reports do speak of a diluted counterfeit abroad amongst the noble districts. One receiver fell into an obsessive attachment that linger’d beyond the term appointed.</p>
-</div>
-</div>
-<div class="tension-item">
-<div class="tension-marker t-green">
-</div>
-<div>
-<p class="tension-name">Rue Pallid — Contamination</p>
-<p class="tension-text">Two late batches did show strange bitterness, with an excess of sharpen’d wit and thought. The stock is isolated, pending assay beneath fire-weave light.</p>
-</div>
-</div>
-<div class="tension-item">
-<div class="tension-marker t-amber">
-</div>
-<div>
-<p class="tension-name">Mourning Jasmine — Demand Increase</p>
-<p class="tension-text">The funeral districts continue to ask quantities beyond the bounds of sustainable gathering. More must needs be sought beyond the eastern marsh-routes.</p>
-</div>
-</div>
-<div class="tension-item">
-<div class="tension-marker t-amber">
-</div>
-<div>
-<p class="tension-name">Belladonna Hymnal — Restrictions</p>
-<p class="tension-text">The ecclesiastical authorities have renew’d their inquiry concerning compounds touch’d by auditory visions and devotional unrest. Open carriage is no longer advis’d.</p>
-</div>
-</div>
-<div class="tension-item">
-<div class="tension-marker t-amber">
-</div>
-<div>
-<p class="tension-name">Evermere — Weariness Mask</p>
-<p class="tension-text">Repeated requests now do exceed the season’s store. Diverse patrons ask for larger measures than erstwhile, seeking naught save the brief concealment it doth bestow.</p>
-</div>
-</div>
-<div class="tension-item">
-<div class="tension-marker t-amber">
-</div>
-<div>
-<p class="tension-name">Hushwater — Memory Drift</p>
-<p class="tension-text">Small discordances have appear’d in recent accounts after private tastings. Notes taken within the hour no longer match the selfsame events by nightfall.</p>
-</div>
-</div>
-<div class="tension-item">
-<div class="tension-marker t-red">
-</div>
-<div>
-<p class="tension-name">Laurel Sanguine — Attachment Residue</p>
-<p class="tension-text">A few receivers have reported a fixation most persistent, even after the effect hath pass’d. The matter is handled softly, lest notice be drawn.</p>
-</div>
-</div>
-<div class="tension-item">
-<div class="tension-marker t-red">
-</div>
-<div>
-<p class="tension-name">Flos Viviea — Unsafe Demand</p>
-<p class="tension-text">Interest hath increas’d among those that seek swift vitality despite the known perils. Distribution is held beneath stricter lock and seal.</p>
-</div>
-</div>
-<div class="tension-item">
-<div class="tension-marker t-amber">
-</div>
-<div>
-<p class="tension-name">Lascivia — Appetite Quiet</p>
-<p class="tension-text">Requests for the bloom have risen among patrons that seek restraint rather than indulgence. Several houses now keep it seal’d for private use, praising its steadier governance of bodily urge.</p>
-</div>
-</div>
+
+  <h2 class="tension-title">
+    Current Complications
+  </h2>
+
+  <div class="status-legend">
+
+    <div class="legend-item">
+      <span class="dot critical" aria-hidden="true"></span>
+      <span>Under Scrutiny — Immediate Concern</span>
+    </div>
+
+    <div class="legend-item">
+      <span class="dot warning" aria-hidden="true"></span>
+      <span>Limited Review — Requires Attention</span>
+    </div>
+
+    <div class="legend-item">
+      <span class="dot stable" aria-hidden="true"></span>
+      <span>Contained — Under Observation</span>
+    </div>
+
+  </div>
+
+
+  <div class="tension-item tension-critical">
+    <span class="tension-orb" aria-hidden="true"></span>
+
+    <div class="tension-content">
+      <p class="tension-heading">
+        <span class="tension-product">Moonwake</span>
+        <span class="tension-dash">—</span>
+        <span class="tension-status">Under Scrutiny</span>
+      </p>
+
+      <div class="tension-rule" aria-hidden="true"></div>
+
+      <p class="tension-text">
+        A long-enduring patron hath purchas’d the preparation upon seven several occasions these two years past. Lately, a second intermediary hath arriv’d with questions that mirror the first. Further discourse is kept to a whisper, until intent be made plain.
+      </p>
+    </div>
+  </div>
+
+
+  <div class="tension-item tension-warning">
+    <span class="tension-orb" aria-hidden="true"></span>
+
+    <div class="tension-content">
+      <p class="tension-heading">
+        <span class="tension-product">Coffin Orchis</span>
+        <span class="tension-dash">—</span>
+        <span class="tension-status">Limited Review</span>
+      </p>
+
+      <div class="tension-rule" aria-hidden="true"></div>
+
+      <p class="tension-text">
+        Independent mage-investigators do trace compounds that answer not unto any known record of cultivation. They abide patient, methodical, and ever harder to turn aside from their course.
+      </p>
+    </div>
+  </div>
+
+
+  <div class="tension-item tension-stable">
+    <span class="tension-orb" aria-hidden="true"></span>
+
+    <div class="tension-content">
+      <p class="tension-heading">
+        <span class="tension-product">Winter Wisteria</span>
+        <span class="tension-dash">—</span>
+        <span class="tension-status">Contained</span>
+      </p>
+
+      <div class="tension-rule" aria-hidden="true"></div>
+
+      <p class="tension-text">
+        Frost-wound hath cut this season’s bloom-count by near the half. Several standing patrons are like to receive not their wonted share.
+      </p>
+    </div>
+  </div>
+
+
+  <div class="tension-item tension-critical">
+    <span class="tension-orb" aria-hidden="true"></span>
+
+    <div class="tension-content">
+      <p class="tension-heading">
+        <span class="tension-product">Rosethorn Rite</span>
+        <span class="tension-dash">—</span>
+        <span class="tension-status">Under Scrutiny</span>
+      </p>
+
+      <div class="tension-rule" aria-hidden="true"></div>
+
+      <p class="tension-text">
+        Reports do speak of a diluted counterfeit abroad amongst the noble districts. One receiver fell into an obsessive attachment that linger’d beyond the term appointed.
+      </p>
+    </div>
+  </div>
+
+
+  <div class="tension-item tension-stable">
+    <span class="tension-orb" aria-hidden="true"></span>
+
+    <div class="tension-content">
+      <p class="tension-heading">
+        <span class="tension-product">Rue Pallid</span>
+        <span class="tension-dash">—</span>
+        <span class="tension-status">Contained</span>
+      </p>
+
+      <div class="tension-rule" aria-hidden="true"></div>
+
+      <p class="tension-text">
+        Two late batches did show strange bitterness, with an excess of sharpen’d wit and thought. The stock is isolated, pending assay beneath fire-weave light.
+      </p>
+    </div>
+  </div>
+
+
+  <div class="tension-item tension-warning">
+    <span class="tension-orb" aria-hidden="true"></span>
+
+    <div class="tension-content">
+      <p class="tension-heading">
+        <span class="tension-product">Mourning Jasmine</span>
+        <span class="tension-dash">—</span>
+        <span class="tension-status">Limited Review</span>
+      </p>
+
+      <div class="tension-rule" aria-hidden="true"></div>
+
+      <p class="tension-text">
+        The funeral districts continue to ask quantities beyond the bounds of sustainable gathering. More must needs be sought beyond the eastern marsh-routes.
+      </p>
+    </div>
+  </div>
+
+
+  <div class="tension-item tension-warning">
+    <span class="tension-orb" aria-hidden="true"></span>
+
+    <div class="tension-content">
+      <p class="tension-heading">
+        <span class="tension-product">Belladonna Hymnal</span>
+        <span class="tension-dash">—</span>
+        <span class="tension-status">Limited Review</span>
+      </p>
+
+      <div class="tension-rule" aria-hidden="true"></div>
+
+      <p class="tension-text">
+        The ecclesiastical authorities have renew’d their inquiry concerning compounds touch’d by auditory visions and devotional unrest. Open carriage is no longer advis’d.
+      </p>
+    </div>
+  </div>
+
+
+  <div class="tension-item tension-warning">
+    <span class="tension-orb" aria-hidden="true"></span>
+
+    <div class="tension-content">
+      <p class="tension-heading">
+        <span class="tension-product">Evermere</span>
+        <span class="tension-dash">—</span>
+        <span class="tension-status">Limited Review</span>
+      </p>
+
+      <div class="tension-rule" aria-hidden="true"></div>
+
+      <p class="tension-text">
+        Repeated requests now do exceed the season’s store. Diverse patrons ask for larger measures than erstwhile, seeking naught save the brief concealment it doth bestow.
+      </p>
+    </div>
+  </div>
+
+
+  <div class="tension-item tension-warning">
+    <span class="tension-orb" aria-hidden="true"></span>
+
+    <div class="tension-content">
+      <p class="tension-heading">
+        <span class="tension-product">Hushwater</span>
+        <span class="tension-dash">—</span>
+        <span class="tension-status">Limited Review</span>
+      </p>
+
+      <div class="tension-rule" aria-hidden="true"></div>
+
+      <p class="tension-text">
+        Small discordances have appear’d in recent accounts after private tastings. Notes taken within the hour no longer match the selfsame events by nightfall.
+      </p>
+    </div>
+  </div>
+
+
+  <div class="tension-item tension-critical">
+    <span class="tension-orb" aria-hidden="true"></span>
+
+    <div class="tension-content">
+      <p class="tension-heading">
+        <span class="tension-product">Laurel Sanguine</span>
+        <span class="tension-dash">—</span>
+        <span class="tension-status">Under Scrutiny</span>
+      </p>
+
+      <div class="tension-rule" aria-hidden="true"></div>
+
+      <p class="tension-text">
+        A few receivers have reported a fixation most persistent, even after the effect hath pass’d. The matter is handled softly, lest notice be drawn.
+      </p>
+    </div>
+  </div>
+
+
+  <div class="tension-item tension-critical">
+    <span class="tension-orb" aria-hidden="true"></span>
+
+    <div class="tension-content">
+      <p class="tension-heading">
+        <span class="tension-product">Flos Viviea</span>
+        <span class="tension-dash">—</span>
+        <span class="tension-status">Under Scrutiny</span>
+      </p>
+
+      <div class="tension-rule" aria-hidden="true"></div>
+
+      <p class="tension-text">
+        Interest hath increas’d among those that seek swift vitality despite the known perils. Distribution is held beneath stricter lock and seal.
+      </p>
+    </div>
+  </div>
+
+
+  <div class="tension-item tension-warning">
+    <span class="tension-orb" aria-hidden="true"></span>
+
+    <div class="tension-content">
+      <p class="tension-heading">
+        <span class="tension-product">Lascivia</span>
+        <span class="tension-dash">—</span>
+        <span class="tension-status">Limited Review</span>
+      </p>
+
+      <div class="tension-rule" aria-hidden="true"></div>
+
+      <p class="tension-text">
+        Requests for the bloom have risen among patrons that seek restraint rather than indulgence. Several houses now keep it seal’d for private use, praising its steadier governance of bodily urge.
+      </p>
+    </div>
+  </div>
+
 </section>
 <!-- Footer back -->
 <footer class="footer-back">
