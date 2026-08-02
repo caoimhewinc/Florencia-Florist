@@ -80,7 +80,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .secret-btn{background:none;border:none;cursor:pointer;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:rgba(184,151,42,0.3);transition:color 0.5s;letter-spacing:0.05em;padding:4px 8px}
 .secret-btn:hover{color:rgba(184,151,42,0.8)}
 .back-hero{min-height:100vh;background:var(--night);background-image:radial-gradient(circle at 50% 18%,rgba(168,97,112,0.14),transparent 32%),radial-gradient(ellipse 30% 40% at 85% 85%,rgba(185,151,42,0.08) 0%,transparent 55%);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:120px 40px 60px;position:relative;overflow:hidden}
-.back-hero::before{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px);pointer-events:none}
+.back-hero::before{content:none}
 .seal-clock{position:relative;z-index:1;width:74px;aspect-ratio:1;display:grid;place-items:center;border-radius:50%;color:var(--soft-gold);font:600 1.05rem 'Cinzel',serif;margin-bottom:22px;background:radial-gradient(circle,#5b363d 0 42%,#a76c76 43% 48%,#4c2a2f 49% 55%,#211713 56% 100%);box-shadow:0 0 0 4px #8b5761,0 0 0 7px rgba(214,191,134,.4),0 8px 24px rgba(0,0,0,.5)}
 .seal-clock::before,.seal-clock::after{content:'';position:absolute;width:2px;height:22px;background:var(--soft-gold);transform-origin:bottom center;bottom:50%;left:calc(50% - 1px)}
 .seal-clock::before{transform:rotate(42deg)}
@@ -172,7 +172,7 @@ to{opacity:1;transform:translateY(0)}
 }
 #back-page{--br-ink:#eadcc5;--br-muted:rgba(234,220,197,.66);--br-faint:rgba(234,220,197,.42);--br-black:#0d0708;--br-deep:#170b0d;--br-card:#211213;--br-burgundy:#6f3040;--br-burgundy-deep:#35151e;--br-rose:#a96875;--br-dusty:#c88b98;--br-pale:#e2b1b9;--br-gold:#b99a5b;--br-gold-light:#ddc98f;--br-line:rgba(221,201,143,.2);position:fixed;inset:0;z-index:9999;display:none;width:100%;height:100vh;overflow-y:auto;overflow-x:hidden;isolation:isolate;opacity:0;color:var(--br-ink);background:radial-gradient(ellipse at 50% -8%,rgba(168,97,112,.2),transparent 34%),radial-gradient(ellipse at 8% 35%,rgba(89,35,49,.18),transparent 30%),radial-gradient(ellipse at 92% 78%,rgba(185,154,91,.07),transparent 28%),linear-gradient(180deg,#0d0708 0%,#170b0d 42%,#110809 100%);font-family:'Cormorant Garamond',Georgia,serif;transition:opacity .7s ease}
 #back-page.visible{display:block;opacity:1}
-#back-page::before{content:'';position:fixed;inset:0;z-index:-2;pointer-events:none;opacity:.3;background:linear-gradient(rgba(221,201,143,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(221,201,143,.035) 1px,transparent 1px),radial-gradient(circle at center,transparent 42%,rgba(0,0,0,.58) 100%);background-size:44px 44px,44px 44px,100% 100%;mask-image:radial-gradient(ellipse at center,black 25%,transparent 88%)}
+#back-page::before{content:'';position:fixed;inset:0;z-index:-2;pointer-events:none;opacity:.34;background:radial-gradient(circle at center,transparent 42%,rgba(0,0,0,.58) 100%)}
 #back-page .back-hero{position:relative;z-index:2;width:min(1180px,calc(100% - 44px));min-height:clamp(620px,88vh,900px);margin:22px auto 0;padding:90px 40px 70px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border:1px solid rgba(221,201,143,.2);background:linear-gradient(90deg,transparent,rgba(90,38,51,.08),transparent),radial-gradient(circle at 50% 35%,rgba(200,139,152,.07),transparent 42%);box-shadow:inset 0 0 0 5px rgba(16,9,8,.72),inset 0 0 0 6px rgba(221,201,143,.055),0 24px 70px rgba(0,0,0,.32);overflow:hidden}
 #back-page .back-hero::before{content:'⋆*̥˟‧̩̥·‧•̥̩̥͙‧·‧̩̥˟*̥˟‧̩̥·‧•̥̩̥͙‧·‧̩̥˟*̥*̥˟‧̩̥·‧•̥̩̥͙‧·‧̩̥˟*̥˟‧̩̥·‧•̥̩̥͙‧·‧̩̥˟*̥*̥˟‧̩̥·‧•̥̩̥͙‧·‧̩̥˟*̥˟‧̩̥·‧•̥̩̥͙‧·‧̩̥˟*̥⋆';position:absolute;top:20px;left:19px;right:19px;padding-bottom:16px;border-bottom:1px solid rgba(221,201,143,.16);color:rgba(221,201,143,.58);font-size:16px;letter-spacing:.55em}
 #back-page .seal-clock{position:relative;z-index:2;width:84px;aspect-ratio:1;display:grid;place-items:center;margin-bottom:28px;border-radius:50%;color:var(--br-gold-light);font:600 1rem 'Cinzel',serif;background:radial-gradient(circle,#6d3542 0 34%,#351820 35% 47%,#a96875 48% 51%,#251015 52% 100%);border:1px solid rgba(221,201,143,.45);box-shadow:0 0 0 4px rgba(169,104,117,.16),0 0 0 7px rgba(221,201,143,.12),0 14px 34px rgba(0,0,0,.45)}
@@ -938,7 +938,7 @@ to{transform:translateY(-1.8px) rotate(.22deg)}
 @keyframes bmBloomWake{0%,100%{opacity:0;transform:scale(.2)}42%{opacity:.95;transform:scale(1.1)}62%{opacity:.45;transform:scale(.72)}}
 #back-page .backroom-magic-root{animation:bmRoomBreath 18s ease-in-out infinite}
 @keyframes bmRoomBreath{0%,100%{filter:brightness(.985) saturate(.98)}50%{filter:brightness(1.025) saturate(1.03)}}
-#back-page .back-hero{background:linear-gradient(rgba(18,9,11,.74),rgba(18,9,11,.74)),radial-gradient(circle at 50% 34%,rgba(183,122,136,.11),transparent 41%),repeating-linear-gradient(90deg,rgba(215,191,130,.018) 0 1px,transparent 1px 34px),repeating-linear-gradient(0deg,rgba(215,191,130,.014) 0 1px,transparent 1px 34px)}
+#back-page .back-hero{background:linear-gradient(rgba(18,9,11,.74),rgba(18,9,11,.74)),radial-gradient(circle at 50% 34%,rgba(183,122,136,.11),transparent 41%)}
 #back-page .back-hero::after{content:"";position:absolute;inset:18px;z-index:1;pointer-events:none;opacity:.18;background:radial-gradient(ellipse 9% 3% at 6% 6%,rgba(119,139,92,.42) 0 45%,transparent 50%),radial-gradient(ellipse 9% 3% at 11% 10%,rgba(119,139,92,.34) 0 45%,transparent 50%),radial-gradient(ellipse 9% 3% at 94% 94%,rgba(119,139,92,.42) 0 45%,transparent 50%),radial-gradient(ellipse 9% 3% at 89% 90%,rgba(119,139,92,.34) 0 45%,transparent 50%)}
 #back-page .back-title{text-shadow:0 3px 0 #080405,0 12px 34px rgba(0,0,0,.55),0 0 24px rgba(183,122,136,.07)}
 #back-page .warning-strip{border-color:rgba(215,191,130,.36);background:linear-gradient(90deg,rgba(94,43,56,.17),rgba(111,48,63,.25),rgba(94,43,56,.17));box-shadow:inset 0 0 0 2px rgba(215,191,130,.04),0 0 24px rgba(183,122,136,.035)}
@@ -950,110 +950,35 @@ to{transform:translateY(-1.8px) rotate(.22deg)}
 
 /* =========================================================
    FLORENCIA BACKROOM — LOWER SECTIONS MAGIC
-   ตั้งแต่ Available Extracts จนถึง Return to Shop Floor
+   CLEAN VERSION: no section bands, no rune bands, no grid cuts
 ========================================================= */
 
-/* ให้ทุกส่วนล่างมีพื้นที่รับเลเยอร์เวทของตัวเอง */
 #back-page .extracts-inner,
 #back-page .ledger-section,
 #back-page .tension-section,
 #back-page .footer-back{
   position:relative;
   isolation:isolate;
-  overflow:hidden;
-}
-
-/* เส้นใยเวทพาดผ่านพื้นหลังแต่ละ section */
-#back-page .br-section-aura{
-  position:absolute;
-  inset:0;
-  z-index:0;
-  pointer-events:none;
-  overflow:hidden;
-}
-
-#back-page .br-section-aura::before{
-  content:"";
-  position:absolute;
-  inset:-20%;
-  background:
-    radial-gradient(circle at 18% 28%,rgba(221,201,143,.055),transparent 28%),
-    radial-gradient(circle at 82% 72%,rgba(200,139,152,.048),transparent 30%),
-    linear-gradient(115deg,transparent 36%,rgba(221,201,143,.04) 49%,transparent 62%);
-  filter:blur(18px);
-  animation:brSectionAuraDrift 18s ease-in-out infinite alternate;
-}
-
-@keyframes brSectionAuraDrift{
-  from{transform:translate3d(-1.5%,-1%,0) scale(1.02)}
-  to{transform:translate3d(1.7%,1.2%,0) scale(1.06)}
-}
-
-/* อักขระเวทจาง ๆ ตรงขอบ section */
-#back-page .br-rune-band{
-  position:absolute;
-  left:0;
-  right:0;
-  top:18px;
-  z-index:1;
-  display:flex;
-  justify-content:space-around;
-  gap:18px;
-  pointer-events:none;
-  opacity:.12;
-  color:rgba(221,201,143,.72);
-  font:16px/1 "Cinzel",serif;
-  letter-spacing:.18em;
-  text-shadow:0 0 9px rgba(221,201,143,.18);
-}
-
-#back-page .br-rune-band span{
-  animation:brRuneBreathe 8s ease-in-out infinite;
-}
-
-#back-page .br-rune-band span:nth-child(2n){animation-delay:-2s}
-#back-page .br-rune-band span:nth-child(3n){animation-delay:-4s}
-
-@keyframes brRuneBreathe{
-  0%,100%{opacity:.18;transform:translateY(0) scale(.96)}
-  50%{opacity:.68;transform:translateY(-2px) scale(1.04)}
-}
-
-/* Available Extracts — ริบบิ้นและตราดอกไม้ตื่นขึ้น */
-#back-page .extracts-ribbon{
   overflow:visible;
+  background:transparent!important;
 }
 
-#back-page .extracts-ribbon::after{
-  box-shadow:
-    0 0 0 1px rgba(221,201,143,.12),
-    0 0 24px rgba(200,139,152,.08);
-}
-
-#back-page .extracts-ribbon.is-awake{
-  animation:brRibbonWake 1.35s cubic-bezier(.22,1,.36,1);
-}
-
+/* Available Extracts */
+#back-page .extracts-ribbon{overflow:visible}
+#back-page .extracts-ribbon.is-awake{animation:brRibbonWake 1.35s cubic-bezier(.22,1,.36,1)}
 @keyframes brRibbonWake{
   0%{filter:brightness(.7);transform:translateY(8px);opacity:.4}
   48%{filter:brightness(1.18);transform:translateY(-2px);opacity:1}
   100%{filter:brightness(1);transform:translateY(0);opacity:1}
 }
-
-#back-page .rose-cluster{
-  animation:brRoseSealPulse 6s ease-in-out infinite;
-}
-
+#back-page .rose-cluster{animation:brRoseSealPulse 6s ease-in-out infinite}
 @keyframes brRoseSealPulse{
   0%,100%{filter:brightness(.92);box-shadow:0 0 0 4px rgba(221,201,143,.08),0 8px 18px rgba(0,0,0,.25)}
   50%{filter:brightness(1.12);box-shadow:0 0 0 4px rgba(221,201,143,.12),0 0 20px rgba(200,139,152,.18),0 8px 18px rgba(0,0,0,.25)}
 }
 
-/* Extract rows — เส้นเวทไหลตามขอบ */
-#back-page .extract-row{
-  overflow:hidden;
-}
-
+/* Extract rows */
+#back-page .extract-row{overflow:hidden}
 #back-page .extract-row::after{
   content:"";
   position:absolute;
@@ -1066,22 +991,13 @@ to{transform:translateY(-1.8px) rotate(.22deg)}
   background:linear-gradient(90deg,transparent,rgba(255,238,195,.12),transparent);
   transform:skewX(-18deg);
 }
-
-#back-page .extract-row:hover::after{
-  animation:brExtractSweep 1.1s ease 1;
-}
-
+#back-page .extract-row:hover::after{animation:brExtractSweep 1.1s ease 1}
 @keyframes brExtractSweep{
   0%{left:-35%;opacity:0}
   18%{opacity:.65}
   100%{left:120%;opacity:0}
 }
-
-/* ชื่อ extract มีประกายหมึกบาง ๆ */
-#back-page .ext-name{
-  position:relative;
-}
-
+#back-page .ext-name{position:relative}
 #back-page .extract-row:hover .ext-name::after{
   content:"";
   position:absolute;
@@ -1093,13 +1009,12 @@ to{transform:translateY(-1.8px) rotate(.22deg)}
   transform-origin:left;
   animation:brInkUnderline .75s cubic-bezier(.22,1,.36,1) forwards;
 }
-
 @keyframes brInkUnderline{
   from{transform:scaleX(0);opacity:0}
   to{transform:scaleX(1);opacity:.9}
 }
 
-/* Ledger — เรืองเหมือนตำรามีชีวิต */
+/* Ledger */
 #back-page .ledger-section::before{
   content:"";
   position:absolute;
@@ -1107,79 +1022,50 @@ to{transform:translateY(-1.8px) rotate(.22deg)}
   z-index:0;
   pointer-events:none;
   background:
-    radial-gradient(circle at 28% 48%,rgba(221,201,143,.045),transparent 28%),
-    radial-gradient(circle at 72% 52%,rgba(200,139,152,.045),transparent 28%);
-  filter:blur(22px);
+    radial-gradient(circle at 28% 48%,rgba(221,201,143,.035),transparent 28%),
+    radial-gradient(circle at 72% 52%,rgba(200,139,152,.035),transparent 28%);
+  filter:blur(26px);
   animation:brLedgerGlow 14s ease-in-out infinite alternate;
 }
-
 @keyframes brLedgerGlow{
-  from{opacity:.45;transform:scale(.98)}
-  to{opacity:.9;transform:scale(1.04)}
+  from{opacity:.35;transform:scale(.99)}
+  to{opacity:.7;transform:scale(1.025)}
 }
-
-#back-page .ledger-block{
-  z-index:2;
-}
-
+#back-page .ledger-block{z-index:2}
 #back-page .ledger-block::after{
   content:"";
   position:absolute;
   inset:0;
   pointer-events:none;
   opacity:0;
-  background:
-    linear-gradient(115deg,transparent 32%,rgba(255,236,187,.10) 48%,transparent 62%);
+  background:linear-gradient(115deg,transparent 32%,rgba(255,236,187,.10) 48%,transparent 62%);
   transform:translateX(-80%);
 }
-
-#back-page .ledger-block.is-reading::after{
-  animation:brLedgerShimmer 1.4s ease .1s 1;
-}
-
+#back-page .ledger-block.is-reading::after{animation:brLedgerShimmer 1.4s ease .1s 1}
 @keyframes brLedgerShimmer{
   0%{opacity:0;transform:translateX(-80%)}
   22%{opacity:.75}
   100%{opacity:0;transform:translateX(80%)}
 }
 
-/* Current Complications — เส้นสถานะมีชีพจร */
+/* Current Complications */
 #back-page .tension-item{
   position:relative;
   z-index:2;
-  transition:background .35s ease,transform .35s ease,border-color .35s ease;
+  transition:background .35s ease,transform .35s ease;
 }
-
-#back-page .tension-item::after{
-  content:"";
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:-1px;
-  height:1px;
-  opacity:.36;
-  background:linear-gradient(90deg,transparent,rgba(221,201,143,.24),transparent);
-}
-
 #back-page .tension-item:hover{
   transform:translateX(5px);
-  background:linear-gradient(90deg,rgba(169,104,117,.045),transparent 72%);
+  background:linear-gradient(90deg,rgba(169,104,117,.035),transparent 72%);
 }
-
-#back-page .tension-marker{
-  box-shadow:0 0 8px currentColor;
-}
-
-#back-page .tension-item:hover .tension-marker{
-  animation:brConcernPulse 1.35s ease-in-out infinite;
-}
-
+#back-page .tension-marker{box-shadow:0 0 8px currentColor}
+#back-page .tension-item:hover .tension-marker{animation:brConcernPulse 1.35s ease-in-out infinite}
 @keyframes brConcernPulse{
   0%,100%{opacity:.48;filter:brightness(.8);box-shadow:0 0 5px currentColor}
   50%{opacity:1;filter:brightness(1.45);box-shadow:0 0 12px currentColor,0 0 24px currentColor}
 }
 
-/* ละอองเฉพาะส่วนล่าง */
+/* ละอองส่วนล่าง */
 #back-page .br-lower-mote{
   position:absolute;
   left:var(--x);
@@ -1195,7 +1081,6 @@ to{transform:translateY(-1.8px) rotate(.22deg)}
   animation:brLowerMote var(--d) linear infinite;
   animation-delay:var(--delay);
 }
-
 @keyframes brLowerMote{
   0%{opacity:0;transform:translate3d(0,18px,0) scale(.6)}
   14%{opacity:.55}
@@ -1203,28 +1088,27 @@ to{transform:translateY(-1.8px) rotate(.22deg)}
   100%{opacity:0;transform:translate3d(var(--drift),-110px,0) scale(1.15)}
 }
 
-/* Footer — เหมือนประตูเวทกลับหน้าร้าน */
+/* Footer */
 #back-page .footer-back{
   min-height:150px;
+  padding:40px 0 60px;
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
-  min-height:150px;
-  padding:40px 0 60px;
-  gap:20px;}
-
+  gap:20px;
+}
 #back-page .footer-back::before{
   content:"";
   position:absolute;
   left:50%;
-  bottom:-170px;
-  width:min(520px,70vw);
+  bottom:-140px;
+  width:min(460px,65vw);
   aspect-ratio:1;
   border-radius:50%;
   transform:translateX(-50%);
   pointer-events:none;
-  opacity:.12;
+  opacity:.10;
   background:
     radial-gradient(circle,transparent 0 42%,rgba(221,201,143,.25) 42.4% 42.8%,transparent 43.2%),
     repeating-conic-gradient(from 0deg,rgba(200,139,152,.17) 0 1deg,transparent 1deg 18deg);
@@ -1232,18 +1116,9 @@ to{transform:translateY(-1.8px) rotate(.22deg)}
   mask:radial-gradient(circle,transparent 0 30%,#000 31% 52%,transparent 53%);
   animation:brReturnSealTurn 120s linear infinite;
 }
+@keyframes brReturnSealTurn{to{transform:translateX(-50%) rotate(-360deg)}}
 
-@keyframes brReturnSealTurn{
-  to{transform:translateX(-50%) rotate(-360deg)}
-}
-
-#back-page .back-btn{
-  position:relative;
-  z-index:3;
-  overflow:hidden;
-  box-shadow:0 0 0 rgba(221,201,143,0);
-}
-
+#back-page .back-btn{position:relative;z-index:3;overflow:hidden;box-shadow:0 0 0 rgba(221,201,143,0)}
 #back-page .back-btn::before{
   content:"";
   position:absolute;
@@ -1254,32 +1129,21 @@ to{transform:translateY(-1.8px) rotate(.22deg)}
   background:linear-gradient(90deg,transparent,rgba(255,239,200,.38),transparent);
   transform:translateX(-120%);
 }
-
-#back-page .back-btn:hover{
-  box-shadow:0 0 20px rgba(221,201,143,.12),0 0 40px rgba(200,139,152,.07);
-}
-
-#back-page .back-btn:hover::before{
-  animation:brReturnButtonSweep 1.05s ease 1;
-}
-
+#back-page .back-btn:hover{box-shadow:0 0 20px rgba(221,201,143,.12),0 0 40px rgba(200,139,152,.07)}
+#back-page .back-btn:hover::before{animation:brReturnButtonSweep 1.05s ease 1}
 @keyframes brReturnButtonSweep{
   0%{opacity:0;transform:translateX(-120%)}
   22%{opacity:.8}
   100%{opacity:0;transform:translateX(120%)}
 }
-
-#back-page .back-btn.is-returning{
-  animation:brReturnPortal 1.2s cubic-bezier(.22,1,.36,1);
-}
-
+#back-page .back-btn.is-returning{animation:brReturnPortal 1.2s cubic-bezier(.22,1,.36,1)}
 @keyframes brReturnPortal{
   0%{filter:brightness(1);transform:scale(1)}
   42%{filter:brightness(1.45);transform:scale(1.06)}
   100%{filter:brightness(.7);transform:scale(.96)}
 }
 
-/* กลีบเวทเฉพาะด้านล่าง */
+/* กลีบส่วนล่าง */
 #back-page .br-lower-petal{
   position:absolute;
   top:-18px;
@@ -1294,30 +1158,50 @@ to{transform:translateY(-1.8px) rotate(.22deg)}
   filter:drop-shadow(0 2px 4px rgba(0,0,0,.18));
   animation:brLowerPetalFall var(--d) ease-in forwards;
 }
-
 @keyframes brLowerPetalFall{
   0%{opacity:0;transform:translate3d(0,-12px,0) rotate(0)}
   16%{opacity:.65}
   100%{opacity:0;transform:translate3d(var(--drift),110vh,0) rotate(var(--spin))}
 }
 
+#back-page .br-section-aura,
+#back-page .br-rune-band{display:none!important}
+
 @media(max-width:700px){
-  #back-page .br-rune-band{display:none}
-  #back-page .footer-back::before{width:120vw;bottom:-180px}
+  #back-page .footer-back::before{width:min(420px,88vw);bottom:-125px}
 }
 
 @media(prefers-reduced-motion:reduce){
-  #back-page .br-section-aura::before,
-  #back-page .br-rune-band span,
   #back-page .rose-cluster,
   #back-page .ledger-section::before,
   #back-page .footer-back::before,
   #back-page .br-lower-mote,
-  #back-page .br-lower-petal{
-    animation:none!important;
-  }
+  #back-page .br-lower-petal{animation:none!important}
 }
 /* ===== END FLORENCIA BACKROOM LOWER SECTIONS MAGIC ===== */
+
+
+/* ===== BACKROOM CLEAN BACKGROUND OVERRIDE ===== */
+#back-page::before{
+  background:radial-gradient(circle at center,transparent 42%,rgba(0,0,0,.58) 100%)!important;
+  background-size:100% 100%!important;
+  mask-image:none!important;
+}
+#back-page .back-hero{
+  background:
+    linear-gradient(rgba(18,9,11,.74),rgba(18,9,11,.74)),
+    radial-gradient(circle at 50% 34%,rgba(183,122,136,.11),transparent 41%)!important;
+}
+#back-page .br-section-aura,
+#back-page .br-rune-band{display:none!important}
+#back-page .extracts-inner,
+#back-page .ledger-section,
+#back-page .tension-section,
+#back-page .footer-back{
+  background:transparent!important;
+  overflow:visible!important;
+}
+/* ===== END BACKROOM CLEAN BACKGROUND OVERRIDE ===== */
 
 </style>
 </head>
@@ -4565,6 +4449,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 <script>
 /* =========================================================
    FLORENCIA BACKROOM — LOWER SECTIONS MAGIC ENGINE
+   CLEAN VERSION
 ========================================================= */
 document.addEventListener("DOMContentLoaded",()=>{
   const back=document.getElementById("back-page");
@@ -4579,50 +4464,28 @@ document.addEventListener("DOMContentLoaded",()=>{
     back.querySelector(".footer-back")
   ].filter(Boolean);
 
-  const runeSets=[
-    ["✦","❦","◌","✧","❧","✦"],
-    ["❀","⋆","✥","⋆","❀","✥"],
-    ["◦","✧","❦","✧","◦","❧"]
-  ];
+  if(!reduced){
+    const colors=[
+      "rgba(221,201,143,.72)",
+      "rgba(200,139,152,.62)",
+      "rgba(113,128,102,.48)"
+    ];
 
-  sections.forEach((section,index)=>{
-    if(!section.querySelector(".br-section-aura")){
-      const aura=document.createElement("span");
-      aura.className="br-section-aura";
-      aura.setAttribute("aria-hidden","true");
-      section.prepend(aura);
-    }
-
-    if(!section.querySelector(".br-rune-band")){
-      const band=document.createElement("div");
-      band.className="br-rune-band";
-      band.setAttribute("aria-hidden","true");
-      const runes=runeSets[index%runeSets.length];
-      band.innerHTML=runes.map(r=>`<span>${r}</span>`).join("");
-      section.prepend(band);
-    }
-
-    if(!reduced){
-      const colors=[
-        "rgba(221,201,143,.72)",
-        "rgba(200,139,152,.62)",
-        "rgba(113,128,102,.48)"
-      ];
-
-      for(let i=0;i<10;i++){
+    sections.forEach(section=>{
+      for(let i=0;i<8;i++){
         const mote=document.createElement("i");
         mote.className="br-lower-mote";
         mote.style.setProperty("--x",`${Math.random()*100}%`);
         mote.style.setProperty("--y",`${10+Math.random()*85}%`);
-        mote.style.setProperty("--s",`${(1+Math.random()*2.5).toFixed(2)}px`);
+        mote.style.setProperty("--s",`${(1+Math.random()*2.3).toFixed(2)}px`);
         mote.style.setProperty("--d",`${(12+Math.random()*18).toFixed(1)}s`);
         mote.style.setProperty("--delay",`${(-Math.random()*20).toFixed(1)}s`);
         mote.style.setProperty("--drift",`${(-45+Math.random()*90).toFixed(1)}px`);
         mote.style.setProperty("--c",colors[Math.floor(Math.random()*colors.length)]);
         section.appendChild(mote);
       }
-    }
-  });
+    });
+  }
 
   const ribbon=back.querySelector(".extracts-ribbon");
   if(ribbon){
@@ -4637,9 +4500,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     ribbonObserver.observe(ribbon);
   }
 
-  const footer=back.querySelector(".footer-back");
   const returnButton=back.querySelector(".back-btn");
-
   if(returnButton){
     returnButton.addEventListener("click",()=>{
       returnButton.classList.remove("is-returning");
@@ -4649,15 +4510,8 @@ document.addEventListener("DOMContentLoaded",()=>{
   }
 
   function spawnLowerPetal(){
-    if(
-      reduced||
-      document.hidden||
-      !back.classList.contains("visible")||
-      !footer
-    )return;
-
-    const candidates=sections.slice(1);
-    const target=candidates[Math.floor(Math.random()*candidates.length)]||footer;
+    if(reduced||document.hidden||!back.classList.contains("visible")||sections.length===0)return;
+    const target=sections[Math.floor(Math.random()*sections.length)];
     const petal=document.createElement("i");
     petal.className="br-lower-petal";
     petal.style.setProperty("--x",`${8+Math.random()*84}%`);
@@ -4676,7 +4530,6 @@ document.addEventListener("DOMContentLoaded",()=>{
     },8500);
   }
 
-  /* เรืองตามตำแหน่งเมาส์ใน Ledger */
   back.querySelectorAll(".ledger-block").forEach(card=>{
     card.addEventListener("pointermove",event=>{
       const rect=card.getBoundingClientRect();
