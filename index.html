@@ -838,6 +838,78 @@ to{transform:translateY(-1.8px) rotate(.22deg)}
 @media(prefers-reduced-motion:reduce){.cw-fx-sun,.cw-fx-cloud,.cw-fx-leaves,.cw-fx-dust,.cw-fx-steam::before,.cw-fx-steam::after,.cw-fx-faller,#cwPaper.fx-breeze,#cwLace.fx-breeze,#cwDried.fx-breeze,#cwWatch.fx-clock-live{animation:none!important}
 }
 /* ===== END FLORENCIA DESK EFFECTS ===== */
+
+/* ===== FLORENCIA WINDOW SHADOW ===== */
+.cw-window-shadow{
+  position:absolute;
+  inset:-16%;
+  z-index:44;
+  pointer-events:none;
+  overflow:hidden;
+  opacity:.30;
+  mix-blend-mode:multiply;
+  filter:blur(1.8px);
+  transform:rotate(10.5deg) scale(1.16);
+  transform-origin:center;
+  animation:cwWindowShadowDrift 28s ease-in-out infinite alternate;
+}
+.cw-window-shadow::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      to bottom,
+      transparent 0 20%,
+      rgba(36,24,17,.34) 20.4% 22.1%,
+      transparent 22.6% 72.5%,
+      rgba(36,24,17,.30) 73% 74.8%,
+      transparent 75.3% 100%
+    ),
+    linear-gradient(
+      to right,
+      transparent 0 25%,
+      rgba(36,24,17,.34) 25.4% 27.1%,
+      transparent 27.6% 68%,
+      rgba(36,24,17,.31) 68.4% 70.1%,
+      transparent 70.6% 100%
+    );
+  box-shadow:0 0 28px rgba(38,24,15,.18);
+}
+.cw-window-shadow::after{
+  content:"";
+  position:absolute;
+  inset:-8%;
+  background:
+    radial-gradient(circle at 10% 7%,rgba(255,247,221,.32),transparent 34%),
+    linear-gradient(115deg,rgba(255,244,211,.10),transparent 38%);
+  mix-blend-mode:screen;
+  opacity:.72;
+}
+@keyframes cwWindowShadowDrift{
+  from{transform:rotate(9.5deg) translate3d(-1.2%,-.6%,0) scale(1.15)}
+  to{transform:rotate(11.5deg) translate3d(1.4%,.8%,0) scale(1.18)}
+}
+.cw-desk-frame.fx-night .cw-window-shadow{
+  opacity:.05;
+  filter:blur(2.6px);
+}
+.cw-desk-frame.fx-evening .cw-window-shadow{opacity:.20}
+.cw-desk-frame.fx-morning .cw-window-shadow{opacity:.34}
+.cw-desk-frame.fx-afternoon .cw-window-shadow{opacity:.30}
+.cw-desk-frame.fx-witching-hour .cw-window-shadow{opacity:0}
+@media(max-width:760px){
+  .cw-window-shadow{
+    inset:-22%;
+    opacity:.22;
+    transform:rotate(9deg) scale(1.22);
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .cw-window-shadow{animation:none!important}
+}
+/* ===== END FLORENCIA WINDOW SHADOW ===== */
+
 </style>
 </head>
 <body>
@@ -866,6 +938,7 @@ Complications
 <div class="cw-desk-frame" id="cwDeskFrame">
 <div class="cw-desk-light" id="cwDeskLight">
 </div>
+<div class="cw-window-shadow" aria-hidden="true"></div>
 <div id="cwDeskLayers">
 </div>
 <div id="cwDeskHitboxes">
