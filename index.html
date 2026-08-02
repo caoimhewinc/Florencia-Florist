@@ -3,12 +3,9 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>
-Florencia Florist
-</title>
+<title>Florencia Florist</title>
 <link href="pngtree-rose-flowers-vintage.png" rel="icon" type="image/png"/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=IM+Fell+English:ital@0;1&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-<style>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=IM+Fell+English:ital@0;1&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet"/><style>
 :root{--cream:#f5f0e8;--parchment:#ede5d0;--ink:#1a1410;--ink-muted:#3d3228;--gold:#b8972a;--gold-light:#d4b24a;--moss:#3a4a2e;--moss-light:#5a7248;--rouge:#8b2e2e;--shadow:rgba(20,12,5,0.18);--night:#0d0b08;--night-surface:#16120d;--night-card:#1e1912;--void:#120f0a;--poison-green:#2d5a1b;--poison-bright:#4a8c2a;--poison-glow:#7ec850;--blood:#6b1a1a;--blood-bright:#a02828;--old-gold:#b99a5b;--soft-gold:#d6bf86;--rose:#a86170;--rose-dark:#6e3945;--rose-pale:#d8a5ae}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Crimson Pro',Georgia,serif;background:var(--cream);color:var(--ink);min-height:100vh;overflow-x:hidden;cursor:default}
@@ -108,8 +105,8 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .circle-note{max-width:100%;margin:18px 0 28px;padding:16px}
 .extract-table-header,.extract-row{grid-template-columns:1fr 1fr;gap:12px}
 }
-.extract-row > div{margin-bottom:12px}
-.extract-row > div:last-child{margin-bottom:0}
+.extract-row>div{margin-bottom:12px}
+.extract-row>div:last-child{margin-bottom:0}
 .ext-name{font-size:22px}
 .ext-source,.ext-effect{font-size:13px}
 .ext-effect{line-height:1.7}
@@ -277,7 +274,7 @@ to{opacity:1;transform:translateY(0)}
 html{scroll-behavior:smooth}
 #front-page{position:relative;min-height:100vh;overflow:hidden;background:linear-gradient(rgba(248,244,234,.76),rgba(242,233,215,.84)),url("images/Botanical-vintage.jpg");background-size:cover;background-position:center top;background-repeat:no-repeat;background-attachment:fixed}
 #front-page::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(circle at 50% 18%,rgba(255,253,247,.18),transparent 38%),linear-gradient(180deg,rgba(255,252,245,.04),rgba(238,225,201,.16))}
-#front-page > *{position:relative;z-index:1}
+#front-page>*{position:relative;z-index:1}
 .front-hero{width:100%;min-height:100vh;padding:112px 24px 72px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:transparent}
 .shop-eyebrow{width:100%;margin:0 auto 22px;text-align:center}
 .shop-logo-wrap{width:100%;max-width:760px;margin:10px auto 28px;display:flex;flex-direction:column;align-items:center;justify-content:center}
@@ -304,11 +301,11 @@ html{scroll-behavior:smooth}
 .about-text{padding:90px clamp(40px,6vw,100px)}
 .about-text p{max-width:620px}
 .about-image{min-height:700px}
-@media (max-width:1050px){.products-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:1050px){.products-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 .about-strip{grid-template-columns:1fr}
 .about-image{min-height:520px}
 }
-@media (max-width:700px){#front-page{background-attachment:scroll;background-position:center top}
+@media(max-width:700px){#front-page{background-attachment:scroll;background-position:center top}
 .front-hero{min-height:100svh;padding:100px 20px 58px}
 .shop-logo{width:min(88vw,540px)}
 .shop-eyebrow{padding:0 20px;font-size:9px;line-height:1.7}
@@ -328,8 +325,8 @@ html{scroll-behavior:smooth}
 }
 #back-page .extracts-section,#back-page .extracts-inner,#back-page .ledger-section,#back-page .tension-section,#back-page .footer-back{background:transparent !important}
 #back-page .extracts-inner,#back-page .ledger-section,#back-page .tension-section{box-shadow:none !important;border:none !important}
-#back-page .extract-row{background:linear-gradient( 135deg,rgba(255,255,255,0.022),rgba(169,104,117,0.025) )}
-#back-page .ledger-block{background:linear-gradient( 145deg,rgba(255,255,255,0.022),rgba(169,104,117,0.035) )}
+#back-page .extract-row{background:linear-gradient(135deg,rgba(255,255,255,0.022),rgba(169,104,117,0.025))}
+#back-page .ledger-block{background:linear-gradient(145deg,rgba(255,255,255,0.022),rgba(169,104,117,0.035))}
 #back-page .status-legend{background:rgba(15,10,6,0.38)}
 #back-page .tension-item{background:transparent}
 #back-page .footer-back{box-shadow:none}
@@ -356,7 +353,7 @@ to{transform:translateX(-50%) rotate(421deg)}
 50%{filter:brightness(1.4)}
 }
 #back-page .back-hero{isolation:isolate}
-#back-page .backroom-border-glint{position:absolute;inset:0;z-index:10;pointer-events:none;padding:1px;background:conic-gradient( from var(--glint-angle,0deg),transparent 0deg,transparent 310deg,rgba(221,201,143,.05) 330deg,rgba(255,235,180,.62) 344deg,rgba(221,201,143,.05) 354deg,transparent 360deg );-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:backroomBorderGlint 12s linear infinite}
+#back-page .backroom-border-glint{position:absolute;inset:0;z-index:10;pointer-events:none;padding:1px;background:conic-gradient(from var(--glint-angle,0deg),transparent 0deg,transparent 310deg,rgba(221,201,143,.05) 330deg,rgba(255,235,180,.62) 344deg,rgba(221,201,143,.05) 354deg,transparent 360deg);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:backroomBorderGlint 12s linear infinite}
 @property --glint-angle{syntax:"<angle>";inherits:false;initial-value:0deg}
 @keyframes backroomBorderGlint{to{--glint-angle:360deg}
 }
@@ -365,7 +362,7 @@ to{transform:translateX(-50%) rotate(421deg)}
 49%{text-shadow:-.35px 3px 0 #080405,0 13px 36px rgba(0,0,0,.58),0 0 20px rgba(221,201,143,.04)}
 74%{text-shadow:.2px 3px 0 #080405,0 11px 32px rgba(0,0,0,.52),0 0 12px rgba(226,177,185,.04)}
 }
-.backroom-cursor-light{position:fixed;left:0;top:0;z-index:8;width:420px;height:420px;border-radius:50%;pointer-events:none;opacity:0;transform:translate3d( calc(var(--mouse-x,-500px) - 50%),calc(var(--mouse-y,-500px) - 50%),0 );background:radial-gradient( circle,rgba(255,224,173,.07) 0%,rgba(200,139,152,.035) 28%,rgba(111,48,63,.014) 48%,transparent 72% );filter:blur(3px);transition:opacity .45s ease,transform .06s linear}
+.backroom-cursor-light{position:fixed;left:0;top:0;z-index:8;width:420px;height:420px;border-radius:50%;pointer-events:none;opacity:0;transform:translate3d(calc(var(--mouse-x,-500px) - 50%),calc(var(--mouse-y,-500px) - 50%),0);background:radial-gradient(circle,rgba(255,224,173,.07) 0%,rgba(200,139,152,.035) 28%,rgba(111,48,63,.014) 48%,transparent 72%);filter:blur(3px);transition:opacity .45s ease,transform .06s linear}
 #back-page.visible .backroom-cursor-light{opacity:1}
 #back-page .extract-row{overflow:hidden}
 #back-page .extract-row::before{width:5px;transition:width .38s cubic-bezier(.22,1,.36,1),opacity .38s ease,filter .38s ease}
@@ -396,10 +393,10 @@ to{transform:translateX(-50%) rotate(421deg)}
 #back-page .grade-occult{color:#decda2;border-color:rgba(185,154,91,.38);background:linear-gradient(135deg,rgba(92,74,48,.78),rgba(25,18,12,.9))}
 #back-page .grade-illicit{color:#f0c7ce;border-color:rgba(168,92,104,.48);background:linear-gradient(135deg,rgba(126,40,55,.82),rgba(40,12,18,.94))}
 #back-page .grade-forbidden:hover,#back-page .grade-restricted:hover,#back-page .grade-occult:hover,#back-page .grade-illicit:hover{transform:translateY(-1px) scale(1.035);color:#fff1e4;border-color:rgba(244,214,177,.68);filter:brightness(1.18) saturate(1.08);box-shadow:0 0 10px rgba(200,139,152,.24),0 0 24px rgba(221,201,143,.11),inset 0 0 12px rgba(255,255,255,.04)}
-@media (prefers-reduced-motion:reduce){#back-page,#back-page *,#back-page *::before,#back-page *::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;scroll-behavior:auto !important}
+@media(prefers-reduced-motion:reduce){#back-page,#back-page *,#back-page *::before,#back-page *::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;scroll-behavior:auto !important}
 .backroom-cursor-light,.backroom-dust-layer,.backroom-orbit{display:none !important}
 }
-@media (max-width:700px){.backroom-cursor-light{display:none}
+@media(max-width:700px){.backroom-cursor-light{display:none}
 .backroom-dust-layer{opacity:.55}
 .backroom-orbit-one{width:520px;height:520px;left:-310px}
 .backroom-orbit-two{width:360px;height:360px;right:-230px}
@@ -414,9 +411,9 @@ to{transform:translateX(-50%) rotate(421deg)}
 75%{text-shadow:0 3px 0 #080405,0 11px 32px rgba(0,0,0,.52),0 0 12px rgba(226,177,185,.05)}
 }
 #florencia-cursor-canvas{position:fixed;inset:0;width:100vw;height:100vh;z-index:99998;pointer-events:none;opacity:1}
-@media (hover:hover) and (pointer:fine){body,a,button,.shop-logo,.secret-btn,.back-btn{cursor:none !important}
+@media(hover:hover) and(pointer:fine){body,a,button,.shop-logo,.secret-btn,.back-btn{cursor:none !important}
 }
-@media (hover:none),(pointer:coarse),(prefers-reduced-motion:reduce){#florencia-cursor-canvas{display:none !important}
+@media(hover:none),(pointer:coarse),(prefers-reduced-motion:reduce){#florencia-cursor-canvas{display:none !important}
 }
 #back-page .ledger-section{perspective:1200px;isolation:isolate}
 #back-page .ledger-section.is-reading .ledger-block{opacity:.34;filter:brightness(.62) saturate(.72);transform:scale(.985)}
@@ -426,11 +423,11 @@ to{transform:translateX(-50%) rotate(421deg)}
 @keyframes ledgerLivingPaper{0%,100%{transform:translateY(0) scale(1)}
 50%{transform:translateY(-1px) scale(1.0025)}
 }
-#back-page .ledger-candle{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0;background:radial-gradient( circle 190px at var(--ledger-x,50%) var(--ledger-y,50%),rgba(255,224,162,.15) 0%,rgba(221,201,143,.075) 28%,rgba(169,104,117,.025) 52%,transparent 74% );mix-blend-mode:screen;transition:opacity .4s ease}
+#back-page .ledger-candle{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0;background:radial-gradient(circle 190px at var(--ledger-x,50%) var(--ledger-y,50%),rgba(255,224,162,.15) 0%,rgba(221,201,143,.075) 28%,rgba(169,104,117,.025) 52%,transparent 74%);mix-blend-mode:screen;transition:opacity .4s ease}
 #back-page .ledger-block.is-reading .ledger-candle{opacity:1}
 #back-page .ledger-title,#back-page .ledger-body{position:relative;z-index:3}
-#back-page .ledger-title::after{content:"";display:block;width:min(220px,72%);height:1px;margin-top:12px;background:linear-gradient( 90deg,var(--br-gold-light),rgba(221,201,143,.35),transparent );transform:scaleX(0);transform-origin:left;opacity:0}
-#back-page .red-ledger .ledger-title::after{background:linear-gradient( 90deg,var(--br-pale),rgba(200,139,152,.34),transparent )}
+#back-page .ledger-title::after{content:"";display:block;width:min(220px,72%);height:1px;margin-top:12px;background:linear-gradient(90deg,var(--br-gold-light),rgba(221,201,143,.35),transparent);transform:scaleX(0);transform-origin:left;opacity:0}
+#back-page .red-ledger .ledger-title::after{background:linear-gradient(90deg,var(--br-pale),rgba(200,139,152,.34),transparent)}
 #back-page .ledger-block.is-reading .ledger-title::after{animation:ledgerInkWrite .85s cubic-bezier(.22,1,.36,1) forwards}
 @keyframes ledgerInkWrite{0%{transform:scaleX(0);opacity:0;filter:blur(1px)}
 20%{opacity:1}
@@ -450,15 +447,15 @@ to{transform:translateX(-50%) rotate(421deg)}
 #back-page .red-ledger .ledger-dust{background:rgba(226,177,185,.65);box-shadow:0 0 7px rgba(200,139,152,.28)}
 @keyframes ledgerDustRelease{0%{opacity:0;transform:translate3d(0,0,0) scale(.5)}
 18%{opacity:.82}
-100%{opacity:0;transform:translate3d( var(--ledger-dust-x,15px),var(--ledger-dust-y,-28px),0 ) scale(.2)}
+100%{opacity:0;transform:translate3d(var(--ledger-dust-x,15px),var(--ledger-dust-y,-28px),0) scale(.2)}
 }
-#back-page .ledger-block::after{content:"";position:absolute;inset:-40% auto -40% -24%;z-index:2;width:16%;pointer-events:none;opacity:0;background:linear-gradient( 90deg,transparent,rgba(255,235,190,.12),transparent );transform:skewX(-16deg)}
+#back-page .ledger-block::after{content:"";position:absolute;inset:-40% auto -40% -24%;z-index:2;width:16%;pointer-events:none;opacity:0;background:linear-gradient(90deg,transparent,rgba(255,235,190,.12),transparent);transform:skewX(-16deg)}
 #back-page .ledger-block.is-reading::after{animation:ledgerEdgeShimmer 1.4s ease .18s 1}
 @keyframes ledgerEdgeShimmer{0%{left:-24%;opacity:0}
 18%{opacity:.65}
 100%{left:120%;opacity:0}
 }
-@media (prefers-reduced-motion:reduce),(pointer:coarse){#back-page .ledger-block{animation:none}
+@media(prefers-reduced-motion:reduce),(pointer:coarse){#back-page .ledger-block{animation:none}
 #back-page .ledger-section.is-reading .ledger-block,#back-page .ledger-section.is-reading .ledger-block.is-reading{transform:none;opacity:1;filter:none}
 #back-page .ledger-page-curl,#back-page .ledger-candle{display:none}
 }
@@ -634,12 +631,13 @@ to{transform:translateX(108%)}
 }
 @media(prefers-reduced-motion:reduce){#flowers::after,.product-card:hover .product-icon,.card-pollen,.card-petal{animation:none!important}
 .product-card,.product-card-inner,.product-sketch,.product-stem{transition:none!important}
-}:root{--cw-lift:-10px;--cw-lift-scale:1.015;--cw-soft-lift:-5px;--cw-soft-scale:1.006;--cw-logo-y:-18%;--cw-logo-scale:.46;--cw-logo-hover-scale:.475;--cw-ease:cubic-bezier(.19,1,.22,1)}
+}
+:root{--cw-lift:-10px;--cw-lift-scale:1.015;--cw-soft-lift:-5px;--cw-soft-scale:1.006;--cw-logo-y:-18%;--cw-logo-scale:.46;--cw-logo-hover-scale:.475;--cw-ease:cubic-bezier(.19,1,.22,1)}
 #front-page .front-hero.caoimhe-desk{position:relative;display:grid;place-items:center;width:100%;min-height:100svh;padding:82px 28px 72px;overflow:hidden;isolation:isolate;text-align:initial;background:transparent}
 #front-page .front-hero.caoimhe-desk::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.3;background:radial-gradient(circle at 50% 42%,rgba(255,235,190,.25),transparent 40%),linear-gradient(rgba(246,240,226,.72),rgba(233,222,202,.76))}
 #front-page .front-hero.caoimhe-desk::after{content:"";position:absolute;inset:0;z-index:50;width:auto;height:auto;right:auto;bottom:auto;pointer-events:none;opacity:1;background:none;box-shadow:inset 0 0 110px rgba(46,27,14,.17)}
-.cw-desk-frame{position:relative;width:min(1500px,96vw);aspect-ratio:3/2;overflow:hidden;isolation:isolate;background:#5a4032;border-radius:46px;box-shadow:0 35px 85px rgba(37,21,11,.30),0 10px 30px rgba(64,41,24,.14),inset 0 3px rgba(255,255,255,.20);-webkit-mask-image:radial-gradient( ellipse at center,#000 0%,#000 72%,rgba(0,0,0,.96) 82%,rgba(0,0,0,.72) 91%,transparent 100% );mask-image:radial-gradient( ellipse at center,#000 0%,#000 72%,rgba(0,0,0,.96) 82%,rgba(0,0,0,.72) 91%,transparent 100% );transform:translateZ(0)}
-.cw-desk-frame::before{content:"";position:absolute;inset:0;z-index:40;pointer-events:none;border-radius:inherit;background:radial-gradient( ellipse at center,transparent 54%,rgba(65,38,22,.035) 70%,rgba(54,31,18,.12) 88%,rgba(36,20,12,.24) 100% );box-shadow:inset 0 0 45px rgba(255,239,205,.06),inset 0 0 95px rgba(42,22,12,.13)}
+.cw-desk-frame{position:relative;width:min(1500px,96vw);aspect-ratio:3/2;overflow:hidden;isolation:isolate;background:#5a4032;border-radius:46px;box-shadow:0 35px 85px rgba(37,21,11,.30),0 10px 30px rgba(64,41,24,.14),inset 0 3px rgba(255,255,255,.20);-webkit-mask-image:radial-gradient(ellipse at center,#000 0%,#000 72%,rgba(0,0,0,.96) 82%,rgba(0,0,0,.72) 91%,transparent 100%);mask-image:radial-gradient(ellipse at center,#000 0%,#000 72%,rgba(0,0,0,.96) 82%,rgba(0,0,0,.72) 91%,transparent 100%);transform:translateZ(0)}
+.cw-desk-frame::before{content:"";position:absolute;inset:0;z-index:40;pointer-events:none;border-radius:inherit;background:radial-gradient(ellipse at center,transparent 54%,rgba(65,38,22,.035) 70%,rgba(54,31,18,.12) 88%,rgba(36,20,12,.24) 100%);box-shadow:inset 0 0 45px rgba(255,239,205,.06),inset 0 0 95px rgba(42,22,12,.13)}
 .cw-desk-layer{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;pointer-events:none;transform:translateY(0) scale(1);transform-origin:center;transition:transform .55s var(--cw-ease),filter .45s ease,opacity .45s ease;will-change:transform,filter}
 .cw-layer-stain{opacity:.82;mix-blend-mode:multiply;filter:sepia(.1) saturate(.78) brightness(.94)}
 .cw-layer-paper{filter:sepia(.08) saturate(.92) brightness(.985) drop-shadow(8px 12px 10px rgba(27,15,8,.22))}
@@ -670,7 +668,7 @@ to{transform:translateX(108%)}
 #cwKey{z-index:21}
 .cw-desk-layer.is-hovered{transform:translateY(var(--cw-lift)) scale(var(--cw-lift-scale));filter:sepia(.03) saturate(.98) brightness(1.045) drop-shadow(10px 18px 14px rgba(24,12,6,.34))}
 .cw-desk-layer.is-soft-hovered{transform:translateY(var(--cw-soft-lift)) scale(var(--cw-soft-scale));filter:sepia(.04) saturate(.94) brightness(1.025) drop-shadow(7px 13px 11px rgba(24,12,6,.25))}
-#cwClover.is-hovered{transform:translateY(calc(12px + var(--cw-lift))) scale(var(--cw-lift-scale))}
+#cwClover.is-hovered{transform:translateY(calc(12px+var(--cw-lift))) scale(var(--cw-lift-scale))}
 #cwRedRose,#cwPinkRose{transform-origin:center bottom}
 #cwRedRose.is-hovered{transform:translateY(-13px) rotate(-1.2deg) scale(1.045);filter:sepia(.02) saturate(1.04) brightness(1.04) drop-shadow(8px 17px 13px rgba(27,14,7,.32))}
 #cwPinkRose.is-hovered{transform:translateY(-12px) rotate(1deg) scale(1.045);filter:sepia(.02) saturate(1.02) brightness(1.045) drop-shadow(8px 17px 13px rgba(27,14,7,.30))}
@@ -717,11 +715,11 @@ to{transform:translateX(108%)}
 @media(prefers-reduced-motion:reduce){.cw-desk-layer,.cw-hitbox::after{transition:none!important}
 }
 #front-page .front-hero.caoimhe-desk{overflow:visible;filter:drop-shadow(0 22px 34px rgba(45,27,15,.16))}
-#front-page .cw-desk-frame{position:relative;overflow:hidden;isolation:isolate;border-radius:34px;box-shadow:none;-webkit-mask-image:radial-gradient( ellipse 68% 66% at 50% 48%,#000 0%,#000 62%,rgba(0,0,0,.96) 70%,rgba(0,0,0,.78) 79%,rgba(0,0,0,.48) 87%,rgba(0,0,0,.20) 94%,transparent 100% );mask-image:radial-gradient( ellipse 68% 66% at 50% 48%,#000 0%,#000 62%,rgba(0,0,0,.96) 70%,rgba(0,0,0,.78) 79%,rgba(0,0,0,.48) 87%,rgba(0,0,0,.20) 94%,transparent 100% );-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:100% 100%;mask-size:100% 100%}
-#front-page .cw-desk-frame::before{content:"";position:absolute;inset:-2%;z-index:40;pointer-events:none;border-radius:inherit;background:radial-gradient( ellipse at 50% 47%,transparent 52%,rgba(54,32,18,.025) 67%,rgba(43,24,14,.075) 80%,rgba(31,17,10,.16) 94%,rgba(21,11,7,.24) 100% );filter:blur(5px);transform:scale(1.02)}
+#front-page .cw-desk-frame{position:relative;overflow:hidden;isolation:isolate;border-radius:34px;box-shadow:none;-webkit-mask-image:radial-gradient(ellipse 68% 66% at 50% 48%,#000 0%,#000 62%,rgba(0,0,0,.96) 70%,rgba(0,0,0,.78) 79%,rgba(0,0,0,.48) 87%,rgba(0,0,0,.20) 94%,transparent 100%);mask-image:radial-gradient(ellipse 68% 66% at 50% 48%,#000 0%,#000 62%,rgba(0,0,0,.96) 70%,rgba(0,0,0,.78) 79%,rgba(0,0,0,.48) 87%,rgba(0,0,0,.20) 94%,transparent 100%);-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:100% 100%;mask-size:100% 100%}
+#front-page .cw-desk-frame::before{content:"";position:absolute;inset:-2%;z-index:40;pointer-events:none;border-radius:inherit;background:radial-gradient(ellipse at 50% 47%,transparent 52%,rgba(54,32,18,.025) 67%,rgba(43,24,14,.075) 80%,rgba(31,17,10,.16) 94%,rgba(21,11,7,.24) 100%);filter:blur(5px);transform:scale(1.02)}
 #front-page .cw-desk-light{z-index:45}
 @media(max-width:760px){#front-page .front-hero.caoimhe-desk{overflow:hidden;filter:none}
-#front-page .cw-desk-frame{border-radius:18px;-webkit-mask-image:radial-gradient( ellipse 78% 76% at 50% 49%,#000 0%,#000 76%,rgba(0,0,0,.92) 85%,rgba(0,0,0,.48) 94%,transparent 100% );mask-image:radial-gradient( ellipse 78% 76% at 50% 49%,#000 0%,#000 76%,rgba(0,0,0,.92) 85%,rgba(0,0,0,.48) 94%,transparent 100% )}
+#front-page .cw-desk-frame{border-radius:18px;-webkit-mask-image:radial-gradient(ellipse 78% 76% at 50% 49%,#000 0%,#000 76%,rgba(0,0,0,.92) 85%,rgba(0,0,0,.48) 94%,transparent 100%);mask-image:radial-gradient(ellipse 78% 76% at 50% 49%,#000 0%,#000 76%,rgba(0,0,0,.92) 85%,rgba(0,0,0,.48) 94%,transparent 100%)}
 }
 @media(max-width:760px){}
 @media(prefers-reduced-motion:reduce){}
@@ -741,7 +739,7 @@ Works with #cwDeskFrame, #cwDeskLayers and existing cw* IDs
 .cw-desk-frame.fx-afternoon{--fx-day-warmth:1;--fx-day-brightness:1.02;--fx-light-a:rgba(255,244,211,.14)}
 .cw-desk-frame.fx-evening{--fx-day-warmth:.92;--fx-day-brightness:.96;--fx-light-a:rgba(255,169,98,.17)}
 .cw-desk-frame.fx-night{--fx-day-warmth:.8;--fx-day-brightness:.79;--fx-light-a:rgba(255,177,102,.11)}
-.cw-fx-sun{inset:-35%;opacity:var(--fx-sun-opacity,.8);background:linear-gradient( 114deg,transparent 25%,var(--fx-light-b) 38%,var(--fx-light-a) 48%,rgba(255,247,223,.07) 55%,transparent 68% );mix-blend-mode:screen;filter:blur(8px);animation:fxSunTravel 42s ease-in-out infinite alternate}
+.cw-fx-sun{inset:-35%;opacity:var(--fx-sun-opacity,.8);background:linear-gradient(114deg,transparent 25%,var(--fx-light-b) 38%,var(--fx-light-a) 48%,rgba(255,247,223,.07) 55%,transparent 68%);mix-blend-mode:screen;filter:blur(8px);animation:fxSunTravel 42s ease-in-out infinite alternate}
 @keyframes fxSunTravel{from{transform:translate3d(-16%,-4%,0) rotate(-2deg)}
 to{transform:translate3d(18%,7%,0) rotate(4deg)}
 }
@@ -755,9 +753,9 @@ to{transform:translate3d(1.5%,1%,0) rotate(1.3deg) scale(1.04)}
 76%{opacity:.22;transform:translateX(16%)}
 86%{opacity:0;transform:translateX(38%)}
 }
-.cw-fx-cursor-glow{inset:0;opacity:.75;background:radial-gradient( circle 250px at var(--fx-mouse-x) var(--fx-mouse-y),rgba(255,237,191,.12),rgba(255,218,154,.035) 42%,transparent 72% );transition:opacity .4s ease}
-.cw-fx-vignette{inset:0;background:radial-gradient( ellipse at center,transparent 48%,rgba(77,48,28,.025) 72%,rgba(40,24,14,.13) 100% )}
-.cw-desk-layer{--fx-shadow-filter:drop-shadow( var(--fx-shadow-x) var(--fx-shadow-y) 10px rgba(26,14,7,.16) )}
+.cw-fx-cursor-glow{inset:0;opacity:.75;background:radial-gradient(circle 250px at var(--fx-mouse-x) var(--fx-mouse-y),rgba(255,237,191,.12),rgba(255,218,154,.035) 42%,transparent 72%);transition:opacity .4s ease}
+.cw-fx-vignette{inset:0;background:radial-gradient(ellipse at center,transparent 48%,rgba(77,48,28,.025) 72%,rgba(40,24,14,.13) 100%)}
+.cw-desk-layer{--fx-shadow-filter:drop-shadow(var(--fx-shadow-x) var(--fx-shadow-y) 10px rgba(26,14,7,.16))}
 .cw-layer-metal.fx-metal-glint{animation:fxMetalGlint 1.15s ease}
 @keyframes fxMetalGlint{0%,100%{filter:brightness(1) saturate(.9) drop-shadow(7px 11px 9px rgba(22,11,6,.25))}
 42%{filter:brightness(1.22) saturate(1.03) drop-shadow(0 0 9px rgba(255,229,165,.5)) drop-shadow(9px 15px 10px rgba(22,11,6,.28))}
@@ -833,395 +831,187 @@ to{transform:translateY(-1.8px) rotate(.22deg)}
 @media(max-width:760px){.cw-fx-leaves{opacity:.08}
 .cw-fx-cursor-glow{display:none}
 }
-@media(hover:none),(pointer:coarse){
-}
+@media(hover:none),(pointer:coarse){}
 @media(prefers-reduced-motion:reduce){.cw-fx-sun,.cw-fx-cloud,.cw-fx-leaves,.cw-fx-dust,.cw-fx-steam::before,.cw-fx-steam::after,.cw-fx-faller,#cwPaper.fx-breeze,#cwLace.fx-breeze,#cwDried.fx-breeze,#cwWatch.fx-clock-live{animation:none!important}
 }
 /* ===== END FLORENCIA DESK EFFECTS ===== */
-
 /* ===== FLORENCIA WINDOW SHADOW ===== */
-.cw-window-shadow{
-  position:absolute;
-  inset:-16%;
-  z-index:44;
-  pointer-events:none;
-  overflow:hidden;
-  opacity:.30;
-  mix-blend-mode:multiply;
-  filter:blur(1.8px);
-  transform:rotate(10.5deg) scale(1.16);
-  transform-origin:center;
-  animation:cwWindowShadowDrift 28s ease-in-out infinite alternate;
+.cw-window-shadow{position:absolute;inset:-16%;z-index:44;pointer-events:none;overflow:hidden;opacity:.30;mix-blend-mode:multiply;filter:blur(1.8px);transform:rotate(10.5deg) scale(1.16);transform-origin:center;animation:cwWindowShadowDrift 28s ease-in-out infinite alternate;}
+.cw-window-shadow::before{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,transparent 0 20%,rgba(36,24,17,.34) 20.4% 22.1%,transparent 22.6% 72.5%,rgba(36,24,17,.30) 73% 74.8%,transparent 75.3% 100%),linear-gradient(to right,transparent 0 25%,rgba(36,24,17,.34) 25.4% 27.1%,transparent 27.6% 68%,rgba(36,24,17,.31) 68.4% 70.1%,transparent 70.6% 100%);box-shadow:0 0 28px rgba(38,24,15,.18);}
+.cw-window-shadow::after{content:"";position:absolute;inset:-8%;background:radial-gradient(circle at 10% 7%,rgba(255,247,221,.32),transparent 34%),linear-gradient(115deg,rgba(255,244,211,.10),transparent 38%);mix-blend-mode:screen;opacity:.72;}
+@keyframes cwWindowShadowDrift{from{transform:rotate(9.5deg) translate3d(-1.2%,-.6%,0) scale(1.15)}
+to{transform:rotate(11.5deg) translate3d(1.4%,.8%,0) scale(1.18)}
 }
-.cw-window-shadow::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(
-      to bottom,
-      transparent 0 20%,
-      rgba(36,24,17,.34) 20.4% 22.1%,
-      transparent 22.6% 72.5%,
-      rgba(36,24,17,.30) 73% 74.8%,
-      transparent 75.3% 100%
-    ),
-    linear-gradient(
-      to right,
-      transparent 0 25%,
-      rgba(36,24,17,.34) 25.4% 27.1%,
-      transparent 27.6% 68%,
-      rgba(36,24,17,.31) 68.4% 70.1%,
-      transparent 70.6% 100%
-    );
-  box-shadow:0 0 28px rgba(38,24,15,.18);
-}
-.cw-window-shadow::after{
-  content:"";
-  position:absolute;
-  inset:-8%;
-  background:
-    radial-gradient(circle at 10% 7%,rgba(255,247,221,.32),transparent 34%),
-    linear-gradient(115deg,rgba(255,244,211,.10),transparent 38%);
-  mix-blend-mode:screen;
-  opacity:.72;
-}
-@keyframes cwWindowShadowDrift{
-  from{transform:rotate(9.5deg) translate3d(-1.2%,-.6%,0) scale(1.15)}
-  to{transform:rotate(11.5deg) translate3d(1.4%,.8%,0) scale(1.18)}
-}
-.cw-desk-frame.fx-night .cw-window-shadow{
-  opacity:.18;
-  filter:blur(2.6px);
-}
+.cw-desk-frame.fx-night .cw-window-shadow{opacity:.18;filter:blur(2.6px);}
 .cw-desk-frame.fx-evening .cw-window-shadow{opacity:.24}
 .cw-desk-frame.fx-morning .cw-window-shadow{opacity:.34}
 .cw-desk-frame.fx-afternoon .cw-window-shadow{opacity:.30}
 .cw-desk-frame.fx-witching-hour .cw-window-shadow{opacity:12}
-@media(max-width:760px){
-  .cw-window-shadow{
-    inset:-22%;
-    opacity:.22;
-    transform:rotate(9deg) scale(1.22);
-  }
+@media(max-width:760px){.cw-window-shadow{inset:-22%;opacity:.22;transform:rotate(9deg) scale(1.22);}
 }
-@media(prefers-reduced-motion:reduce){
-  .cw-window-shadow{animation:none!important}
+@media(prefers-reduced-motion:reduce){.cw-window-shadow{animation:none!important}
 }
 /* ===== END FLORENCIA WINDOW SHADOW ===== */
-
-
-
 /* =========================================================
-   FLORENCIA BACKROOM — VICTORIAN BOTANICAL MAGIC
-   ทำงานเฉพาะภายใน #back-page
+FLORENCIA BACKROOM — VICTORIAN BOTANICAL MAGIC
+ทำงานเฉพาะภายใน #back-page
 ========================================================= */
 #back-page{--bm-gold:#d7bf82;--bm-rose:#b77a88;--bm-moss:#718066;background:radial-gradient(circle at 50% 15%,rgba(181,112,128,.18),transparent 29%),radial-gradient(circle at 12% 66%,rgba(113,128,102,.09),transparent 27%),radial-gradient(circle at 89% 75%,rgba(215,191,130,.08),transparent 25%),linear-gradient(180deg,#10090b 0%,#190e12 46%,#0d0809 100%)}
 #back-page .backroom-magic-root{position:fixed;inset:0;z-index:1;overflow:hidden;pointer-events:none;isolation:isolate}
 #back-page .bm-haze{position:absolute;inset:-20%;opacity:.38;filter:blur(38px);background:radial-gradient(ellipse at 28% 38%,rgba(168,97,112,.13),transparent 48%),radial-gradient(ellipse at 72% 57%,rgba(215,191,130,.09),transparent 45%),radial-gradient(ellipse at 48% 86%,rgba(113,128,102,.07),transparent 43%);animation:bmHazeDrift 25s ease-in-out infinite alternate}
-@keyframes bmHazeDrift{from{transform:translate3d(-2%,-1%,0) scale(1.02)}to{transform:translate3d(2%,1.5%,0) scale(1.07)}}
+@keyframes bmHazeDrift{from{transform:translate3d(-2%,-1%,0) scale(1.02)}
+to{transform:translate3d(2%,1.5%,0) scale(1.07)}
+}
 #back-page .bm-sigil{position:absolute;left:50%;top:48%;width:min(78vw,980px);aspect-ratio:1;border-radius:50%;opacity:.10;transform:translate(-50%,-50%);background:radial-gradient(circle,transparent 0 43%,rgba(215,191,130,.18) 43.3% 43.8%,transparent 44.2%),radial-gradient(circle,transparent 0 31%,rgba(183,122,136,.15) 31.2% 31.7%,transparent 32.1%),repeating-conic-gradient(from 0deg,rgba(215,191,130,.14) 0 1deg,transparent 1deg 15deg);-webkit-mask:radial-gradient(circle,transparent 0 22%,#000 23% 58%,transparent 59%);mask:radial-gradient(circle,transparent 0 22%,#000 23% 58%,transparent 59%);animation:bmSigilTurn 190s linear infinite}
 #back-page .bm-sigil::before,#back-page .bm-sigil::after{content:"";position:absolute;border-radius:50%}
 #back-page .bm-sigil::before{inset:15%;border:1px solid rgba(215,191,130,.23)}
 #back-page .bm-sigil::after{inset:28%;border:1px solid rgba(183,122,136,.18)}
-@keyframes bmSigilTurn{to{transform:translate(-50%,-50%) rotate(360deg)}}
+@keyframes bmSigilTurn{to{transform:translate(-50%,-50%) rotate(360deg)}
+}
 #back-page .bm-arc{position:absolute;left:-25%;top:56%;width:150%;height:1px;opacity:0;background:linear-gradient(90deg,transparent,rgba(215,191,130,.28),rgba(183,122,136,.22),transparent);box-shadow:0 0 12px rgba(215,191,130,.15),0 0 28px rgba(183,122,136,.08);transform:translateX(-18%) rotate(-7deg);animation:bmArcSweep 17s ease-in-out infinite}
-@keyframes bmArcSweep{0%,63%,100%{opacity:0;transform:translateX(-18%) rotate(-7deg)}72%{opacity:.58}84%{opacity:.18;transform:translateX(18%) rotate(-7deg)}}
+@keyframes bmArcSweep{0%,63%,100%{opacity:0;transform:translateX(-18%) rotate(-7deg)}
+72%{opacity:.58}
+84%{opacity:.18;transform:translateX(18%) rotate(-7deg)}
+}
 #back-page .bm-pollen{position:absolute;left:var(--x);top:var(--y);width:var(--s);height:var(--s);border-radius:50%;opacity:0;background:var(--c);box-shadow:0 0 8px var(--c),0 0 18px rgba(215,191,130,.18);animation:bmPollenRise var(--d) linear infinite,bmPollenPulse 4.5s ease-in-out infinite;animation-delay:var(--delay)}
-@keyframes bmPollenRise{0%{opacity:0;transform:translate3d(0,24px,0) scale(.6)}12%{opacity:.72}65%{opacity:.34}100%{opacity:0;transform:translate3d(var(--drift),-125px,0) scale(1.15)}}
-@keyframes bmPollenPulse{0%,100%{filter:brightness(.7)}50%{filter:brightness(1.6)}}
+@keyframes bmPollenRise{0%{opacity:0;transform:translate3d(0,24px,0) scale(.6)}
+12%{opacity:.72}
+65%{opacity:.34}
+100%{opacity:0;transform:translate3d(var(--drift),-125px,0) scale(1.15)}
+}
+@keyframes bmPollenPulse{0%,100%{filter:brightness(.7)}
+50%{filter:brightness(1.6)}
+}
 #back-page .bm-petal{position:absolute;top:-12%;left:var(--x);width:var(--w);height:var(--h);border-radius:75% 25% 68% 32%;opacity:0;background:linear-gradient(145deg,rgba(232,181,191,.72),rgba(142,75,91,.34));filter:blur(.2px) drop-shadow(0 2px 5px rgba(0,0,0,.2));animation:bmPetalFall var(--d) ease-in forwards}
-@keyframes bmPetalFall{0%{opacity:0;transform:translate3d(0,-20px,0) rotate(0)}15%{opacity:.66}100%{opacity:0;transform:translate3d(var(--drift),112vh,0) rotate(var(--spin))}}
+@keyframes bmPetalFall{0%{opacity:0;transform:translate3d(0,-20px,0) rotate(0)}
+15%{opacity:.66}
+100%{opacity:0;transform:translate3d(var(--drift),112vh,0) rotate(var(--spin))}
+}
 #back-page .bm-memory{position:absolute;left:var(--x);top:var(--y);max-width:240px;color:rgba(229,205,155,0);font:italic 15px/1.5 "Cormorant Garamond",serif;letter-spacing:.06em;text-shadow:0 0 14px rgba(215,191,130,.18);transform:translateY(10px) rotate(var(--r));animation:bmMemoryAppear 9s ease-in-out forwards}
-@keyframes bmMemoryAppear{0%{opacity:0;color:rgba(229,205,155,0);filter:blur(3px)}28%,68%{opacity:.52;color:rgba(229,205,155,.22);filter:blur(.4px)}100%{opacity:0;color:rgba(229,205,155,0);filter:blur(3px);transform:translateY(-8px) rotate(var(--r))}}
+@keyframes bmMemoryAppear{0%{opacity:0;color:rgba(229,205,155,0);filter:blur(3px)}
+28%,68%{opacity:.52;color:rgba(229,205,155,.22);filter:blur(.4px)}
+100%{opacity:0;color:rgba(229,205,155,0);filter:blur(3px);transform:translateY(-8px) rotate(var(--r))}
+}
 #back-page .bm-bloom-light{position:absolute;left:var(--x);top:var(--y);width:4px;height:4px;border-radius:50%;opacity:0;background:#ead39a;box-shadow:0 0 8px rgba(234,211,154,.9),0 0 20px rgba(183,122,136,.35);animation:bmBloomWake 4.8s ease-in-out forwards}
-@keyframes bmBloomWake{0%,100%{opacity:0;transform:scale(.2)}42%{opacity:.95;transform:scale(1.1)}62%{opacity:.45;transform:scale(.72)}}
+@keyframes bmBloomWake{0%,100%{opacity:0;transform:scale(.2)}
+42%{opacity:.95;transform:scale(1.1)}
+62%{opacity:.45;transform:scale(.72)}
+}
 #back-page .backroom-magic-root{animation:bmRoomBreath 18s ease-in-out infinite}
-@keyframes bmRoomBreath{0%,100%{filter:brightness(.985) saturate(.98)}50%{filter:brightness(1.025) saturate(1.03)}}
+@keyframes bmRoomBreath{0%,100%{filter:brightness(.985) saturate(.98)}
+50%{filter:brightness(1.025) saturate(1.03)}
+}
 #back-page .back-hero{background:linear-gradient(rgba(18,9,11,.74),rgba(18,9,11,.74)),radial-gradient(circle at 50% 34%,rgba(183,122,136,.11),transparent 41%)}
 #back-page .back-hero::after{content:"";position:absolute;inset:18px;z-index:1;pointer-events:none;opacity:.18;background:radial-gradient(ellipse 9% 3% at 6% 6%,rgba(119,139,92,.42) 0 45%,transparent 50%),radial-gradient(ellipse 9% 3% at 11% 10%,rgba(119,139,92,.34) 0 45%,transparent 50%),radial-gradient(ellipse 9% 3% at 94% 94%,rgba(119,139,92,.42) 0 45%,transparent 50%),radial-gradient(ellipse 9% 3% at 89% 90%,rgba(119,139,92,.34) 0 45%,transparent 50%)}
 #back-page .back-title{text-shadow:0 3px 0 #080405,0 12px 34px rgba(0,0,0,.55),0 0 24px rgba(183,122,136,.07)}
 #back-page .warning-strip{border-color:rgba(215,191,130,.36);background:linear-gradient(90deg,rgba(94,43,56,.17),rgba(111,48,63,.25),rgba(94,43,56,.17));box-shadow:inset 0 0 0 2px rgba(215,191,130,.04),0 0 24px rgba(183,122,136,.035)}
 #back-page .extract-row{background:linear-gradient(135deg,rgba(255,255,255,.018),rgba(169,104,117,.03)),radial-gradient(circle at 90% 10%,rgba(215,191,130,.026),transparent 29%)}
 #back-page .extract-row:hover{transform:translateX(4px) translateY(-1px);box-shadow:0 12px 28px rgba(0,0,0,.25),0 0 25px rgba(183,122,136,.05)}
-@media(max-width:700px){#back-page .bm-sigil{width:130vw;opacity:.07}#back-page .bm-memory{display:none}}
-@media(prefers-reduced-motion:reduce){#back-page .bm-haze,#back-page .bm-sigil,#back-page .bm-arc,#back-page .bm-pollen,#back-page .bm-petal,#back-page .bm-memory,#back-page .bm-bloom-light,#back-page .backroom-magic-root{animation:none!important}}
-
-
-/* =========================================================
-   FLORENCIA BACKROOM — LOWER SECTIONS MAGIC
-   CLEAN VERSION: no section bands, no rune bands, no grid cuts
-========================================================= */
-
-#back-page .extracts-inner,
-#back-page .ledger-section,
-#back-page .tension-section,
-#back-page .footer-back{
-  position:relative;
-  isolation:isolate;
-  overflow:visible;
-  background:transparent!important;
+@media(max-width:700px){#back-page .bm-sigil{width:130vw;opacity:.07}
+#back-page .bm-memory{display:none}
 }
-
+@media(prefers-reduced-motion:reduce){#back-page .bm-haze,#back-page .bm-sigil,#back-page .bm-arc,#back-page .bm-pollen,#back-page .bm-petal,#back-page .bm-memory,#back-page .bm-bloom-light,#back-page .backroom-magic-root{animation:none!important}
+}
+/* =========================================================
+FLORENCIA BACKROOM — LOWER SECTIONS MAGIC
+CLEAN VERSION: no section bands, no rune bands, no grid cuts
+========================================================= */
+#back-page .extracts-inner,#back-page .ledger-section,#back-page .tension-section,#back-page .footer-back{position:relative;isolation:isolate;overflow:visible;background:transparent!important;}
 /* Available Extracts */
 #back-page .extracts-ribbon{overflow:visible}
 #back-page .extracts-ribbon.is-awake{animation:brRibbonWake 1.35s cubic-bezier(.22,1,.36,1)}
-@keyframes brRibbonWake{
-  0%{filter:brightness(.7);transform:translateY(8px);opacity:.4}
-  48%{filter:brightness(1.18);transform:translateY(-2px);opacity:1}
-  100%{filter:brightness(1);transform:translateY(0);opacity:1}
+@keyframes brRibbonWake{0%{filter:brightness(.7);transform:translateY(8px);opacity:.4}
+48%{filter:brightness(1.18);transform:translateY(-2px);opacity:1}
+100%{filter:brightness(1);transform:translateY(0);opacity:1}
 }
 #back-page .rose-cluster{animation:brRoseSealPulse 6s ease-in-out infinite}
-@keyframes brRoseSealPulse{
-  0%,100%{filter:brightness(.92);box-shadow:0 0 0 4px rgba(221,201,143,.08),0 8px 18px rgba(0,0,0,.25)}
-  50%{filter:brightness(1.12);box-shadow:0 0 0 4px rgba(221,201,143,.12),0 0 20px rgba(200,139,152,.18),0 8px 18px rgba(0,0,0,.25)}
+@keyframes brRoseSealPulse{0%,100%{filter:brightness(.92);box-shadow:0 0 0 4px rgba(221,201,143,.08),0 8px 18px rgba(0,0,0,.25)}
+50%{filter:brightness(1.12);box-shadow:0 0 0 4px rgba(221,201,143,.12),0 0 20px rgba(200,139,152,.18),0 8px 18px rgba(0,0,0,.25)}
 }
-
 /* Extract rows */
 #back-page .extract-row{overflow:hidden}
-#back-page .extract-row::after{
-  content:"";
-  position:absolute;
-  left:-35%;
-  top:-20%;
-  width:26%;
-  height:140%;
-  pointer-events:none;
-  opacity:0;
-  background:linear-gradient(90deg,transparent,rgba(255,238,195,.12),transparent);
-  transform:skewX(-18deg);
-}
+#back-page .extract-row::after{content:"";position:absolute;left:-35%;top:-20%;width:26%;height:140%;pointer-events:none;opacity:0;background:linear-gradient(90deg,transparent,rgba(255,238,195,.12),transparent);transform:skewX(-18deg);}
 #back-page .extract-row:hover::after{animation:brExtractSweep 1.1s ease 1}
-@keyframes brExtractSweep{
-  0%{left:-35%;opacity:0}
-  18%{opacity:.65}
-  100%{left:120%;opacity:0}
+@keyframes brExtractSweep{0%{left:-35%;opacity:0}
+18%{opacity:.65}
+100%{left:120%;opacity:0}
 }
 #back-page .ext-name{position:relative}
-#back-page .extract-row:hover .ext-name::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:-5px;
-  width:min(180px,75%);
-  height:1px;
-  background:linear-gradient(90deg,rgba(221,201,143,.7),rgba(200,139,152,.26),transparent);
-  transform-origin:left;
-  animation:brInkUnderline .75s cubic-bezier(.22,1,.36,1) forwards;
+#back-page .extract-row:hover .ext-name::after{content:"";position:absolute;left:0;bottom:-5px;width:min(180px,75%);height:1px;background:linear-gradient(90deg,rgba(221,201,143,.7),rgba(200,139,152,.26),transparent);transform-origin:left;animation:brInkUnderline .75s cubic-bezier(.22,1,.36,1) forwards;}
+@keyframes brInkUnderline{from{transform:scaleX(0);opacity:0}
+to{transform:scaleX(1);opacity:.9}
 }
-@keyframes brInkUnderline{
-  from{transform:scaleX(0);opacity:0}
-  to{transform:scaleX(1);opacity:.9}
-}
-
 /* Ledger */
-#back-page .ledger-section::before{
-  content:"";
-  position:absolute;
-  inset:10% -10%;
-  z-index:0;
-  pointer-events:none;
-  background:
-    radial-gradient(circle at 28% 48%,rgba(221,201,143,.035),transparent 28%),
-    radial-gradient(circle at 72% 52%,rgba(200,139,152,.035),transparent 28%);
-  filter:blur(26px);
-  animation:brLedgerGlow 14s ease-in-out infinite alternate;
-}
-@keyframes brLedgerGlow{
-  from{opacity:.35;transform:scale(.99)}
-  to{opacity:.7;transform:scale(1.025)}
+#back-page .ledger-section::before{content:"";position:absolute;inset:10% -10%;z-index:0;pointer-events:none;background:radial-gradient(circle at 28% 48%,rgba(221,201,143,.035),transparent 28%),radial-gradient(circle at 72% 52%,rgba(200,139,152,.035),transparent 28%);filter:blur(26px);animation:brLedgerGlow 14s ease-in-out infinite alternate;}
+@keyframes brLedgerGlow{from{opacity:.35;transform:scale(.99)}
+to{opacity:.7;transform:scale(1.025)}
 }
 #back-page .ledger-block{z-index:2}
-#back-page .ledger-block::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  opacity:0;
-  background:linear-gradient(115deg,transparent 32%,rgba(255,236,187,.10) 48%,transparent 62%);
-  transform:translateX(-80%);
-}
+#back-page .ledger-block::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;background:linear-gradient(115deg,transparent 32%,rgba(255,236,187,.10) 48%,transparent 62%);transform:translateX(-80%);}
 #back-page .ledger-block.is-reading::after{animation:brLedgerShimmer 1.4s ease .1s 1}
-@keyframes brLedgerShimmer{
-  0%{opacity:0;transform:translateX(-80%)}
-  22%{opacity:.75}
-  100%{opacity:0;transform:translateX(80%)}
+@keyframes brLedgerShimmer{0%{opacity:0;transform:translateX(-80%)}
+22%{opacity:.75}
+100%{opacity:0;transform:translateX(80%)}
 }
-
 /* Current Complications */
-#back-page .tension-item{
-  position:relative;
-  z-index:2;
-  transition:background .35s ease,transform .35s ease;
-}
-#back-page .tension-item:hover{
-  transform:translateX(5px);
-  background:linear-gradient(90deg,rgba(169,104,117,.035),transparent 72%);
-}
+#back-page .tension-item{position:relative;z-index:2;transition:background .35s ease,transform .35s ease;}
+#back-page .tension-item:hover{transform:translateX(5px);background:linear-gradient(90deg,rgba(169,104,117,.035),transparent 72%);}
 #back-page .tension-marker{box-shadow:0 0 8px currentColor}
 #back-page .tension-item:hover .tension-marker{animation:brConcernPulse 1.35s ease-in-out infinite}
-@keyframes brConcernPulse{
-  0%,100%{opacity:.48;filter:brightness(.8);box-shadow:0 0 5px currentColor}
-  50%{opacity:1;filter:brightness(1.45);box-shadow:0 0 12px currentColor,0 0 24px currentColor}
+@keyframes brConcernPulse{0%,100%{opacity:.48;filter:brightness(.8);box-shadow:0 0 5px currentColor}
+50%{opacity:1;filter:brightness(1.45);box-shadow:0 0 12px currentColor,0 0 24px currentColor}
 }
-
 /* ละอองส่วนล่าง */
-#back-page .br-lower-mote{
-  position:absolute;
-  left:var(--x);
-  top:var(--y);
-  z-index:1;
-  width:var(--s);
-  height:var(--s);
-  border-radius:50%;
-  pointer-events:none;
-  opacity:0;
-  background:var(--c);
-  box-shadow:0 0 8px var(--c);
-  animation:brLowerMote var(--d) linear infinite;
-  animation-delay:var(--delay);
+#back-page .br-lower-mote{position:absolute;left:var(--x);top:var(--y);z-index:1;width:var(--s);height:var(--s);border-radius:50%;pointer-events:none;opacity:0;background:var(--c);box-shadow:0 0 8px var(--c);animation:brLowerMote var(--d) linear infinite;animation-delay:var(--delay);}
+@keyframes brLowerMote{0%{opacity:0;transform:translate3d(0,18px,0) scale(.6)}
+14%{opacity:.55}
+68%{opacity:.22}
+100%{opacity:0;transform:translate3d(var(--drift),-110px,0) scale(1.15)}
 }
-@keyframes brLowerMote{
-  0%{opacity:0;transform:translate3d(0,18px,0) scale(.6)}
-  14%{opacity:.55}
-  68%{opacity:.22}
-  100%{opacity:0;transform:translate3d(var(--drift),-110px,0) scale(1.15)}
-}
-
 /* Footer */
-#back-page .footer-back{
-  min-height:150px;
-  padding:40px 0 60px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  gap:20px;
+#back-page .footer-back{min-height:150px;padding:40px 0 60px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:20px;}
+#back-page .footer-back::before{content:"";position:absolute;left:50%;bottom:-140px;width:min(460px,65vw);aspect-ratio:1;border-radius:50%;transform:translateX(-50%);pointer-events:none;opacity:.10;background:radial-gradient(circle,transparent 0 42%,rgba(221,201,143,.25) 42.4% 42.8%,transparent 43.2%),repeating-conic-gradient(from 0deg,rgba(200,139,152,.17) 0 1deg,transparent 1deg 18deg);-webkit-mask:radial-gradient(circle,transparent 0 30%,#000 31% 52%,transparent 53%);mask:radial-gradient(circle,transparent 0 30%,#000 31% 52%,transparent 53%);animation:brReturnSealTurn 120s linear infinite;}
+@keyframes brReturnSealTurn{to{transform:translateX(-50%) rotate(-360deg)}
 }
-#back-page .footer-back::before{
-  content:"";
-  position:absolute;
-  left:50%;
-  bottom:-140px;
-  width:min(460px,65vw);
-  aspect-ratio:1;
-  border-radius:50%;
-  transform:translateX(-50%);
-  pointer-events:none;
-  opacity:.10;
-  background:
-    radial-gradient(circle,transparent 0 42%,rgba(221,201,143,.25) 42.4% 42.8%,transparent 43.2%),
-    repeating-conic-gradient(from 0deg,rgba(200,139,152,.17) 0 1deg,transparent 1deg 18deg);
-  -webkit-mask:radial-gradient(circle,transparent 0 30%,#000 31% 52%,transparent 53%);
-  mask:radial-gradient(circle,transparent 0 30%,#000 31% 52%,transparent 53%);
-  animation:brReturnSealTurn 120s linear infinite;
-}
-@keyframes brReturnSealTurn{to{transform:translateX(-50%) rotate(-360deg)}}
-
 #back-page .back-btn{position:relative;z-index:3;overflow:hidden;box-shadow:0 0 0 rgba(221,201,143,0)}
-#back-page .back-btn::before{
-  content:"";
-  position:absolute;
-  inset:-2px;
-  border-radius:inherit;
-  opacity:0;
-  pointer-events:none;
-  background:linear-gradient(90deg,transparent,rgba(255,239,200,.38),transparent);
-  transform:translateX(-120%);
-}
+#back-page .back-btn::before{content:"";position:absolute;inset:-2px;border-radius:inherit;opacity:0;pointer-events:none;background:linear-gradient(90deg,transparent,rgba(255,239,200,.38),transparent);transform:translateX(-120%);}
 #back-page .back-btn:hover{box-shadow:0 0 20px rgba(221,201,143,.12),0 0 40px rgba(200,139,152,.07)}
 #back-page .back-btn:hover::before{animation:brReturnButtonSweep 1.05s ease 1}
-@keyframes brReturnButtonSweep{
-  0%{opacity:0;transform:translateX(-120%)}
-  22%{opacity:.8}
-  100%{opacity:0;transform:translateX(120%)}
+@keyframes brReturnButtonSweep{0%{opacity:0;transform:translateX(-120%)}
+22%{opacity:.8}
+100%{opacity:0;transform:translateX(120%)}
 }
 #back-page .back-btn.is-returning{animation:brReturnPortal 1.2s cubic-bezier(.22,1,.36,1)}
-@keyframes brReturnPortal{
-  0%{filter:brightness(1);transform:scale(1)}
-  42%{filter:brightness(1.45);transform:scale(1.06)}
-  100%{filter:brightness(.7);transform:scale(.96)}
+@keyframes brReturnPortal{0%{filter:brightness(1);transform:scale(1)}
+42%{filter:brightness(1.45);transform:scale(1.06)}
+100%{filter:brightness(.7);transform:scale(.96)}
 }
-
 /* กลีบส่วนล่าง */
-#back-page .br-lower-petal{
-  position:absolute;
-  top:-18px;
-  left:var(--x);
-  z-index:1;
-  width:var(--w);
-  height:var(--h);
-  border-radius:70% 30% 68% 32%;
-  pointer-events:none;
-  opacity:0;
-  background:linear-gradient(145deg,rgba(226,177,185,.66),rgba(111,48,63,.28));
-  filter:drop-shadow(0 2px 4px rgba(0,0,0,.18));
-  animation:brLowerPetalFall var(--d) ease-in forwards;
+#back-page .br-lower-petal{position:absolute;top:-18px;left:var(--x);z-index:1;width:var(--w);height:var(--h);border-radius:70% 30% 68% 32%;pointer-events:none;opacity:0;background:linear-gradient(145deg,rgba(226,177,185,.66),rgba(111,48,63,.28));filter:drop-shadow(0 2px 4px rgba(0,0,0,.18));animation:brLowerPetalFall var(--d) ease-in forwards;}
+@keyframes brLowerPetalFall{0%{opacity:0;transform:translate3d(0,-12px,0) rotate(0)}
+16%{opacity:.65}
+100%{opacity:0;transform:translate3d(var(--drift),110vh,0) rotate(var(--spin))}
 }
-@keyframes brLowerPetalFall{
-  0%{opacity:0;transform:translate3d(0,-12px,0) rotate(0)}
-  16%{opacity:.65}
-  100%{opacity:0;transform:translate3d(var(--drift),110vh,0) rotate(var(--spin))}
+#back-page .br-section-aura,#back-page .br-rune-band{display:none!important}
+@media(max-width:700px){#back-page .footer-back::before{width:min(420px,88vw);bottom:-125px}
 }
-
-#back-page .br-section-aura,
-#back-page .br-rune-band{display:none!important}
-
-@media(max-width:700px){
-  #back-page .footer-back::before{width:min(420px,88vw);bottom:-125px}
-}
-
-@media(prefers-reduced-motion:reduce){
-  #back-page .rose-cluster,
-  #back-page .ledger-section::before,
-  #back-page .footer-back::before,
-  #back-page .br-lower-mote,
-  #back-page .br-lower-petal{animation:none!important}
+@media(prefers-reduced-motion:reduce){#back-page .rose-cluster,#back-page .ledger-section::before,#back-page .footer-back::before,#back-page .br-lower-mote,#back-page .br-lower-petal{animation:none!important}
 }
 /* ===== END FLORENCIA BACKROOM LOWER SECTIONS MAGIC ===== */
-
-
 /* ===== BACKROOM CLEAN BACKGROUND OVERRIDE ===== */
-#back-page::before{
-  background:radial-gradient(circle at center,transparent 42%,rgba(0,0,0,.58) 100%)!important;
-  background-size:100% 100%!important;
-  mask-image:none!important;
-}
-#back-page .back-hero{
-  background:
-    linear-gradient(rgba(18,9,11,.74),rgba(18,9,11,.74)),
-    radial-gradient(circle at 50% 34%,rgba(183,122,136,.11),transparent 41%)!important;
-}
-#back-page .br-section-aura,
-#back-page .br-rune-band{display:none!important}
-#back-page .extracts-inner,
-#back-page .ledger-section,
-#back-page .tension-section,
-#back-page .footer-back{
-  background:transparent!important;
-  overflow:visible!important;
-}
+#back-page::before{background:radial-gradient(circle at center,transparent 42%,rgba(0,0,0,.58) 100%)!important;background-size:100% 100%!important;mask-image:none!important;}
+#back-page .back-hero{background:linear-gradient(rgba(18,9,11,.74),rgba(18,9,11,.74)),radial-gradient(circle at 50% 34%,rgba(183,122,136,.11),transparent 41%)!important;}
+#back-page .br-section-aura,#back-page .br-rune-band{display:none!important}
+#back-page .extracts-inner,#back-page .ledger-section,#back-page .tension-section,#back-page .footer-back{background:transparent!important;overflow:visible!important;}
 /* ===== END BACKROOM CLEAN BACKGROUND OVERRIDE ===== */
-
-</style>
-</head>
+</style></head>
 <body>
 <nav class="top-tabs">
-<a href="#flowers">
-Flowers
-</a>
-<a href="#garlands">
-Garlands
-</a>
-<a href="#botanicals">
-Botanicals
-</a>
-<a href="#about">
-The Proprietress
-</a>
-<a href="#complications">
-Complications
-</a>
+<a href="#flowers">Flowers</a>
+<a href="#garlands">Garlands</a>
+<a href="#botanicals">Botanicals</a>
+<a href="#about">The Proprietress</a>
+<a href="#complications">Complications</a>
 </nav>
 <div class="page-frame">
 </div>
@@ -1240,118 +1030,63 @@ Complications
 </section>
 <!-- Products -->
 <section class="products-section" id="flowers">
-<p class="section-label">
-Seasonal Selection
-</p>
-<h2 class="section-heading">
-Fresh from the Glasshouse
-</h2>
-<p class="section-sub">
-Tenderly cultivated. Available each day—until thy heart be drawn to our blooms.
-</p>
+<p class="section-label">Seasonal Selection</p>
+<h2 class="section-heading">Fresh from the Glasshouse</h2>
+<p class="section-sub">Tenderly cultivated. Available each day—until thy heart be drawn to our blooms.</p>
 <div class="products-grid">
 <div class="product-card">
 <img class="product-icon"
 src="flowericon/cutter-flower.png"
 alt="Cutter Flower">
-<h3 class="product-name">
-Cutter Flower
-</h3>
-<p class="product-latin">
-Symphyotrichum ericoides(L.) G.L.Nesom
-</p>
-<p class="product-desc">
-A delicate cluster of pale blossoms oft dismissed as mere adornment beside grander blooms. Favoured by florists for its softness and quiet volume, the Cutter Bloom is said to linger longest in arrangements prepared for unspoken affections and unfinished farewells.
-Though harmless in appearance, prolonged exposure to its dried pollen is rumoured to deepen sentimentality and disturb restful sleep in susceptible hearts.
-</p>
-<p class="product-price">
-4 DNS per bundle
-</p>
+<h3 class="product-name">Cutter Flower</h3>
+<p class="product-latin">Symphyotrichum ericoides(L.) G.L.Nesom</p>
+<p class="product-desc">A delicate cluster of pale blossoms oft dismissed as mere adornment beside grander blooms. Favoured by florists for its softness and quiet volume, the Cutter Bloom is said to linger longest in arrangements prepared for unspoken affections and unfinished farewells. Though harmless in appearance, prolonged exposure to its dried pollen is rumoured to deepen sentimentality and disturb restful sleep in susceptible hearts.</p>
+<p class="product-price">4 DNS per bundle</p>
 </div>
 <div class="product-card">
 <img class="product-icon"
 src="flowericon/damask-rose.png"
 alt="Damask Rose">
-<h3 class="product-name">
-Damask Rose
-</h3>
-<p class="product-latin">
-Rosa damascena Mill.
-</p>
-<p class="product-desc">
-A richly layered rose long cultivated within secluded monastery gardens and noble estates alike. Revered for its deep fragrance and velvety petals, the Damask Rose is frequently prepared for declarations too earnest to remain concealed. Distilled oil from mature blooms is prized among perfumers and apothecaries, said to soothe grief whilst sharpening longing in equal measure.
-</p>
-<p class="product-price">
-8 DNS per stem
-</p>
+<h3 class="product-name">Damask Rose</h3>
+<p class="product-latin">Rosa damascena Mill.</p>
+<p class="product-desc">A richly layered rose long cultivated within secluded monastery gardens and noble estates alike. Revered for its deep fragrance and velvety petals, the Damask Rose is frequently prepared for declarations too earnest to remain concealed. Distilled oil from mature blooms is prized among perfumers and apothecaries, said to soothe grief whilst sharpening longing in equal measure.</p>
+<p class="product-price">8 DNS per stem</p>
 </div>
 <div class="product-card">
 <img class="product-icon"
 src="flowericon/camellia.png"
 alt="Camellia">
-<h3 class="product-name">
-Camellia
-</h3>
-<p class="product-latin">
-Camellia japonica L.
-</p>
-<p class="product-desc">
-An immaculate bloom of soft structure and near-perfect symmetry, favoured in arrangements where restraint is valued above extravagance. Though absent of strong fragrance, the Camellia is admired for its enduring freshness once cut. Florists oft associate it with dignified affection, quiet loyalty, and sentiments carried without expectation of return.
-</p>
-<p class="product-price">
-7 DNS per stem
-</p>
+<h3 class="product-name">Camellia</h3>
+<p class="product-latin">Camellia japonica L.</p>
+<p class="product-desc">An immaculate bloom of soft structure and near-perfect symmetry, favoured in arrangements where restraint is valued above extravagance. Though absent of strong fragrance, the Camellia is admired for its enduring freshness once cut. Florists oft associate it with dignified affection, quiet loyalty, and sentiments carried without expectation of return.</p>
+<p class="product-price">7 DNS per stem</p>
 </div>
 <div class="product-card">
 <img class="product-icon"
 src="flowericon/hydrangea.png"
 alt="Hydrangea">
-<h3 class="product-name">
-Hydrangea
-</h3>
-<p class="product-latin">
-Hydrangea macrophylla (Thunb.) Ser.
-</p>
-<p class="product-desc">
-A voluminous cluster bloom known to alter subtly in hue according to the soil in which it is raised. Coveted for its cloud-like fullness, the Hydrangea is often chosen for arrangements concerning apology, remembrance, and emotions too complicated for simpler flowers to bear. Improper drying may result in bitterness of scent.
-</p>
-<p class="product-price">
-9 DNS per bloom
-</p>
+<h3 class="product-name">Hydrangea</h3>
+<p class="product-latin">Hydrangea macrophylla (Thunb.) Ser.</p>
+<p class="product-desc">A voluminous cluster bloom known to alter subtly in hue according to the soil in which it is raised. Coveted for its cloud-like fullness, the Hydrangea is often chosen for arrangements concerning apology, remembrance, and emotions too complicated for simpler flowers to bear. Improper drying may result in bitterness of scent.</p>
+<p class="product-price">9 DNS per bloom</p>
 </div>
 <div class="product-card">
 <img class="product-icon"
 src="flowericon/pompon.png"
 alt="Pompon">
-<h3 class="product-name">
-Pompon
-</h3>
-<p class="product-latin">
-Chrysanthemum morifolium
-</p>
-<p class="product-desc">
-A meticulously cultivated chrysanthemum bearing compact spherical blooms of remarkable uniformity. Though outwardly cheerful in appearance, it remaineth closely tied to rituals of mourning and ancestral devotion throughout several eastern provinces. Its petals retain form long after drying, making it suitable for keepsakes and memorial preservation.
-</p>
-<p class="product-price">
-5 DNS per stem
-</p>
+<h3 class="product-name">Pompon</h3>
+<p class="product-latin">Chrysanthemum morifolium</p>
+<p class="product-desc">A meticulously cultivated chrysanthemum bearing compact spherical blooms of remarkable uniformity. Though outwardly cheerful in appearance, it remaineth closely tied to rituals of mourning and ancestral devotion throughout several eastern provinces. Its petals retain form long after drying, making it suitable for keepsakes and memorial preservation.</p>
+<p class="product-price">5 DNS per stem</p>
 </div>
 <div class="product-card">
 <img class="product-icon"
 src="flowericon/carnation.png"
 alt="Carnation">
-<h3 class="product-name">
-Carnation
-</h3>
-<p class="product-latin">
-Dianthus caryophyllus L.
-</p>
-<p class="product-desc">
-A hardy flowering stem distinguished by ruffled petals and an unexpectedly clove-like fragrance. Long associated with enduring affection amongst common folk, the Carnation is neither rare nor extravagant, yet persisteth where finer blooms oft wither. Certain crimson cultivars are quietly exchanged in districts where open courtship remaineth discouraged.
-</p>
-<p class="product-price">
-4 DNS per stem
-</p>
+<h3 class="product-name">Carnation</h3>
+<p class="product-latin">Dianthus caryophyllus L.</p>
+<p class="product-desc">A hardy flowering stem distinguished by ruffled petals and an unexpectedly clove-like fragrance. Long associated with enduring affection amongst common folk, the Carnation is neither rare nor extravagant, yet persisteth where finer blooms oft wither. Certain crimson cultivars are quietly exchanged in districts where open courtship remaineth discouraged.</p>
+<p class="product-price">4 DNS per stem</p>
 </div>
 </div>
 </section>
@@ -1359,56 +1094,32 @@ A hardy flowering stem distinguished by ruffled petals and an unexpectedly clove
 <section class="about-strip" id="about">
 <div class="about-text">
 <div aria-hidden="true" class="about-botanical-margin">
-<span>
-ꕤ
-</span>
+<span>ꕤ</span>
 <i>
 </i>
-<span>
-ꕤ
-</span>
+<span>ꕤ</span>
 <i>
 </i>
-<span>
-ꕤ
-</span>
+<span>ꕤ</span>
 </div>
 <div aria-hidden="true" class="about-reading-progress">
 <span>
 </span>
 </div>
-<p class="section-label about-kicker">
-The Florist
-</p>
+<p class="section-label about-kicker">The Florist</p>
 <h2 class="section-heading about-name" tabindex="0">
-<span class="illuminated-c">
-Caoimhe Winchester
-</span>
+<span class="illuminated-c">Caoimhe Winchester</span>
 </h2>
-<div aria-hidden="true" class="about-secret-note">
-Naught abideth, therefore hath it worth.
-</div>
+<div aria-hidden="true" class="about-secret-note">Naught abideth, therefore hath it worth.</div>
 <div class="about-copy">
-<p>
-At present, Florencia remaineth under the keeping of Miss Caoimhe Winchester, by whose hand the greater part of all arrangements are fashioned. Thus, it stirreth little surprise should the shop door remain fast shut for the better course of a day, whilst letters of reply continueth nonetheless to depart with unfailing punctuality — most especially those bearing the seals of ancient houses from the inner quarter.
-</p>
-<p>
-The establishment hath grown known for methods of preservation deemed uncommon, for blooms seldom espied within the common markets, and for certain distilled preparations whose cultivation records appear nowhere plainly kept. Some patrons have returned unto Florencia for years together, yet remain wholly ignorant as to whence particular flowers within the shop are truly gathered.
-</p>
-<p>
-Few, if any, have witnessed Miss Winchester purchasing stock from market merchants or public growers. Nevertheless, fresh blooms persist within the shop in every season alike, including several varieties long believed lost beyond these lands. Many patrons depart Florencia with an unease difficult to name, as though they had confessed somewhat more than first intended. There are, besides, quieter rumours oft exchanged in lowered voice — that certain flowers sold by Miss Winchester refuseth unfamiliar hands altogether, and that some arrangements are never displayed openly within the shop, nor spoken of except through private correspondence.
-</p>
+<p>At present, Florencia remaineth under the keeping of Miss Caoimhe Winchester, by whose hand the greater part of all arrangements are fashioned. Thus, it stirreth little surprise should the shop door remain fast shut for the better course of a day, whilst letters of reply continueth nonetheless to depart with unfailing punctuality — most especially those bearing the seals of ancient houses from the inner quarter.</p>
+<p>The establishment hath grown known for methods of preservation deemed uncommon, for blooms seldom espied within the common markets, and for certain distilled preparations whose cultivation records appear nowhere plainly kept. Some patrons have returned unto Florencia for years together, yet remain wholly ignorant as to whence particular flowers within the shop are truly gathered.</p>
+<p>Few, if any, have witnessed Miss Winchester purchasing stock from market merchants or public growers. Nevertheless, fresh blooms persist within the shop in every season alike, including several varieties long believed lost beyond these lands. Many patrons depart Florencia with an unease difficult to name, as though they had confessed somewhat more than first intended. There are, besides, quieter rumours oft exchanged in lowered voice — that certain flowers sold by Miss Winchester refuseth unfamiliar hands altogether, and that some arrangements are never displayed openly within the shop, nor spoken of except through private correspondence.</p>
 </div>
-<blockquote aria-live="polite" class="about-rotating-quote">
-Pray, tarry as long as pleaseth thee; no blossom here shall take offence.
-</blockquote>
-<p class="about-warning">
-Walk-ins be welcome. Pray keep thy hands from the shelves beyond.
-</p>
+<blockquote aria-live="polite" class="about-rotating-quote">Pray, tarry as long as pleaseth thee; no blossom here shall take offence.</blockquote>
+<p class="about-warning">Walk-ins be welcome. Pray keep thy hands from the shelves beyond.</p>
 <div aria-hidden="true" class="about-signature">
-<span>
-C.W.
-</span>
+<span>C.W.</span>
 </div>
 </div>
 <div aria-label="Archival painting of the florist" class="about-image" tabindex="0">
@@ -1417,44 +1128,26 @@ C.W.
 <div aria-hidden="true" class="about-image-grain">
 </div>
 <div class="about-archive-label">
-<small>
-Florencia Archive
-</small>
-<strong>
-Study of the Florist
-</strong>
-<em>
-Vol. III · Plate XII
-</em>
+<small>Florencia Archive</small>
+<strong>Study of the Florist</strong>
+<em>Vol. III · Plate XII</em>
 </div>
 <div class="about-letter">
-<span>
-Dear Eleanor,
-</span>
+<span>Dear Eleanor,</span>
 <i>
 The lilies arrived before dawn.
-<br/>
-Do not ask from whose garden.
-</i>
+<br/>Do not ask from whose garden.</i>
 </div>
 <div aria-hidden="true" class="about-petal-layer">
 </div>
-<div aria-hidden="true" class="about-image-signature">
-C.W.
-</div>
+<div aria-hidden="true" class="about-image-signature">C.W.</div>
 </div>
 </section>
 <!-- Footer front -->
 <footer class="footer-front">
-<span>
-© Florencia Florist · 221B Carter Street · Fortuna Imperia
-</span>
-<span style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:13px;">
-The florist remaineth open upon most days — save for those of greater consequence.
-</span>
-<button class="secret-btn" onclick="enterBackroom()">
-for discreet commissions and rarer arrangements
-</button>
+<span>© Florencia Florist · 221B Carter Street · Fortuna Imperia</span>
+<span style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:13px;">The florist remaineth open upon most days — save for those of greater consequence.</span>
+<button class="secret-btn" onclick="enterBackroom()">for discreet commissions and rarer arrangements</button>
 </footer>
 </div>
 <!-- ═══ BACK PAGE ═══ -->
@@ -1469,27 +1162,15 @@ for discreet commissions and rarer arrangements
 </div>
 <section class="back-hero">
 <div aria-hidden="true" class="seal-clock anim anim-d1">
-<span>
-✦
-</span>
+<span>✦</span>
 </div>
-<p class="back-eyebrow anim anim-d1">
-Restricted · For known clients only
-</p>
+<p class="back-eyebrow anim anim-d1">Restricted · For known clients only</p>
 <h1 class="back-title">
 The
-<em>
-Backroom
-</em>
-<br/>
-Catalogue
-</h1>
-<p class="back-subtitle anim anim-d3">
-Botanical extracts of restricted classification · By arrangement only
-</p>
-<div class="warning-strip anim anim-d4">
-Discretion is assumed · All transactions unrecorded · Deny knowledge if questioned
-</div>
+<em>Backroom</em>
+<br/>Catalogue</h1>
+<p class="back-subtitle anim anim-d3">Botanical extracts of restricted classification · By arrangement only</p>
+<div class="warning-strip anim anim-d4">Discretion is assumed · All transactions unrecorded · Deny knowledge if questioned</div>
 </section>
 <!-- Extract table -->
 <div class="extracts-inner">
@@ -1499,1480 +1180,853 @@ Discretion is assumed · All transactions unrecorded · Deny knowledge if questi
 </div>
 <div class="circle-note">
 <p>
-<strong>
-I Circle
-</strong>
-— Preparations deemed permissible for discreet trade. Familiar patrons may request these without prior recommendation.
-</p>
+<strong>I Circle</strong>— Preparations deemed permissible for discreet trade. Familiar patrons may request these without prior recommendation.</p>
 <p>
-<strong>
-II Circle
-</strong>
-— Certain flowers within this tier may refuse unfamiliar hands. Orders are reviewed individually.
-</p>
+<strong>II Circle</strong>— Certain flowers within this tier may refuse unfamiliar hands. Orders are reviewed individually.</p>
 <p>
-<strong>
-III Circle
-</strong>
-— Displayed nowhere openly. Available only through sealed correspondence or prior recommendation.
-</p>
-<p class="circle-small">
-The Circle system measureth not potency, but permission. Certain flowers refuseth to be gathered for unfamiliar hands.
-</p>
+<strong>III Circle</strong>— Displayed nowhere openly. Available only through sealed correspondence or prior recommendation.</p>
+<p class="circle-small">The Circle system measureth not potency, but permission. Certain flowers refuseth to be gathered for unfamiliar hands.</p>
 </div>
 <div class="extract-table-header">
-<span>
-Extract
-</span>
-<span>
-Circle
-</span>
-<span>
-Effect
-</span>
-<span>
-Price (per vial)
-</span>
+<span>Extract</span>
+<span>Circle</span>
+<span>Effect</span>
+<span>Price (per vial)</span>
 </div>
 <div class="extract-row">
 <div>
-<p class="ext-name">
-Moonwake
-</p>
-<p class="ext-source">
-Moon-fed petals gathered before first dawn · silver-steeped extraction
-</p>
+<p class="ext-name">Moonwake</p>
+<p class="ext-source">Moon-fed petals gathered before first dawn · silver-steeped extraction</p>
 </div>
 <div>
-<span class="ext-grade grade-i">
-I Circle
-</span>
+<span class="ext-grade grade-i">I Circle</span>
 </div>
 <div>
-<p class="ext-effect">
-A silver hush laid gently upon the mind and pulse alike. Most patrons report dream-laden sleep, softened grief, and a strange reluctance to wake before dawn.
-</p>
+<p class="ext-effect">A silver hush laid gently upon the mind and pulse alike. Most patrons report dream-laden sleep, softened grief, and a strange reluctance to wake before dawn.</p>
 </div>
 <div>
-<p class="ext-price">
-220 DNS
-</p>
-<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">
-Limited · 4 vials this season
-</p>
+<p class="ext-price">220 DNS</p>
+<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">Limited · 4 vials this season</p>
 </div>
 </div>
 <div class="extract-row">
 <div>
-<p class="ext-name">
-Gravesilk
-</p>
-<p class="ext-source">
-Winter lilies and pallid roots bound in linen · sealed against stray virtue
-</p>
+<p class="ext-name">Gravesilk</p>
+<p class="ext-source">Winter lilies and pallid roots bound in linen · sealed against stray virtue</p>
 </div>
 <div>
-<span class="ext-grade grade-ii">
-II Circle
-</span>
+<span class="ext-grade grade-ii">II Circle</span>
 </div>
 <div>
-<p class="ext-effect">
-The skin grows briefly insensate beneath cloth or guard, while motion remains free. A cold, winterlike touch follows the working.
-</p>
+<p class="ext-effect">The skin grows briefly insensate beneath cloth or guard, while motion remains free. A cold, winterlike touch follows the working.</p>
 </div>
 <div>
-<p class="ext-price">
-140 DNS
-</p>
-<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">
-Sold per palm-wrapped bundle
-</p>
+<p class="ext-price">140 DNS</p>
+<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">Sold per palm-wrapped bundle</p>
 </div>
 </div>
 <div class="extract-row">
 <div>
-<p class="ext-name">
-Velvet Ruin
-</p>
-<p class="ext-source">
-Dark-garden dew brew’d slow over tender flame for many hours
-</p>
+<p class="ext-name">Velvet Ruin</p>
+<p class="ext-source">Dark-garden dew brew’d slow over tender flame for many hours</p>
 </div>
 <div>
-<span class="ext-grade grade-iii">
-III Circle
-</span>
+<span class="ext-grade grade-iii">III Circle</span>
 </div>
 <div>
-<p class="ext-effect">
-Warmth and ease bloom first, then the body wanes by subtle degrees. Onlookers often mistake the decline for simple fatigue or sorrow.
-</p>
+<p class="ext-effect">Warmth and ease bloom first, then the body wanes by subtle degrees. Onlookers often mistake the decline for simple fatigue or sorrow.</p>
 </div>
 <div>
-<p class="ext-price">
-360 DNS
-</p>
-<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">
-3 phials per sealed set
-</p>
+<p class="ext-price">360 DNS</p>
+<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">3 phials per sealed set</p>
 </div>
 </div>
 <div class="extract-row">
 <div>
-<p class="ext-name">
-Vespermere
-</p>
-<p class="ext-source">
-Dusk blossoms harvested at the day’s last bell · sealed close with cool ash
-</p>
+<p class="ext-name">Vespermere</p>
+<p class="ext-source">Dusk blossoms harvested at the day’s last bell · sealed close with cool ash</p>
 </div>
 <div>
-<span class="ext-grade grade-i">
-I Circle
-</span>
+<span class="ext-grade grade-i">I Circle</span>
 </div>
 <div>
-<p class="ext-effect">
-Agitation is veiled and suspicion quieted, while thought and memory drift into a dim, softened mist.
-</p>
+<p class="ext-effect">Agitation is veiled and suspicion quieted, while thought and memory drift into a dim, softened mist.</p>
 </div>
 <div>
-<p class="ext-price">
-180 DNS
-</p>
-<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">
-6 thimbles per moon
-</p>
+<p class="ext-price">180 DNS</p>
+<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">6 thimbles per moon</p>
 </div>
 </div>
 <div class="extract-row">
 <div>
-<p class="ext-name">
-The Seventh Petal
-</p>
-<p class="ext-source">
-Origin unrecorded · rite-bound preparation forbidden to the unlearn’d
-</p>
+<p class="ext-name">The Seventh Petal</p>
+<p class="ext-source">Origin unrecorded · rite-bound preparation forbidden to the unlearn’d</p>
 </div>
 <div>
-<span class="ext-grade grade-forbidden">
-Forbidden
-</span>
+<span class="ext-grade grade-forbidden">Forbidden</span>
 </div>
 <div>
-<p class="ext-effect">
-Its working shifts with the bearer’s secret will and inward state; no two tellings agree, and no safe doctrine exists for its use.
-</p>
+<p class="ext-effect">Its working shifts with the bearer’s secret will and inward state; no two tellings agree, and no safe doctrine exists for its use.</p>
 </div>
 <div>
-<p class="ext-price">
-—
-</p>
-<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">
-Price withheld by rite
-</p>
+<p class="ext-price">—</p>
+<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">Price withheld by rite</p>
 </div>
 </div>
 <div class="extract-row">
 <div>
-<p class="ext-name">
-Saint Mire
-</p>
-<p class="ext-source">
-Marsh herbs and bitter root steep’d within a milky draught
-</p>
+<p class="ext-name">Saint Mire</p>
+<p class="ext-source">Marsh herbs and bitter root steep’d within a milky draught</p>
 </div>
 <div>
-<span class="ext-grade grade-ii">
-II Circle
-</span>
+<span class="ext-grade grade-ii">II Circle</span>
 </div>
 <div>
-<p class="ext-effect">
-The tongue loosens and hidden truths surface with ease, though the candour often sows discord among companions.
-</p>
+<p class="ext-effect">The tongue loosens and hidden truths surface with ease, though the candour often sows discord among companions.</p>
 </div>
 <div>
-<p class="ext-price">
-160 DNS
-</p>
-<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">
-Per cruet
-</p>
+<p class="ext-price">160 DNS</p>
+<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">Per cruet</p>
 </div>
 </div>
 <div class="extract-row">
 <div>
-<p class="ext-name">
-Duskroot
-</p>
-<p class="ext-source">
-Ancient roots lifted at sunset and dry’d in shadow for many nights
-</p>
+<p class="ext-name">Duskroot</p>
+<p class="ext-source">Ancient roots lifted at sunset and dry’d in shadow for many nights</p>
 </div>
 <div>
-<span class="ext-grade grade-i">
-I Circle
-</span>
+<span class="ext-grade grade-i">I Circle</span>
 </div>
 <div>
-<p class="ext-effect">
-The mind is roused and need for rest is held at bay, though when the virtue fails, weariness returns manifold.
-</p>
+<p class="ext-effect">The mind is roused and need for rest is held at bay, though when the virtue fails, weariness returns manifold.</p>
 </div>
 <div>
-<p class="ext-price">
-120 DNS
-</p>
-<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">
-Per root braid
-</p>
+<p class="ext-price">120 DNS</p>
+<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">Per root braid</p>
 </div>
 </div>
 <div class="extract-row">
 <div>
-<p class="ext-name">
-Hushwater
-</p>
-<p class="ext-source">
-Thrice-filter’d through pale reed, ash, and fine mineral dust
-</p>
+<p class="ext-name">Hushwater</p>
+<p class="ext-source">Thrice-filter’d through pale reed, ash, and fine mineral dust</p>
 </div>
 <div>
-<span class="ext-grade grade-ii">
-II Circle
-</span>
+<span class="ext-grade grade-ii">II Circle</span>
 </div>
 <div>
-<p class="ext-effect">
-Fresh memory blurs by measure and mood, taking words and deeds into a soft forgetting.
-</p>
+<p class="ext-effect">Fresh memory blurs by measure and mood, taking words and deeds into a soft forgetting.</p>
 </div>
 <div>
-<p class="ext-price">
-150 DNS
-</p>
-<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">
-Per stoppered vial
-</p>
+<p class="ext-price">150 DNS</p>
+<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">Per stoppered vial</p>
 </div>
 </div>
 <div class="extract-row">
 <div>
-<p class="ext-name">
-Widow’s Mercy
-</p>
-<p class="ext-source">
-Slow-grown thorns simmer’d for days and preserv’d with ash
-</p>
+<p class="ext-name">Widow’s Mercy</p>
+<p class="ext-source">Slow-grown thorns simmer’d for days and preserv’d with ash</p>
 </div>
 <div>
-<span class="ext-grade grade-iii">
-III Circle
-</span>
+<span class="ext-grade grade-iii">III Circle</span>
 </div>
 <div>
-<p class="ext-effect">
-Bodily strength fades by slow degrees while the mind stays keen, breeding a quiet and enduring torment.
-</p>
+<p class="ext-effect">Bodily strength fades by slow degrees while the mind stays keen, breeding a quiet and enduring torment.</p>
 </div>
 <div>
-<p class="ext-price">
-280 DNS
-</p>
-<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">
-Per draught sachet
-</p>
+<p class="ext-price">280 DNS</p>
+<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">Per draught sachet</p>
 </div>
 </div>
 <div class="extract-row">
 <div>
-<p class="ext-name">
-Cinder Psalm
-</p>
-<p class="ext-source">
-Charred resin and funerary herbs wrought chiefly for incense
-</p>
+<p class="ext-name">Cinder Psalm</p>
+<p class="ext-source">Charred resin and funerary herbs wrought chiefly for incense</p>
 </div>
 <div>
-<span class="ext-grade grade-occult">
-Occult
-</span>
+<span class="ext-grade grade-occult">Occult</span>
 </div>
 <div>
-<p class="ext-effect">
-The smoke unseals visions: prophetic dreams, fervent faith, and claims of speech with the departed, though truth and fancy are hard to divide.
-</p>
+<p class="ext-effect">The smoke unseals visions: prophetic dreams, fervent faith, and claims of speech with the departed, though truth and fancy are hard to divide.</p>
 </div>
 <div>
-<p class="ext-price">
-240 DNS
-</p>
-<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">
-Per incense cone
-</p>
+<p class="ext-price">240 DNS</p>
+<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">Per incense cone</p>
 </div>
 </div>
 <div class="extract-row">
 <div>
-<p class="ext-name">
-Evermere
-</p>
-<p class="ext-source">
-Dusk blossoms reduc’d by copper vessels and patient simmer
-</p>
+<p class="ext-name">Evermere</p>
+<p class="ext-source">Dusk blossoms reduc’d by copper vessels and patient simmer</p>
 </div>
 <div>
-<span class="ext-grade grade-i">
-I Circle
-</span>
+<span class="ext-grade grade-i">I Circle</span>
 </div>
 <div>
-<p class="ext-effect">
-Weariness is veiled briefly, including dark rings, red eyes, and pallor; yet the body repays the concealment with heavy fatigue afterward.
-</p>
+<p class="ext-effect">Weariness is veiled briefly, including dark rings, red eyes, and pallor; yet the body repays the concealment with heavy fatigue afterward.</p>
 </div>
 <div>
-<p class="ext-price">
-110 DNS
-</p>
-<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">
-Per ampoule
-</p>
+<p class="ext-price">110 DNS</p>
+<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">Per ampoule</p>
 </div>
 </div>
 <div class="extract-row">
 <div>
-<p class="ext-name">
-Mother Hemlock
-</p>
-<p class="ext-source">
-Formula and keeping sealed under the shop mistress’s command
-</p>
+<p class="ext-name">Mother Hemlock</p>
+<p class="ext-source">Formula and keeping sealed under the shop mistress’s command</p>
 </div>
 <div>
-<span class="ext-grade grade-restricted">
-Restricted
-</span>
+<span class="ext-grade grade-restricted">Restricted</span>
 </div>
 <div>
-<p class="ext-effect">
-No sure account remains. Its presence is known only through old inventory sheets and the faintest traveller whispers.
-</p>
+<p class="ext-effect">No sure account remains. Its presence is known only through old inventory sheets and the faintest traveller whispers.</p>
 </div>
 <div>
-<p class="ext-price">
-—
-</p>
-<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">
-Not for common sale
-</p>
+<p class="ext-price">—</p>
+<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">Not for common sale</p>
 </div>
 </div>
 <div class="extract-row">
 <div>
-<p class="ext-name">
-Winter Thistle
-</p>
-<p class="ext-source">
-Pure heart gathered beneath the year’s first snow
-</p>
+<p class="ext-name">Winter Thistle</p>
+<p class="ext-source">Pure heart gathered beneath the year’s first snow</p>
 </div>
 <div>
-<span class="ext-grade grade-i">
-I Circle
-</span>
+<span class="ext-grade grade-i">I Circle</span>
 </div>
 <div>
-<p class="ext-effect">
-The pulse slows and panic is quelled at once, though prolonged use may leave the mind cold and estranged for many days.
-</p>
+<p class="ext-effect">The pulse slows and panic is quelled at once, though prolonged use may leave the mind cold and estranged for many days.</p>
 </div>
 <div>
-<p class="ext-price">
-130 DNS
-</p>
-<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">
-Per fresh bloom
-</p>
+<p class="ext-price">130 DNS</p>
+<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">Per fresh bloom</p>
 </div>
 </div>
 <div class="extract-row">
 <div>
-<p class="ext-name">
-Laurel Sanguine
-</p>
-<p class="ext-source">
-Crimson laurel sap thrice refin’d through a barrier of sharp thorns
-</p>
+<p class="ext-name">Laurel Sanguine</p>
+<p class="ext-source">Crimson laurel sap thrice refin’d through a barrier of sharp thorns</p>
 </div>
 <div>
-<span class="ext-grade grade-iii">
-III Circle
-</span>
+<span class="ext-grade grade-iii">III Circle</span>
 </div>
 <div>
-<p class="ext-effect">
-Feeling is bound with fierce constraint, and many grow protectively fix’d upon the first soul they behold when waking.
-</p>
+<p class="ext-effect">Feeling is bound with fierce constraint, and many grow protectively fix’d upon the first soul they behold when waking.</p>
 </div>
 <div>
-<p class="ext-price">
-320 DNS
-</p>
-<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">
-Per crimson ampoule
-</p>
+<p class="ext-price">320 DNS</p>
+<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">Per crimson ampoule</p>
 </div>
 </div>
 <div class="extract-row">
 <div>
-<p class="ext-name">
-Ivory Briar
-</p>
-<p class="ext-source">
-Wild rose distilled with true silver needles for many nights
-</p>
+<p class="ext-name">Ivory Briar</p>
+<p class="ext-source">Wild rose distilled with true silver needles for many nights</p>
 </div>
 <div>
-<span class="ext-grade grade-i">
-I Circle
-</span>
+<span class="ext-grade grade-i">I Circle</span>
 </div>
 <div>
-<p class="ext-effect">
-Trembling, fear, and the bodily signs of anxiety are allayed in a soft, dreamlike, and short-lived manner.
-</p>
+<p class="ext-effect">Trembling, fear, and the bodily signs of anxiety are allayed in a soft, dreamlike, and short-lived manner.</p>
 </div>
 <div>
-<p class="ext-price">
-100 DNS
-</p>
-<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">
-Per vial
-</p>
+<p class="ext-price">100 DNS</p>
+<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">Per vial</p>
 </div>
 </div>
 <div class="extract-row">
 <div>
-<p class="ext-name">
-Rosethorn Rite
-</p>
-<p class="ext-source">
-Black rose pollen and ritual wine reduc’d under unmoving heat
-</p>
+<p class="ext-name">Rosethorn Rite</p>
+<p class="ext-source">Black rose pollen and ritual wine reduc’d under unmoving heat</p>
 </div>
 <div>
-<span class="ext-grade grade-iii">
-III Circle
-</span>
+<span class="ext-grade grade-iii">III Circle</span>
 </div>
 <div>
-<p class="ext-effect">
-A swift bond of emotional attachment is woven between two persons, though the wound and yearning after it fades are harsher than the enchantment.
-</p>
+<p class="ext-effect">A swift bond of emotional attachment is woven between two persons, though the wound and yearning after it fades are harsher than the enchantment.</p>
 </div>
 <div>
-<p class="ext-price">
-420 DNS
-</p>
-<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">
-Twin-vial binding kit
-</p>
+<p class="ext-price">420 DNS</p>
+<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">Twin-vial binding kit</p>
 </div>
 </div>
 <div class="extract-row">
 <div>
-<p class="ext-name">
-Gloaming Poppy
-</p>
-<p class="ext-source">
-Evening poppy resin pass’d through smoke to stabilize the draught
-</p>
+<p class="ext-name">Gloaming Poppy</p>
+<p class="ext-source">Evening poppy resin pass’d through smoke to stabilize the draught</p>
 </div>
 <div>
-<span class="ext-grade grade-ii">
-II Circle
-</span>
+<span class="ext-grade grade-ii">II Circle</span>
 </div>
 <div>
-<p class="ext-effect">
-Gentle ecstasy is granted and time feels strange and untrue, making it a favored bloom among poets and musicians.
-</p>
+<p class="ext-effect">Gentle ecstasy is granted and time feels strange and untrue, making it a favored bloom among poets and musicians.</p>
 </div>
 <div>
-<p class="ext-price">
-170 DNS
-</p>
-<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">
-Per vial
-</p>
+<p class="ext-price">170 DNS</p>
+<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">Per vial</p>
 </div>
 </div>
 <div class="extract-row">
 <div>
-<p class="ext-name">
-Saint’s Veil
-</p>
-<p class="ext-source">
-Pale lilies and cloister herbs rested within a sealed vessel for a full moon cycle
-</p>
+<p class="ext-name">Saint’s Veil</p>
+<p class="ext-source">Pale lilies and cloister herbs rested within a sealed vessel for a full moon cycle</p>
 </div>
 <div>
-<span class="ext-grade grade-ii">
-II Circle
-</span>
+<span class="ext-grade grade-ii">II Circle</span>
 </div>
 <div>
-<p class="ext-effect">
-The tongue is held in grave restraint, lending persuasion while making deceit difficult to speak.
-</p>
+<p class="ext-effect">The tongue is held in grave restraint, lending persuasion while making deceit difficult to speak.</p>
 </div>
 <div>
-<p class="ext-price">
-190 DNS
-</p>
-<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">
-Per sealed flask
-</p>
+<p class="ext-price">190 DNS</p>
+<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">Per sealed flask</p>
 </div>
 </div>
 <div class="extract-row">
 <div>
-<p class="ext-name">
-Ash Dahlia
-</p>
-<p class="ext-source">
-A half-burn’d dahlia head bury’d and preserv’d in old graveyard earth
-</p>
+<p class="ext-name">Ash Dahlia</p>
+<p class="ext-source">A half-burn’d dahlia head bury’d and preserv’d in old graveyard earth</p>
 </div>
 <div>
-<span class="ext-grade grade-iii">
-III Circle
-</span>
+<span class="ext-grade grade-iii">III Circle</span>
 </div>
 <div>
-<p class="ext-effect">
-The body decays by slow degrees while the outward form remains bright and healthful, making corruption difficult to perceive.
-</p>
+<p class="ext-effect">The body decays by slow degrees while the outward form remains bright and healthful, making corruption difficult to perceive.</p>
 </div>
 <div>
-<p class="ext-price">
-260 DNS
-</p>
-<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">
-Per bloom-cask
-</p>
+<p class="ext-price">260 DNS</p>
+<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">Per bloom-cask</p>
 </div>
 </div>
 <div class="extract-row">
 <div>
-<p class="ext-name">
-Mourning Jasmine
-</p>
-<p class="ext-source">
-Night-blooming jasmine condens’d in a closed system
-</p>
+<p class="ext-name">Mourning Jasmine</p>
+<p class="ext-source">Night-blooming jasmine condens’d in a closed system</p>
 </div>
 <div>
-<span class="ext-grade grade-ii">
-II Circle
-</span>
+<span class="ext-grade grade-ii">II Circle</span>
 </div>
 <div>
-<p class="ext-effect">
-The spirit is led into lucid dream, senses open to hidden things, and shadowed communion may follow; sleepwalking is common afterward.
-</p>
+<p class="ext-effect">The spirit is led into lucid dream, senses open to hidden things, and shadowed communion may follow; sleepwalking is common afterward.</p>
 </div>
 <div>
-<p class="ext-price">
-210 DNS
-</p>
-<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">
-Per nocturne vial
-</p>
+<p class="ext-price">210 DNS</p>
+<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">Per nocturne vial</p>
 </div>
 </div>
 <div class="extract-row">
 <div>
-<p class="ext-name">
-Milkthorn
-</p>
-<p class="ext-source">
-White milk from the stem gathered before first sunbeam touches the wood
-</p>
+<p class="ext-name">Milkthorn</p>
+<p class="ext-source">White milk from the stem gathered before first sunbeam touches the wood</p>
 </div>
 <div>
-<span class="ext-grade grade-i">
-I Circle
-</span>
+<span class="ext-grade grade-i">I Circle</span>
 </div>
 <div>
-<p class="ext-effect">
-Bodily pain is numb’d without disturbing motion or reason, making it a favored aid for perilous labor.
-</p>
+<p class="ext-effect">Bodily pain is numb’d without disturbing motion or reason, making it a favored aid for perilous labor.</p>
 </div>
 <div>
-<p class="ext-price">
-95 DNS
-</p>
-<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">
-Per dose
-</p>
+<p class="ext-price">95 DNS</p>
+<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">Per dose</p>
 </div>
 </div>
 <div class="extract-row">
 <div>
-<p class="ext-name">
-Velour Briar
-</p>
-<p class="ext-source">
-Dark thorned bloom kept in a vessel lined with thick velvet
-</p>
+<p class="ext-name">Velour Briar</p>
+<p class="ext-source">Dark thorned bloom kept in a vessel lined with thick velvet</p>
 </div>
 <div>
-<span class="ext-grade grade-iii">
-III Circle
-</span>
+<span class="ext-grade grade-iii">III Circle</span>
 </div>
 <div>
-<p class="ext-effect">
-Joy, pain, and the lightest touch are magnified into vast and overwhelming sensation; some say the heart can scarcely endure it.
-</p>
+<p class="ext-effect">Joy, pain, and the lightest touch are magnified into vast and overwhelming sensation; some say the heart can scarcely endure it.</p>
 </div>
 <div>
-<p class="ext-price">
-300 DNS
-</p>
-<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">
-Per blossom
-</p>
+<p class="ext-price">300 DNS</p>
+<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">Per blossom</p>
 </div>
 </div>
 <div class="extract-row">
 <div>
-<p class="ext-name">
-Rime Marigold
-</p>
-<p class="ext-source">
-Winter marigold petals preserv’d in icy brine from an ancient glacier
-</p>
+<p class="ext-name">Rime Marigold</p>
+<p class="ext-source">Winter marigold petals preserv’d in icy brine from an ancient glacier</p>
 </div>
 <div>
-<span class="ext-grade grade-ii">
-II Circle
-</span>
+<span class="ext-grade grade-ii">II Circle</span>
 </div>
 <div>
-<p class="ext-effect">
-Bloodflow slackens and consciousness may be preserved briefly even through grievous wounds.
-</p>
+<p class="ext-effect">Bloodflow slackens and consciousness may be preserved briefly even through grievous wounds.</p>
 </div>
 <div>
-<p class="ext-price">
-175 DNS
-</p>
-<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">
-Per brine jar
-</p>
+<p class="ext-price">175 DNS</p>
+<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">Per brine jar</p>
 </div>
 </div>
 <div class="extract-row">
 <div>
-<p class="ext-name">
-Belladonna Hymnal
-</p>
-<p class="ext-source">
-Cultivated in shut chambers and distill’d beneath an ancient temple’s choir loft
-</p>
+<p class="ext-name">Belladonna Hymnal</p>
+<p class="ext-source">Cultivated in shut chambers and distill’d beneath an ancient temple’s choir loft</p>
 </div>
 <div>
-<span class="ext-grade grade-iii">
-III Circle
-</span>
+<span class="ext-grade grade-iii">III Circle</span>
 </div>
 <div>
-<p class="ext-effect">
-The soul is carried into profound religious ecstasy, while sweet choral harmonies seem to arise from nowhere.
-</p>
+<p class="ext-effect">The soul is carried into profound religious ecstasy, while sweet choral harmonies seem to arise from nowhere.</p>
 </div>
 <div>
-<p class="ext-price">
-390 DNS
-</p>
-<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">
-Per choir phial
-</p>
+<p class="ext-price">390 DNS</p>
+<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">Per choir phial</p>
 </div>
 </div>
 <div class="extract-row">
 <div>
-<p class="ext-name">
-Rue Pallid
-</p>
-<p class="ext-source">
-Rue ground fine and mix’d with true pearl dust by secret formula
-</p>
+<p class="ext-name">Rue Pallid</p>
+<p class="ext-source">Rue ground fine and mix’d with true pearl dust by secret formula</p>
 </div>
 <div>
-<span class="ext-grade grade-i">
-I Circle
-</span>
+<span class="ext-grade grade-i">I Circle</span>
 </div>
 <div>
-<p class="ext-effect">
-The mind sharpens and memory of old knowledge strengthens for many hours.
-</p>
+<p class="ext-effect">The mind sharpens and memory of old knowledge strengthens for many hours.</p>
 </div>
 <div>
-<p class="ext-price">
-145 DNS
-</p>
-<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">
-Per pearl-dust sachet
-</p>
+<p class="ext-price">145 DNS</p>
+<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">Per pearl-dust sachet</p>
 </div>
 </div>
 <div class="extract-row">
 <div>
-<p class="ext-name">
-Coffin Orchis
-</p>
-<p class="ext-source">
-Underground orchid extracted by pressure from intricate rootwork
-</p>
+<p class="ext-name">Coffin Orchis</p>
+<p class="ext-source">Underground orchid extracted by pressure from intricate rootwork</p>
 </div>
 <div>
-<span class="ext-grade grade-restricted">
-Restricted
-</span>
+<span class="ext-grade grade-restricted">Restricted</span>
 </div>
 <div>
-<p class="ext-effect">
-The body enters a stillness so deep it seems life has departed, while thought remains bright within. A watcher is required at all times.
-</p>
+<p class="ext-effect">The body enters a stillness so deep it seems life has departed, while thought remains bright within. A watcher is required at all times.</p>
 </div>
 <div>
-<p class="ext-price">
-—
-</p>
-<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">
-Not sold without license
-</p>
+<p class="ext-price">—</p>
+<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">Not sold without license</p>
 </div>
 </div>
 <div class="extract-row">
 <div>
-<p class="ext-name">
-Elegy Iris
-</p>
-<p class="ext-source">
-Iris tincture long matur’d in an oak cask once used in mourning rites
-</p>
+<p class="ext-name">Elegy Iris</p>
+<p class="ext-source">Iris tincture long matur’d in an oak cask once used in mourning rites</p>
 </div>
 <div>
-<span class="ext-grade grade-ii">
-II Circle
-</span>
+<span class="ext-grade grade-ii">II Circle</span>
 </div>
 <div>
-<p class="ext-effect">
-Grief is drawn from hidden chambers of the heart until the body shows signs one cannot easily command.
-</p>
+<p class="ext-effect">Grief is drawn from hidden chambers of the heart until the body shows signs one cannot easily command.</p>
 </div>
 <div>
-<p class="ext-price">
-165 DNS
-</p>
-<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">
-Per tincture vial
-</p>
+<p class="ext-price">165 DNS</p>
+<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">Per tincture vial</p>
 </div>
 </div>
 <div class="extract-row">
 <div>
-<p class="ext-name">
-Selenite Yew
-</p>
-<p class="ext-source">
-Yew resin purify’d and made translucent through many crystal layers
-</p>
+<p class="ext-name">Selenite Yew</p>
+<p class="ext-source">Yew resin purify’d and made translucent through many crystal layers</p>
 </div>
 <div>
-<span class="ext-grade grade-i">
-I Circle
-</span>
+<span class="ext-grade grade-i">I Circle</span>
 </div>
 <div>
-<p class="ext-effect">
-The sense of time is lengthened beyond its true measure, making minutes feel like hours.
-</p>
+<p class="ext-effect">The sense of time is lengthened beyond its true measure, making minutes feel like hours.</p>
 </div>
 <div>
-<p class="ext-price">
-155 DNS
-</p>
-<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">
-Per crystal vial
-</p>
+<p class="ext-price">155 DNS</p>
+<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">Per crystal vial</p>
 </div>
 </div>
 <div class="extract-row">
 <div>
-<p class="ext-name">
-Noctis Paeonia
-</p>
-<p class="ext-source">
-Midnight peony pollen extract’d in mirrored vessels
-</p>
+<p class="ext-name">Noctis Paeonia</p>
+<p class="ext-source">Midnight peony pollen extract’d in mirrored vessels</p>
 </div>
 <div>
-<span class="ext-grade grade-i">
-I Circle
-</span>
+<span class="ext-grade grade-i">I Circle</span>
 </div>
 <div>
-<p class="ext-effect">
-An unnatural fondness for one’s own image arises, along with fierce satisfaction in appearance.
-</p>
+<p class="ext-effect">An unnatural fondness for one’s own image arises, along with fierce satisfaction in appearance.</p>
 </div>
 <div>
-<p class="ext-price">
-125 DNS
-</p>
-<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">
-Per mirrored bloom
-</p>
+<p class="ext-price">125 DNS</p>
+<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">Per mirrored bloom</p>
 </div>
 </div>
 <div class="extract-row">
 <div>
-<p class="ext-name">
-Ruin Magnolia
-</p>
-<p class="ext-source">
-Magnolia nectar preserv’d under strict and carefully govern’d conditions
-</p>
+<p class="ext-name">Ruin Magnolia</p>
+<p class="ext-source">Magnolia nectar preserv’d under strict and carefully govern’d conditions</p>
 </div>
 <div>
-<span class="ext-grade grade-ii">
-II Circle
-</span>
+<span class="ext-grade grade-ii">II Circle</span>
 </div>
 <div>
-<p class="ext-effect">
-Emotional attachment hastens at once while reason weakens, leaving quarrels and duels often in its wake.
-</p>
+<p class="ext-effect">Emotional attachment hastens at once while reason weakens, leaving quarrels and duels often in its wake.</p>
 </div>
 <div>
-<p class="ext-price">
-205 DNS
-</p>
-<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">
-Per nectar flask
-</p>
+<p class="ext-price">205 DNS</p>
+<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">Per nectar flask</p>
 </div>
 </div>
 <div class="extract-row">
 <div>
-<p class="ext-name">
-Winter Wisteria
-</p>
-<p class="ext-source">
-Frozen wisteria stabilized in a dark ice chamber
-</p>
+<p class="ext-name">Winter Wisteria</p>
+<p class="ext-source">Frozen wisteria stabilized in a dark ice chamber</p>
 </div>
 <div>
-<span class="ext-grade grade-i">
-I Circle
-</span>
+<span class="ext-grade grade-i">I Circle</span>
 </div>
 <div>
-<p class="ext-effect">
-Calm judgment and steadfast resolve are foster’d under pressure, fit for those who must keep their wits amid chaos.
-</p>
+<p class="ext-effect">Calm judgment and steadfast resolve are foster’d under pressure, fit for those who must keep their wits amid chaos.</p>
 </div>
 <div>
-<p class="ext-price">
-175 DNS
-</p>
-<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">
-Per cold-set vial
-</p>
+<p class="ext-price">175 DNS</p>
+<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">Per cold-set vial</p>
 </div>
 </div>
 <div class="extract-row">
 <div>
-<p class="ext-name">
-Funeral Camellia
-</p>
-<p class="ext-source">
-Black camellia oil mingled lightly with farewell incense
-</p>
+<p class="ext-name">Funeral Camellia</p>
+<p class="ext-source">Black camellia oil mingled lightly with farewell incense</p>
 </div>
 <div>
-<span class="ext-grade grade-ii">
-II Circle
-</span>
+<span class="ext-grade grade-ii">II Circle</span>
 </div>
 <div>
-<p class="ext-effect">
-Emotional response to wounds and death is lessened in a manner most unusual.
-</p>
+<p class="ext-effect">Emotional response to wounds and death is lessened in a manner most unusual.</p>
 </div>
 <div>
-<p class="ext-price">
-185 DNS
-</p>
-<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">
-Per rite oil
-</p>
+<p class="ext-price">185 DNS</p>
+<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">Per rite oil</p>
 </div>
 </div>
 <div class="extract-row">
 <div>
-<p class="ext-name">
-Wane Jonquille
-</p>
-<p class="ext-source">
-Grown beneath mirrored glass and refin’d thrice with exacting care
-</p>
+<p class="ext-name">Wane Jonquille</p>
+<p class="ext-source">Grown beneath mirrored glass and refin’d thrice with exacting care</p>
 </div>
 <div>
-<span class="ext-grade grade-i">
-I Circle
-</span>
+<span class="ext-grade grade-i">I Circle</span>
 </div>
 <div>
-<p class="ext-effect">
-Attention turns inward, fix’d upon reflection, countenance, and voice; prolonged use strengthens the compulsion.
-</p>
+<p class="ext-effect">Attention turns inward, fix’d upon reflection, countenance, and voice; prolonged use strengthens the compulsion.</p>
 </div>
 <div>
-<p class="ext-price">
-115 DNS
-</p>
-<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">
-Per reflection drop
-</p>
+<p class="ext-price">115 DNS</p>
+<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">Per reflection drop</p>
 </div>
 </div>
 <div class="extract-row">
 <div>
-<p class="ext-name">
-Flos Viviea
-</p>
-<p class="ext-source">
-Rare bloom from the body of an elemental mage · unlawful to cultivate
-</p>
+<p class="ext-name">Flos Viviea</p>
+<p class="ext-source">Rare bloom from the body of an elemental mage · unlawful to cultivate</p>
 </div>
 <div>
-<span class="ext-grade grade-illicit">
-Illicit
-</span>
+<span class="ext-grade grade-illicit">Illicit</span>
 </div>
 <div>
-<p class="ext-effect">
-Violently stimulates nerve and muscle response; overuse may bring sudden heart failure and death.
-</p>
+<p class="ext-effect">Violently stimulates nerve and muscle response; overuse may bring sudden heart failure and death.</p>
 </div>
 <div>
-<p class="ext-price">
-520 DNS
-</p>
-<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">
-Per emergency ampoule
-</p>
+<p class="ext-price">520 DNS</p>
+<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">Per emergency ampoule</p>
 </div>
 </div>
 <div class="extract-row">
 <div>
-<p class="ext-name">
-Sexus Velle
-</p>
-<p class="ext-source">
-Deep violet bloom of the northern reaches · heavily controlled and smuggled
-</p>
+<p class="ext-name">Sexus Velle</p>
+<p class="ext-source">Deep violet bloom of the northern reaches · heavily controlled and smuggled</p>
 </div>
 <div>
-<span class="ext-grade grade-iii">
-III Circle
-</span>
+<span class="ext-grade grade-iii">III Circle</span>
 </div>
 <div>
-<p class="ext-effect">
-Emotions and bodily responses are heightened, with stronger feeling and sharper sensitivity to surrounding stimuli.
-</p>
+<p class="ext-effect">Emotions and bodily responses are heightened, with stronger feeling and sharper sensitivity to surrounding stimuli.</p>
 </div>
 <div>
-<p class="ext-price">
-260 DNS
-</p>
-<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">
-Per pollen bundle
-</p>
+<p class="ext-price">260 DNS</p>
+<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">Per pollen bundle</p>
 </div>
 </div>
 <div class="extract-row">
 <div>
-<p class="ext-name">
-Beru Beru
-</p>
-<p class="ext-source">
-Small bright-blue flower found by waterfalls and strong streams
-</p>
+<p class="ext-name">Beru Beru</p>
+<p class="ext-source">Small bright-blue flower found by waterfalls and strong streams</p>
 </div>
 <div>
-<span class="ext-grade grade-i">
-I Circle
-</span>
+<span class="ext-grade grade-i">I Circle</span>
 </div>
 <div>
-<p class="ext-effect">
-Best known for healing harms tied to water-elemental power, though its workings remain strange and hard to foretell.
-</p>
+<p class="ext-effect">Best known for healing harms tied to water-elemental power, though its workings remain strange and hard to foretell.</p>
 </div>
 <div>
-<p class="ext-price">
-135 DNS
-</p>
-<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">
-Per blue blossom
-</p>
+<p class="ext-price">135 DNS</p>
+<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">Per blue blossom</p>
 </div>
 </div>
 <div class="extract-row">
 <div>
-<p class="ext-name">
-Geogia Tuis
-</p>
-<p class="ext-source">
-Drought-hardy tropical bloom used in spiritual rites and magic
-</p>
+<p class="ext-name">Geogia Tuis</p>
+<p class="ext-source">Drought-hardy tropical bloom used in spiritual rites and magic</p>
 </div>
 <div>
-<span class="ext-grade grade-i">
-I Circle
-</span>
+<span class="ext-grade grade-i">I Circle</span>
 </div>
 <div>
-<p class="ext-effect">
-Fresh scent quiets the mind and lessens emotional unrest; concentrated extract shows mild to moderate sedative virtue.
-</p>
+<p class="ext-effect">Fresh scent quiets the mind and lessens emotional unrest; concentrated extract shows mild to moderate sedative virtue.</p>
 </div>
 <div>
-<p class="ext-price">
-120 DNS
-</p>
-<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">
-Per ritual sprig
-</p>
+<p class="ext-price">120 DNS</p>
+<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">Per ritual sprig</p>
 </div>
 </div>
 <div class="extract-row">
 <div>
-<p class="ext-name">
-Purus Bloem
-</p>
-<p class="ext-source">
-Translucent white blossom with root-only true extraction
-</p>
+<p class="ext-name">Purus Bloem</p>
+<p class="ext-source">Translucent white blossom with root-only true extraction</p>
 </div>
 <div>
-<span class="ext-grade grade-i">
-I Circle
-</span>
+<span class="ext-grade grade-i">I Circle</span>
 </div>
 <div>
-<p class="ext-effect">
-Gentle relaxation softens the heart’s guard, and root extract is widely used to ease bodily discomfort in women.
-</p>
+<p class="ext-effect">Gentle relaxation softens the heart’s guard, and root extract is widely used to ease bodily discomfort in women.</p>
 </div>
 <div>
-<p class="ext-price">
-105 DNS
-</p>
-<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">
-Per root extract
-</p>
+<p class="ext-price">105 DNS</p>
+<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">Per root extract</p>
 </div>
 </div>
 <div class="extract-row">
 <div>
-<p class="ext-name">
-Fuchsia Ella
-</p>
-<p class="ext-source">
-Bloom found near cooled magma and remnants of earth-and-fire wielders
-</p>
+<p class="ext-name">Fuchsia Ella</p>
+<p class="ext-source">Bloom found near cooled magma and remnants of earth-and-fire wielders</p>
 </div>
 <div>
-<span class="ext-grade grade-ii">
-II Circle
-</span>
+<span class="ext-grade grade-ii">II Circle</span>
 </div>
 <div>
-<p class="ext-effect">
-Vigor, alertness, and emotional sharpness are increased; the scent recalls earth after the season’s first rain.
-</p>
+<p class="ext-effect">Vigor, alertness, and emotional sharpness are increased; the scent recalls earth after the season’s first rain.</p>
 </div>
 <div>
-<p class="ext-price">
-190 DNS
-</p>
-<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">
-Per ember bloom
-</p>
+<p class="ext-price">190 DNS</p>
+<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">Per ember bloom</p>
 </div>
 </div>
 <div class="extract-row">
 <div>
-<p class="ext-name">
-Tenebris Velle
-</p>
-<p class="ext-source">
-Night-without-stars bloom · petals drinking light against nature
-</p>
+<p class="ext-name">Tenebris Velle</p>
+<p class="ext-source">Night-without-stars bloom · petals drinking light against nature</p>
 </div>
 <div>
-<span class="ext-grade grade-iii">
-III Circle
-</span>
+<span class="ext-grade grade-iii">III Circle</span>
 </div>
 <div>
-<p class="ext-effect">
-Bodily response and resistance are lessened without full unconsciousness, like sinking into silence.
-</p>
+<p class="ext-effect">Bodily response and resistance are lessened without full unconsciousness, like sinking into silence.</p>
 </div>
 <div>
-<p class="ext-price">
-310 DNS
-</p>
-<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">
-Per night-shade phial
-</p>
+<p class="ext-price">310 DNS</p>
+<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">Per night-shade phial</p>
 </div>
 </div>
 <div class="extract-row">
 <div>
-<p class="ext-name">
-Velaris
-</p>
-<p class="ext-source">
-Rootless blossom borne aloft by wind and moisture
-</p>
+<p class="ext-name">Velaris</p>
+<p class="ext-source">Rootless blossom borne aloft by wind and moisture</p>
 </div>
 <div>
-<span class="ext-grade grade-ii">
-II Circle
-</span>
+<span class="ext-grade grade-ii">II Circle</span>
 </div>
 <div>
-<p class="ext-effect">
-Brew’d with rainwater, it alters time perception so a short span may feel greatly prolong’d, often leaving fatigue afterward.
-</p>
+<p class="ext-effect">Brew’d with rainwater, it alters time perception so a short span may feel greatly prolong’d, often leaving fatigue afterward.</p>
 </div>
 <div>
-<p class="ext-price">
-200 DNS
-</p>
-<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">
-Per rain brew
-</p>
+<p class="ext-price">200 DNS</p>
+<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">Per rain brew</p>
 </div>
 </div>
 <div class="extract-row">
 <div>
-<p class="ext-name">
-Eirwen
-</p>
-<p class="ext-source">
-Flower from far northern ice mountains that never melt
-</p>
+<p class="ext-name">Eirwen</p>
+<p class="ext-source">Flower from far northern ice mountains that never melt</p>
 </div>
 <div>
-<span class="ext-grade grade-i">
-I Circle
-</span>
+<span class="ext-grade grade-i">I Circle</span>
 </div>
 <div>
-<p class="ext-effect">
-Outward use stops bleeding and numbs a small area; inward use may briefly hinder access to short-term memory.
-</p>
+<p class="ext-effect">Outward use stops bleeding and numbs a small area; inward use may briefly hinder access to short-term memory.</p>
 </div>
 <div>
-<p class="ext-price">
-115 DNS
-</p>
-<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">
-Per frost petal
-</p>
+<p class="ext-price">115 DNS</p>
+<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">Per frost petal</p>
 </div>
 </div>
 <div class="extract-row">
 <div>
-<p class="ext-name">
-Lascivia
-</p>
-<p class="ext-source">
-Deep red bloom with moving petals and viscous moisture ever gather’d upon it
-</p>
+<p class="ext-name">Lascivia</p>
+<p class="ext-source">Deep red bloom with moving petals and viscous moisture ever gather’d upon it</p>
 </div>
 <div>
-<span class="ext-grade grade-ii">
-II Circle
-</span>
+<span class="ext-grade grade-ii">II Circle</span>
 </div>
 <div>
-<p class="ext-effect">
-It quells bodily urges and governs certain appetites, though scholars dispute the limits of prolonged use.
-</p>
+<p class="ext-effect">It quells bodily urges and governs certain appetites, though scholars dispute the limits of prolonged use.</p>
 </div>
 <div>
-<p class="ext-price">
-180 DNS
-</p>
-<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">
-Per deep-red bloom
-</p>
+<p class="ext-price">180 DNS</p>
+<p style="font-size:11px; color:rgba(200,184,150,0.3); margin-top:3px; letter-spacing:.05em;">Per deep-red bloom</p>
 </div>
 </div>
 </div>
 <!-- Ledger notes -->
 <section class="ledger-section">
 <div class="ledger-block">
-<h3 class="ledger-title">
-The Bloom Ledger
-</h3>
+<h3 class="ledger-title">The Bloom Ledger</h3>
 <p class="ledger-body">
 All transactions are recorded in a proprietary notation system, written in
-<em>
-elemental ink
-</em>
+<em>elemental ink</em>
 — visible only under sustained fire-weave light. The ledger is stored beneath the third floorboard from the east wall, behind the pressing cabinet.
 <br/>
 <br/>
 Entries include
-<strong>
-client pseudonyms, extract type, volume, and delivery method
-</strong>
-. No real names. The florist does not need them. She remembers faces.
-</p>
+<strong>client pseudonyms, extract type, volume, and delivery method</strong>. No real names. The florist does not need them. She remembers faces.</p>
 </div>
 <div class="ledger-block red-ledger">
-<h3 class="ledger-title">
-Notes on Certain Rootwork
-</h3>
+<h3 class="ledger-title">Notes on Certain Rootwork</h3>
 <p class="ledger-body">
 Certain extracts cannot be obtained through conventional botanical practice alone. Preparations marked as
-<em>
-elemental-assisted
-</em>
+<em>elemental-assisted</em>
 require conditions not reproducible by ordinary cultivation or laboratory methods. The proprietress does not disclose her process. Availability remains dependent upon the condition and disposition of the source material at time of harvest.
-<strong>
-Some commissions may therefore be declined without further explanation.
-</strong>
-<p>
-*The deposit is non-refundable.
-</p>
+<strong>Some commissions may therefore be declined without further explanation.</strong>
+<p>*The deposit is non-refundable.</p>
 </p>
 </div>
 </section>
 <!-- Active tensions -->
 <section class="tension-section" id="complications">
-<h2 class="tension-title">
-Current Complications
-</h2>
+<h2 class="tension-title">Current Complications</h2>
 <div class="status-legend">
 <div class="legend-item">
 <span class="dot critical">
 </span>
-<span>
-Under Scrutiny — Immediate Concern
-</span>
+<span>Under Scrutiny — Immediate Concern</span>
 </div>
 <div class="legend-item">
 <span class="dot warning">
 </span>
-<span>
-Limited Review — Requires Attention
-</span>
+<span>Limited Review — Requires Attention</span>
 </div>
 <div class="legend-item">
 <span class="dot stable">
 </span>
-<span>
-Contained — Under Observation
-</span>
+<span>Contained — Under Observation</span>
 </div>
 </div>
 <div class="tension-item">
 <div class="tension-marker t-red">
 </div>
 <div>
-<p class="tension-name">
-Moonwake — Exposure Risk
-</p>
-<p class="tension-text">
-A long-enduring patron hath purchas’d the preparation upon seven several occasions these two years past.
-Lately, a second intermediary hath arriv’d with questions that mirror the first. Further discourse is kept
-to a whisper, until intent be made plain.
-</p>
+<p class="tension-name">Moonwake — Exposure Risk</p>
+<p class="tension-text">A long-enduring patron hath purchas’d the preparation upon seven several occasions these two years past. Lately, a second intermediary hath arriv’d with questions that mirror the first. Further discourse is kept to a whisper, until intent be made plain.</p>
 </div>
 </div>
 <div class="tension-item">
 <div class="tension-marker t-amber">
 </div>
 <div>
-<p class="tension-name">
-Coffin Orchis — Inquiry
-</p>
-<p class="tension-text">
-Independent mage-investigators do trace compounds that answer not unto any known record of cultivation.
-They abide patient, methodical, and ever harder to turn aside from their course.
-</p>
+<p class="tension-name">Coffin Orchis — Inquiry</p>
+<p class="tension-text">Independent mage-investigators do trace compounds that answer not unto any known record of cultivation. They abide patient, methodical, and ever harder to turn aside from their course.</p>
 </div>
 </div>
 <div class="tension-item">
 <div class="tension-marker t-green">
 </div>
 <div>
-<p class="tension-name">
-Winter Wisteria — Shortage
-</p>
-<p class="tension-text">
-Frost-wound hath cut this season’s bloom-count by near the half. Several standing patrons are like to
-receive not their wonted share.
-</p>
+<p class="tension-name">Winter Wisteria — Shortage</p>
+<p class="tension-text">Frost-wound hath cut this season’s bloom-count by near the half. Several standing patrons are like to receive not their wonted share.</p>
 </div>
 </div>
 <div class="tension-item">
 <div class="tension-marker t-red">
 </div>
 <div>
-<p class="tension-name">
-Rosethorn Rite — Improper Use
-</p>
-<p class="tension-text">
-Reports do speak of a diluted counterfeit abroad amongst the noble districts. One receiver fell into an
-obsessive attachment that linger’d beyond the term appointed.
-</p>
+<p class="tension-name">Rosethorn Rite — Improper Use</p>
+<p class="tension-text">Reports do speak of a diluted counterfeit abroad amongst the noble districts. One receiver fell into an obsessive attachment that linger’d beyond the term appointed.</p>
 </div>
 </div>
 <div class="tension-item">
 <div class="tension-marker t-green">
 </div>
 <div>
-<p class="tension-name">
-Rue Pallid — Contamination
-</p>
-<p class="tension-text">
-Two late batches did show strange bitterness, with an excess of sharpen’d wit and thought. The stock is
-isolated, pending assay beneath fire-weave light.
-</p>
+<p class="tension-name">Rue Pallid — Contamination</p>
+<p class="tension-text">Two late batches did show strange bitterness, with an excess of sharpen’d wit and thought. The stock is isolated, pending assay beneath fire-weave light.</p>
 </div>
 </div>
 <div class="tension-item">
 <div class="tension-marker t-amber">
 </div>
 <div>
-<p class="tension-name">
-Mourning Jasmine — Demand Increase
-</p>
-<p class="tension-text">
-The funeral districts continue to ask quantities beyond the bounds of sustainable gathering. More must
-needs be sought beyond the eastern marsh-routes.
-</p>
+<p class="tension-name">Mourning Jasmine — Demand Increase</p>
+<p class="tension-text">The funeral districts continue to ask quantities beyond the bounds of sustainable gathering. More must needs be sought beyond the eastern marsh-routes.</p>
 </div>
 </div>
 <div class="tension-item">
 <div class="tension-marker t-amber">
 </div>
 <div>
-<p class="tension-name">
-Belladonna Hymnal — Restrictions
-</p>
-<p class="tension-text">
-The ecclesiastical authorities have renew’d their inquiry concerning compounds touch’d by auditory visions
-and devotional unrest. Open carriage is no longer advis’d.
-</p>
+<p class="tension-name">Belladonna Hymnal — Restrictions</p>
+<p class="tension-text">The ecclesiastical authorities have renew’d their inquiry concerning compounds touch’d by auditory visions and devotional unrest. Open carriage is no longer advis’d.</p>
 </div>
 </div>
 <div class="tension-item">
 <div class="tension-marker t-amber">
 </div>
 <div>
-<p class="tension-name">
-Evermere — Weariness Mask
-</p>
-<p class="tension-text">
-Repeated requests now do exceed the season’s store. Diverse patrons ask for larger measures than erstwhile,
-seeking naught save the brief concealment it doth bestow.
-</p>
+<p class="tension-name">Evermere — Weariness Mask</p>
+<p class="tension-text">Repeated requests now do exceed the season’s store. Diverse patrons ask for larger measures than erstwhile, seeking naught save the brief concealment it doth bestow.</p>
 </div>
 </div>
 <div class="tension-item">
 <div class="tension-marker t-amber">
 </div>
 <div>
-<p class="tension-name">
-Hushwater — Memory Drift
-</p>
-<p class="tension-text">
-Small discordances have appear’d in recent accounts after private tastings. Notes taken within the hour
-no longer match the selfsame events by nightfall.
-</p>
+<p class="tension-name">Hushwater — Memory Drift</p>
+<p class="tension-text">Small discordances have appear’d in recent accounts after private tastings. Notes taken within the hour no longer match the selfsame events by nightfall.</p>
 </div>
 </div>
 <div class="tension-item">
 <div class="tension-marker t-red">
 </div>
 <div>
-<p class="tension-name">
-Laurel Sanguine — Attachment Residue
-</p>
-<p class="tension-text">
-A few receivers have reported a fixation most persistent, even after the effect hath pass’d. The matter is
-handled softly, lest notice be drawn.
-</p>
+<p class="tension-name">Laurel Sanguine — Attachment Residue</p>
+<p class="tension-text">A few receivers have reported a fixation most persistent, even after the effect hath pass’d. The matter is handled softly, lest notice be drawn.</p>
 </div>
 </div>
 <div class="tension-item">
 <div class="tension-marker t-red">
 </div>
 <div>
-<p class="tension-name">
-Flos Viviea — Unsafe Demand
-</p>
-<p class="tension-text">
-Interest hath increas’d among those that seek swift vitality despite the known perils. Distribution is held
-beneath stricter lock and seal.
-</p>
+<p class="tension-name">Flos Viviea — Unsafe Demand</p>
+<p class="tension-text">Interest hath increas’d among those that seek swift vitality despite the known perils. Distribution is held beneath stricter lock and seal.</p>
 </div>
 </div>
 <div class="tension-item">
 <div class="tension-marker t-amber">
 </div>
 <div>
-<p class="tension-name">
-Lascivia — Appetite Quiet
-</p>
-<p class="tension-text">
-Requests for the bloom have risen among patrons that seek restraint rather than indulgence. Several houses
-now keep it seal’d for private use, praising its steadier governance of bodily urge.
-</p>
+<p class="tension-name">Lascivia — Appetite Quiet</p>
+<p class="tension-text">Requests for the bloom have risen among patrons that seek restraint rather than indulgence. Several houses now keep it seal’d for private use, praising its steadier governance of bodily urge.</p>
 </div>
 </div>
 </section>
 <!-- Footer back -->
 <footer class="footer-back">
-<p class="footer-back-text">
-This record does not exist. Neither, officially, does this room.
-</p>
-<button class="back-btn" onclick="exitBackroom()">
-← Return to shop floor
-</button>
+<p class="footer-back-text">This record does not exist. Neither, officially, does this room.</p>
+<button class="back-btn" onclick="exitBackroom()">← Return to shop floor</button>
 </footer>
 </div>
 <script>
@@ -3107,8 +2161,7 @@ console.error('Audio error:', error);
 </audio>
 <audio id="backroomTickSfx" loop="" preload="auto">
 <source src="audio/Old-Clock-Sound.mp3" type="audio/mpeg"/>
-</audio>
-<script>
+</audio><script>
 document.addEventListener('DOMContentLoaded', () => {
 const backPage = document.getElementById('back-page');
 const backHero = document.querySelector('#back-page .back-hero');
@@ -3271,8 +2324,7 @@ exitButton.addEventListener('click', sleepBackroomAudio);
 }
 }
 );
-</script>
-<script>
+</script> <script>
 /* ═══════════════════════════════════════════════
    FLORENCIA — ORNATE QUILL + SOFT RIBBON CURSOR
    ปลายหัวปากกาคือจุดคลิกจริง และชี้ขึ้นขวา
@@ -3281,14 +2333,11 @@ document.addEventListener("DOMContentLoaded",()=>{
 const finePointer=matchMedia("(hover:hover) and (pointer:fine)");
 const reduceMotion=matchMedia("(prefers-reduced-motion:reduce)");
 if(!finePointer.matches||reduceMotion.matches)return;
-
 document.getElementById("florencia-cursor-canvas")?.remove();
-
 const canvas=document.createElement("canvas");
 canvas.id="florencia-cursor-canvas";
 canvas.setAttribute("aria-hidden","true");
 document.body.appendChild(canvas);
-
 const ctx=canvas.getContext("2d");
 const trail=[];
 const motes=[];
@@ -3297,11 +2346,9 @@ x:-140,y:-140,lastX:-140,lastY:-140,
 visible:false,pressed:false,hovered:false,
 angle:-2.18,targetAngle:-2.18
 };
-
 let dpr=Math.min(devicePixelRatio||1,2);
 let lastFrame=performance.now();
 let lastMoteAt=0;
-
 const front={
 ribbonA:"rgba(184,151,42,.72)",
 ribbonB:"rgba(216,165,174,.58)",
@@ -3319,7 +2366,6 @@ brassDark:"#76501e",
 ink:"#332116",
 motes:["#f6e9c5","#d8b54d","#b8972a","#d8a5ae","#fff7df"]
 };
-
 const back={
 ribbonA:"rgba(185,154,91,.62)",
 ribbonB:"rgba(168,97,112,.60)",
@@ -3337,11 +2383,9 @@ brassDark:"#5e421f",
 ink:"#231317",
 motes:["#ddc98f","#b99a5b","#a96875","#e1c7cb","#6f3040"]
 };
-
 function isBackroom(){
 return document.getElementById("back-page")?.classList.contains("visible")||false;
 }
-
 function resize(){
 dpr=Math.min(devicePixelRatio||1,2);
 canvas.width=Math.round(innerWidth*dpr);
@@ -3350,13 +2394,11 @@ canvas.style.width=`${innerWidth}px`;
 canvas.style.height=`${innerHeight}px`;
 ctx.setTransform(dpr,0,0,dpr,0,0);
 }
-
 function addMote(x,y,speed,burst=false){
 const palette=isBackroom()?back:front;
 const a=Math.random()*Math.PI*2;
 const petal=!isBackroom()&&!burst&&Math.random()<.18;
 const force=(burst?1.3:.22)+Math.random()*(burst?2.8:.82)+speed*.015;
-
 motes.push({
 x,y,
 vx:Math.cos(a)*force+(Math.random()-.5)*.45,
@@ -3371,29 +2413,22 @@ spin:(Math.random()-.5)*(burst?.25:.12),
 color:palette.motes[Math.floor(Math.random()*palette.motes.length)],
 petal
 });
-
 if(motes.length>220)motes.splice(0,motes.length-220);
 }
-
 function drawTrail(palette){
 if(trail.length<3)return;
-
 ctx.save();
 ctx.lineCap="round";
 ctx.lineJoin="round";
-
 for(let layer=0;layer<4;layer++){
 ctx.beginPath();
 ctx.moveTo(trail[0].x,trail[0].y);
-
 for(let i=1;i<trail.length-1;i++){
 const p=trail[i],n=trail[i+1];
 ctx.quadraticCurveTo(p.x,p.y,(p.x+n.x)/2,(p.y+n.y)/2);
 }
-
 const tail=trail[trail.length-1];
 ctx.lineTo(tail.x,tail.y);
-
 if(layer===0){
 ctx.strokeStyle=palette.glowB;
 ctx.lineWidth=15;
@@ -3426,7 +2461,6 @@ ctx.stroke();
 }
 ctx.restore();
 }
-
 function drawMotes(){
 for(const p of motes){
 ctx.save();
@@ -3436,7 +2470,6 @@ ctx.rotate(p.rotation);
 ctx.fillStyle=p.color;
 ctx.shadowBlur=p.petal?5:10;
 ctx.shadowColor=p.color;
-
 if(p.petal){
 ctx.beginPath();
 ctx.moveTo(0,-p.size);
@@ -3451,7 +2484,6 @@ ctx.fill();
 ctx.restore();
 }
 }
-
 function drawGlow(palette){
 const r=cursor.hovered?27:22;
 const g=ctx.createRadialGradient(0,0,0,0,0,r);
@@ -3463,7 +2495,6 @@ ctx.fillStyle=g;
 ctx.beginPath();
 ctx.arc(0,0,r,0,Math.PI*2);
 ctx.fill();
-
 ctx.strokeStyle=palette.ribbonA;
 ctx.globalAlpha=.52;
 ctx.lineWidth=.85;
@@ -3472,26 +2503,20 @@ ctx.arc(0,0,cursor.hovered?6.2:4.8,0,Math.PI*2);
 ctx.stroke();
 ctx.globalAlpha=1;
 }
-
 function drawQuill(palette){
 if(!cursor.visible)return;
-
 cursor.angle+=(cursor.targetAngle-cursor.angle)*.11;
-
 ctx.save();
 ctx.translate(cursor.x,cursor.y);
 ctx.rotate(cursor.angle+(cursor.pressed?.03:0));
 const s=cursor.hovered?1.055:1;
 ctx.scale(s,s);
-
 drawGlow(palette);
-
 const shaft=ctx.createLinearGradient(-60,-3,-7,3);
 shaft.addColorStop(0,palette.featherShade);
 shaft.addColorStop(.32,palette.shaft);
 shaft.addColorStop(.72,palette.shaftLight);
 shaft.addColorStop(1,palette.brassDark);
-
 ctx.strokeStyle=shaft;
 ctx.lineWidth=3.25;
 ctx.lineCap="round";
@@ -3501,13 +2526,11 @@ ctx.beginPath();
 ctx.moveTo(-59,-1.2);
 ctx.bezierCurveTo(-43,-1,-27,.3,-9,0);
 ctx.stroke();
-
 const metal=ctx.createLinearGradient(-15,-5,-1,5);
 metal.addColorStop(0,"#f0d47a");
 metal.addColorStop(.34,palette.brass);
 metal.addColorStop(.72,"#a6762c");
 metal.addColorStop(1,palette.brassDark);
-
 ctx.fillStyle=metal;
 ctx.shadowBlur=7;
 ctx.shadowColor=palette.glowB;
@@ -3517,7 +2540,6 @@ ctx.fill();
 ctx.strokeStyle="rgba(73,44,15,.68)";
 ctx.lineWidth=.7;
 ctx.stroke();
-
 ctx.fillStyle=metal;
 ctx.beginPath();
 ctx.moveTo(-6.2,-4.1);
@@ -3529,26 +2551,22 @@ ctx.fill();
 ctx.strokeStyle=palette.brassDark;
 ctx.lineWidth=.85;
 ctx.stroke();
-
 ctx.strokeStyle="rgba(52,31,19,.78)";
 ctx.lineWidth=.72;
 ctx.beginPath();
 ctx.moveTo(-7.2,0);
 ctx.lineTo(1.8,0);
 ctx.stroke();
-
 ctx.fillStyle=palette.ink;
 ctx.beginPath();
 ctx.arc(2,0,1,0,Math.PI*2);
 ctx.fill();
-
 ctx.shadowBlur=7;
 ctx.shadowColor="rgba(34,21,12,.20)";
 const feather=ctx.createLinearGradient(-102,-29,-49,20);
 feather.addColorStop(0,palette.featherLight);
 feather.addColorStop(.48,palette.featherMid);
 feather.addColorStop(1,palette.featherShade);
-
 ctx.fillStyle=feather;
 ctx.beginPath();
 ctx.moveTo(-54,-1.2);
@@ -3557,31 +2575,26 @@ ctx.bezierCurveTo(-99,-10,-87,5,-58,5);
 ctx.bezierCurveTo(-54,4,-52,1,-54,-1.2);
 ctx.closePath();
 ctx.fill();
-
 ctx.strokeStyle=palette.vein;
 ctx.lineWidth=1;
 ctx.beginPath();
 ctx.moveTo(-55,-.8);
 ctx.bezierCurveTo(-71,-6,-88,-15,-101,-23);
 ctx.stroke();
-
 ctx.lineWidth=.62;
 for(let i=0;i<7;i++){
 const t=i/7;
 const x=-62-t*34;
 const y=-4-t*16;
-
 ctx.beginPath();
 ctx.moveTo(x,y);
 ctx.bezierCurveTo(x-5,y-5,x-10,y-7,x-14,y-6);
 ctx.stroke();
-
 ctx.beginPath();
 ctx.moveTo(x+1,y+2);
 ctx.bezierCurveTo(x-4,y+6,x-9,y+8,x-13,y+7);
 ctx.stroke();
 }
-
 ctx.strokeStyle="rgba(94,66,42,.22)";
 ctx.lineWidth=.75;
 for(let i=0;i<3;i++){
@@ -3596,17 +2609,14 @@ ctx.moveTo(-73-i*8,3+i*.4);
 ctx.lineTo(-79-i*8,7+i*.7);
 ctx.stroke();
 }
-
 ctx.strokeStyle="rgba(255,248,225,.38)";
 ctx.lineWidth=.58;
 ctx.beginPath();
 ctx.moveTo(-55,-2);
 ctx.bezierCurveTo(-39,-1.8,-24,-.8,-10,-1);
 ctx.stroke();
-
 ctx.restore();
 }
-
 function update(delta){
 for(let i=trail.length-1;i>=0;i--){
 trail[i].life-=.031*delta;
@@ -3624,12 +2634,10 @@ p.life-=p.decay*delta;
 if(p.life<=0)motes.splice(i,1);
 }
 }
-
 function animate(now){
 const delta=Math.min((now-lastFrame)/16.667,2.2);
 lastFrame=now;
 ctx.clearRect(0,0,innerWidth,innerHeight);
-
 const palette=isBackroom()?back:front;
 update(delta);
 drawTrail(palette);
@@ -3637,25 +2645,20 @@ drawMotes();
 drawQuill(palette);
 requestAnimationFrame(animate);
 }
-
 addEventListener("pointermove",e=>{
 if(e.pointerType&&e.pointerType!=="mouse"&&e.pointerType!=="pen")return;
-
 const dx=e.clientX-cursor.lastX;
 const dy=e.clientY-cursor.lastY;
 const speed=Math.min(Math.hypot(dx,dy),55);
 const now=performance.now();
-
 cursor.x=e.clientX;
 cursor.y=e.clientY;
 cursor.visible=true;
-
 /* คงมุมหลักไว้ประมาณ 55° ชี้ขึ้นขวา และแกว่งตามมือเพียงเล็กน้อย */
 if(speed>.5){
 const direction=Math.atan2(dy,dx);
 cursor.targetAngle=-2.35+Math.sin(direction)*.045;
 }
-
 trail.push({
 x:cursor.x-7,
 y:cursor.y+8,
@@ -3663,7 +2666,6 @@ life:1,
 width:2.5+speed*.04
 });
 if(trail.length>38)trail.shift();
-
 const spacing=speed>22?11:speed>8?18:28;
 if(now-lastMoteAt>spacing){
 const count=speed>27?3:speed>11?2:1;
@@ -3676,40 +2678,33 @@ speed
 }
 lastMoteAt=now;
 }
-
 cursor.lastX=cursor.x;
 cursor.lastY=cursor.y;
 },{passive:true});
-
 addEventListener("pointerdown",()=>{
 cursor.pressed=true;
 for(let i=0;i<13;i++)addMote(cursor.x,cursor.y,13,true);
 });
-
 addEventListener("pointerup",()=>cursor.pressed=false);
 addEventListener("blur",()=>{cursor.visible=false;cursor.pressed=false});
 document.documentElement.addEventListener("mouseleave",()=>cursor.visible=false);
 document.documentElement.addEventListener("mouseenter",()=>cursor.visible=true);
-
 document.addEventListener("pointerover",e=>{
 cursor.hovered=Boolean(e.target.closest(
 "a,button,.cw-hitbox,.product-card,.extract-row,.ledger-block,[role='button']"
 ));
 });
-
 document.addEventListener("pointerout",e=>{
 const next=e.relatedTarget;
 cursor.hovered=Boolean(next?.closest?.(
 "a,button,.cw-hitbox,.product-card,.extract-row,.ledger-block,[role='button']"
 ));
 });
-
 addEventListener("resize",resize,{passive:true});
 resize();
 requestAnimationFrame(animate);
 });
-</script>
-<script>
+</script> <script>
 document.addEventListener('DOMContentLoaded', () => {
 const ledgerSection = document.querySelector('#back-page .ledger-section');
 if (!ledgerSection) return;
@@ -3790,8 +2785,7 @@ once: true
 );
 }
 );
-</script>
-<script>
+</script> <script>
 document.addEventListener("DOMContentLoaded",()=> {
 const section=document.querySelector("#about"),text=section?.querySelector(".about-text"),copy=section?.querySelector(".about-copy"),paras=[...(copy?.querySelectorAll("p")||[])],name=section?.querySelector(".about-name"),image=section?.querySelector(".about-image"),petals=section?.querySelector(".about-petal-layer"),quote=section?.querySelector(".about-rotating-quote");if(!section||!text||!image)return;
 text.addEventListener("pointermove",e=> {
@@ -3858,8 +2852,7 @@ once:true
 );
 }
 );
-</script>
-<script>
+</script> <script>
 document.addEventListener("DOMContentLoaded",()=> {
 const grid=document.querySelector("#flowers .products-grid");if(!grid)return;
 const profiles=[
@@ -3920,8 +2913,7 @@ card.addEventListener("mouseenter",()=>grid.classList.add("is-shelving"));card.a
 );
 }
 );
-</script>
-<script>
+</script> <script>
 document.addEventListener("DOMContentLoaded",()=> {
 const layerRoot=document.getElementById("cwDeskLayers");
 const hitboxRoot=document.getElementById("cwDeskHitboxes");
@@ -4001,8 +2993,7 @@ light.style.top=`${event.clientY-rect.top}px`;
 );
 }
 );
-</script>
-<script>
+</script> <script>
 /* ===== FLORENCIA DESK EFFECTS ===== */
 /* =========================================================
 FLORENCIA DESK EFFECTS PACK
@@ -4043,7 +3034,6 @@ events.className = "cw-fx-events";
 events.setAttribute("aria-hidden", "true");
 frame.append(ambient,particles,events);
 /* ---------- Ambient setup ---------- */
-
 ["cwPaper", "cwLace", "cwDried"].forEach((id) => {
 document.getElementById(id)?.classList.add("fx-breeze");
 });
@@ -4053,16 +3043,13 @@ updateTimeOfDay(frame);
 window.setInterval(() => updateTimeOfDay(frame), 60000);
 /* ---------- Mouse light and activity ---------- */
 let lastPointer={x:.5,y:.5};
-
 frame.addEventListener("pointermove",(event)=>{
 const rect=frame.getBoundingClientRect();
 const x=clamp((event.clientX-rect.left)/rect.width,0,1);
 const y=clamp((event.clientY-rect.top)/rect.height,0,1);
-
 lastPointer={x,y};
 frame.style.setProperty("--fx-mouse-x",`${x*100}%`);
 frame.style.setProperty("--fx-mouse-y",`${y*100}%`);
-
 frame.classList.remove("fx-idle");
 resetIdleTimer();
 });
@@ -4110,24 +3097,19 @@ window.setTimeout(
 /* ---------- Click interactions ---------- */
 let keyClicks=0;
 let frozenTime=false;
-
 hitboxesRoot.addEventListener("click",(event)=>{
 const hitbox=event.target.closest(".cw-hitbox");
 if(!hitbox)return;
-
 const targetId=hitbox.dataset.target;
 const target=document.getElementById(targetId);
 if(!target)return;
-
 switch(targetId){
 case "cwKey":{
 keyClicks+=1;
 restartClass(target,"fx-key-turn",850);
-
 if(keyClicks>=KEY_CLICKS_TO_OPEN){
 keyClicks=0;
 frame.classList.add("fx-secret-ready");
-
 window.setTimeout(()=>{
 frame.classList.remove("fx-secret-ready");
 if(typeof window.enterBackroom==="function")window.enterBackroom();
@@ -4135,28 +3117,15 @@ if(typeof window.enterBackroom==="function")window.enterBackroom();
 }
 break;
 }
-
 case "cwWatch":{
 frozenTime=!frozenTime;
 target.classList.toggle("fx-time-frozen",frozenTime);
 target.classList.toggle("fx-clock-live",!frozenTime);
 break;
 }
-
-case "cwQuill":{
-restartClass(target,"fx-writing",2600);
-break;
-}
-
-case "cwWax":{
-restartClass(target,"fx-seal-stamp",800);
-break;
-}
-
-case "cwEnvelope":{
-target.classList.toggle("fx-letter-open");
-break;
-}
+case "cwQuill":{restartClass(target,"fx-writing",2600);break;}
+case "cwWax":{restartClass(target,"fx-seal-stamp",800);break;}
+case "cwEnvelope":{target.classList.toggle("fx-letter-open");break;}
 }
 });
 /* ---------- Random events ---------- */
@@ -4225,7 +3194,6 @@ if (event.key.length === 1) {
 typed = (typed + event.key.toLowerCase()).slice(-secretWord.length);
 if (typed === secretWord) {
 typed = "";
-
 frame.classList.add("fx-secret-ready");
 window.setTimeout(() => {
 frame.classList.remove("fx-secret-ready");
@@ -4239,7 +3207,6 @@ if (event.key === konami[konamiIndex]) {
 konamiIndex += 1;
 if (konamiIndex === konami.length) {
 konamiIndex = 0;
-
 restartClass(document.getElementById("cwKey"), "fx-key-turn", 900);
 window.setTimeout(() => {
 if (typeof window.enterBackroom === "function") {
@@ -4329,41 +3296,32 @@ function restartClass(element,className,duration){
   element.classList.add(className);
   window.setTimeout(()=>{
     element.classList.remove(className);
-  },duration);
-}
-function clamp(value,min,max){return Math.min(Math.max(value,min),max);
-}
-function random(min,max){return Math.random()*(max-min)+min;
-}
-function roman(value){const numerals=["0","I","II","III","IV","V","VI","VII"];return numerals[value]??String(value);
-}
+  },duration);}
+function clamp(value,min,max){return Math.min(Math.max(value,min),max);}
+function random(min,max){return Math.random()*(max-min)+min;}
+function roman(value){const numerals=["0","I","II","III","IV","V","VI","VII"];return numerals[value]??String(value);}
 });
 })();
 /* ===== END FLORENCIA DESK EFFECTS ===== */
-</script>
-
-<script>
+</script> <script>
 /* =========================================================
    FLORENCIA BACKROOM — BOTANICAL MAGIC ENGINE
 ========================================================= */
 document.addEventListener("DOMContentLoaded",()=>{
   const backroom=document.getElementById("back-page");
   if(!backroom||backroom.querySelector(".backroom-magic-root"))return;
-
   const reducedMotion=matchMedia("(prefers-reduced-motion:reduce)").matches;
   const magicRoot=document.createElement("div");
   magicRoot.className="backroom-magic-root";
   magicRoot.setAttribute("aria-hidden","true");
   magicRoot.innerHTML='<div class="bm-haze"></div><div class="bm-sigil"></div><div class="bm-arc"></div>';
   backroom.prepend(magicRoot);
-
   const pollenColors=[
     "rgba(228,207,154,.82)",
     "rgba(183,122,136,.72)",
     "rgba(235,221,190,.74)",
     "rgba(119,139,92,.58)"
   ];
-
   if(!reducedMotion){
     for(let index=0;index<34;index+=1){
       const pollen=document.createElement("i");
@@ -4378,7 +3336,6 @@ document.addEventListener("DOMContentLoaded",()=>{
       magicRoot.appendChild(pollen);
     }
   }
-
   const memoryTexts=[
     "The petals remember.",
     "No root is wholly silent.",
@@ -4387,9 +3344,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     "Keep the eastern cabinet sealed.",
     "This room remembers."
   ];
-
   const isOpen=()=>backroom.classList.contains("visible");
-
   function spawnMemory(){
     if(reducedMotion||document.hidden||!isOpen())return;
     const note=document.createElement("span");
@@ -4401,7 +3356,6 @@ document.addEventListener("DOMContentLoaded",()=>{
     magicRoot.appendChild(note);
     setTimeout(()=>note.remove(),9300);
   }
-
   function spawnPetal(){
     if(reducedMotion||document.hidden||!isOpen())return;
     const petal=document.createElement("i");
@@ -4415,7 +3369,6 @@ document.addEventListener("DOMContentLoaded",()=>{
     magicRoot.appendChild(petal);
     setTimeout(()=>petal.remove(),15000);
   }
-
   function spawnBloomLight(){
     if(reducedMotion||document.hidden||!isOpen())return;
     const light=document.createElement("i");
@@ -4425,11 +3378,9 @@ document.addEventListener("DOMContentLoaded",()=>{
     magicRoot.appendChild(light);
     setTimeout(()=>light.remove(),5000);
   }
-
   setInterval(()=>{if(Math.random()<.75)spawnMemory()},14000);
   setInterval(()=>{if(Math.random()<.62)spawnPetal()},9000);
   setInterval(()=>{if(Math.random()<.82)spawnBloomLight()},6500);
-
   const observer=new MutationObserver(()=>{
     if(!isOpen())return;
     magicRoot.animate(
@@ -4443,10 +3394,7 @@ document.addEventListener("DOMContentLoaded",()=>{
   });
   observer.observe(backroom,{attributes:true,attributeFilter:["class"]});
 });
-</script>
-
-
-<script>
+</script> <script>
 /* =========================================================
    FLORENCIA BACKROOM — LOWER SECTIONS MAGIC ENGINE
    CLEAN VERSION
@@ -4455,7 +3403,6 @@ document.addEventListener("DOMContentLoaded",()=>{
   const back=document.getElementById("back-page");
   if(!back||back.dataset.lowerMagicReady==="true")return;
   back.dataset.lowerMagicReady="true";
-
   const reduced=matchMedia("(prefers-reduced-motion:reduce)").matches;
   const sections=[
     back.querySelector(".extracts-inner"),
@@ -4463,14 +3410,12 @@ document.addEventListener("DOMContentLoaded",()=>{
     back.querySelector(".tension-section"),
     back.querySelector(".footer-back")
   ].filter(Boolean);
-
   if(!reduced){
     const colors=[
       "rgba(221,201,143,.72)",
       "rgba(200,139,152,.62)",
       "rgba(113,128,102,.48)"
     ];
-
     sections.forEach(section=>{
       for(let i=0;i<8;i++){
         const mote=document.createElement("i");
@@ -4486,7 +3431,6 @@ document.addEventListener("DOMContentLoaded",()=>{
       }
     });
   }
-
   const ribbon=back.querySelector(".extracts-ribbon");
   if(ribbon){
     const ribbonObserver=new IntersectionObserver(entries=>{
@@ -4499,7 +3443,6 @@ document.addEventListener("DOMContentLoaded",()=>{
     },{threshold:.45});
     ribbonObserver.observe(ribbon);
   }
-
   const returnButton=back.querySelector(".back-btn");
   if(returnButton){
     returnButton.addEventListener("click",()=>{
@@ -4508,7 +3451,6 @@ document.addEventListener("DOMContentLoaded",()=>{
       returnButton.classList.add("is-returning");
     });
   }
-
   function spawnLowerPetal(){
     if(reduced||document.hidden||!back.classList.contains("visible")||sections.length===0)return;
     const target=sections[Math.floor(Math.random()*sections.length)];
@@ -4523,13 +3465,11 @@ document.addEventListener("DOMContentLoaded",()=>{
     target.appendChild(petal);
     setTimeout(()=>petal.remove(),14000);
   }
-
   if(!reduced){
     setInterval(()=>{
       if(Math.random()<.7)spawnLowerPetal();
     },8500);
   }
-
   back.querySelectorAll(".ledger-block").forEach(card=>{
     card.addEventListener("pointermove",event=>{
       const rect=card.getBoundingClientRect();
@@ -4538,7 +3478,5 @@ document.addEventListener("DOMContentLoaded",()=>{
     });
   });
 });
-</script>
-
-</body>
+</script></body>
 </html>
