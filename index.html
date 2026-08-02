@@ -2046,6 +2046,200 @@ to{opacity:.7;transform:scale(1.025)}
 }
 /* ===== END AVAILABLE EXTRACTS — SOFT LEATHER LEDGER ===== */
 
+
+/* ===== AVAILABLE EXTRACTS — SOFT ARCHIVAL REFINEMENT =====
+   ลดความแข็งของแถบหัวข้อ กล่องคำอธิบาย เส้นตาราง และแถวสินค้า
+   ไม่เปลี่ยนข้อความหรือโครงสร้าง
+========================================================= */
+
+/* ตัดกรอบสี่เหลี่ยมกว้าง ๆ ออกจากหัวข้อ */
+#back-page .extracts-ribbon{
+  width:fit-content;
+  max-width:100%;
+  min-height:auto;
+  margin:0 0 42px 18px;
+  padding:14px 34px 15px 78px;
+  background:
+    radial-gradient(ellipse at 38% 45%,rgba(105,53,61,.52),rgba(47,24,28,.30) 58%,transparent 78%),
+    linear-gradient(90deg,rgba(54,27,31,.72),rgba(37,20,23,.28) 82%,transparent);
+  box-shadow:
+    0 12px 28px rgba(0,0,0,.15),
+    inset 0 1px 0 rgba(221,201,143,.055);
+  filter:drop-shadow(0 7px 14px rgba(0,0,0,.12));
+}
+
+/* เส้นทองไม่ลากเต็มกล่อง ให้ค่อย ๆ จางออก */
+#back-page .extracts-ribbon::before{
+  left:16px;
+  right:10%;
+  top:0;
+  background:linear-gradient(90deg,rgba(221,201,143,.34),rgba(221,201,143,.10) 62%,transparent);
+}
+
+#back-page .extracts-ribbon::after{
+  left:10%;
+  right:0;
+  bottom:0;
+  background:linear-gradient(90deg,transparent,rgba(221,201,143,.09) 38%,rgba(221,201,143,.24));
+}
+
+/* ให้ขอบของแถบดูไม่ตรงเกินไป */
+#back-page .extracts-ribbon{
+  clip-path:polygon(0 8%,96% 0,100% 84%,4% 100%);
+}
+
+/* ตราทองเหลืองเล็กลงและไม่เป็นปุ่ม */
+#back-page .rose-cluster{
+  left:20px;
+  width:40px;
+  height:40px;
+  font-size:17px;
+  border-color:rgba(191,158,94,.36);
+  box-shadow:
+    inset 0 0 8px rgba(0,0,0,.52),
+    0 3px 8px rgba(0,0,0,.18);
+  opacity:.9;
+}
+
+/* กล่อง Circle เดิมแข็งเกินไป: ตัดพื้นสี่เหลี่ยมออก */
+#back-page .circle-note{
+  max-width:900px;
+  margin:0 auto 48px;
+  padding:14px 24px 18px 30px;
+  background:
+    radial-gradient(ellipse at 22% 50%,rgba(185,154,91,.030),transparent 55%);
+}
+
+/* เส้นซ้ายสั้นและจาง ไม่เหมือนกรอบ */
+#back-page .circle-note::before{
+  top:24px;
+  bottom:24px;
+  opacity:.68;
+  background:linear-gradient(transparent,rgba(221,201,143,.42) 30%,rgba(221,201,143,.42) 70%,transparent);
+}
+
+/* ลบป้าย EX LIBRIS ที่ทำให้ดูเหมือน UI */
+#back-page .circle-note::after{
+  content:none!important;
+  display:none!important;
+}
+
+/* หัวตารางไม่มีเส้นตัดแข็งเต็มแนว */
+#back-page .extract-table-header{
+  margin:0 6px 4px;
+  padding:0 18px 12px;
+  border-bottom:0;
+}
+
+#back-page .extract-table-header::after{
+  content:"";
+  display:block!important;
+  position:absolute;
+  left:18px;
+  right:18px;
+  bottom:0;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(221,201,143,.16) 14%,rgba(221,201,143,.16) 86%,transparent);
+}
+
+/* แถวสินค้าไม่ใช้เส้นแนวนอนเต็มแถว */
+#back-page .extract-row{
+  margin:0 6px;
+  padding:28px 22px 30px 34px;
+  border-bottom:0!important;
+  background:
+    radial-gradient(ellipse at 18% 45%,rgba(92,48,54,.030),transparent 38%),
+    radial-gradient(ellipse at 82% 50%,rgba(185,154,91,.010),transparent 34%)!important;
+}
+
+/* ใช้เส้นสั้นจาง ๆ ระหว่างแถวแทน */
+#back-page .extract-row:not(:last-child)::after{
+  content:""!important;
+  display:block!important;
+  position:absolute;
+  left:8%;
+  right:8%;
+  bottom:0;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(221,201,143,.09) 18%,rgba(221,201,143,.09) 82%,transparent);
+}
+
+/* ตัดเส้นตั้งฝั่งซ้ายออก เหลือเพียงรอยหมึกบาง */
+#back-page .extract-row::before{
+  top:32%;
+  bottom:32%;
+  width:1px!important;
+  opacity:.24;
+}
+
+/* Hover ไม่ขยับทั้งแถว ลดความเป็นเว็บแอป */
+#back-page .extract-row:hover{
+  transform:none;
+  background:
+    radial-gradient(ellipse at 20% 45%,rgba(110,57,69,.052),transparent 42%),
+    radial-gradient(ellipse at 80% 50%,rgba(185,154,91,.018),transparent 36%)!important;
+}
+
+/* ชื่อสินค้าไม่กระโดดตอน hover */
+#back-page .extract-row:hover .ext-name{
+  letter-spacing:.008em;
+  color:#efe0c8;
+}
+
+/* ป้าย Circle ให้นุ่มเหมือนตราหมึก */
+#back-page .ext-grade{
+  min-width:78px;
+  padding:6px 10px 5px;
+  border-color:rgba(221,201,143,.12);
+  background:rgba(22,13,14,.20);
+  box-shadow:none;
+  opacity:.88;
+}
+
+#back-page .grade-i{
+  border-color:rgba(145,161,132,.20);
+  background:radial-gradient(ellipse at center,rgba(80,98,70,.12),rgba(22,13,14,.18));
+}
+
+#back-page .grade-ii{
+  border-color:rgba(200,118,135,.19);
+  background:radial-gradient(ellipse at center,rgba(111,48,63,.13),rgba(22,13,14,.18));
+}
+
+#back-page .grade-iii{
+  border-color:rgba(185,154,91,.22);
+  background:radial-gradient(ellipse at center,rgba(92,74,48,.14),rgba(22,13,14,.18));
+}
+
+/* ลดความเป็นกล่องของพื้นที่รวม */
+#back-page .extracts-inner::before{
+  inset:44px -8px 34px;
+  background:
+    radial-gradient(ellipse at 22% 18%,rgba(185,154,91,.022),transparent 28%),
+    radial-gradient(ellipse at 82% 45%,rgba(119,68,78,.020),transparent 34%);
+}
+
+/* บนมือถือยังคงอ่านง่าย */
+@media(max-width:700px){
+  #back-page .extracts-ribbon{
+    margin-left:0;
+    padding:12px 24px 13px 68px;
+    clip-path:polygon(0 6%,97% 0,100% 88%,3% 100%);
+  }
+
+  #back-page .rose-cluster{
+    left:17px;
+    width:36px;
+    height:36px;
+    font-size:16px;
+  }
+
+  #back-page .extract-row{
+    margin:0;
+  }
+}
+/* ===== END AVAILABLE EXTRACTS — SOFT ARCHIVAL REFINEMENT ===== */
+
 </style></head>
 <body>
 <nav class="top-tabs">
