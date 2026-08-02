@@ -2239,7 +2239,145 @@ to{opacity:.7;transform:scale(1.025)}
   }
 }
 /* ===== END AVAILABLE EXTRACTS — SOFT ARCHIVAL REFINEMENT ===== */
+/* =========================================================
+   AVAILABLE EXTRACTS — HOVER GLOW FRAME
+   กรอบเรืองแสงเมื่อเมาส์เลื่อนไปโดนสารสกัด
+========================================================= */
 
+#back-page .extract-row{
+  position:relative;
+  isolation:isolate;
+  border:1px solid transparent!important;
+  transition:
+    border-color .38s ease,
+    background .38s ease,
+    box-shadow .38s ease,
+    filter .38s ease;
+}
+
+/* กรอบชั้นในบาง ๆ */
+#back-page .extract-row::after{
+  content:""!important;
+  display:block!important;
+  position:absolute;
+  inset:5px;
+  z-index:-1;
+  pointer-events:none;
+  border:1px solid transparent;
+  opacity:0;
+  transition:
+    opacity .38s ease,
+    border-color .38s ease,
+    box-shadow .38s ease;
+}
+
+/* Hover ทั่วไป */
+#back-page .extract-row:hover{
+  transform:none!important;
+  border-color:rgba(200,139,152,.38)!important;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(111,48,63,.07),
+      rgba(185,154,91,.022) 55%,
+      transparent
+    )!important;
+
+  box-shadow:
+    0 0 8px rgba(200,139,152,.10),
+    0 0 24px rgba(200,139,152,.055),
+    inset 0 0 18px rgba(200,139,152,.025)!important;
+
+  filter:brightness(1.035);
+}
+
+#back-page .extract-row:hover::after{
+  opacity:1;
+  border-color:rgba(221,201,143,.12);
+
+  box-shadow:
+    inset 0 0 12px rgba(221,201,143,.025),
+    0 0 10px rgba(200,139,152,.035);
+}
+
+/* ให้ชื่อสารสกัดเรืองขึ้นเพียงเล็กน้อย */
+#back-page .extract-row:hover .ext-name{
+  color:#f3e3ca;
+  text-shadow:
+    0 1px 0 rgba(0,0,0,.42),
+    0 0 12px rgba(226,177,185,.10);
+}
+
+/* ป้าย Circle ตื่นขึ้นพร้อมกรอบ */
+#back-page .extract-row:hover .ext-grade{
+  filter:brightness(1.18);
+  border-color:rgba(221,201,143,.42);
+
+  box-shadow:
+    0 0 7px rgba(221,201,143,.13),
+    0 0 16px rgba(200,139,152,.07),
+    inset 0 0 10px rgba(255,255,255,.025);
+}
+    /* I Circle — เขียวหม่น */
+#back-page .extract-row:has(.grade-i):hover{
+  border-color:rgba(145,161,132,.34)!important;
+
+  box-shadow:
+    0 0 8px rgba(145,161,132,.10),
+    0 0 24px rgba(145,161,132,.045),
+    inset 0 0 18px rgba(145,161,132,.022)!important;
+}
+
+/* II Circle — กุหลาบหม่น */
+#back-page .extract-row:has(.grade-ii):hover{
+  border-color:rgba(200,118,135,.38)!important;
+
+  box-shadow:
+    0 0 8px rgba(200,118,135,.12),
+    0 0 24px rgba(200,118,135,.055),
+    inset 0 0 18px rgba(200,118,135,.025)!important;
+}
+
+/* III Circle — ทองเก่า */
+#back-page .extract-row:has(.grade-iii):hover{
+  border-color:rgba(185,154,91,.40)!important;
+
+  box-shadow:
+    0 0 8px rgba(185,154,91,.13),
+    0 0 24px rgba(185,154,91,.055),
+    inset 0 0 18px rgba(185,154,91,.025)!important;
+}
+
+/* Forbidden / Restricted / Illicit — เรืองชัดขึ้น */
+#back-page .extract-row:has(.grade-forbidden):hover,
+#back-page .extract-row:has(.grade-restricted):hover,
+#back-page .extract-row:has(.grade-illicit):hover{
+  border-color:rgba(214,126,145,.52)!important;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(126,40,55,.10),
+      rgba(72,27,36,.045) 54%,
+      transparent
+    )!important;
+
+  box-shadow:
+    0 0 10px rgba(214,126,145,.18),
+    0 0 28px rgba(214,126,145,.085),
+    inset 0 0 22px rgba(126,40,55,.045)!important;
+}
+
+/* Occult — สีทองน้ำตาล */
+#back-page .extract-row:has(.grade-occult):hover{
+  border-color:rgba(190,158,98,.46)!important;
+
+  box-shadow:
+    0 0 9px rgba(190,158,98,.15),
+    0 0 26px rgba(190,158,98,.065),
+    inset 0 0 20px rgba(92,74,48,.035)!important;
+}
 </style></head>
 <body>
 <nav class="top-tabs">
