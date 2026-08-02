@@ -225,7 +225,14 @@ to{opacity:1;transform:translateY(0)}
 #back-page .dot.warning{color:#b99a5b;background:#b99a5b}
 #back-page .dot.stable{color:#71816a;background:#71816a}
 #back-page .tension-item{display:grid;grid-template-columns:6px 1fr;gap:22px;padding:24px 0;border-bottom:1px solid rgba(221,201,143,.11)}
-#back-page .tension-marker{width:5px;min-height:100%;border-radius:4px}
+#back-page .tension-marker{
+  width:5px;
+  height:54px;
+  min-height:54px;
+  align-self:center;
+  border-radius:999px;
+  box-shadow:0 0 8px currentColor;
+}
 #back-page .t-red{background:#9d5965}
 .t-amber{background:#b99a5b}
 .t-green{background:#71816a}
@@ -368,8 +375,8 @@ to{transform:translateX(-50%) rotate(421deg)}
 #back-page .extract-row{overflow:hidden}
 #back-page .extract-row::before{width:5px;transition:width .38s cubic-bezier(.22,1,.36,1),opacity .38s ease,filter .38s ease}
 #back-page .extract-row:hover::before{width:13px;opacity:.95;filter:saturate(1.2) brightness(1.12);box-shadow:0 0 20px rgba(200,139,152,.18)}
-#back-page .tension-marker{transform-origin:center}
-#back-page .tension-item:hover .tension-marker{animation:backroomConcernPulse 1.65s ease-in-out infinite}
+
+
 @keyframes backroomConcernPulse{0%,100%{opacity:.58;filter:brightness(.85);box-shadow:0 0 5px currentColor}
 50%{opacity:1;filter:brightness(1.3);box-shadow:0 0 12px currentColor,0 0 22px currentColor}
 }
@@ -957,8 +964,8 @@ to{opacity:.7;transform:scale(1.025)}
 /* Current Complications */
 #back-page .tension-item{position:relative;z-index:2;transition:background .35s ease,transform .35s ease;}
 #back-page .tension-item:hover{transform:translateX(5px);background:linear-gradient(90deg,rgba(169,104,117,.035),transparent 72%);}
-#back-page .tension-marker{box-shadow:0 0 8px currentColor}
-#back-page .tension-item:hover .tension-marker{animation:brConcernPulse 1.35s ease-in-out infinite}
+
+
 @keyframes brConcernPulse{0%,100%{opacity:.48;filter:brightness(.8);box-shadow:0 0 5px currentColor}
 50%{opacity:1;filter:brightness(1.45);box-shadow:0 0 12px currentColor,0 0 24px currentColor}
 }
@@ -1115,6 +1122,59 @@ to{opacity:.7;transform:scale(1.025)}
   #back-page .footer-back::before{width:min(310px,82vw)}
 }
 /* ===== END BACKROOM FOOTER — TRUE FINAL EDGE ===== */
+
+
+/* ===== CURRENT COMPLICATIONS — EQUAL NEON MARKERS ===== */
+#back-page .tension-item{
+  grid-template-columns:5px minmax(0,1fr);
+  align-items:center;
+}
+
+#back-page .tension-marker{
+  display:block;
+  width:5px;
+  min-width:5px;
+  max-width:5px;
+  height:54px;
+  min-height:54px;
+  max-height:54px;
+  margin:0;
+  padding:0;
+  align-self:center;
+  border-radius:999px;
+  transform:none;
+  transform-origin:center;
+  filter:none;
+  box-shadow:0 0 6px currentColor,0 0 13px color-mix(in srgb,currentColor 45%,transparent);
+}
+
+#back-page .t-red{
+  color:#9d5965;
+  background:currentColor;
+  box-shadow:0 0 6px currentColor,0 0 13px rgba(157,89,101,.34);
+}
+
+#back-page .t-amber{
+  color:#b99a5b;
+  background:currentColor;
+  box-shadow:0 0 6px currentColor,0 0 13px rgba(185,154,91,.34);
+}
+
+#back-page .t-green{
+  color:#71816a;
+  background:currentColor;
+  box-shadow:0 0 6px currentColor,0 0 13px rgba(113,129,106,.34);
+}
+
+#back-page .tension-item:hover .tension-marker{
+  animation:equalMarkerPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes equalMarkerPulse{
+  0%,100%{opacity:.78;filter:brightness(.92);transform:scaleY(1)}
+  50%{opacity:1;filter:brightness(1.22);transform:scaleY(1)}
+}
+/* ===== END CURRENT COMPLICATIONS — EQUAL NEON MARKERS ===== */
 
 </style></head>
 <body>
