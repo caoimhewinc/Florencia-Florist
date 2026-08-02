@@ -5,7 +5,72 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Florencia Florist</title>
 <link href="pngtree-rose-flowers-vintage.png" rel="icon" type="image/png"/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=IM+Fell+English:ital@0;1&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet"/><style>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=IM+Fell+English:ital@0;1&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+/* ===== FINAL FOOTER OVERRIDE ===== */
+#back-page .footer-back{
+  min-height:0;
+  padding:22px 20px 28px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+  text-align:center;
+  border-top:1px solid rgba(221,201,143,.13);
+}
+
+#back-page .footer-back-text{
+  width:100%;
+  margin:0 auto 4px;
+  text-align:center;
+}
+
+#back-page .footer-back::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:-118px;
+  width:min(360px,48vw);
+  aspect-ratio:1;
+  border-radius:50%;
+  transform:translateX(-50%);
+  pointer-events:none;
+  opacity:.24;
+
+  background:
+    radial-gradient(
+      circle,
+      transparent 0 41%,
+      rgba(238,214,157,.44) 41.5% 42.2%,
+      transparent 42.8%
+    ),
+    repeating-conic-gradient(
+      from 0deg,
+      rgba(210,151,165,.30) 0 1deg,
+      transparent 1deg 18deg
+    );
+
+  -webkit-mask:radial-gradient(
+    circle,
+    transparent 0 29%,
+    #000 30% 54%,
+    transparent 55%
+  );
+
+  mask:radial-gradient(
+    circle,
+    transparent 0 29%,
+    #000 30% 54%,
+    transparent 55%
+  );
+
+  filter:
+    drop-shadow(0 0 7px rgba(221,201,143,.25))
+    drop-shadow(0 0 18px rgba(200,139,152,.13));
+
+  animation:brReturnSealTurn 120s linear infinite;
+}
 :root{--cream:#f5f0e8;--parchment:#ede5d0;--ink:#1a1410;--ink-muted:#3d3228;--gold:#b8972a;--gold-light:#d4b24a;--moss:#3a4a2e;--moss-light:#5a7248;--rouge:#8b2e2e;--shadow:rgba(20,12,5,0.18);--night:#0d0b08;--night-surface:#16120d;--night-card:#1e1912;--void:#120f0a;--poison-green:#2d5a1b;--poison-bright:#4a8c2a;--poison-glow:#7ec850;--blood:#6b1a1a;--blood-bright:#a02828;--old-gold:#b99a5b;--soft-gold:#d6bf86;--rose:#a86170;--rose-dark:#6e3945;--rose-pale:#d8a5ae}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Crimson Pro',Georgia,serif;background:var(--cream);color:var(--ink);min-height:100vh;overflow-x:hidden;cursor:default}
