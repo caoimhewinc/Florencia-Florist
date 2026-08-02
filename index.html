@@ -1205,25 +1205,26 @@ to{transform:translateY(-1.8px) rotate(.22deg)}
 
 /* Footer — เหมือนประตูเวทกลับหน้าร้าน */
 #back-page .footer-back{
-  min-height:240px;
+  min-height:150px;
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
-  gap:20px;
-}
+  min-height:150px;
+  padding:40px 0 60px;
+  gap:20px;}
 
 #back-page .footer-back::before{
   content:"";
   position:absolute;
   left:50%;
-  bottom:-220px;
-  width:min(760px,92vw);
+  bottom:-170px;
+  width:min(520px,70vw);
   aspect-ratio:1;
   border-radius:50%;
   transform:translateX(-50%);
   pointer-events:none;
-  opacity:.16;
+  opacity:.12;
   background:
     radial-gradient(circle,transparent 0 42%,rgba(221,201,143,.25) 42.4% 42.8%,transparent 43.2%),
     repeating-conic-gradient(from 0deg,rgba(200,139,152,.17) 0 1deg,transparent 1deg 18deg);
